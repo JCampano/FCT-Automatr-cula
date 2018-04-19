@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <a href="#">
+            <a href="registro-matricula.php">
             <div class="card">
                 <img class="card-img-top" width="100" height="150" src="img/gris.png" alt="Card image cap">
                 <div class="card-body">
