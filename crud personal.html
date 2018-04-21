@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CRUD USUARIO</title>
+	<title>CRUD PERSONAL</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-
 <body>
 
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#altaAlumno">Alta Alumno</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#altaPersonal">Alta Personal</button>
 <!-- Modal -->
-<div id="altaAlumno" class="modal fade" role="dialog">
+<div id="altaPersonal" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
-	      	<h4 class="modal-title">Alta Alumno</h4>
+	      	<h4 class="modal-title">Alta Personal</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
 	      </div>
 	      
 		    <div class="container-fluid">
 				<div class = "row">
 					<div class ="col-lg-12">
-						<form class="needs-validation" name="frmAltaAlumno" action="" method="post" novalidate>
+						<form class="needs-validation" name="frmAltaPersonal" action="" method="post" novalidate>
 					  		<div class="form-group">
 					    		<label for="dni" class="control-label">DNI</label>
 					    		<input type="text" class="form-control"  name="dni" placeholder="DNI" required>
@@ -47,6 +46,25 @@
 								<span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
 						    </div>
 
+								Tipo
+						     <div class="form-group">						    	
+							    <div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="gestor" value="Gestor" checked> Gestor
+									</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="administrador" value="Administrador"> Administrador
+									</label>
+								</div>
+								<div class="form-check form-check-inline disabled">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="administrativo" value="Administrativo" disabled> Administrativo
+									</label>
+								</div>
+							</div>
+
 						    <div class="form-group">
 							    <button type="submit" class="btn btn-primary ">Submit</button>
 							    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -59,22 +77,23 @@
 	</div>
 </div>
 
+
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#editarAlumno">Editar Alumno</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#editarPersonal">Editar Personal</button>
 <!-- Modal -->
-<div id="editarAlumno" class="modal fade" role="dialog">
+<div id="editarPersonal" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
-	      	<h4 class="modal-title">Editar Alumno</h4>
+	      	<h4 class="modal-title">Editar Personal</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
 	      </div>
 	      
 		    <div class="container-fluid">
 				<div class = "row">
 					<div class ="col-lg-12">
-						<form class="needs-validation" name="frmEditarAlumno" action="" method="post" novalidate>
+						<form class="needs-validation" name="frmEditarPersonal" action="" method="post" novalidate>
 					  		<div class="form-group">
 					    		<label for="dni" class="control-label">DNI</label>
 					    		<input type="text" class="form-control"  name="dni" placeholder="DNI" required>
@@ -99,38 +118,24 @@
 								<span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
 						    </div>
 
-						    <div class="form-group">
-							    <button type="submit" class="btn btn-primary ">Submit</button>
-							    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								Tipo
+						     <div class="form-group">						    	
+							    <div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="gestor" value="Gestor" checked> Gestor
+									</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="administrador" value="Administrador"> Administrador
+									</label>
+								</div>
+								<div class="form-check form-check-inline disabled">
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="tipoPersonal" id="administrativo" value="Administrativo" disabled> Administrativo
+									</label>
+								</div>
 							</div>
-						</form>
-					</div>
-				</div>
-			</div>     
-	    </div>
-	</div>
-</div>
-
-
-
-
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarAlumnoNormal">Eliminar Alumno desde alumno</button>
-<!-- Modal -->
-<div id="eliminarAlumnoNormal" class="modal fade" role="dialog">
-	<div class="modal-dialog modal-lg">
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	      <div class="modal-header">
-	      	<h4 class="modal-title">Eliminar Alumno</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
-	      </div>
-	      
-		    <div class="container-fluid">
-				<div class = "row">
-					<div class ="col-lg-12">
-						<form class="needs-validation" name="frmEliminarAlumnoNormal" action="" method="post" novalidate>
-					  		<label>Esta seguro de que desea eliminar al alumno</label>
 
 						    <div class="form-group">
 							    <button type="submit" class="btn btn-primary ">Submit</button>
@@ -146,27 +151,27 @@
 
 
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarAlumnoAdmin">Eliminar Alumno desde admin</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarPersonalAdmin">Eliminar Personal</button>
 <!-- Modal -->
-<div id="eliminarAlumnoAdmin" class="modal fade" role="dialog">
+<div id="eliminarPersonalAdmin" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
-	      	<h4 class="modal-title">Eliminar Alumno Admin</h4>
+	      	<h4 class="modal-title">Eliminar Personal</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
 	      </div>
 	      
 		    <div class="container-fluid">
 				<div class = "row">
 					<div class ="col-lg-12">
-						<form class="needs-validation" name="frmEliminarAlumnoNormal" action="" method="post" novalidate>
+						<form class="needs-validation" name="frmEliminarPersonalAdmin" action="" method="post" novalidate>
 					  		<div class="form-group">
 						  		<select class="custom-select">
-									<option selected>Selecione un Alumno</option>
-									<option value="1">Alumno 1 </option>
-									<option value="2">Alumno 2</option>
-									<option value="3">Alumno 3</option>
+									<option selected>Selecione Personal</option>
+									<option value="1">Personal 1 </option>
+									<option value="2">Personal 2</option>
+									<option value="3">Personal 3</option>
 								</select>
 							</div>
 						    <div class="form-group">
@@ -181,11 +186,36 @@
 	</div>
 </div>
 
-</body>
 
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarPersonalNormal">Eliminar Personal</button>
+<!-- Modal -->
+<div id="eliminarPersonalNormal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<h4 class="modal-title">Eliminar Personal</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+	      </div>
+	      
+		    <div class="container-fluid">
+				<div class = "row">
+					<div class ="col-lg-12">
+						<form class="needs-validation" name="frmEliminarPersonalNormal" action="" method="post" novalidate>
+					  		<label>Esta seguro de que desea eliminar al Personal</label>
 
-
-
+						    <div class="form-group">
+							    <button type="submit" class="btn btn-primary ">Submit</button>
+							    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>     
+	    </div>
+	</div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -196,4 +226,3 @@
 
 </body>
 </html>
-
