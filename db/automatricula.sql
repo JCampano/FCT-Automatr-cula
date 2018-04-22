@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2018 a las 18:16:26
+-- Tiempo de generación: 22-04-2018 a las 17:27:14
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -32,7 +32,6 @@ USE `automatricula`;
 
 DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE `alumnos` (
-  `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
@@ -49,9 +48,8 @@ CREATE TABLE `alumnos` (
 
 DROP TABLE IF EXISTS `asignaturas`;
 CREATE TABLE `asignaturas` (
-  `id` int(5) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
   `codigo` varchar(20) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,7 +61,7 @@ CREATE TABLE `asignaturas` (
 
 DROP TABLE IF EXISTS `asignaturas_cursos`;
 CREATE TABLE `asignaturas_cursos` (
-  `id_asignaturas` int(5) NOT NULL,
+  `cod_asignaturas` varchar(20) NOT NULL,
   `id_cursos` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -167,7 +165,6 @@ CREATE TABLE `optativas` (
 
 DROP TABLE IF EXISTS `personal`;
 CREATE TABLE `personal` (
-  `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
@@ -184,8 +181,8 @@ CREATE TABLE `personal` (
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
+  ADD PRIMARY KEY (`dni`),
+  ADD UNIQUE KEY `id` (`dni`),
   ADD KEY `id_centro` (`id_centro`),
   ADD KEY `id_matricula` (`id_matricula`);
 
@@ -193,15 +190,15 @@ ALTER TABLE `alumnos`
 -- Indices de la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`codigo`),
   ADD UNIQUE KEY `id_curso` (`id_curso`),
-  ADD KEY `id` (`id`);
+  ADD KEY `id` (`codigo`);
 
 --
 -- Indices de la tabla `asignaturas_cursos`
 --
 ALTER TABLE `asignaturas_cursos`
-  ADD KEY `id_asignaturas` (`id_asignaturas`),
+  ADD KEY `id_asignaturas` (`cod_asignaturas`),
   ADD KEY `id_cursos` (`id_cursos`);
 
 --
@@ -243,6 +240,7 @@ ALTER TABLE `optativas`
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
+  ADD PRIMARY KEY (`dni`),
   ADD KEY `id_centro` (`id_centro`),
   ADD KEY `id_centro_2` (`id_centro`);
 
@@ -261,7 +259,7 @@ ALTER TABLE `alumnos`
 -- Filtros para la tabla `asignaturas_cursos`
 --
 ALTER TABLE `asignaturas_cursos`
-  ADD CONSTRAINT `asignaturas_cursos_ibfk_1` FOREIGN KEY (`id_asignaturas`) REFERENCES `asignaturas` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `asignaturas_cursos_ibfk_1` FOREIGN KEY (`cod_asignaturas`) REFERENCES `asignaturas` (`codigo`) ON UPDATE CASCADE,
   ADD CONSTRAINT `asignaturas_cursos_ibfk_2` FOREIGN KEY (`id_cursos`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
 
 --
