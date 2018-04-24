@@ -3,7 +3,12 @@
     include "php/gestionlogin.php";
 ?>
 
-Aqui se registran las matriculas
+<div class="container">
+        
+    Formulario de matrículas
+
+    
+</div>
 
 
 <?php
