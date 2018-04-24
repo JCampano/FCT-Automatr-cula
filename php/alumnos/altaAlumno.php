@@ -10,7 +10,7 @@ if(ejecutaConsulta2($consulta)!=0)
 }
 else
 {
-    $insert="INSERT INTO ALUMNOS (DNI, NOMBRE, APELLIDOS, CLAVE, ID_CENTRO) VALUES ('".$_POST['dni']."','".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['contrasena']."',0000,0000)";
+    $insert="INSERT INTO ALUMNOS (DNI, NOMBRE, APELLIDOS, CLAVE, ID_CENTRO) VALUES ('".$_POST['dni']."','".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['contrasena']."', 0)";
 
 
 if(ejecutaConsultaAccion($insert)>0)
