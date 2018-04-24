@@ -36,6 +36,25 @@
             </div>
           </div>
         </div>
+
+        <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modalFrmRegistro" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalFrmRegistro">Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <?php 
+                    include "php/form-registro.php";
+                  ?>
+              </div>
+              
+            </div>
+          </div>
+        </div>
       <nav class="navbar navbar-light bg-light">
           ¡Bienvenido!
             <div class="text-right"><span class="navbar-text">
@@ -44,7 +63,7 @@
             if($login){
                 echo 'usuario';
             } else {
-                echo '<a href="#">Registro</a> | <a href="#" data-toggle="modal" data-target="#login">Iniciar Sesión</a>';
+                echo '<a href="#" data-toggle="modal" id ="btnRegistro" data-target="#registro">Registro</a> | <a href="#" data-toggle="modal" id ="frmLogin" data-target="#login">Iniciar Sesión</a>';
             }
                 
            
