@@ -1,16 +1,34 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo electrónico</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu correo">
-    <small id="emailHelp" class="form-text text-muted">Nunca desvelaremos tus datos personales.</small>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+    <div class = "row">
+      <div class ="col-lg-12">
+        <form class="needs-validation" name="frmLogin" action="" method="post" novalidate>
+            <div class="form-group">
+              <label for="Email" class="control-label">Email</label>
+              <input type="email" class="form-control"  name="email" placeholder="Email" required>
+              <span class="invalid-feedback">Debe introducir un email</span>          
+          </div>  
+
+            <div class="form-group">
+              <label for="password" class="control-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Contrase&ntilde;a" required>
+            <span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary ">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Introduce tu contraseña">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Recuérdame</label>
-  </div>
-  <div class="text-right"><button type="submit" class="btn btn-primary">Enviar</button></div>
-</form>
+
+</html>
