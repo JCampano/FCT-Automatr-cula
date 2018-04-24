@@ -63,7 +63,7 @@
             if($login){
                 echo 'usuario';
             } else {
-                echo '<a href="#" data-toggle="modal" id ="btnRegistro" data-target="#registro">Registro</a> | <a href="#" data-toggle="modal" id ="frmLogin" data-target="#login">Iniciar Sesión</a>';
+                echo '<a href="#" data-toggle="modal" id ="btnRegistro" data-target="#registro">Registro</a> | <a href="#" data-toggle="modal" id ="btnLogin" data-target="#login">Iniciar Sesión</a>';
             }
                 
            
