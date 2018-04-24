@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.3.11
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2018 a las 17:27:14
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.2.2
+-- Tiempo de generación: 24-04-2018 a las 12:16:45
+-- Versión del servidor: 5.6.24
+-- Versión de PHP: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `automatricula`
@@ -31,13 +29,12 @@ USE `automatricula`;
 --
 
 DROP TABLE IF EXISTS `alumnos`;
-CREATE TABLE `alumnos` (
+CREATE TABLE IF NOT EXISTS `alumnos` (
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
   `clave` varchar(40) NOT NULL,
-  `id_centro` int(5) NOT NULL,
-  `id_matricula` int(5) NOT NULL
+  `id_centro` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -47,7 +44,7 @@ CREATE TABLE `alumnos` (
 --
 
 DROP TABLE IF EXISTS `asignaturas`;
-CREATE TABLE `asignaturas` (
+CREATE TABLE IF NOT EXISTS `asignaturas` (
   `codigo` varchar(20) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
@@ -60,7 +57,7 @@ CREATE TABLE `asignaturas` (
 --
 
 DROP TABLE IF EXISTS `asignaturas_cursos`;
-CREATE TABLE `asignaturas_cursos` (
+CREATE TABLE IF NOT EXISTS `asignaturas_cursos` (
   `cod_asignaturas` varchar(20) NOT NULL,
   `id_cursos` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -72,10 +69,9 @@ CREATE TABLE `asignaturas_cursos` (
 --
 
 DROP TABLE IF EXISTS `centros`;
-CREATE TABLE `centros` (
+CREATE TABLE IF NOT EXISTS `centros` (
   `id` int(5) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
-  `id_enseñanza` int(5) NOT NULL
+  `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -85,7 +81,7 @@ CREATE TABLE `centros` (
 --
 
 DROP TABLE IF EXISTS `cursos`;
-CREATE TABLE `cursos` (
+CREATE TABLE IF NOT EXISTS `cursos` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_itinerario` int(5) NOT NULL,
@@ -100,7 +96,7 @@ CREATE TABLE `cursos` (
 --
 
 DROP TABLE IF EXISTS `enseñanzas`;
-CREATE TABLE `enseñanzas` (
+CREATE TABLE IF NOT EXISTS `enseñanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_centro` int(5) NOT NULL
@@ -113,7 +109,7 @@ CREATE TABLE `enseñanzas` (
 --
 
 DROP TABLE IF EXISTS `matriculas`;
-CREATE TABLE `matriculas` (
+CREATE TABLE IF NOT EXISTS `matriculas` (
   `id` int(5) NOT NULL,
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
@@ -151,7 +147,7 @@ CREATE TABLE `matriculas` (
 --
 
 DROP TABLE IF EXISTS `optativas`;
-CREATE TABLE `optativas` (
+CREATE TABLE IF NOT EXISTS `optativas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
@@ -164,7 +160,7 @@ CREATE TABLE `optativas` (
 --
 
 DROP TABLE IF EXISTS `personal`;
-CREATE TABLE `personal` (
+CREATE TABLE IF NOT EXISTS `personal` (
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
@@ -181,68 +177,55 @@ CREATE TABLE `personal` (
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`dni`),
-  ADD UNIQUE KEY `id` (`dni`),
-  ADD KEY `id_centro` (`id_centro`),
-  ADD KEY `id_matricula` (`id_matricula`);
+  ADD PRIMARY KEY (`dni`), ADD UNIQUE KEY `id` (`dni`), ADD KEY `id_centro` (`id_centro`);
 
 --
 -- Indices de la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
-  ADD PRIMARY KEY (`codigo`),
-  ADD UNIQUE KEY `id_curso` (`id_curso`),
-  ADD KEY `id` (`codigo`);
+  ADD PRIMARY KEY (`codigo`), ADD UNIQUE KEY `id_curso` (`id_curso`), ADD KEY `id` (`codigo`);
 
 --
 -- Indices de la tabla `asignaturas_cursos`
 --
 ALTER TABLE `asignaturas_cursos`
-  ADD KEY `id_asignaturas` (`cod_asignaturas`),
-  ADD KEY `id_cursos` (`id_cursos`);
+  ADD KEY `id_asignaturas` (`cod_asignaturas`), ADD KEY `id_cursos` (`id_cursos`);
 
 --
 -- Indices de la tabla `centros`
 --
 ALTER TABLE `centros`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_enseñanza` (`id_enseñanza`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_enseñanza` (`id_enseñanza`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_enseñanza` (`id_enseñanza`), ADD KEY `id` (`id`);
 
 --
 -- Indices de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_centro` (`id_centro`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_centro` (`id_centro`);
 
 --
 -- Indices de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `dni` (`dni`), ADD KEY `dni_2` (`dni`), ADD KEY `dni_3` (`dni`), ADD KEY `dni_4` (`dni`);
 
 --
 -- Indices de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
-  ADD PRIMARY KEY (`dni`),
-  ADD KEY `id_centro` (`id_centro`),
-  ADD KEY `id_centro_2` (`id_centro`);
+  ADD PRIMARY KEY (`dni`), ADD KEY `id_centro` (`id_centro`), ADD KEY `id_centro_2` (`id_centro`);
 
 --
 -- Restricciones para tablas volcadas
@@ -252,40 +235,44 @@ ALTER TABLE `personal`
 -- Filtros para la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD CONSTRAINT `alumnos_ibfk_1` FOREIGN KEY (`id_matricula`) REFERENCES `matriculas` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `alumnos_ibfk_2` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `alumnos_ibfk_2` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `asignaturas_cursos`
 --
 ALTER TABLE `asignaturas_cursos`
-  ADD CONSTRAINT `asignaturas_cursos_ibfk_1` FOREIGN KEY (`cod_asignaturas`) REFERENCES `asignaturas` (`codigo`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `asignaturas_cursos_ibfk_2` FOREIGN KEY (`id_cursos`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `asignaturas_cursos_ibfk_1` FOREIGN KEY (`cod_asignaturas`) REFERENCES `asignaturas` (`codigo`) ON UPDATE CASCADE,
+ADD CONSTRAINT `asignaturas_cursos_ibfk_2` FOREIGN KEY (`id_cursos`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  ADD CONSTRAINT `enseñanzas_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `matriculas` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `enseñanzas_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `matriculas`
+--
+ALTER TABLE `matriculas`
+ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni`) REFERENCES `alumnos` (`dni`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `personal`
 --
 ALTER TABLE `personal`
-  ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
-COMMIT;
+ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
