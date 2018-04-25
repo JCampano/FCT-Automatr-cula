@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 $_SESSION["login"]="Hola";
 if(!ISSET($_SESSION["login"])){
