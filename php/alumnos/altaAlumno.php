@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../functions.php";
 extract($_POST);
 
@@ -6,21 +7,26 @@ $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."'";
 
 if(ejecutaConsulta2($consulta)!=0)
 {
-    echo ("Alumno ya registrado");
+    $_SESSION['tipoMensaje']= "warning";
+	$_SESSION['mensajeRegistro'] = "<strong>Error</strong> ,ya existe un usuario con ese DNI";
+	header('Location: ../../index.php');	
 }
 else
 {
     $insert="INSERT INTO ALUMNOS (DNI, NOMBRE, APELLIDOS, CLAVE, ID_CENTRO) VALUES ('".$_POST['dni']."','".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['contrasena']."', 0)";
 
-
-if(ejecutaConsultaAccion($insert)>0)
-{
-    echo ("Alta de alumno realizada");
-}
-else
-{
-    echo ("No se ha podido insertar");
-}
+	if(ejecutaConsultaAccion($insert)>0)
+	{
+	    $_SESSION['tipoMensaje']= "warning";
+		$_SESSION['mensajeRegistro'] = "<strong>Usuario registrado con exito</strong>";
+		header('Location: ../../index.php');
+	}
+	else
+	{	
+		$_SESSION['tipoMensaje']= "danger";
+		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar el registro";
+		header('Location: ../../index.php');	
+	}
 }
 
 ?>
