@@ -1,4 +1,5 @@
 <?php
+session_start();
     $login=false;
 ?>
 <!doctype html>
