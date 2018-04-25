@@ -1,5 +1,12 @@
 <?php
-    include "header.php";
+session_start();//variable de sesion para controlar si hay error o no en el registro
+    include "header.php";       
+    if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']) ) {
+        echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
+        unset($_SESSION['mensajeRegistro']);
+        unset($_SESSION['tipoMensaje']);
+   }
 ?>
 
 <div class="container-fluid">
