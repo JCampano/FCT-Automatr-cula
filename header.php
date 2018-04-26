@@ -1,6 +1,5 @@
 <?php
 session_start();
-    $login=false;
 ?>
 <!doctype html>
 <html lang="es">
@@ -57,13 +56,20 @@ session_start();
           </div>
         </div>
       <nav class="navbar navbar-light bg-light">
-          ¡Bienvenido!
-            <div class="text-right"><span class="navbar-text">
         <?php 
           
-            if($login){
-                echo 'usuario';
-            } else {
+            if(isset($_SESSION['login'])){
+                ?>
+          ¡Bienvenido! <?php echo $_SESSION['usuario']; ?>
+          <div class="text-right"><span class="navbar-text">
+          <?php
+          echo '<a href="php/logout.php" id ="logout" name="logout">Cerrar Sesión</a>';
+            }
+          else {
+                ?>
+              Regístrese o acceda como usuario
+              <div class="text-right"><span class="navbar-text">
+                <?php
                 echo '<a href="#" data-toggle="modal" id ="btnRegistro" data-target="#registro">Registro</a> | <a href="#" data-toggle="modal" id ="btnLogin" data-target="#login">Iniciar Sesión</a>';
             }
                 
@@ -71,8 +77,6 @@ session_start();
                     
                     
         ?>
-    </span></div>
-          
+        </span></div>
         </nav>
       
-          

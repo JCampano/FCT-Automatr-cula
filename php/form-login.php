@@ -1,22 +1,22 @@
     <div class="container-fluid">
     <div class = "row">
       <div class ="col-lg-12">
-        <form class="needs-validation" name="frmLogin" action="" method="post" novalidate>
+        <form class="needs-validation" name="frmLogin" action="php/gestionlogin.php" method="post" novalidate>
             <div class="form-group">
-              <label for="Email" class="control-label">Email</label>
-              <input type="email" class="form-control"  name="email" placeholder="Email" required>
-              <span class="invalid-feedback">Debe introducir un email</span>          
+              <label for="dni" class="control-label">DNI</label>
+              <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required>
+              <span class="invalid-feedback">Debe introducir un dni</span>
           </div>  
 
             <div class="form-group">
-              <label for="password" class="control-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Contrase&ntilde;a" required>
+              <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contrase&ntilde;a" required>
             <span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary ">Submit</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary ">Enviar</button>
+              <button type="button" onclick = "location='index.php'" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </form>
       </div>
