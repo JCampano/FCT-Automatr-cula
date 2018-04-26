@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2018 a las 12:16:45
+-- Tiempo de generación: 26-04-2018 a las 09:54:04
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -33,9 +33,15 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
-  `clave` varchar(40) NOT NULL,
-  `id_centro` int(5) NOT NULL
+  `clave` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`dni`, `nombre`, `apellidos`, `clave`) VALUES
+('12345678V', 'José Antonio', 'Campano Laborda', '12345');
 
 -- --------------------------------------------------------
 
@@ -65,18 +71,6 @@ CREATE TABLE IF NOT EXISTS `asignaturas_cursos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `centros`
---
-
-DROP TABLE IF EXISTS `centros`;
-CREATE TABLE IF NOT EXISTS `centros` (
-  `id` int(5) NOT NULL,
-  `nombre` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `cursos`
 --
 
@@ -98,8 +92,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
 DROP TABLE IF EXISTS `enseñanzas`;
 CREATE TABLE IF NOT EXISTS `enseñanzas` (
   `id` int(5) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
-  `id_centro` int(5) NOT NULL
+  `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -165,8 +158,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
   `telefono` int(9) NOT NULL,
-  `tipo` varchar(20) NOT NULL,
-  `id_centro` int(5) NOT NULL
+  `tipo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`dni`), ADD UNIQUE KEY `id` (`dni`), ADD KEY `id_centro` (`id_centro`);
+  ADD PRIMARY KEY (`dni`), ADD UNIQUE KEY `id` (`dni`);
 
 --
 -- Indices de la tabla `asignaturas`
@@ -192,12 +184,6 @@ ALTER TABLE `asignaturas_cursos`
   ADD KEY `id_asignaturas` (`cod_asignaturas`), ADD KEY `id_cursos` (`id_cursos`);
 
 --
--- Indices de la tabla `centros`
---
-ALTER TABLE `centros`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
@@ -207,7 +193,7 @@ ALTER TABLE `cursos`
 -- Indices de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  ADD PRIMARY KEY (`id`), ADD KEY `id_centro` (`id_centro`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `matriculas`
@@ -225,17 +211,11 @@ ALTER TABLE `optativas`
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
-  ADD PRIMARY KEY (`dni`), ADD KEY `id_centro` (`id_centro`), ADD KEY `id_centro_2` (`id_centro`);
+  ADD PRIMARY KEY (`dni`);
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `alumnos`
---
-ALTER TABLE `alumnos`
-ADD CONSTRAINT `alumnos_ibfk_2` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `asignaturas_cursos`
@@ -251,12 +231,6 @@ ALTER TABLE `cursos`
 ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `enseñanzas`
---
-ALTER TABLE `enseñanzas`
-ADD CONSTRAINT `enseñanzas_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
@@ -267,12 +241,6 @@ ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni`) REFERENCES `alumnos` (`dn
 --
 ALTER TABLE `optativas`
 ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `personal`
---
-ALTER TABLE `personal`
-ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `centros` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
