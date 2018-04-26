@@ -1,4 +1,8 @@
-  <div class="container-fluid">
+<?php
+ob_start();
+?>
+
+<div class="container-fluid">
   <div class = "row">
     <div class ="col-lg-12">
       <form class="needs-validation" name="frmAltaAlumno" action="php/alumnos/altaAlumno.php" method="post" novalidate>
@@ -25,7 +29,6 @@
           <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contrase&ntilde;a" required>
           <span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
           </div>
-
           <div class="form-group">
             <button type="submit" class="btn btn-primary ">Enviar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

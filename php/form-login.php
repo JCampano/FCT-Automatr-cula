@@ -1,7 +1,7 @@
     <div class="container-fluid">
     <div class = "row">
       <div class ="col-lg-12">
-        <form class="needs-validation" name="frmLogin" action="php/gestionlogin.php" method="post" novalidate>
+        <form class="needs-validation" name="frmLogin" action="php/comprobar-login.php" method="post" novalidate>
             <div class="form-group">
               <label for="dni" class="control-label">DNI</label>
               <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required>
