@@ -2,7 +2,25 @@
 include "header.php";
 ?>
 
-
+<div id="editarAlumno" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<h4 class="modal-title">Editar Alumno</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+	      </div>
+	      
+		    <div class="container-fluid">
+				<div class = "row">
+					<div class ="col-lg-12" id="modal-alumnos">
+						
+					</div>
+				</div>
+			</div>     
+	    </div>
+	</div>
+</div>
     
 
           <div id="page-wrapper">
