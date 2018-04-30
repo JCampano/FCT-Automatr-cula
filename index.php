@@ -1,12 +1,34 @@
 <?php
 //variable de sesion para controlar si hay error o no en el registro
     include "header.php";       
-    if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']) ) {
-        echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
+    if(isset($_SESSION['sinLogin'])){
+        echo '
+            <script>
+                function mostrarModal(){
+                    document.getElementById("login").style.display = "block";
+                    document.getElementById("login").style.background = "#2125297d";
+                    document.getElementById("login").setAttribute("class","modal fade show");
+                    var newDiv = document.createElement("div");
+                    newDiv.setAttribute("class","alert alert-danger alert-dismissable"); 
+                    var newContent = document.createTextNode("'.$_SESSION["mensajeRegistro"].'"); 
+                    newDiv.appendChild(newContent);
+                    document.getElementById("beforeFrm").appendChild(newDiv);                  
+                }
+                mostrarModal();                
+            </script>';        
+        unset($_SESSION['sinLogin']);
         unset($_SESSION['mensajeRegistro']);
-        unset($_SESSION['tipoMensaje']);
+        unset($_SESSION['tipoMensaje']);     
    }
+   else{       
+        if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']))  {
+            echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
+            unset($_SESSION['mensajeRegistro']);
+            unset($_SESSION['tipoMensaje']);
+       }
+    }
+
 ?>
 
 <div class="container-fluid">
