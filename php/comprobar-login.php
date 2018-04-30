@@ -10,12 +10,18 @@ if(ejecutaConsulta2($consulta)!=0)
     session_start();
     $_SESSION["login"]=$_POST["dni"];
     $_SESSION["usuario"]="Consulta con el nombre pendiente";
-    
-    header('Location: ../index.php');
+    if(isset($_SESSION['ruta'])){
+    	header('Location:../'.$_SESSION['ruta']);
+    }else{
+    	header('Location: ../index.php');
+    }	
 }
 else
-{
-    header('Location: ../login.php');
+{	
+	$_SESSION['tipoMensaje']= "danger";
+	$_SESSION['mensajeRegistro'] = "Datos incorrectos";
+	$_SESSION['sinLogin']="logueate";
+    header('Location: ../index.php');
 }
 
 ?>
