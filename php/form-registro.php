@@ -26,7 +26,7 @@ ob_start();
 
           <div class="form-group">
             <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
-          <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contrase&ntilde;a" required>
+          <input type="password" class="form-control" name="contrasena" placeholder="Contrase&ntilde;a" required>
           <span class="invalid-feedback">Debe introducir una contrase&ntilde;a</span>
           </div>
           <div class="form-group">
