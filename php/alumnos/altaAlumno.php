@@ -1,6 +1,9 @@
 <?php
 session_start();
 include "../functions.php";
+if(isset($_SESSION['ruta'])){
+	unset($_SESSION['ruta']);
+}
 extract($_POST);
 
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."'";
