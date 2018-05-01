@@ -1,9 +1,5 @@
 <?php
 ob_start();
-//session_start();
-if(isset($_SESSION['ruta'])){
-   unset($_SESSION['ruta']);
-}
 ?>
 
 <div class="container-fluid">
