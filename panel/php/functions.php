@@ -62,7 +62,7 @@ function ejecutaConsultaAccion($sql)
 }
 function devuelveTablaAlumnos(){
     $resultado = ejecutaConsultaArray("SELECT dni, nombre, apellidos from alumnos");
-    echo ' <table class="table table-striped table-hover">
+    echo ' <table id="tabla-alumnos" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th>Nº</th>
@@ -80,7 +80,7 @@ function devuelveTablaAlumnos(){
                     <td>'.$resultado[$i]["dni"].'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
                     <td>'.$resultado[$i]["apellidos"].'</td>
-                    <td><button class="btn-editar btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">editar</button><button type="button" class="btn btn-danger">x</button></td>
+                    <td><button style="margin-right:10px;" class="btn-editar btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button type="button" class="btn btn-danger">Eliminar</button></td>
                 </tr>';
     }
     

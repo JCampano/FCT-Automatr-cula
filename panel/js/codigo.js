@@ -8,3 +8,6 @@ function cargarFormEditar(){
         $("#modal-alumnos").html(result);
     });
 }
+$(document).ready( function () {
+    $('#tabla-alumnos').DataTable();
+} );

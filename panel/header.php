@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php 
+    session_start();
     include "php/functions.php";
+    include "php/gestionlogin.php";
 ?>
 <html lang="es">
 
@@ -28,6 +30,9 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    
 
    
 

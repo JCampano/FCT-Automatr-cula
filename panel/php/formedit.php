@@ -5,9 +5,9 @@
     
 ?>
 <form class="needs-validation" name="frmEditarAlumno" action="php/alumnos/editarAlumno.php" method="post" novalidate>
-					  		<div class="form-group">
+					  		<div class="form-group" style="display:none;">
 					    		<label for="dni" class="control-label">DNI</label>
-					    		<input type="text" class="form-control" value="<?php echo $dni ?>" name="dni" placeholder="DNI" required>
+					    		<input type="text" class="form-control" value="<?php echo $dni ?>" name="dni" placeholder="DNI" >
 					    			    		
 					 		</div>
 
