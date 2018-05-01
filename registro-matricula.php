@@ -1,6 +1,6 @@
 <?php	
     include "header.php";
-    $_SESSION['ruta']= "registro-matricula.php";
+    $_SESSION['ruta']= "../registro-matricula.php";
     include "php/gestionlogin.php";
 ?>
 
