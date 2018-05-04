@@ -7,8 +7,9 @@ $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."' AND CLAVE='".$_PO
 
 if(ejecutaConsulta2($consulta)!=0)
 {    
+    $resulset = ejecutaConsulta($consulta)->fetch(PDO::FETCH_ASSOC);
     $_SESSION["login"]=$_POST["dni"];
-    $_SESSION["usuario"]="Consulta con el nombre pendiente";
+    $_SESSION["usuario"]=$resulset['nombre'];
     if(isset($_SESSION['ruta'])){
     	header('Location:../'.$_SESSION['ruta']);
     }else{

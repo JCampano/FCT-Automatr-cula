@@ -3,6 +3,7 @@
     include "header.php";       
     if(isset($_SESSION['sinLogin'])){
         echo '
+
             <script>
                 function mostrarModal(){
                     document.getElementById("login").style.display = "block";

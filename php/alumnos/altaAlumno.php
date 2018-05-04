@@ -8,6 +8,7 @@ extract($_POST);
 
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."'";
 
+
 if(ejecutaConsulta2($consulta)!=0)
 {
     $_SESSION['tipoMensaje']= "warning";

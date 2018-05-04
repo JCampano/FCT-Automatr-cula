@@ -60,7 +60,7 @@ session_start();
           
             if(isset($_SESSION['login'])){
                 ?>
-          ¡Bienvenido! <?php echo $_SESSION['usuario']; ?>
+          ¡Bienvenido <?php echo $_SESSION['usuario']; ?>!
           <div class="text-right"><span class="navbar-text">
           <?php
           echo '<a href="php/logout.php" id ="logout" name="logout">Cerrar Sesión</a>';
