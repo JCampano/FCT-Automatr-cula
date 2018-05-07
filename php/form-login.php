@@ -18,7 +18,7 @@
 
             <div class="form-group">
               <button type="submit" class="btn btn-primary ">Enviar</button>
-              <button type="button" onclick = "location='index.php'" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" onclick = "{location='index.php'; <?php if(isset($_SESSION['ruta']))unset($_SESSION['ruta'])?>}" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </form>
       </div>
