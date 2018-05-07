@@ -6,7 +6,7 @@
         <form class="needs-validation" name="frmLogin" action="php/comprobar-login.php" method="post" novalidate>
             <div class="form-group">
               <label for="dni" class="control-label">DNI</label>
-              <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required>
+              <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required pattern="/^\d{8}\w$/">
               <span class="invalid-feedback">Debe introducir un dni</span>
           </div>  
 
