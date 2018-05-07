@@ -23,13 +23,7 @@ session_start();
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick ="{
-                    location='index.php';                    
-                     <?php 
-                       if(isset($_SESSION['ruta']))
-                        unset($_SESSION['ruta'])
-                      ?>
-                    }" aria-hidden="true">&times;
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick ="location='index.php'; " aria-hidden="true">&times;
                 </button>
               </div>
               <div class="modal-body">
