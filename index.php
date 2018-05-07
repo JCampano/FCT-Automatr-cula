@@ -21,7 +21,10 @@
         unset($_SESSION['mensajeRegistro']);
         unset($_SESSION['tipoMensaje']);     
    }
-   else{       
+   else{ 
+       if(isset($_SESSION['ruta'])){
+            unset($_SESSION['ruta']);                     
+        }
         if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']))  {
             echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
               <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
