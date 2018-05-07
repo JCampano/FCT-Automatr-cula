@@ -4,12 +4,13 @@ include "functions.php";
 extract($_POST);
 
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."' AND CLAVE='".$_POST['contrasena']."'";
+$resulset=ejecutaConsulta($consulta);
 
-if(ejecutaConsulta2($consulta)!=0)
-{    
-    $resulset = ejecutaConsulta($consulta)->fetch(PDO::FETCH_ASSOC);
+
+if($fila=$resulset->fetch(PDO::FETCH_ASSOC))
+{
     $_SESSION["login"]=$_POST["dni"];
-    $_SESSION["usuario"]=$resulset['nombre'];
+    $_SESSION["usuario"]=$fila['nombre'];
     if(isset($_SESSION['ruta'])){
     	header('Location:../'.$_SESSION['ruta']);
     }else{
