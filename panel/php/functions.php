@@ -80,7 +80,7 @@ function devuelveTablaAlumnos(){
                     <td>'.$resultado[$i]["dni"].'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
                     <td>'.$resultado[$i]["apellidos"].'</td>
-                    <td><button style="margin-right:10px;" class="btn-editar btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button type="button" class="btn btn-danger">Eliminar</button></td>
+                    <td><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno">Eliminar</button></td>
                 </tr>';
     }
     

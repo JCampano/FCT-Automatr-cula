@@ -2,25 +2,42 @@
 include "header.php";
 ?>
 
-<div id="editarAlumno" class="modal fade" role="dialog">
-	<div class="modal-dialog modal-lg">
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	      <div class="modal-header">
-	      	<h4 class="modal-title">Editar Alumno</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>        
-	      </div>
-	      
-		    <div class="container-fluid">
-				<div class = "row">
-					<div class ="col-lg-12" id="modal-alumnos">
-						
-					</div>
-				</div>
-			</div>     
-	    </div>
-	</div>
-</div>
+ <div class="modal fade" id="editarAlumno" tabindex="-1" role="dialog" aria-labelledby="editarAlumno" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Editar Alumno</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modal-alumnos">
+               
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+ <div class="modal fade" id="eliminarAlumno" tabindex="-1" role="dialog" aria-labelledby="eliminarAlumno" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">¿Estás seguro que desea eliminar al siguiente alumno?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modal-alumnos-eliminar">
+               
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+
+
     
 
           <div id="page-wrapper">
