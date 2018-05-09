@@ -7,7 +7,7 @@
             <div class="form-group">
               <label for="dni" class="control-label">DNI</label>
               <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required pattern="\d{8}\w">
-              <span class="invalid-feedback">Debe introducir un dni</span>
+              <span class="invalid-feedback">Introduzca 8 Números y 1 Letra</span>
           </div>  
 
             <div class="form-group">
