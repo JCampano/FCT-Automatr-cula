@@ -1,4 +1,41 @@
+body{
+	margin-top: 70px;
+}
+
 
 .margen-arriba {
-    margin-top:30px;
+    margin-top:85px;
+}
+
+.padding-arriba{
+	padding-top:30px;
+}
+
+.fondo{
+	background-color:#ccc;
+
+}
+
+#dropdownMenuLink{
+
+	color:white;
+}
+
+.imagenes-inicio{
+	width:100%;
+	height:150px;
+	background-repeat:no-repeat;
+	 background-position: center; 
+}
+.imagen-registro{
+	background-image:url("../img/registrar.png");
+
+}
+.imagen-gestion{
+	background-image:url("../img/gestionar.png");
+
+}
+.imagen-ayuda{
+	background-image:url("../img/ayuda.png");
+
 }

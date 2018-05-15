@@ -47,7 +47,7 @@
         <div class="col-sm-4">
             <a href="registro-matricula.php">
             <div class="card">
-                <img class="card-img-top" width="100" height="150" src="img/gris.png" alt="Card image cap">
+                <div class="imagenes-inicio imagen-registro"></div>
                 <div class="card-body">
                   <h5 class="card-title">Registrar matrícula</h5>
                   
@@ -59,7 +59,7 @@
         <div class="col-sm-4">
             <a href="#">
             <div class="card">
-                <img class="card-img-top" width="100" height="150" src="img/gris.png" alt="Card image cap">
+                <div class="imagenes-inicio imagen-gestion"></div>
                 <div class="card-body">
                   <h5 class="card-title">Gestionar mis matrícula</h5>
                   
@@ -71,7 +71,7 @@
         <div class="col-sm-4">
             <a href="#">
             <div class="card">
-                <img class="card-img-top" width="100" height="150" src="img/gris.png" alt="Card image cap">
+                <div class="imagenes-inicio imagen-ayuda"></div>
                 <div class="card-body">
                   <h5 class="card-title">Ayuda y Documentación</h5>
                   
