@@ -16,7 +16,7 @@ session_start();
       
       <!-- CSS Personalizado -->
        <link rel="stylesheet" href="css/style.css">
-
+       
     <title>Automatrícula</title>
   </head>
   <body>
@@ -71,7 +71,7 @@ session_start();
                 <i class="fas fa-user"></i> <?php echo $_SESSION['usuario']; ?>
               </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-menu" style="left:-70px;"aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Mis datos</a>
              
                 <a class="dropdown-item" href="php/logout.php" id ="logout" name="logout">Cerrar Sesión</a>
