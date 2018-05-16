@@ -2,20 +2,19 @@
 //variable de sesion para controlar si hay error o no en el registro
     include "header.php";       
     if(isset($_SESSION['sinLogin'])){
-        echo '
-
-            <script>
-                function mostrarModal(){
-                    document.getElementById("login").style.display = "block";
-                    document.getElementById("login").style.background = "#2125297d";
-                    document.getElementById("login").setAttribute("class","modal fade show");
-                    var newDiv = document.createElement("div");
+        echo '    
+            <script>            
+                $(document).ready(function()
+			   {
+			      $("#login").modal("show");
+			      var newDiv = document.createElement("div");
                     newDiv.setAttribute("class","alert alert-danger alert-dismissable"); 
                     var newContent = document.createTextNode("'.$_SESSION["mensajeRegistro"].'"); 
                     newDiv.appendChild(newContent);
-                    document.getElementById("beforeFrm").appendChild(newDiv);                  
-                }
-                mostrarModal();                
+                    document.getElementById("beforeFrm").appendChild(newDiv);   
+			   });   
+                                   
+                             
             </script>';        
         unset($_SESSION['sinLogin']);
         unset($_SESSION['mensajeRegistro']);
