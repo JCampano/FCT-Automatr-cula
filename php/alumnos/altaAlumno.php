@@ -4,23 +4,23 @@ include "../functions.php";
 extract($_POST);
 
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."'";
-$dni=$_POST['dni'];
-$nombre=$_POST['nombre'];
-$apellidos=$_POST['apellidos'];
-$contrasena=$_POST['contrasena'];
+$dni=trim($_POST['dni']);
+$nombre=trim($_POST['nombre']);
+$apellidos=trim($_POST['apellidos']);
+$contrasena=trim($_POST['contrasena']);
 $valido=true;
 
-if(!preg_match("/[0-9]{7,8}[A-Z]/", $dni))
+if(!preg_match("/\d{8}\w/", $dni))
 {
     $valido=false;
 }
 
-if(!preg_match("[a-zA-Z\s]{3,40}", $nombre))
+if(!preg_match("/[a-zA-Z\s]{3,40}/", $nombre))
 {
     $valido=false;
 }
-/*
-if(!preg_match("[a-zA-Z\s]{3,40}", $apellidos))
+
+if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellidos))
 {
     $valido=false;
 }
@@ -29,7 +29,7 @@ if($contrasena=="")
 {
     $valido=false;
 }
-*/
+
 if($valido==true)
 {
 if(ejecutaConsulta2($consulta)!=0)
