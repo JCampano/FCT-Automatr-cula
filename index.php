@@ -36,7 +36,7 @@
 
 <div class="container-fluid">
     
-    <div class="jumbotron margen-arriba">
+    <div class="jumbotron margen-arriba fondo-azul-jumbotron">
       <div class="container">
         <h1 class="display-4">MatriculaT</h1>
         <p class="lead">Bienvenido al gestor de matrículas del IES Hnos. Machado. Desde aquí, podrás gestionar las matrículas que posteriormente debes entregar en el centro.</p>
@@ -56,7 +56,7 @@
             </a>
         </div>
         <div class="col-sm-4">
-            <a href="#">
+            <a class="s-menu" href="gestion-matriculas.php">
             <div class="card">
                 <div class="imagenes-inicio imagen-gestion"></div>
                 <div class="card-body">

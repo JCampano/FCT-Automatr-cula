@@ -1,10 +1,10 @@
 body{
-	margin-top: 70px;
+	margin-top: 87px;
 }
 
 
 .margen-arriba {
-    margin-top:85px;
+    margin-top:100px;
 }
 
 .padding-arriba{
@@ -12,7 +12,7 @@ body{
 }
 
 .fondo{
-	background-color:#ccc;
+	background-color:#ededed;
 
 }
 
@@ -26,6 +26,14 @@ body{
 	height:150px;
 	background-repeat:no-repeat;
 	 background-position: center; 
+	 transition-duration:0.3s;
+	 background-size:90%; 		
+
+}
+.imagenes-inicio:hover{
+	background-size:100%; 
+	filter:brightness(80%);
+	transition-duration:0.3s;
 }
 .imagen-registro{
 	background-image:url("../img/registrar.png");
@@ -41,4 +49,47 @@ body{
 	background-image:url("../img/ayuda.png");
 	background-color: #ffc928;
 
+}
+
+
+.imagen-alumno{
+	width:100%;
+	margin-bottom:30px;
+
+}
+
+.titulo-dato-perfil{
+	margin:0px;
+}
+
+.logo{
+
+	width:80%	;
+}
+
+.fondo-azul-jumbotron{
+	background-color:#e1eefb;
+	background-image:url("../img/emblema-fondo.png");
+	background-repeat:no-repeat;
+	background-position: right;
+	background-size:300px;
+}
+.bg-light{
+	transition-duration: 0.3s;
+}
+.bg-light:hover {
+    background-color: #ededed !important;
+    transition-duration:0.3s;
+}
+
+.borde-finito{
+	border: 1px solid #e1e1e1;
+
+	border-radius: 4px;
+
+	padding: 20px 5px;
+
+	margin: 0px;
+
+	background-color: #f9f9f9;
 }
