@@ -29,13 +29,16 @@ body{
 }
 .imagen-registro{
 	background-image:url("../img/registrar.png");
+	background-color: #2495bd;
 
 }
 .imagen-gestion{
 	background-image:url("../img/gestionar.png");
+	background-color: #5cb600;
 
 }
 .imagen-ayuda{
 	background-image:url("../img/ayuda.png");
+	background-color: #ffc928;
 
 }
