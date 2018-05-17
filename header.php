@@ -58,7 +58,7 @@ session_start();
           </div>
         </div>
       <nav class="navbar fixed-top navbar-light bg-light">
-       <a class="navbar-brand" href="index.php">MatriculaT!</a>
+       <a class="navbar-brand" href="index.php"><img src="img/logo.png"</a>
         <?php 
           
             if(isset($_SESSION['login'])){
@@ -72,7 +72,7 @@ session_start();
               </a>
 
               <div class="dropdown-menu" style="left:-70px;"aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Mis datos</a>
+                <a class="dropdown-item" href="perfil-alumno.php">Mis datos</a>
              
                 <a class="dropdown-item" href="php/logout.php" id ="logout" name="logout">Cerrar Sesión</a>
               </div>
