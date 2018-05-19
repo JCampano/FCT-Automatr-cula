@@ -4,6 +4,12 @@ body{
 
 a{
 	color:rgb(23, 162, 184);
+	transition-duration:0.3s;
+}
+a:hover{
+	text-decoration:none;
+	color:rgb(26, 107, 120);
+	transition-duration:0.3s;
 }
 
 .margen-arriba {
@@ -30,11 +36,11 @@ a{
 	background-repeat:no-repeat;
 	 background-position: center; 
 	 transition-duration:0.3s;
-	 background-size:20%; 		
+	 background-size:35%; 		
 
 }
 .imagenes-inicio:hover{
-	background-size:25%; 
+	background-size:40%; 
 	filter:brightness(80%);
 	transition-duration:0.3s;
 }

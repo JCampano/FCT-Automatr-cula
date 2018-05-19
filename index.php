@@ -42,6 +42,7 @@
         <p class="lead">Bienvenido al gestor de matrículas del IES Hnos. Machado. Desde aquí, podrás gestionar las matrículas que posteriormente debes entregar en el centro.</p>
       </div>
     </div>
+    <div class="container">
     <div class="row">
         <div class="col-sm-4">
             <a href="registro-matricula.php">
@@ -80,6 +81,7 @@
             </a>
         </div>
     </div>
+</div>
 </div>
 
 
