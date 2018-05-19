@@ -72,9 +72,9 @@ session_start();
               </a>
 
               <div class="dropdown-menu" style="left:-70px;"aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="perfil-alumno.php">Mis datos</a>
+                <a class="dropdown-item" href="perfil-alumno.php"><i class="fa fa-cog"></i> Mis datos</a>
              
-                <a class="dropdown-item" href="php/logout.php" id ="logout" name="logout">Cerrar Sesión</a>
+                <a class="dropdown-item" href="php/logout.php" id ="logout" name="logout"><i class="fa fa-sign-out-alt"></i> Cerrar Sesión</a>
               </div>
             </div>
 

@@ -2,9 +2,12 @@ body{
 	margin-top: 87px;
 }
 
+a{
+	color:rgb(23, 162, 184);
+}
 
 .margen-arriba {
-    margin-top:100px;
+    margin-top:120px;
 }
 
 .padding-arriba{
@@ -27,11 +30,11 @@ body{
 	background-repeat:no-repeat;
 	 background-position: center; 
 	 transition-duration:0.3s;
-	 background-size:90%; 		
+	 background-size:20%; 		
 
 }
 .imagenes-inicio:hover{
-	background-size:100%; 
+	background-size:25%; 
 	filter:brightness(80%);
 	transition-duration:0.3s;
 }
@@ -42,12 +45,12 @@ body{
 }
 .imagen-gestion{
 	background-image:url("../img/gestionar.png");
-	background-color: #5cb600;
+	background-color: #7fddc8;
 
 }
 .imagen-ayuda{
 	background-image:url("../img/ayuda.png");
-	background-color: #ffc928;
+	background-color: #fea098;
 
 }
 
@@ -92,4 +95,39 @@ body{
 	margin: 0px;
 
 	background-color: #f9f9f9;
+}
+
+.footer{
+	margin-top:30px;
+	padding:30px 0;
+
+}
+
+.footer>div>div>div>p{
+	margin:0px;
+	color:#545454;
+}
+.footer>div>div>div>p>i{
+	margin-right:15px;
+}
+
+.heading-footer {
+    display: block;
+    margin: 0 0 25px 0;
+    border-bottom: 1px dotted #C3C3C3;
+    font-size: 12px;
+}
+
+.heading-footer h4{
+	margin: 0 0 -2px 0;
+	padding-bottom: 20px;
+	display: inline-block;
+	font-weight: 400;
+	border-bottom: 2px solid rgb(23, 162, 184) !important;
+	font-family: 'Raleway', sans-serif;
+	color: #5F5F5F;
+	font-size: 14px;
+}
+.fondo-gris{
+	background-color:#f0f0f0;
 }
