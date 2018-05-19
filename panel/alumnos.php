@@ -37,42 +37,46 @@ include "header.php";
         </div>
 
 
-
+        <div class="content-wrapper">
+          <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                           
+                            <h1 class="display-4">Alumnos</h1>
+                             <?php
+                
+                if (isset($_SESSION['mensaje']) && isset($_SESSION['tipoMensaje']))  {
+                    echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensaje"].'</div>';
+                    unset($_SESSION['mensaje']);
+                    unset($_SESSION['tipoMensaje']);
+               }
+            ?>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="card">
+                                <div class="card-header">
+                                    Lista de Alumnos
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="card-body">
+                                <div class="table-responsive">
+                                       <?php devuelveTablaAlumnos();?>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+          </div>
+        </div>
     
 
-          <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                   
-                    <h1 class="page-header">Alumnos</h1>
-                     <?php
-        
-        if (isset($_SESSION['mensaje']) && isset($_SESSION['tipoMensaje']))  {
-            echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensaje"].'</div>';
-            unset($_SESSION['mensaje']);
-            unset($_SESSION['tipoMensaje']);
-       }
-    ?>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Lista de Alumnos
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                        <div class="table-responsive">
-                               <?php devuelveTablaAlumnos();?>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
+          
+           
 
-    </div>
+    
     <!-- /#wrapper -->
     
    

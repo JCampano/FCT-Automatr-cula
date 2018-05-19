@@ -8,9 +8,6 @@ function cargarFormEditarAlumno(){
         $("#modal-alumnos").html(result);
     });
 }
-$(document).ready( function () {
-    $('#tabla-alumnos').DataTable();
-} );
 
 
 $(".btn-eliminar-alumno").on("click",cargarFormEliminarAlumno);
@@ -32,6 +29,24 @@ function eliminarAlumno(){
         $("#modal-alumnos-eliminar").html(result);
     });
 }
-$(document).ready( function () {
-    $('#tabla-alumnos').DataTable();
+
+//Traducción datatable
+   
+$(document).ready(function() {
+    $('#tabla-alumnos,#tabla-asignaturas').DataTable( {
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se han encontrado datos",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No se han encontrado registros.",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "paginate": {
+                   "first":      "Primero",
+                   "last":       "Último",
+                   "next":       ">",
+                   "previous":   "<"
+               },
+            "search":         "Buscar:",
+        }
+    } );
 } );

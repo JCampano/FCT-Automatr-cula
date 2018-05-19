@@ -19,7 +19,7 @@ if(ejecutaConsultaAccion($update)>0)
 }
 else
 {
-    $_SESSION['tipoMensaje']= "danger";
+    $_SESSION['tipoMensaje']= "warning";
     $_SESSION['mensaje'] = "<strong>No se ha modificado el alumno</strong>";
    
     header ("location: ../../alumnos.php");

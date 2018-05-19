@@ -87,4 +87,42 @@ function devuelveTablaAlumnos(){
     echo ' </tbody></table>';
     
 }
+function devuelveTablaAsignaturas(){
+    $resultado = ejecutaConsultaArray("SELECT codigo,nombre, id_curso from asignaturas");
+    echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nº</th>
+                                            <th>Nombre Asignatura</th>
+                                            <th>Curso</th>
+                                            <th>Itinerario</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+    for($i=0;$i<count($resultado);$i++){
+        $numero=$i+1;
+        echo '  <tr>
+                    <td>'.$numero.'</td>
+                    <td>'.$resultado[$i]["nombre"].'</td>
+                    <td>'.$resultado[$i]["id_curso"].'</td>
+                    <td>Itinerario</td>
+                    <td><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno">Eliminar</button></td>
+                </tr>';
+    }
+    
+    echo ' </tbody></table>';
+    
+}
+
+function comprobarAsignaturas(){
+
+    $resultado = ejecutaConsultaArray("SELECT * from cursos");
+    if (count($resultado)==0){
+        return true ; // CAMBIAR A FALSE!!!
+     } else {
+        return true;
+    }
+    
+}
 ?>
