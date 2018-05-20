@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2018 a las 13:20:06
+-- Tiempo de generación: 20-05-2018 a las 13:38:16
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -61,7 +61,7 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
-('00000000A', 'admin', 'admin', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, '', '', '', 0, '', '', '', 0, '');
+('00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
 
 -- --------------------------------------------------------
 
