@@ -60,6 +60,12 @@ ob_start();
           </div>
 
           <div class="form-group">
+            <label for="provincia" class="control-label">Provincia</label>
+            <input type="text" class="form-control"  name="provincia" placeholder="Población" required pattern="[a-zA-Z\s]{3,40}">
+            <span class="invalid-feedback">Introducir una provincia <strong>debe constar mínimo de 3 letras</strong></span>
+          </div>
+
+          <div class="form-group">
             <label for="cod_postal" class="control-label">Código postal</label>
             <input type="text" class="form-control"  name="cod_postal" placeholder="Código postal" required pattern="^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$">
             <span class="invalid-feedback">Introducir un código postal <strong>debe constar mínimo de 5 números comprendidos entre 01000 y 52999</strong></span>
@@ -67,20 +73,20 @@ ob_start();
 
           <div class="form-group">
             <label for="tel_fijo" class="control-label">Teléfono fijo</label>
-            <input type="text" class="form-control"  name="tel_fijo" placeholder="tel_fijo" required pattern="^\d{9}$">
+            <input type="text" class="form-control"  name="tel_fijo" placeholder="Teléfono fijo" required pattern="^\d{9}$">
             <span class="invalid-feedback">Introducir un teléfono fijo <strong>debe constar de 9 dígitos</strong></span>
           </div>
 
           <div class="form-group">
             <label for="tel_movil" class="control-label">Teléfono móvil</label>
-            <input type="text" class="form-control"  name="tel_movil" placeholder="tel_movil" required pattern="^\d{9}$">
+            <input type="text" class="form-control"  name="tel_movil" placeholder="Teléfono móvil" required pattern="^\d{9}$">
             <span class="invalid-feedback">Introducir un teléfono móvil <strong>debe constar de 9 dígitos</strong></span>
           </div>
 
           <div class="form-group">
-            <label for="e-mail" class="control-label">E-mail</label>
-            <input type="text" class="form-control"  name="e-mail" placeholder="e-mail" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
-            <span class="invalid-feedback">Debe introducir un e-mail válido</span>
+            <label for="email" class="control-label">E-mail</label>
+            <input type="text" class="form-control"  name="email" placeholder="email" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
+            <span class="invalid-feedback">Debe introducir un email válido</span>
           </div>
 
           <div class="form-group">
@@ -102,14 +108,14 @@ ob_start();
           </div>
 
           <div class="form-group">
-            <label for="e-mail_padre" class="control-label">E-mail del padre</label>
-            <input type="text" class="form-control"  name="e-mail_padre" placeholder="E-mail del padre" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
-            <span class="invalid-feedback">Debe introducir un e-mail válido</span>
+            <label for="email_padre" class="control-label">E-mail del padre</label>
+            <input type="text" class="form-control"  name="email_padre" placeholder="email del padre" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
+            <span class="invalid-feedback">Debe introducir un email válido</span>
           </div>
 
            <div class="form-group">
             <label for="nombre_madre" class="control-label">Nombre de la madre</label>
-            <input type="text" class="form-control"  name="nombre_madre" placeholder="Nombre del madre" required pattern="[a-zA-Z\s]{3,40}">
+            <input type="text" class="form-control"  name="nombre_madre" placeholder="Nombre de la madre" required pattern="[a-zA-Z\s]{3,40}">
             <span class="invalid-feedback">Introducir un nombre <strong>debe constar mínimo de 3 letras</strong></span>
         </div>
 
@@ -126,9 +132,9 @@ ob_start();
           </div>
 
           <div class="form-group">
-            <label for="e-mail_madre" class="control-label">E-mail de la madre</label>
-            <input type="text" class="form-control"  name="e-mail_madre" placeholder="E-mail del madre" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
-            <span class="invalid-feedback">Debe introducir un e-mail válido</span>
+            <label for="email_madre" class="control-label">E-mail de la madre</label>
+            <input type="text" class="form-control"  name="email_madre" placeholder="email del madre" required pattern="^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$">
+            <span class="invalid-feedback">Debe introducir un email válido</span>
           </div>
 
           <div class="form-group">
