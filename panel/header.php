@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
-          <a class="nav-link" href="enseñanzas.php">
+          <a class="nav-link" href="ensenanzas.php">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Enseñanzas</span>
           </a>

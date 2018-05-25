@@ -7,7 +7,7 @@ function connectDB()
         $opc=array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
         $dsn="mysql:host=localhost;dbname=automatricula";
         $usuario="root";
-        $contrasena="root";
+        $contrasena="";
         $base=new PDO($dsn,$usuario,$contrasena,$opc);
     }
     catch (PDOException $e)
@@ -125,4 +125,32 @@ function comprobarAsignaturas(){
     }
     
 }
+
+
+function devuelveTablaEnsenanzas(){
+    $resultado = ejecutaConsultaArray("SELECT id,   nombre from enseñanzas");
+    echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nº</th>
+                                            <th>Nombre Ensenanza</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+    for($i=0;$i<count($resultado);$i++){
+        $numero=$i+1;
+        echo '  <tr>
+                    <td>'.$numero.'</td>
+                    <td>'.$resultado[$i]["nombre"].'</td>
+                    <td><button style="margin-right:10px;" class="btn-editar-ensenanza btn btn-success" data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#editarEnsenanza" class="btn btn-success">Editar</button><button data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#eliminarEnsenanza" class="btn btn-danger btn-eliminar-ensenanza">Eliminar</button></td>
+                </tr>';
+    }
+    
+    echo ' </tbody></table>';
+    
+}
+
+
 ?>
+
