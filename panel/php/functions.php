@@ -7,7 +7,7 @@ function connectDB()
         $opc=array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
         $dsn="mysql:host=localhost;dbname=automatricula";
         $usuario="root";
-        $contrasena="";
+        $contrasena="root";
         $base=new PDO($dsn,$usuario,$contrasena,$opc);
     }
     catch (PDOException $e)
@@ -61,7 +61,7 @@ function ejecutaConsultaAccion($sql)
 		//return "1";
 }
 function devuelveTablaAlumnos(){
-    $resultado = ejecutaConsultaArray("SELECT dni, nombre, apellidos from alumnos");
+    $resultado = ejecutaConsultaArray("SELECT dni, nombre, `apellido 1` as apellido1, `apellido 2` as apellido2 from alumnos");
     echo ' <table id="tabla-alumnos" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
@@ -79,7 +79,7 @@ function devuelveTablaAlumnos(){
                     <td>'.$numero.'</td>
                     <td>'.$resultado[$i]["dni"].'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
-                    <td>'.$resultado[$i]["apellidos"].'</td>
+                    <td>'.$resultado[$i]["apellido1"].' '.$resultado[$i]["apellido2"].'</td>
                     <td><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno">Eliminar</button></td>
                 </tr>';
     }
