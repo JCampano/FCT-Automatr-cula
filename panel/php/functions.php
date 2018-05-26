@@ -107,7 +107,7 @@ function devuelveTablaAsignaturas(){
                     <td>'.$resultado[$i]["nombre"].'</td>
                     <td>'.$resultado[$i]["id_curso"].'</td>
                     <td>Itinerario</td>
-                    <td width="100"><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno"><i class="far fa-trash-alt"></i></button></td>
+                    <td width="100"><button style="margin-right:10px;" class="btn-editar-asignatura btn btn-success" data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAsignatura" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAsignatura" class="btn btn-danger btn-eliminar-asignatura"><i class="far fa-trash-alt"></i></button></td>
                 </tr>';
     }
     

@@ -22,7 +22,7 @@ if (!comprobarAsignaturas()){
 
 ?>
 
- <div class="modal fade" id="editarAlumno" tabindex="-1" role="dialog" aria-labelledby="editarAlumno" aria-hidden="true">
+ <div class="modal fade" id="editarAsignatura" tabindex="-1" role="dialog" aria-labelledby="editarAsignatura" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -31,25 +31,25 @@ if (!comprobarAsignaturas()){
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-alumnos">
-               
+              <div class="modal-body" id="modal-asignatura">
+               <img src="img/cargando.gif" style="height:64px;">
               </div>
               
             </div>
           </div>
         </div>
 
- <div class="modal fade" id="eliminarAlumno" tabindex="-1" role="dialog" aria-labelledby="eliminarAlumno" aria-hidden="true">
+ <div class="modal fade" id="eliminarAsignatura" tabindex="-1" role="dialog" aria-labelledby="eliminarAsignatura" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">¿Estás seguro que desea eliminar al siguiente alumno?</h4>
+                <p class="modal-title">¿Estás seguro que desea eliminar al siguiente alumno?</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-alumnos-eliminar">
-               
+              <div class="modal-body" id="modal-asignatura-eliminar">
+               <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>

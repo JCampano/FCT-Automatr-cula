@@ -53,6 +53,29 @@ function cargarFormEliminarEnsenanza(){
 }
 
 
+//Asignaturas
+$(".btn-editar-asignatura").on("click",cargarFormEditarAsignatura);
+function cargarFormEditarAsignatura(){
+    var boton=$(this);
+    var cod = boton.attr("data-cod");
+    
+    $.post("php/formularios/formEditAsignatura.php", {cod: cod}, function(result){
+        $("#modal-asignatura").html(result);
+    });
+}
+$(".btn-eliminar-ensenanza").on("click",cargarFormEliminarAsignatura);
+
+function cargarFormEliminarAsignatura(){
+    var boton=$(this);
+    var cod = boton.attr("data-cod");
+    
+    $.post("php/formularios/formEliminarEnsenanza.php", {cod: cod}, function(result){
+        $("#modal-asignatura-eliminar").html(result);
+    });
+}
+
+
+
 //Traducción datatable
    
 $(document).ready(function() {
@@ -71,5 +94,11 @@ $(document).ready(function() {
                },
             "search":         "Buscar:",
         }
-    } );
+    } 
+
+
+
+    );
+
+     $( ".card" ).draggable({ revert: "invalid" });
 } );

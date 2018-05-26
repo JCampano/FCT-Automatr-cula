@@ -15,12 +15,12 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Últimas Matrículas Registradas
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -61,12 +61,12 @@
                 </div>
                 <!-- /.col-lg-6 -->
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card">
+                        <div class="card-header">
                             Enseñanzas
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="card-body">
                         <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -110,4 +110,8 @@
               </div>
           </div>
 
-   
+   <?php
+
+    include "footer.php";
+
+    ?>
