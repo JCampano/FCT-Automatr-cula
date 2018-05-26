@@ -10,7 +10,7 @@
     {
           $_SESSION['tipoMensaje']= "success";
           $_SESSION['mensaje'] = "<strong>La enseñanza se ha eliminado correctamente</strong>";
-          header ("location: ../../alumnos.php");
+          header ("location: ../../ensenanzas.php");
     }
     else
     {

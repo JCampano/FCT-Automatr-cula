@@ -65,7 +65,8 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="">Nombre</span>
                                         </div>
-                                        <input type="text" name="nombre" class="form-control">
+                                        <input type="text" name="nombre" required class="form-control">
+
                                        
                                       </div>
                                     </div>

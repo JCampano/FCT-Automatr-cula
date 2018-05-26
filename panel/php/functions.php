@@ -76,11 +76,11 @@ function devuelveTablaAlumnos(){
     for($i=0;$i<count($resultado);$i++){
         $numero=$i+1;
         echo '  <tr>
-                    <td>'.$numero.'</td>
+                    <td width="50">'.$numero.'</td>
                     <td>'.$resultado[$i]["dni"].'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
                     <td>'.$resultado[$i]["apellido1"].' '.$resultado[$i]["apellido2"].'</td>
-                    <td><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno">Eliminar</button></td>
+                    <td width="100"><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-dni="'.$resultado[$i]["dni"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno"><i class="far fa-trash-alt"></i></button></td>
                 </tr>';
     }
     
@@ -103,11 +103,11 @@ function devuelveTablaAsignaturas(){
     for($i=0;$i<count($resultado);$i++){
         $numero=$i+1;
         echo '  <tr>
-                    <td>'.$numero.'</td>
+                    <td width="50">'.$numero.'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
                     <td>'.$resultado[$i]["id_curso"].'</td>
                     <td>Itinerario</td>
-                    <td><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success">Editar</button><button data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno">Eliminar</button></td>
+                    <td width="100"><button style="margin-right:10px;" class="btn-editar-alumno btn btn-success" data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAlumno" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-dni="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAlumno" class="btn btn-danger btn-eliminar-alumno"><i class="far fa-trash-alt"></i></button></td>
                 </tr>';
     }
     
@@ -141,9 +141,14 @@ function devuelveTablaEnsenanzas(){
     for($i=0;$i<count($resultado);$i++){
         $numero=$i+1;
         echo '  <tr>
-                    <td>'.$numero.'</td>
+                    <td width="50">'.$numero.'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
-                    <td><button style="margin-right:10px;" class="btn-editar-ensenanza btn btn-success" data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#editarEnsenanza" class="btn btn-success">Editar</button><button data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#eliminarEnsenanza" class="btn btn-danger btn-eliminar-ensenanza">Eliminar</button></td>
+                    <td width="100"><button style="margin-right:10px;" class="btn-editar-ensenanza btn btn-success" data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#editarEnsenanza" class="btn btn-success">
+                            <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#eliminarEnsenanza" class="btn btn-danger btn-eliminar-ensenanza">
+                            <i class="far fa-trash-alt"></i>
+                            </button></td>
                 </tr>';
     }
     
