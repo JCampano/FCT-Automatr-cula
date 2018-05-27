@@ -1,18 +1,18 @@
 <?php
     include "../functions.php";
     extract($_POST);
-    $datos = ejecutaConsultaArray("SELECT nombre, apellidos from alumnos where dni='$dni'");
-
+    $datos = ejecutaConsultaArray("SELECT * from enseñanzas where id='$id'");
+   
 ?>
 <div class="row">
     <div class="col-sm-9">
-         <h4> <?php echo $datos[0]["nombre"]." ".$datos[0]["apellidos"];?></h4>
+         <h4> <?php echo $datos[0]["nombre"];?></h4>
     </div>
    <div class="col-sm-3">
-        <form name="frmEliminarAlumno" action="php/alumnos/eliminarAlumno.php" method="post" novalidate>
+        <form name="frmEliminarEnsenanza" action="php/ensenanzas/eliminarEnsenanza.php" method="post" novalidate>
                                 <div class="form-group" style="display:none;">
-                                
-                                    <input type="text" class="form-control" value="<?php echo $cod ?>" name="cod" placeholder="cod" >
+                                    <label for="id" class="control-label">ID</label>
+                                    <input type="text" class="form-control" value="<?php echo $id ?>" name="id" placeholder="id" >
 
                                 </div>
 

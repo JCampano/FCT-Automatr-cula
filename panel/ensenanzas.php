@@ -1,55 +1,38 @@
 <?php
 include "header.php";
 
-if (!comprobarAsignaturas()){
+
   ?>
-   <div id="page-wrapper" class="fondo-gris">
-  <div class="container sin-datos text-center">
-    <div class="alert alert-warning" role="alert">
-  Por favor, para gestionar las asignaturas, primero debe dar de alta algún Curso.
-</div>
- 
-    
-<h1>No hay datos disponibles</h1>
-
-    
-  </div>
-</div>
-<?php
-
-} else {
 
 
-?>
-
- <div class="modal fade" id="editarAsignatura" tabindex="-1" role="dialog" aria-labelledby="editarAsignatura" aria-hidden="true">
+ <div class="modal fade" id="editarEnsenanza" tabindex="-1" role="dialog" aria-labelledby="editarEnsenanza" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Editar Asignatura</h4>
+                <h4 class="modal-title">Editar Enseñanza</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-asignatura">
-               <img src="img/cargando.gif" style="height:64px;">
+              <div class="modal-body" id="modal-ensenanza">
+                <img src="img/cargando.gif" style="width:100%">
               </div>
               
             </div>
           </div>
         </div>
 
- <div class="modal fade" id="eliminarAsignatura" tabindex="-1" role="dialog" aria-labelledby="eliminarAsignatura" aria-hidden="true">
+ <div class="modal fade" id="eliminarEnsenanza" tabindex="-1" role="dialog" aria-labelledby="eliminarEnsenanza" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <p class="modal-title">¿Estás seguro que desea eliminar al siguiente alumno?</p>
+                <p class="modal-title">¿Estás seguro que desea eliminar la siguiente enseñanza?</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-asignatura-eliminar">
-               <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
+              <div class="modal-body" id="modal-ensenanza-eliminar">
+                <img src="img/cargando.gif" style="width:100%">
               </div>
               
             </div>
@@ -64,10 +47,10 @@ if (!comprobarAsignaturas()){
                     <div class="row">
                         <div class="col-lg-12">
                            
-                            <h1 class="display-4">Asignaturas</h1>
+                            <h1 class="display-4">Enseñanzas</h1>
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Asignatura
+                                Añadir Enseñanza
                               </button>
                             </div>
                             </p>
@@ -75,35 +58,24 @@ if (!comprobarAsignaturas()){
                              <div class="card text-white bg-info mb-3">
                                <div class="card-header">Añadir Asignatura</div>
                                <div class="card-body">
-                                 <form>
+                                 <form method="post" action="php/ensenanzas/anadirEnsenanza.php">
                                   <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-10">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="">Nombre</span>
                                         </div>
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="nombre" required class="form-control">
+
                                        
                                       </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                      <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Curso</label>
-                                        </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
-                                          <option selected>Selecciona un curso</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
-                                        </select>
-                                      </div>
+                                    <div class="col-sm-2">
+                                      <button class="btn btn-block" type="submit">Guardar</button>
                                     </div>
                                     
                                   </div>
-                                  <div class="text-right">
-                                  <button class="btn" type="submit">Enviar</button>
-                                </div>
+                                  
                                  </form>
                                </div>
                              </div>
@@ -121,6 +93,7 @@ if (!comprobarAsignaturas()){
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
+                    
                     <div class="card">
 
                                 <div class="card-header">
@@ -129,7 +102,7 @@ if (!comprobarAsignaturas()){
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
                                 <div class="table-responsive">
-                                       <?php devuelveTablaAsignaturas();?>
+                                       <?php devuelveTablaEnsenanzas();?>
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
@@ -143,7 +116,6 @@ if (!comprobarAsignaturas()){
    
 
 <?php
-}
 
 
 include "footer.php";
