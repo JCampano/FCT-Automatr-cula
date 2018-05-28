@@ -1,6 +1,6 @@
 <?php	
     include "header.php";
-    $_SESSION['ruta']= "registro-matricula.php";
+    $_SESSION['ruta']= "registro-matricula.php";//esto aqui yo creo que sobra
     include "php/gestionlogin.php";
 ?>
     <div class="fondo padding-arriba">
@@ -12,12 +12,18 @@
                     <h3><i class="fas fa-users-cog"></i> Perfil del Alumno</h3>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row">                        
                         <div class="col-sm-3">
-                            <img class="imagen-alumno" src="img/default-user.png">
-                            <a href="#" class="btn btn-info btn-block"> Cambiar Foto Personal</a>
-                            <a href="#" class="btn btn-info btn-block"> Solitar cambio de datos</a>
+                            <form name="datosAlumno" action="php/alumnos/subirImg.php" method="post" enctype="multipart/form-data">
+                                <img class="imagen-alumno" src="img/default-user.png">
+                                <input type="hidden" name="idAlumno" value="idAlumno">
+                                <input type="file" accept="image/png, .jpeg, .jpg, image/gif" class="btn btn-info btn-block form-control-file" name="imagen">                                
+                                <a href="#" class="btn btn-info btn-block"> Cambiar Foto Personal</a>
+                                <a href="#" class="btn btn-info btn-block"> Solitar cambio de datos</a>
+                                <button class="btn btn-info btn-block" type="submit">Aceptar</button>
+                            <form>
                         </div>
+                                               
                         <div class="col-sm-9">
                             <div class="alert alert-warning" role="alert">
                               Ateción, no has seleccionado el curso en el que deseas matricularte.
