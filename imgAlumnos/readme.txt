@@ -1,0 +1,1 @@
+Esta carpeta es la de las img de los alumnos
