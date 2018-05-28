@@ -3,8 +3,13 @@
     extract($_POST);
     $datos = ejecutaConsultaArray("SELECT * from asignaturas where codigo='$cod'");
     $idCurso=$datos[0]['id_curso'];
-    $nombreCurso = ejecutaConsultaArray("SELECT id, nombre from cursos where id=$idCurso");
-    $cursos = ejecutaConsultaArray("SELECT id, nombre from cursos where id<>$idCurso");
+    $nombreCurso = ejecutaConsultaArray("SELECT c.id, c.nombre as nombreCurso, e.nombre as nombreEnse from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=$idCurso");
+
+    echo 
+    $cursos = ejecutaConsultaArray("SELECT c.id, c.nombre as nombreCurso, e.nombre as nombreEnse from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id<>$idCurso");
+  //  echo "SELECT c.id, c.nombre, e.nombre from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=".$nombreCurso[0]["id"].""
+
+   // $ensenanza = ejecutaConsultaARray("SELECT c.id, c.nombre, e.nombre from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=".$nombreCurso[0]["id"]."")
 
     
 ?>
@@ -22,11 +27,11 @@
 					 		<div class="form-group">
 					    		<label for="nombre" class="control-label">Curso</label>
 
-					    		<select class="form-control" id="exampleFormControlSelect1">
+					    		<select class="custom-select" id="inputGroupSelect01">
 					    		    <?php
-					    		    	echo '<option value="'.$nombreCurso[0]['id'].'">'.$nombreCurso[0]['nombre'].'</option>';
+					    		    	echo '<option value="'.$nombreCurso[0]['id'].'">'.$nombreCurso[0]['nombreCurso'].' de '.$nombreCurso[0]['nombreEnse'].'</option>';
 					    		    	for ($i=0;$i<count($cursos);$i++){
-					    		    		echo '<option value="'.$cursos[$i]['id'].'">'.$cursos[$i]['nombre'].'</option>';
+					    		    		echo '<option value="'.$cursos[$i]['id'].'">'.$cursos[$i]['nombreCurso'].' de '.$cursos[$i]["nombreEnse"].'</option>';
 					    		    	}
 					    		    ?>
 					    		</select>

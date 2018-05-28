@@ -1,7 +1,7 @@
 <?php
     include "../functions.php";
     extract($_POST);
-    $datos = ejecutaConsultaArray("SELECT * from enseñanzas where id='$id'");
+    $datos = ejecutaConsultaArray("SELECT * from asignaturas where codigo='$cod'");
    
 ?>
 <div class="row">
@@ -11,8 +11,8 @@
    <div class="col-sm-3">
         <form name="frmEliminarEnsenanza" action="php/ensenanzas/eliminarEnsenanza.php" method="post" novalidate>
                                 <div class="form-group" style="display:none;">
-                                    <label for="id" class="control-label">ID</label>
-                                    <input type="text" class="form-control" value="<?php echo $id ?>" name="id" placeholder="id" >
+                                    
+                                    <input type="text" class="form-control" value="<?php echo $cod ?>" name="cod" placeholder="cod" >
 
                                 </div>
 
