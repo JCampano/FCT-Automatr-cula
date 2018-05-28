@@ -102,3 +102,17 @@ $(document).ready(function() {
 
      $( ".card" ).draggable({ revert: "invalid" });
 } );
+
+
+//Rellenar combos  
+$("#selectEnsenanzaAsignatura>option").on('click',comprobarSelect);
+
+function comprobarSelect(){
+    if($("#selectEnsenanzaAsignatura").val()!='nulo'){
+        $('#selectCursoAsignatura').prop("disabled", false);
+    } else {
+        $('#selectCursoAsignatura').prop("disabled", true);
+    }
+}
+
+

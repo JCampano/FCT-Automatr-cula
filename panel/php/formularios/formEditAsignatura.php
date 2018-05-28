@@ -5,7 +5,7 @@
     $idCurso=$datos[0]['id_curso'];
     $nombreCurso = ejecutaConsultaArray("SELECT c.id, c.nombre as nombreCurso, e.nombre as nombreEnse from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=$idCurso");
 
-    echo 
+ 
     $cursos = ejecutaConsultaArray("SELECT c.id, c.nombre as nombreCurso, e.nombre as nombreEnse from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id<>$idCurso");
   //  echo "SELECT c.id, c.nombre, e.nombre from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=".$nombreCurso[0]["id"].""
 

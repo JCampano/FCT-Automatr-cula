@@ -1,6 +1,8 @@
 <?php
 include "header.php";
 
+
+
 if (!comprobarAsignaturas()){
   ?>
    <div id="page-wrapper" class="fondo-gris">
@@ -19,7 +21,7 @@ if (!comprobarAsignaturas()){
 
 } else {
 
-
+$enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
 ?>
 
  <div class="modal fade" id="editarAsignatura" tabindex="-1" role="dialog" aria-labelledby="editarAsignatura" aria-hidden="true">
@@ -77,8 +79,8 @@ if (!comprobarAsignaturas()){
                                <div class="card-body">
                                  <form>
                                   <div class="row">
-                                    <div class="col-sm-6">
-                                      <div class="input-group">
+                                    <div class="col-sm-4">
+                                      <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="">Nombre</span>
                                         </div>
@@ -86,12 +88,31 @@ if (!comprobarAsignaturas()){
                                        
                                       </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <label class="input-group-text" for="inputGroupSelect01">Enseñanza</label>
+                                        </div>
+                                        <select class="custom-select" id="selectEnsenanzaAsignatura">
+                                          <option selected value="nulo">Selecciona una enseñanza</option>
+
+
+                                          <?php
+                                            for($i=0;$i<count($enseñanzas);$i++){
+                                              echo '<option value="'.$enseñanzas[$i]["id"].'">'.$enseñanzas[$i]["nombre"].'</option>';
+                                            }
+                                          ?>
+
+
+                                        </select>
+                                      </div>
+                                    </div>
+                                     <div class="col-sm-4">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <label class="input-group-text" for="inputGroupSelect01">Curso</label>
                                         </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
+                                        <select class="custom-select" disabled id="selectCursoAsignatura">
                                           <option selected>Selecciona un curso</option>
                                           <option value="1">One</option>
                                           <option value="2">Two</option>
