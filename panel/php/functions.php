@@ -87,7 +87,7 @@ function devuelveTablaAlumnos(){
     echo ' </tbody></table>';
     
 }
-function devuelveTablaAsignaturas(){
+/*function devuelveTablaAsignaturas(){
     $resultado = ejecutaConsultaArray("SELECT codigo,nombre, id_itinerario from asignaturas");
     echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
                                     <thead>
@@ -112,8 +112,7 @@ function devuelveTablaAsignaturas(){
     }
     
     echo ' </tbody></table>';
-    
-}
+    */
 
 function comprobarAsignaturas(){
 

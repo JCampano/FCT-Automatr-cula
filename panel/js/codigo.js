@@ -78,30 +78,6 @@ function cargarFormEliminarAsignatura(){
 
 //Traducción datatable
    
-$(document).ready(function() {
-    $('#tabla-alumnos,#tabla-asignaturas').DataTable( {
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por página",
-            "zeroRecords": "No se han encontrado datos",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No se han encontrado registros.",
-            "infoFiltered": "(filtered from _MAX_ total records)",
-            "paginate": {
-                   "first":      "Primero",
-                   "last":       "Último",
-                   "next":       ">",
-                   "previous":   "<"
-               },
-            "search":         "Buscar:",
-        }
-    } 
-
-
-
-    );
-
-     $( ".card" ).draggable({ revert: "invalid" });
-} );
 
 
 //Rellenar combos  
@@ -124,29 +100,32 @@ function rellenarComboCurso(){
     } else {
         $('#selectCursoAsignatura').prop("disabled", true);
         $("#selectCursoAsignatura").empty();
-        $("#selectCursoAsignatura").append('<option selected>Selecciona un Curso...</option>');
+        $("#selectCursoAsignatura").append('<option selected>No hay enseñanzas disponibles...</option>');
         $('#selectItinerarioAsignatura').prop("disabled", true);
         $("#selectItinerarioAsignatura").empty();
-        $("#selectItinerarioAsignatura").append('<option selected>Selecciona un Itinerario...</option>');
+        $("#selectItinerarioAsignatura").append('<option selected>No hay itinerarios disponibles...</option>');
 
     }
 }
 
-$("#selectCursoAsignatura>option").on('click',rellenarComboItinerario);
+$("#selectCursoAsignatura").on('click',rellenarComboItinerario);
 
 function rellenarComboItinerario(){
+       
          var id=$("#selectCursoAsignatura").val();
         $.post("php/combos.php", {tabla: "itinerarios", id:id, fila:"id_curso" }, function(result){
             var resultado=JSON.parse(result);
             $("#selectItinerarioAsignatura").empty();
             if(resultado.length!=0){
+                $('#selectItinerarioAsignatura').prop("disabled", false);
                   $.each(resultado, function(index){
                     $("#selectItinerarioAsignatura").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
                 });
+
               } else {
                 $('#selectItinerarioAsignatura').prop("disabled", true);
                 $("#selectItinerarioAsignatura").empty();
-                $("#selectItinerarioAsignatura").append('<option selected>No hay itinerarios...</option>');
+                $("#selectItinerarioAsignatura").append('<option selected>No hay itinerarios disponibles...</option>');
 
               }
           

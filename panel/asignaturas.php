@@ -84,7 +84,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" id="">Nombre</span>
                                         </div>
-                                        <input type="text" class="form-control">
+                                        <input required type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -93,14 +93,26 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <label class="input-group-text" style="width:100px;"  for="inputGroupSelect01">Enseñanza</label>
                                         </div>
-                                        <select class="custom-select" id="selectEnsenanzaAsignatura">
-                                          <option selected value="nulo">Selecciona una enseñanza...</option>
+                                        <?php
+                                        
+                                          
+                                          if (count($enseñanzas)==0){
 
+                                            echo '
+                                            <select disabled class="custom-select" id="selectEnsenanzaAsignatura">
+                                            <option selected value="nulo">No hay enseñanzas disponibles...</option>';
+                                          }
+                                         
 
-                                          <?php
-                                            for($i=0;$i<count($enseñanzas);$i++){
-                                              echo '<option value="'.$enseñanzas[$i]["id"].'">'.$enseñanzas[$i]["nombre"].'</option>';
+                                            else {
+                                              echo '<select class="custom-select" id="selectEnsenanzaAsignatura">
+                                              <option selected value="nulo">Selecciona una Enseñanza...</option>';
+                                              for($i=0;$i<count($enseñanzas);$i++){
+                                                echo '<option value="'.$enseñanzas[$i]["id"].'">'.$enseñanzas[$i]["nombre"].'</option>';
+                                              }
                                             }
+                                          
+                                          
                                           ?>
 
 
@@ -113,7 +125,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Curso</label>
                                         </div>
                                         <select class="custom-select" disabled id="selectCursoAsignatura">
-                                          <option selected>Selecciona un Curso...</option>
+                                          <option selected>No hay Cursos disponibles...</option>
                                           
                                         </select>
                                       </div>
@@ -123,8 +135,8 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Itinerario</label>
                                         </div>
-                                        <select class="custom-select" disabled id="selectItinerarioAsignatura">
-                                          <option selected>Selecciona un Itinerario...</option>
+                                        <select required class="custom-select" disabled id="selectItinerarioAsignatura">
+                                          <option selected>No hay Itinerarios disponibles...</option>
                                           
                                         </select>
                                       </div>
@@ -159,7 +171,21 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
                                 <div class="table-responsive">
-                                       <?php devuelveTablaAsignaturas();?>
+                                       <table id="tabla-asignaturas" class="table table-striped table-hover">
+
+                                        <thead>
+                                          <tr>
+                                            <th>Nº</th>
+                                            <th>Nombre Asignatura</th>
+                                            <th>Curso</th>
+                                            <th>Itinerario</th>
+                                            <th>Acción</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                      </table>
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
