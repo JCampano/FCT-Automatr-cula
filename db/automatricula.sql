@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
--- https://www.phpmyadmin.net/
+-- version 4.3.11
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2018 a las 15:12:27
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 30-05-2018 a las 12:32:48
+-- Versión del servidor: 5.6.24
+-- Versión de PHP: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `automatricula`
@@ -31,7 +29,7 @@ USE `automatricula`;
 --
 
 DROP TABLE IF EXISTS `alumnos`;
-CREATE TABLE `alumnos` (
+CREATE TABLE IF NOT EXISTS `alumnos` (
   `dni` varchar(9) NOT NULL,
   `clave` varchar(40) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -70,10 +68,10 @@ INSERT INTO `alumnos` (`dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `ni
 --
 
 DROP TABLE IF EXISTS `asignaturas`;
-CREATE TABLE `asignaturas` (
+CREATE TABLE IF NOT EXISTS `asignaturas` (
   `codigo` varchar(20) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `id_curso` int(5) NOT NULL
+  `id_itinerario` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,7 +81,7 @@ CREATE TABLE `asignaturas` (
 --
 
 DROP TABLE IF EXISTS `cursos`;
-CREATE TABLE `cursos` (
+CREATE TABLE IF NOT EXISTS `cursos` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_enseñanza` int(5) NOT NULL
@@ -96,7 +94,7 @@ CREATE TABLE `cursos` (
 --
 
 DROP TABLE IF EXISTS `enseñanzas`;
-CREATE TABLE `enseñanzas` (
+CREATE TABLE IF NOT EXISTS `enseñanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,7 +106,7 @@ CREATE TABLE `enseñanzas` (
 --
 
 DROP TABLE IF EXISTS `imagenes`;
-CREATE TABLE `imagenes` (
+CREATE TABLE IF NOT EXISTS `imagenes` (
   `id` int(5) NOT NULL,
   `dni_alumno` varchar(9) NOT NULL,
   `imagen` varchar(60) NOT NULL
@@ -121,7 +119,7 @@ CREATE TABLE `imagenes` (
 --
 
 DROP TABLE IF EXISTS `itinerarios`;
-CREATE TABLE `itinerarios` (
+CREATE TABLE IF NOT EXISTS `itinerarios` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
@@ -134,7 +132,7 @@ CREATE TABLE `itinerarios` (
 --
 
 DROP TABLE IF EXISTS `matriculas`;
-CREATE TABLE `matriculas` (
+CREATE TABLE IF NOT EXISTS `matriculas` (
   `id` int(5) NOT NULL,
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
@@ -152,7 +150,7 @@ CREATE TABLE `matriculas` (
 --
 
 DROP TABLE IF EXISTS `optativas`;
-CREATE TABLE `optativas` (
+CREATE TABLE IF NOT EXISTS `optativas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
@@ -165,7 +163,7 @@ CREATE TABLE `optativas` (
 --
 
 DROP TABLE IF EXISTS `personal`;
-CREATE TABLE `personal` (
+CREATE TABLE IF NOT EXISTS `personal` (
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
@@ -181,62 +179,49 @@ CREATE TABLE `personal` (
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`dni`),
-  ADD UNIQUE KEY `id` (`dni`);
+  ADD PRIMARY KEY (`dni`), ADD UNIQUE KEY `id` (`dni`);
 
 --
 -- Indices de la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
-  ADD PRIMARY KEY (`codigo`),
-  ADD UNIQUE KEY `id_curso` (`id_curso`),
-  ADD KEY `id` (`codigo`);
+  ADD PRIMARY KEY (`codigo`), ADD UNIQUE KEY `id_curso` (`id_itinerario`), ADD KEY `id` (`codigo`);
 
 --
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_enseñanza` (`id_enseñanza`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_enseñanza` (`id_enseñanza`), ADD KEY `id` (`id`);
 
 --
 -- Indices de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id` (`id`);
 
 --
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `dni_alumno` (`dni_alumno`);
+  ADD PRIMARY KEY (`id`), ADD KEY `dni_alumno` (`dni_alumno`);
 
 --
 -- Indices de la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `dni` (`dni_alumno`),
-  ADD KEY `dni_2` (`dni_alumno`),
-  ADD KEY `dni_3` (`dni_alumno`),
-  ADD KEY `dni_4` (`dni_alumno`);
+  ADD PRIMARY KEY (`id`), ADD KEY `dni` (`dni_alumno`), ADD KEY `dni_2` (`dni_alumno`), ADD KEY `dni_3` (`dni_alumno`), ADD KEY `dni_4` (`dni_alumno`);
 
 --
 -- Indices de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_curso` (`id_curso`);
+  ADD PRIMARY KEY (`id`), ADD KEY `id_curso` (`id_curso`);
 
 --
 -- Indices de la tabla `personal`
@@ -253,37 +238,31 @@ ALTER TABLE `personal`
 --
 ALTER TABLE `cursos`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
 --
 -- Restricciones para tablas volcadas
 --
@@ -292,38 +271,37 @@ ALTER TABLE `optativas`
 -- Filtros para la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
-  ADD CONSTRAINT `asignaturas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
+ADD CONSTRAINT `asignaturas_ibfk_1` FOREIGN KEY (`id_itinerario`) REFERENCES `itinerarios` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
+ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`);
+ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`);
 
 --
 -- Filtros para la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
-  ADD CONSTRAINT `itinerarios_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
+ADD CONSTRAINT `itinerarios_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
 
 --
 -- Filtros para la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`) ON UPDATE CASCADE;
+ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
-COMMIT;
+ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

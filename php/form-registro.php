@@ -127,7 +127,7 @@ ob_start();
 
         <div class="form-group">
             <label for="tel_madre" class="control-label">Teléfono de la madre</label>
-            <input type="text" class="form-control"  name="tel_padre" placeholder="Teléfono del madre" required pattern="^\d{9}$">
+            <input type="text" class="form-control"  name="tel_madre" placeholder="Teléfono de la madre" required pattern="^\d{9}$">
             <span class="invalid-feedback">Introducir un teléfono <strong>debe constar de 9 dígitos</strong></span>
           </div>
 

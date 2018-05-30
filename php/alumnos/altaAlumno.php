@@ -28,6 +28,7 @@ $tel_madre=trim($_POST['tel_madre']);
 $email_madre=trim($_POST['email_madre']);
 $valido=true;
 
+
 if(!preg_match("/\d{8}\w/", $dni))
 {
     $valido=false;
@@ -53,12 +54,12 @@ if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellido2))
     $valido=false;
 }
 
-if(!preg_match("/^[XYZ]\d{7,8}[A-Z]$/", $nie))
+if(!preg_match("/^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/", $nie))
 {
     $valido=false;
 }
 
-if(!preg_match("/^(\d{4})$/", $fecha_nac))
+if(!preg_match("/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", $fecha_nac))
 {
     $valido=false;
 }
@@ -93,7 +94,7 @@ if(!preg_match("/^\d{9}$/", $tel_movil))
     $valido=false;
 }
 
-if(!preg_match("/^\d{9}$/", $email))
+if(!preg_match("/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/", $email))
 {
     $valido=false;
 }
@@ -113,7 +114,7 @@ if(!preg_match("/^\d{9}$/", $tel_padre))
     $valido=false;
 }
 
-if(!preg_match("/^\d{9}$/", $email_padre))
+if(!preg_match("/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/", $email_padre))
 {
     $valido=false;
 }
@@ -133,7 +134,7 @@ if(!preg_match("/^\d{9}$/", $tel_madre))
     $valido=false;
 }
 
-if(!preg_match("/^\d{9}$/", $email_madre))
+if(!preg_match("/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/", $email_madre))
 {
     $valido=false;
 }
@@ -148,7 +149,7 @@ if(ejecutaConsulta2($consulta)!=0)
 }
 else
 {
-    $insert="INSERT INTO ALUMNOS (DNI, CLAVE, NOMBRE, APELLIDO1, APELLIDO2, NIE, FECHA_NAC, DIRECCION, POBLACION, PROVINCIA, COD_POSTAL, TEL_FIJO, TEL_MOVIL, CORREO, NOMBRE_PADRE, APELLIDOS_PADRE, TEL_PADRE, CORREO_PADRE, NOMBRE_MADRE, APELLIDOS_MADRE, TEL_MADRE, CORREO_MADRE) VALUES ('".$dni."', '".$contrasena."', '".$nombre."', '".$apellido1."', '".$apellido2."', '".$nie."', '".$fecha_nac."', '".$direccion."', '".$poblacion."', '".$provincia."', '".$cod_postal."', '".$tel_fijo."', '".$tel_movil."', '".$email."', '".$nombre_padre."', '".$apellidos_padre."', '".$tel_padre."', '".$email_padre."', '".$nombre_madre."', '".$apellidos_madre."', '".$tel_madre."', '".$email_madre."')";
+    $insert="INSERT INTO ALUMNOS (DNI, CLAVE, NOMBRE, APELLIDO1, APELLIDO2, NIE, FECHA_NAC, DIRECCION, POBLACION, PROVINCIA, COD_POSTAL, TEL_FIJO, TEL_MOVIL, CORREO, NOMBRE_PADRE, APELLIDOS_PADRE, TEL_PADRE, CORREO_PADRE, NOMBRE_MADRE, APELLIDOS_MADRE, TEL_MADRE, CORREO_MADRE) VALUES ('".$dni."', '".$contrasena."', '".$nombre."', '".$apellido1."', '".$apellido2."', '".$nie."', '".$fecha_nac."', '".$direccion."', '".$poblacion."', '".$provincia."', ".$cod_postal.", ".$tel_fijo.", ".$tel_movil.", '".$email."', '".$nombre_padre."', '".$apellidos_padre."', ".$tel_padre.", '".$email_padre."', '".$nombre_madre."', '".$apellidos_madre."', ".$tel_madre.", '".$email_madre."')";
 
 	if(ejecutaConsultaAccion($insert)>0)
 	{
