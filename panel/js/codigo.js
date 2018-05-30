@@ -105,14 +105,50 @@ $(document).ready(function() {
 
 
 //Rellenar combos  
-$("#selectEnsenanzaAsignatura>option").on('click',comprobarSelect);
+$("#selectEnsenanzaAsignatura>option").on('click',rellenarComboCurso);
 
-function comprobarSelect(){
+function rellenarComboCurso(){
     if($("#selectEnsenanzaAsignatura").val()!='nulo'){
         $('#selectCursoAsignatura').prop("disabled", false);
+        $('#selectItinerarioAsignatura').prop("disabled", false);
+        var id=$("#selectEnsenanzaAsignatura").val();
+        $.post("php/combos.php", {tabla: "cursos", id:id, fila:"id_enseñanza" }, function(result){
+            var resultado=JSON.parse(result);
+            $("#selectCursoAsignatura").empty();
+          $.each(resultado, function(index){
+            $("#selectCursoAsignatura").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
+        });
+        rellenarComboItinerario();
+   
+    });
     } else {
         $('#selectCursoAsignatura').prop("disabled", true);
+        $("#selectCursoAsignatura").empty();
+        $("#selectCursoAsignatura").append('<option selected>Selecciona un Curso...</option>');
+        $('#selectItinerarioAsignatura').prop("disabled", true);
+        $("#selectItinerarioAsignatura").empty();
+        $("#selectItinerarioAsignatura").append('<option selected>Selecciona un Itinerario...</option>');
+
     }
 }
 
+$("#selectCursoAsignatura>option").on('click',rellenarComboItinerario);
 
+function rellenarComboItinerario(){
+         var id=$("#selectCursoAsignatura").val();
+        $.post("php/combos.php", {tabla: "itinerarios", id:id, fila:"id_curso" }, function(result){
+            var resultado=JSON.parse(result);
+            $("#selectItinerarioAsignatura").empty();
+            if(resultado.length!=0){
+                  $.each(resultado, function(index){
+                    $("#selectItinerarioAsignatura").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
+                });
+              } else {
+                $('#selectItinerarioAsignatura').prop("disabled", true);
+                $("#selectItinerarioAsignatura").empty();
+                $("#selectItinerarioAsignatura").append('<option selected>No hay itinerarios...</option>');
+
+              }
+          
+          });
+}

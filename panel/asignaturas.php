@@ -1,4 +1,4 @@
-<?php
+    <?php
 include "header.php";
 
 
@@ -79,22 +79,22 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                <div class="card-body">
                                  <form>
                                   <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-12">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text" id="">Nombre</span>
+                                          <span class="input-group-text" style="width:100px;" id="">Nombre</span>
                                         </div>
                                         <input type="text" class="form-control">
                                        
                                       </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-12">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Enseñanza</label>
+                                          <label class="input-group-text" style="width:100px;"  for="inputGroupSelect01">Enseñanza</label>
                                         </div>
                                         <select class="custom-select" id="selectEnsenanzaAsignatura">
-                                          <option selected value="nulo">Selecciona una enseñanza</option>
+                                          <option selected value="nulo">Selecciona una enseñanza...</option>
 
 
                                           <?php
@@ -107,16 +107,25 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         </select>
                                       </div>
                                     </div>
-                                     <div class="col-sm-4">
+                                     <div class="col-sm-12">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Curso</label>
+                                          <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Curso</label>
                                         </div>
                                         <select class="custom-select" disabled id="selectCursoAsignatura">
-                                          <option selected>Selecciona un curso</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <option selected>Selecciona un Curso...</option>
+                                          
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Itinerario</label>
+                                        </div>
+                                        <select class="custom-select" disabled id="selectItinerarioAsignatura">
+                                          <option selected>Selecciona un Itinerario...</option>
+                                          
                                         </select>
                                       </div>
                                     </div>

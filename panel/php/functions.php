@@ -88,7 +88,7 @@ function devuelveTablaAlumnos(){
     
 }
 function devuelveTablaAsignaturas(){
-    $resultado = ejecutaConsultaArray("SELECT codigo,nombre, id_curso from asignaturas");
+    $resultado = ejecutaConsultaArray("SELECT codigo,nombre, id_itinerario from asignaturas");
     echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
                                     <thead>
                                         <tr>
@@ -105,7 +105,7 @@ function devuelveTablaAsignaturas(){
         echo '  <tr>
                     <td width="50">'.$numero.'</td>
                     <td>'.$resultado[$i]["nombre"].'</td>
-                    <td>'.$resultado[$i]["id_curso"].'</td>
+                    <td>'.$resultado[$i]["id_itinerario"].'</td>
                     <td>Itinerario</td>
                     <td width="100"><button style="margin-right:10px;" class="btn-editar-asignatura btn btn-success" data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAsignatura" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAsignatura" class="btn btn-danger btn-eliminar-asignatura"><i class="far fa-trash-alt"></i></button></td>
                 </tr>';
