@@ -15,7 +15,7 @@
     else
     {
         $_SESSION['tipoMensaje']= "danger";
-        $_SESSION['mensaje'] = "<strong>Ha ocurrido un error.</strong>";
+        $_SESSION['mensaje'] = "No puede eliminar la enseñanza, primero debe borrar los Itinerarios y las Asignaturas asignadas.";
    
         header ("location: ../../ensenanzas.php");
     

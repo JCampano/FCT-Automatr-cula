@@ -67,6 +67,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                         <div class="col-lg-12">
                            
                             <h1 class="display-4">Asignaturas</h1>
+                            
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
                                 Añadir Asignatura
@@ -77,14 +78,23 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                              <div class="card text-white bg-info mb-3">
                                <div class="card-header">Añadir Asignatura</div>
                                <div class="card-body">
-                                 <form>
+                                 <div id="mensajes"></div>
                                   <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-3">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text" style="width:100px;" id="">Nombre</span>
+                                          <span class="input-group-text" style="width:60px;" >COD</span>
                                         </div>
-                                        <input required type="text" class="form-control">
+                                        <input required id="codigo-asignatura" type="text" class="form-control">
+                                       
+                                      </div>
+                                    </div>
+                                      <div class="col-sm-9">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >Nombre</span>
+                                        </div>
+                                        <input required id="nombre-asignatura" type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -136,7 +146,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Itinerario</label>
                                         </div>
                                         <select required class="custom-select" disabled id="selectItinerarioAsignatura">
-                                          <option selected>No hay Itinerarios disponibles...</option>
+                                          <option selected value="nulo">No hay Itinerarios disponibles...</option>
                                           
                                         </select>
                                       </div>
@@ -144,9 +154,9 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                     
                                   </div>
                                   <div class="text-right">
-                                  <button class="btn" type="submit">Enviar</button>
+                                  <button class="btn" id="btn-enviar-asignatura">Guardar</button>
                                 </div>
-                                 </form>
+                                
                                </div>
                              </div>
                             </div>
@@ -170,22 +180,8 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
-                                <div class="table-responsive">
-                                       <table id="tabla-asignaturas" class="table table-striped table-hover">
-
-                                        <thead>
-                                          <tr>
-                                            <th>Nº</th>
-                                            <th>Nombre Asignatura</th>
-                                            <th>Curso</th>
-                                            <th>Itinerario</th>
-                                            <th>Acción</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                      </table>
+                                <div class="table-responsive" id="zona-tabla-asignaturas">
+                                  <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div> 
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>

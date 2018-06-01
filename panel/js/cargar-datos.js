@@ -51,35 +51,6 @@ function cargarAsignaturas(){
  }
 
  function cargarTablaAsignaturas(result){
-  $('#tabla-alumnos,#tabla-asignaturas').DataTable( {
-     
-      "data": result,
-      "columns":[
-          {"data":"codigo"},
-          {"data":"nombre"},
-          {"data":""},
-          {"data":"id_itinerario"},
-          {"deaultContent":'<button style="margin-right:10px;" class="btn-editar-asignatura btn btn-success" data-cod="'+resultado[index]["codigo"]+'" type="button" data-toggle="modal" data-target="#editarAsignatura" class="btn btn-success"> <i class="fas fa-pencil-alt"></i></button><button data-cod="'+resultado[index]["codigo"]+'" type="button" data-toggle="modal" data-target="#eliminarAsignatura" class="btn btn-danger btn-eliminar-asignatura"><i class="far fa-trash-alt"></i></button>'}
 
-      ],
-      "language": {
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se han encontrado datos",
-          "info": "Mostrando página _PAGE_ de _PAGES_",
-          "infoEmpty": "No se han encontrado registros.",
-          "infoFiltered": "(filtered from _MAX_ total records)",
-          "paginate": {
-                 "first":      "Primero",
-                 "last":       "Último",
-                 "next":       ">",
-                 "previous":   "<"
-             },
-          "search":         "Buscar:",
-      }
-  } 
-
-
-
-  );
 
  }
