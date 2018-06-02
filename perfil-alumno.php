@@ -1,7 +1,12 @@
 <?php	
-    include "header.php";
+    include "header.php";    
     $_SESSION['ruta']= "registro-matricula.php";//esto aqui yo creo que sobra
     include "php/gestionlogin.php";
+
+    $dni=$_SESSION['login'];	
+	$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+	$resulset=ejecutaConsulta($consulta);
+    $alumno=$resulset->fetch(PDO::FETCH_ASSOC);    
 ?>
     <div class="fondo padding-arriba">
         <div class="container">
@@ -39,16 +44,24 @@
                                 <div class="col-sm-6">
                                     <h3>Datos Personales</h3>
                                     <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
-                                    <p class="font-weight-light">Paco</p>
+                                    <p class="font-weight-light"><?php echo $alumno['nombre'];?></p>
                                     <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
-                                    <p class="font-weight-light">Pérez García</p>
+                                    <p class="font-weight-light"><?php echo $alumno['apellido1'];?><?php echo $alumno['apellido2'];?></p>
                                     <p class="font-weight-bold titulo-dato-perfil">Fecha de Nacimiento</p>
-                                    <p class="font-weight-light">10/06/1995</p>
+                                    <p class="font-weight-light"><?php echo $alumno['fecha_nac'];?></p>
                                     <p class="font-weight-bold titulo-dato-perfil">DNI/NIE</p>
-                                    <p class="font-weight-light">10015212K</p>
+                                    <p class="font-weight-light"><?php if($alumno['dni']!=""){echo $alumno['dni'];}else{echo $alumno['nie'];};?></p>
                                 </div>
                                 <div class="col-sm-6">
                                     <h3>Datos de Familia</h3>
+                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+                                    <p class="font-weight-light"><?php echo $alumno['nombre_padre'];?></p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+                                    <p class="font-weight-light"><?php echo $alumno['apellidos_padre'];?></p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+                                    <p class="font-weight-light"><?php echo $alumno['nombre_madre'];?></p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+                                    <p class="font-weight-light"><?php echo $alumno['apellidos_madre'];?></p>
                                 </div>
                             </div>
                             
