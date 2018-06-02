@@ -35,3 +35,31 @@
 #mensajes{
 	display:none;
 }
+
+table.dataTable{
+	border-collapse: collapse !important;
+}
+
+.display-4{
+	margin-top:20px;
+}
+
+
+.btn-eliminar, .btn-editar{
+	border: none;
+	background:none;
+	cursor: pointer;
+	transition-duration:0.3s;
+}
+
+.btn-eliminar:hover, .btn-editar:hover{
+filter: brightness(70%);
+}
+
+.btn-eliminar{
+	color: #dc3545;
+}
+
+.btn-editar{
+	color: #28a745
+}

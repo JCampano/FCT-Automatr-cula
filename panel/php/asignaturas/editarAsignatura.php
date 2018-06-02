@@ -5,8 +5,7 @@ extract($_POST);
 
  
         $update="UPDATE asignaturas SET nombre = '".$nombre."', id_itinerario = ".$itinerario." WHERE codigo = '".$codigo."'";
-  // echo 
-        "UPDATE asignaturas SET nombre = '".$nombre."', id_itinerario = ".$itinerario." WHERE codigo = '".$codigo."'";
+
     
 
 

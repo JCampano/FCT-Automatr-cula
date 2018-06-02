@@ -2,7 +2,7 @@
     include "../functions.php";
     $resultado = ejecutaConsultaArray("SELECT id,   nombre from enseñanzas order by id");
     echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
-                                    <thead>
+                                    <thead class="thead-dark">
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre Ensenanza</th>

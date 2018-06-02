@@ -25,7 +25,7 @@
 
     <script src="js/codigo.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
+   
  <link rel="stylesheet" type="text/css" href="vendor/jquery-ui/jquery-ui.min.css"/>
 
     

@@ -115,16 +115,18 @@ function devuelveTablaAlumnos(){
 }
     
 */
-function comprobarAsignaturas(){
+function comprobarDatos($tabla){
 
-    $resultado = ejecutaConsultaArray("SELECT * from cursos");
+    $resultado = ejecutaConsultaArray("SELECT * from $tabla");
     if (count($resultado)==0){
-        return true ; // CAMBIAR A FALSE!!!
+        return false ; // CAMBIAR A FALSE!!!
      } else {
         return true;
     }
     
 }
+
+
 
 
 /*function devuelveTablaEnsenanzas(){

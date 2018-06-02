@@ -2,7 +2,7 @@
     include "../functions.php";
     $resultado = ejecutaConsultaArray("SELECT a.codigo,a.nombre as nAsignatura, i.nombre as nItinerario, c.nombre as nCurso, e.nombre as nEnseñanza from asignaturas a inner join cursos c, itinerarios i, enseñanzas e where c.id = i.id_curso and a.id_itinerario = i.id and e.id = c.id_enseñanza");
     echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
-                                    <thead>
+                                    <thead class="thead-dark">
                                         <tr>
                                             <th>COD</th>
                                             <th>Nombre Asignatura</th>

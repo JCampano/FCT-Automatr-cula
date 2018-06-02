@@ -97,7 +97,7 @@ include "header.php";
                     
                     <div class="card">
 
-                                <div class="card-header">
+                                <div class="card-header text-white bg-secondary">
                                     Lista de Asignaturas
                                 </div>
                                 <!-- /.panel-heading -->
