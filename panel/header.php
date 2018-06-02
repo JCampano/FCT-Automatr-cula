@@ -14,6 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title></title>
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
     <link rel="stylesheet" href="css/style.css">
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cursos">
-          <a class="nav-link" href="cursos.html">
+          <a class="nav-link" href="cursos.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Cursos</span>
           </a>

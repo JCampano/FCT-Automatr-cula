@@ -59,25 +59,25 @@ include "header.php";
                              <div class="card text-white bg-info mb-3">
                                <div class="card-header">Añadir Asignatura</div>
                                <div class="card-body">
-                                 <form method="post" action="php/ensenanzas/anadirEnsenanza.php">
+                                 <div id="mensajes"></div>
                                   <div class="row">
                                     <div class="col-sm-10">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="">Nombre</span>
                                         </div>
-                                        <input type="text" name="nombre" required class="form-control">
+                                        <input type="text" name="nombre-ensenanza" id="nombre-ensenanza" required class="form-control">
 
                                        
                                       </div>
                                     </div>
                                     <div class="col-sm-2">
-                                      <button class="btn btn-block" type="submit">Guardar</button>
+                                      <button class="btn btn-block" id="btn-enviar-ensenanza">Guardar</button>
                                     </div>
                                     
                                   </div>
                                   
-                                 </form>
+                            
                                </div>
                              </div>
                             </div>
@@ -97,13 +97,13 @@ include "header.php";
                     
                     <div class="card">
 
-                                <div class="card-header">
+                                <div class="card-header text-white bg-secondary">
                                     Lista de Asignaturas
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
-                                <div class="table-responsive">
-                                       <?php devuelveTablaEnsenanzas();?>
+                                <div class="table-responsive" id="zona-tabla-ensenanzas">
+                                        <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div> 
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>

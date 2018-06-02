@@ -9,7 +9,7 @@
          <h4> <?php echo $datos[0]["nombre"];?></h4>
     </div>
    <div class="col-sm-3">
-        <form name="frmEliminarEnsenanza" action="php/ensenanzas/eliminarEnsenanza.php" method="post" novalidate>
+        <form name="frmEliminarEnsenanza" action="php/asignaturas/eliminarAsignatura.php" method="post" novalidate>
                                 <div class="form-group" style="display:none;">
                                     
                                     <input type="text" class="form-control" value="<?php echo $cod ?>" name="cod" placeholder="cod" >

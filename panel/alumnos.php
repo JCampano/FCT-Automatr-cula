@@ -57,7 +57,7 @@ include "header.php";
                     </div>
                     <!-- /.row -->
                     <div class="card">
-                                <div class="card-header">
+                                <div class="card-header text-white bg-secondary">
                                     Lista de Alumnos
                                 </div>
                                 <!-- /.panel-heading -->
