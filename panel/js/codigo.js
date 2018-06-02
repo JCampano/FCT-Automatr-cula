@@ -38,7 +38,7 @@ function eliminarAlumno(){
 
 
 
-//Traducción datatable
+
 $(document).ready(function() {
 
 
@@ -58,6 +58,10 @@ $(document).ready(function() {
 
         case "cursos.php":
             cargarCursos();
+            break;
+
+        case "itinerarios.php":
+            cargarItinerarios();
             break;
         
     }
@@ -180,7 +184,7 @@ function cargarAsignaturas(){
         $("#zona-tabla-asignaturas").empty().append(result);
 
         //Asignaturas
-        $(".btn-editar-asignatura").on("click",cargarFormEditarAsignatura);
+        $(".btn-editar").on("click",cargarFormEditarAsignatura);
         function cargarFormEditarAsignatura(){
             var boton=$(this);
             var cod = boton.attr("data-cod");
@@ -189,7 +193,7 @@ function cargarAsignaturas(){
                 $("#modal-asignatura").html(result);
             });
         }
-        $(".btn-eliminar-asignatura").on("click",cargarFormEliminarAsignatura);
+        $(".btn-eliminar").on("click",cargarFormEliminarAsignatura);
 
         function cargarFormEliminarAsignatura(){
             var boton=$(this);
@@ -220,7 +224,7 @@ function cargarEnsenanzas(){
         $("#zona-tabla-ensenanzas").empty().append(result);
 
        //Enseñanzas
-       $(".btn-editar-ensenanza").on("click",cargarFormEditarEnsenanza);
+       $(".btn-editar").on("click",cargarFormEditarEnsenanza);
        function cargarFormEditarEnsenanza(){
            var boton=$(this);
            var id = boton.attr("data-id");
@@ -229,7 +233,7 @@ function cargarEnsenanzas(){
                $("#modal-ensenanza").html(result);
            });
        }
-       $(".btn-eliminar-ensenanza").on("click",cargarFormEliminarEnsenanza);
+       $(".btn-eliminar").on("click",cargarFormEliminarEnsenanza);
 
        function cargarFormEliminarEnsenanza(){
            var boton=$(this);
@@ -248,6 +252,8 @@ function cargarEnsenanzas(){
 
 
              );
+
+             $('[data-tipo="tooltip"]').tooltip();
    
     });
 }
@@ -258,8 +264,10 @@ function cargarCursos(){
         $("#zona-tabla-cursos").empty().append(result);
 
        //Enseñanzas
-       $("#btn-editar").on("click",cargarFormEditarCurso);
+       $(".btn-editar").on("click",cargarFormEditarCurso);
+
        function cargarFormEditarCurso(){
+       
            var boton=$(this);
            var id = boton.attr("data-id");
            
@@ -267,7 +275,7 @@ function cargarCursos(){
                $("#modal-curso").html(result);
            });
        }
-       $("#btn-eliminar").on("click",cargarFormEliminarCurso);
+       $(".btn-eliminar").on("click",cargarFormEliminarCurso);
 
        function cargarFormEliminarCurso(){
            var boton=$(this);
@@ -284,9 +292,50 @@ function cargarCursos(){
             } 
 
              );
-    $(document).ready(function(){
+   
         $('[data-tipo="tooltip"]').tooltip();
+
+
     });
+}
+
+function cargarItinerarios(){
+    $.post("php/itinerarios/tabla-itinerarios.php", function(result){
+           
+        $("#zona-tabla-itinerarios").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarItinerario);
+
+       function cargarFormEditarItinerario(){
+       
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditItinerario.php", {id: id}, function(result){
+               $("#modal-itinerario").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarItinerario);
+
+       function cargarFormEliminarItinerario(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarItinerario.php", {id: id}, function(result){
+               $("#modal-itinerario-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-asignaturas').DataTable( {
+                 "language": espanol              
+            } 
+
+             );
+   
+        $('[data-tipo="tooltip"]').tooltip();
+
 
     });
 }

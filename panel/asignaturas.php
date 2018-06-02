@@ -66,7 +66,12 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                     <div class="row">
                         <div class="col-lg-12">
                            
-                            <h1 class="display-4">Asignaturas</h1>
+                            <nav aria-label="breadcrumb" class="navegacion">
+                             <ol class="breadcrumb">
+                               <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                               <li class="breadcrumb-item active" aria-current="page">Asignaturas</li>
+                             </ol>
+                           </nav>
                             
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
