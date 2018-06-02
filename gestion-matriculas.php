@@ -40,7 +40,7 @@
                 <span class="sr-only">Editar</span>
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="php/imprimirMatricula.php">Imprimir</a> 
+                <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Eliminar</a>
               </div>
