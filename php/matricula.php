@@ -42,9 +42,10 @@
 	<?php
 		include "functions.php"; 
 		session_start();
-		$sql = "SELECT * FROM ALUMNOS WHERE DNI =".$_SESSION['login'];
-		$consulta = ejecutaConsulta($sql);
-		$alumno=$consulta->fetch(PDO::FETCH_ASSOC);
+		$dni=$_SESSION['login'];	
+		$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+		$resulset=ejecutaConsulta($consulta);
+		 $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 		
 	?>
 	<h4>Datos del ALumno/a:</h4>
