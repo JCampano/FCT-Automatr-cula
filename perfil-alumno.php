@@ -23,7 +23,7 @@
                                 <img class="imagen-alumno" src="img/default-user.png">
                                 <input type="hidden" name="idAlumno" value="idAlumno">
                                 <input type="file" accept="image/png, .jpeg, .jpg, image/gif" class="btn btn-info btn-block form-control-file" name="imagen">                                
-                                <a href="#" class="btn btn-info btn-block"> Cambiar Foto Personal</a>
+                                <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioFoto"> Cambiar Foto Personal</a>
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>
                                 <button class="btn btn-info btn-block" type="submit">Aceptar</button>
                             </form>
@@ -69,6 +69,27 @@
                         </div>
                     </div>
                                 
+            </div>
+        </div>
+    </div>
+    <!--MODAL FOTO-->
+    <div class="modal fade" id="cambioFoto" tabindex="-1" role="dialog" aria-labelledby="modal-cambioFoto" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sube una foto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+               
+                   <form name="datosAlumno" action="php/alumnos/subirImg.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="idAlumno" value="idAlumno">
+                        <input type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control-file" name="imagen"> <br>
+                        <button class="btn btn-info btn-md" type="submit">Aceptar</button>
+                    </form>                  
+                </div>              
             </div>
         </div>
     </div>
