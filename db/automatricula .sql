@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2018 a las 21:30:48
+-- Tiempo de generación: 03-06-2018 a las 21:28:11
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -35,8 +35,8 @@ CREATE TABLE `alumnos` (
   `dni` varchar(9) NOT NULL,
   `clave` varchar(40) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `apellido1` varchar(40) NOT NULL,
-  `apellido2` varchar(40) NOT NULL,
+  `apellido 1` varchar(40) NOT NULL,
+  `apellido 2` varchar(40) NOT NULL,
   `nie` varchar(9) NOT NULL,
   `fecha_nac` date NOT NULL,
   `direccion` varchar(60) NOT NULL,
@@ -62,8 +62,8 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
-('00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30567586F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29564567V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
+INSERT INTO `alumnos` (`dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
+('00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,7 @@ DROP TABLE IF EXISTS `asignaturas`;
 CREATE TABLE `asignaturas` (
   `codigo` varchar(20) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `id_curso` int(5) NOT NULL
+  `id_itinerario` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -150,6 +150,19 @@ CREATE TABLE `matriculas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `matriculas_registradas`
+--
+
+DROP TABLE IF EXISTS `matriculas_registradas`;
+CREATE TABLE `matriculas_registradas` (
+  `id_matricula` int(5) NOT NULL,
+  `id_usuario` int(5) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `optativas`
 --
 
@@ -191,7 +204,7 @@ ALTER TABLE `alumnos`
 --
 ALTER TABLE `asignaturas`
   ADD PRIMARY KEY (`codigo`),
-  ADD UNIQUE KEY `id_curso` (`id_curso`),
+  ADD UNIQUE KEY `id_curso` (`id_itinerario`),
   ADD KEY `id` (`codigo`);
 
 --
@@ -232,6 +245,12 @@ ALTER TABLE `matriculas`
   ADD KEY `dni_2` (`dni_alumno`),
   ADD KEY `dni_3` (`dni_alumno`),
   ADD KEY `dni_4` (`dni_alumno`);
+
+--
+-- Indices de la tabla `matriculas_registradas`
+--
+ALTER TABLE `matriculas_registradas`
+  ADD KEY `id_matricula` (`id_matricula`);
 
 --
 -- Indices de la tabla `optativas`
@@ -294,7 +313,7 @@ ALTER TABLE `optativas`
 -- Filtros para la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
-  ADD CONSTRAINT `asignaturas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
+  ADD CONSTRAINT `asignaturas_ibfk_1` FOREIGN KEY (`id_itinerario`) REFERENCES `itinerarios` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cursos`
@@ -319,6 +338,12 @@ ALTER TABLE `itinerarios`
 --
 ALTER TABLE `matriculas`
   ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `matriculas_registradas`
+--
+ALTER TABLE `matriculas_registradas`
+  ADD CONSTRAINT `matriculas_registradas_ibfk_1` FOREIGN KEY (`id_matricula`) REFERENCES `matriculas` (`id`);
 
 --
 -- Filtros para la tabla `optativas`
