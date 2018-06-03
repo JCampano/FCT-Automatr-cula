@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2018 a las 21:28:11
+-- Tiempo de generación: 03-06-2018 a las 22:13:03
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -310,22 +310,10 @@ ALTER TABLE `optativas`
 --
 
 --
--- Filtros para la tabla `asignaturas`
---
-ALTER TABLE `asignaturas`
-  ADD CONSTRAINT `asignaturas_ibfk_1` FOREIGN KEY (`id_itinerario`) REFERENCES `itinerarios` (`id`) ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `imagenes`
---
-ALTER TABLE `imagenes`
-  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`);
 
 --
 -- Filtros para la tabla `itinerarios`
