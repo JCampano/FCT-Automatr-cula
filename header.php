@@ -20,8 +20,10 @@ session_start();
     <title>Automatrícula</title>
   </head>
   <body>
-              <!-- Modal -->
-        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+    <?php
+         # Modal
+        if(!isset($_SESSION['login'])){
+        echo '<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -29,18 +31,17 @@ session_start();
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;
                 </button>
               </div>
-              <div class="modal-body">
-                <?php 
-                    include "php/form-login.php";
-                  ?>
-              </div>
+              <div class="modal-body">';
+                
+                    include "php/form-login.php";                
+             echo ' </div>
               
             </div>
           </div>
         </div>
 
         <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modal-registro" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="modalFrmRegistro">Registro</h5>
@@ -49,14 +50,15 @@ session_start();
                 </button>
               </div>
               <div class="modal-body">
-                <?php 
+               ';
                     include "php/form-registro.php";
-                  ?>
-              </div>
+                 
+             echo ' </div>
               
             </div>
           </div>
-        </div>
+        </div>';}
+        ?>
       <nav class="navbar fixed-top navbar-light bg-light">
        <a class="navbar-brand" href="index.php"><img src="img/logo.png"</a>
         <?php 

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php 
-    session_start();
     include "php/functions.php";
     include "php/gestionlogin.php";
+
+
 ?>
 <html lang="es">
 
@@ -34,6 +35,38 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<div class="modal fade" id="cerrar-sesion" tabindex="-1" role="dialog" aria-labelledby="cerrar-sesion" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Salir</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modal-asignatura">
+               <div class="row">
+                   <div class="col-sm-9">
+                        <p>¿Está seguro de que desea salir?</p>
+                   </div>
+                  <div class="col-sm-3">
+                       <form action="php/logout.php" method="post" novalidate>
+                                               
+
+
+
+                                                   <button type="submit" class="btn btn-primary ">Si</button>
+                                                   <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+
+                      </form>
+                   </div>
+                   
+               </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php"><img src="img/logo.png"> </a>
@@ -48,6 +81,12 @@
             <span class="nav-link-text '.$inicioActivo.'">Inicio</span>
           </a>
         </li>
+
+        <?php
+          if($_SESSION["role"]=="gestor" || $_SESSION["role"]=="administrador"){
+
+
+        ?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
           <a class="nav-link" href="ensenanzas.php">
             <i class="fa fa-fw fa-users"></i>
@@ -80,12 +119,26 @@
             <span class="nav-link-text">Alumnos</span>
           </a>
         </li>
+
+        <?php
+          }
+
+          if($_SESSION["role"]=="administrador"){
+
+
+        ?>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios">
           <a class="nav-link" href="usuarios.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Usuarios</span>
           </a>
         </li>
+
+
+        <?php
+         }
+
+        ?>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -154,7 +207,7 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link" data-toggle="modal" data-target="#cerrar-sesion">
             <i class="fa fa-fw fa-sign-out"></i>Salir</a>
         </li>
       </ul>

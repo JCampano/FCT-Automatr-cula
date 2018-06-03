@@ -1,5 +1,14 @@
     <?php
+
+    include "php/permisos.php";
+
+if(!comprobarLogin("gestor")){
+
+  header("location: index.php?e=1");
+}
+
 include "header.php";
+
 
 
 
@@ -11,8 +20,8 @@ if (!comprobarDatos("enseñanzas")){
   Por favor, para gestionar los cursos, primero debe dar de alta alguna enseñanza.
 </div>
  
-    
-<h1>No hay datos disponibles</h1>
+<h4>NO HAY DATOS DISPONIBLES</h4>
+<img src="img/alerta.png">
 
     
   </div>
@@ -66,7 +75,12 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                     <div class="row">
                         <div class="col-lg-12">
                            
-                            <h1 class="display-4">Cursos</h1>
+                           <nav aria-label="breadcrumb" class="navegacion">
+                             <ol class="breadcrumb">
+                               <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                               <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+                             </ol>
+                           </nav>
                             
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirCurso" aria-expanded="false" aria-controls="collapseExample">

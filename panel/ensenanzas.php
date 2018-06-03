@@ -1,4 +1,11 @@
 <?php
+include "php/permisos.php";
+
+if(!comprobarLogin("gestor")){
+
+  header("location: index.php?e=1");
+}
+
 include "header.php";
 
 
@@ -48,7 +55,12 @@ include "header.php";
                     <div class="row">
                         <div class="col-lg-12">
                            
-                            <h1 class="display-4">Enseñanzas</h1>
+                            <nav aria-label="breadcrumb" class="navegacion">
+                             <ol class="breadcrumb">
+                               <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+                               <li class="breadcrumb-item active" aria-current="page">Enseñanzas</li>
+                             </ol>
+                           </nav>
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
                                 Añadir Enseñanza
@@ -66,7 +78,7 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="">Nombre</span>
                                         </div>
-                                        <input type="text" name="nombre-ensenanza" id="nombre-ensenanza" required class="form-control">
+                                        <input type="text" name="nombre-ensenanza" id="nombre-ensenanza" class="form-control">
 
                                        
                                       </div>

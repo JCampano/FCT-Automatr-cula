@@ -13,9 +13,21 @@
 }
 
 .fondo-gris{
-	background-color:#e4e4e4 !important;
+	background-color: #343a40 !important;
+	margin-left: 250px;
+	height: 100%;
+
 
 }
+.fondo-gris>div>h4{
+	color: #ffffff4d;
+}
+
+.fondo-gris>div>img{
+	opacity:0.2;
+}
+
+
 #mainNav .navbar-collapse .navbar-sidenav{
 	margin-top:73px;
 }
@@ -62,4 +74,8 @@ filter: brightness(70%);
 
 .btn-editar{
 	color: #28a745
+}
+
+.navegacion{
+	margin-top:30px;
 }

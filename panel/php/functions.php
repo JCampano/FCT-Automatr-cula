@@ -60,6 +60,9 @@ function ejecutaConsultaAccion($sql)
 		return $accion->rowCount();
 		//return "1";
 }
+
+
+
 function devuelveTablaAlumnos(){
     $resultado = ejecutaConsultaArray("SELECT dni, nombre, `apellido 1` as apellido1, `apellido 2` as apellido2 from alumnos");
     echo ' <table id="tabla-alumnos" class="table table-striped table-hover">
