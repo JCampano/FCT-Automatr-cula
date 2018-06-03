@@ -11,8 +11,8 @@ if (!comprobarDatos("enseñanzas")){
   Por favor, para gestionar los cursos, primero debe dar de alta alguna enseñanza.
 </div>
  
-    
-<h1>No hay datos disponibles</h1>
+<h4>NO HAY DATOS DISPONIBLES</h4>
+<img src="img/alerta.png">
 
     
   </div>

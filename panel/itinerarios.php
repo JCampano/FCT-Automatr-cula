@@ -2,17 +2,17 @@
 include "header.php";
 
 
-
-if (!comprobarDatos("itinerarios")){
+if (!comprobarDatos("cursos")){
   ?>
-   <div id="page-wrapper" class="fondo-gris">
-  <div class="container sin-datos text-center">
+   <div id="content-wrapper" class="fondo-gris">
+  <div class="container-fluid sin-datos text-center">
     <div class="alert alert-warning" role="alert">
  Para gestionar los itinerarios debe añadir algún itinerario primero.
 </div>
  
     
-<h1>No hay datos disponibles</h1>
+<h4>NO HAY DATOS DISPONIBLES</h4>
+<img src="img/alerta.png">
 
     
   </div>
