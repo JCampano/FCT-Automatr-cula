@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2018 a las 22:13:03
+-- Tiempo de generación: 03-06-2018 a las 22:36:54
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -219,15 +219,13 @@ ALTER TABLE `cursos`
 -- Indices de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `dni_alumno` (`dni_alumno`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `itinerarios`
