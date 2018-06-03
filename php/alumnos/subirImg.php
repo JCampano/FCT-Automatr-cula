@@ -23,9 +23,9 @@ if(isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] = 0){//comprobamos si 
         move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta);
 
         //Comprobamos si existe o no, si existe hacemos update, sino hacemos insert
-        $existe = "select * from imagenes where id_alumno='$idAlumno'";
-        if(ejecutaConsulta2($existe)==0){
-        	$sql = "INSERT INTO imagenes (id_alumno, imagen) VALUES ('$idAlumno','$ruta')";
+        $existe = "select * from imagenes where dni_alumno ='". $idAlumno ."'";
+        if(ejecutaConsulta2($existe)==0){            
+        	$sql = "INSERT INTO imagenes (dni_alumno, imagen) VALUES ('$idAlumno','$ruta')";
         }else{
           	$sql = "UPDATE imagenes SET imagen = ".$idAlumno.".jpg";
         }		
