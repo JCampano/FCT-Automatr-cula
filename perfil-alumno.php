@@ -26,7 +26,7 @@
                                 <a href="#" class="btn btn-info btn-block"> Cambiar Foto Personal</a>
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>
                                 <button class="btn btn-info btn-block" type="submit">Aceptar</button>
-                            <form>
+                            </form>
                         </div>
                                                
                         <div class="col-sm-9">
