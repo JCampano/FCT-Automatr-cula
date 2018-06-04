@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2018 a las 22:36:54
+-- Tiempo de generación: 04-06-2018 a las 21:53:07
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -32,6 +32,7 @@ USE `automatricula`;
 
 DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE `alumnos` (
+  `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `clave` varchar(40) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -62,8 +63,8 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
-('00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
+INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
+(1, '00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE `enseñanzas` (
 DROP TABLE IF EXISTS `imagenes`;
 CREATE TABLE `imagenes` (
   `id` int(5) NOT NULL,
-  `dni_alumno` varchar(9) NOT NULL,
+  `id_usuario` int(5) NOT NULL,
   `imagen` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -140,7 +141,7 @@ CREATE TABLE `matriculas` (
   `id` int(5) NOT NULL,
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
-  `dni_alumno` varchar(9) NOT NULL,
+  `id_alumno` int(5) NOT NULL,
   `enseñanza` varchar(40) NOT NULL,
   `curso` varchar(10) NOT NULL,
   `itinerario` varchar(40) NOT NULL,
@@ -181,7 +182,9 @@ CREATE TABLE `optativas` (
 
 DROP TABLE IF EXISTS `personal`;
 CREATE TABLE `personal` (
+  `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
+  `clave` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
   `telefono` int(9) NOT NULL,
@@ -196,15 +199,14 @@ CREATE TABLE `personal` (
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`dni`),
-  ADD UNIQUE KEY `id` (`dni`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indices de la tabla `asignaturas`
 --
 ALTER TABLE `asignaturas`
   ADD PRIMARY KEY (`codigo`),
-  ADD UNIQUE KEY `id_curso` (`id_itinerario`),
   ADD KEY `id` (`codigo`);
 
 --
@@ -225,7 +227,8 @@ ALTER TABLE `enseñanzas`
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `itinerarios`
@@ -239,16 +242,14 @@ ALTER TABLE `itinerarios`
 --
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `dni` (`dni_alumno`),
-  ADD KEY `dni_2` (`dni_alumno`),
-  ADD KEY `dni_3` (`dni_alumno`),
-  ADD KEY `dni_4` (`dni_alumno`);
+  ADD KEY `id_alumno` (`id_alumno`);
 
 --
 -- Indices de la tabla `matriculas_registradas`
 --
 ALTER TABLE `matriculas_registradas`
-  ADD KEY `id_matricula` (`id_matricula`);
+  ADD KEY `id_matricula` (`id_matricula`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `optativas`
@@ -261,11 +262,18 @@ ALTER TABLE `optativas`
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
-  ADD PRIMARY KEY (`dni`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
@@ -304,6 +312,12 @@ ALTER TABLE `optativas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `personal`
+--
+ALTER TABLE `personal`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -312,6 +326,12 @@ ALTER TABLE `optativas`
 --
 ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `personal` (`id`);
 
 --
 -- Filtros para la tabla `itinerarios`
@@ -323,7 +343,7 @@ ALTER TABLE `itinerarios`
 -- Filtros para la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id`);
 
 --
 -- Filtros para la tabla `matriculas_registradas`
