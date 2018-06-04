@@ -61,7 +61,7 @@ if(!preg_match("/^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/", $nie))
     $valido=false;
 }
 
-if(!preg_match("/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/", $fecha_nac))
+if($fecha_nac=="")
 {
     $valido=false;
 }
@@ -96,7 +96,7 @@ if(!preg_match("/^\d{9}$/", $tel_movil))
     $valido=false;
 }
 
-if(!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/", $email))
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email))
 {
     $valido=false;
 }
@@ -121,7 +121,7 @@ if(!preg_match("/^\d{9}$/", $tel_padre))
     $valido=false;
 }
 
-if(!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/", $email_padre))
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email_padre))
 {
     $valido=false;
 }
@@ -146,7 +146,7 @@ if(!preg_match("/^\d{9}$/", $tel_madre))
     $valido=false;
 }
 
-if(!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/", $email_madre))
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email_madre))
 {
     $valido=false;
 }

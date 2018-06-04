@@ -13,7 +13,7 @@ ob_start();
   </li>
 </ul>
 <div class="tab-content">
-	<form name="altaMatricula" class="needs-validation" novalidate>
+     <form class="needs-validation" name="frmRegistro" action="php/alumnos/altaAlumno.php" method="post" novalidate>
 		<div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="alumno-tab">
 			<fieldset>
                 <legend>Datos del ALumno/a:</legend>
@@ -183,7 +183,7 @@ ob_start();
 
                     <div class="col-md-6 mb-3">
                         <label for="email_madre" class="control-label">E-mail de la madre</label>
-                        <input type="text" class="form-control" name="E-mail_madre" placeholder="email del madre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+                        <input type="text" class="form-control" name="email_madre" placeholder="email del madre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -195,20 +195,3 @@ ob_start();
         </div>						      
     </form>
 </div>
-
-	
-                    
-                           
-                            	
-                            		
-		                                
-		                            
-		                                
-		                            
-		                               
-		                            
-                                
-                        </div>
-                    </div>
-                
-
