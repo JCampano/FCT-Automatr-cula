@@ -1,4 +1,10 @@
+<?php
+  session_start();
+  if(isset($_SESSION["login"])){
+    header("location: index.php");
+  }
 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,14 +21,34 @@
   </head>
   <body>
     <div class="text-center" style="margin-top:30px;"><img class="mb-4" src="img/logo.png" alt=""></div>
-    <form class="form-signin text-center">
-          
+  
+    <form class="form-signin text-center" method="post" action="php/login.php">
+          <?php
+            extract($_GET);
+
+
+            if(isset($error)){
+
+              if($error==1){
+                echo '<div class="alert alert-danger alert-dismissable">
+                 Los datos introducidos no son válidos</div>';
+
+              } 
+              if($error==2) {
+                echo '<div class="alert alert-danger alert-dismissable">
+                  Debe estar logueado para acceder </div>';
+              }
+
+            }
+
+            
+          ?>
           <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
-          <label for="inputEmail" class="sr-only">Usuario</label>
-          <input id="inputEmail" class="form-control" placeholder="Usuario" required autofocus="">
-          <label for="inputPassword" class="sr-only">Contraseña</label>
-          <input id="inputPassword" class="form-control" placeholder="Contraseña" required="" type="password">
-          <div class="checkbox mb-3">
+          <label for="dni" class="sr-only">DNI</label>
+          <input id="dni" name="dni" class="form-control" placeholder="DNI" required autofocus="">
+          <label for="pass" class="sr-only">Contraseña</label>
+          <input id="pass" name="pass" class="form-control" placeholder="Contraseña" required="" type="password">
+          <div style="margin-top:30px;" class="checkbox mb-3">
             <label>
               <input value="remember-me" type="checkbox"> Recuérdame
             </label>

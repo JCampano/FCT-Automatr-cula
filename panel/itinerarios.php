@@ -1,11 +1,18 @@
-    <?php
-include "header.php";
+<?php
+include "php/permisos.php";
 
+if(!comprobarLogin("gestor")){
+
+  header("location: index.php?e=1");
+}
+
+include "header.php";
+comprobarLogin("gestor");
 
 if (!comprobarDatos("cursos")){
   ?>
    <div id="content-wrapper" class="fondo-gris">
-  <div class="container-fluid sin-datos text-center">
+  <div class="container sin-datos text-center">
     <div class="alert alert-warning" role="alert">
  Para gestionar los itinerarios debe añadir algún itinerario primero.
 </div>
@@ -91,7 +98,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
                                         </div>
-                                        <input required id="nombre-itinerario" type="text" class="form-control">
+                                        <input id="nombre-itinerario" type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -132,8 +139,8 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Curso</label>
                                         </div>
-                                        <select class="custom-select" disabled id="selectCursoAsignatura">
-                                          <option selected>No hay Cursos disponibles...</option>
+                                        <select class="custom-select" disabled id="selectCursoItinerario">
+                                          <option value="nulo" selected>No hay Cursos disponibles...</option>
                                           
                                         </select>
                                       </div>

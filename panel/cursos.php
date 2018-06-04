@@ -1,5 +1,14 @@
     <?php
+
+    include "php/permisos.php";
+
+if(!comprobarLogin("gestor")){
+
+  header("location: index.php?e=1");
+}
+
 include "header.php";
+
 
 
 

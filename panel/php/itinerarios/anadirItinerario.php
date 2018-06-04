@@ -4,19 +4,19 @@
 	extract($_POST);
 
 
-	$comprobacion = ejecutaConsultaArray("SELECT nombre, id_enseñanza from cursos where nombre = '$nombre'");
+	$comprobacion = ejecutaConsultaArray("SELECT nombre, id_curso from itinerarios where nombre = '$nombre'");
 
 	if(count($comprobacion)!=0){
-		if($comprobacion[0]["id_enseñanza"]==$ensenanza){
-			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Ya existe un curso con el mismo nombre en la misma enseñanza</div>';
+		if($comprobacion[0]["id_curso"]==$id_curso){
+			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Ya existe un itinerario con el mismo nombre en el mismo curso</div>';
 		} else {
-			ejecutaConsultaAccion("INSERT INTO cursos(nombre, id_enseñanza) VALUES ('$nombre', $ensenanza)");
+			ejecutaConsultaAccion("INSERT INTO itinerarios(nombre, id_curso) VALUES ('$nombre', $id_curso)");
 	
-			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Se ha añadido el curso <strong>'.$nombre.'</strong></div>';
+			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Se ha añadido el itinerario <strong>'.$nombre.'</strong></div>';
 		}
 	} else {
-		ejecutaConsultaAccion("INSERT INTO cursos(nombre, id_enseñanza) VALUES ('$nombre', $ensenanza)");
-			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Se ha añadido el curso <strong>'.$nombre.'</strong></div>';
+		ejecutaConsultaAccion("INSERT INTO itinerarios(nombre, id_curso) VALUES ('$nombre', $id_curso)");
+			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Se ha añadido el itinerario <strong>'.$nombre.'</strong></div>';
 	}
 	
   

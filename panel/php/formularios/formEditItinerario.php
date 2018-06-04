@@ -1,10 +1,15 @@
 <?php
     include "../functions.php";
     extract($_POST);
-    $datos = ejecutaConsultaArray("SELECT c.id as idCurso, c.nombre as nCurso, e.id as idEnseñanza, e.nombre as nEnseñanza from cursos c inner join enseñanzas e where c.id=$id and c.id_enseñanza=e.id");
+    session_start();
+    $datos = ejecutaConsultaArray("select i.id as idItinerario, i.nombre as nItinerario, c.nombre as nCurso, c.id as idCurso, e.nombre as nEnseñanza, e.id as idEnseñanza from itinerarios i inner join cursos c, enseñanzas e where i.id_curso = c.id and c.id_enseñanza = e.id and i.id=$id");
 
  	
-    $enseñanzas = ejecutaConsultaArray("SELECT * FROM enseñanzas WHERE id<>".$datos[0]["idEnseñanza"]);
+    $cursos = ejecutaConsultaArray("select c.id as idCurso, c.nombre as nCurso, e.nombre as nEnseñanza from cursos c inner join enseñanzas e where c.id_enseñanza = e.id and c.id<>".$datos[0]["idCurso"]." and e.id=".$datos[0]["idEnseñanza"]);
+
+    $_SESSION["nItinerario"] = $datos[0]["nItinerario"];
+    $_SESSION["idCurso"] = $datos[0]["idCurso"];
+
 
   //  echo "SELECT c.id, c.nombre, e.nombre from cursos c inner join enseñanzas e on c.id_enseñanza = e.id where c.id=".$nombreCurso[0]["id"].""
 
@@ -12,7 +17,7 @@
 
     
 ?>
-<form class="needs-valcodation" name="frmEditarAlumno" action="php/cursos/editarCurso.php" method="post" novalcodate>
+<form class="needs-valcodation" name="frmEditarAlumno" action="php/itinerarios/editarItinerario.php" method="post" novalcodate>
 					  		<div class="form-group" style="display:none;">
 					    		
 					    		<input type="text" class="form-control" value="<?php echo $datos[0]["idCurso"] ?>" name="id">
@@ -21,16 +26,16 @@
 
 					  		<div class="form-group">
 					    		<label for="nombre" class="control-label">Nombre</label>
-					    		<input type="text" class="form-control" value="<?php echo $datos[0]["nCurso"] ?>" name="nombre" placeholder="Nombre" required>
+					    		<input type="text" class="form-control" value="<?php echo $datos[0]["nItinerario"] ?>" name="nombre" placeholder="Nombre" required>
 					 		</div>	
 					 		<div class="form-group">
-					    		<label for="nombre" class="control-label">Enseñanza</label>
+					    		<label for="nombre" class="control-label">Curso</label>
 
-					    		<select class="custom-select" id="enseñanza" name="enseñanza">
+					    		<select class="custom-select" id="curso" name="curso">
 					    		    <?php
-					    		    	echo '<option value="'.$datos[0]["idEnseñanza"].'">'.$datos[0]["nEnseñanza"].'</option>';
-					    		    	for ($i=0;$i<count($enseñanzas);$i++){
-					    		    		echo '<option value="'.$enseñanzas[$i]['id'].'">'.$enseñanzas[$i]['nombre'].'</option>';
+					    		    	echo '<option value="'.$datos[0]["idCurso"].'">'.$datos[0]["nCurso"].' de '.$datos[0]["nEnseñanza"].'</option>';
+					    		    	for ($i=0;$i<count($cursos);$i++){
+					    		    		echo '<option value="'.$cursos[$i]['idCurso'].'">'.$cursos[$i]['nCurso'].' de '.$datos[0]["nEnseñanza"].'</option>';	
 					    		    	}
 					    		    ?>
 					    		</select>
