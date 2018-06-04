@@ -98,7 +98,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
                                         </div>
-                                        <input required id="nombre-itinerario" type="text" class="form-control">
+                                        <input id="nombre-itinerario" type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -139,8 +139,8 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Curso</label>
                                         </div>
-                                        <select class="custom-select" disabled id="selectCursoAsignatura">
-                                          <option selected>No hay Cursos disponibles...</option>
+                                        <select class="custom-select" disabled id="selectCursoItinerario">
+                                          <option value="nulo" selected>No hay Cursos disponibles...</option>
                                           
                                         </select>
                                       </div>

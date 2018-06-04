@@ -75,9 +75,9 @@ $(document).ready(function() {
 
 
 //Rellenar combos  
-$("#selectEnsenanzaAsignatura").change(rellenarComboCurso);
+$("#selectEnsenanzaAsignatura").change(rellenarComboCursoAsignatura);
 
-function rellenarComboCurso(){
+function rellenarComboCursoAsignatura(){
     if($("#selectEnsenanzaAsignatura").val()!='nulo'){
         
         
@@ -122,9 +122,9 @@ function rellenarComboCurso(){
     }
 }
 
-$("#selectCursoAsignatura").change(rellenarComboItinerario);
+$("#selectCursoAsignatura").change(rellenarComboItinerarioAsignatura);
 
-function rellenarComboItinerario(){
+function rellenarComboItinerarioAsignatura(){
        
          var id=$("#selectCursoAsignatura").val();
          console.log("ID CURSO:"+id);
@@ -156,6 +156,54 @@ function rellenarComboItinerario(){
 
         
 }
+
+
+
+
+$("#selectEnsenanzaItinerario").change(rellenarComboCursoItinerario);
+
+function rellenarComboCursoItinerario(){
+    if($("#selectEnsenanzaItinerario").val()!='nulo'){
+        
+        
+        var id=$("#selectEnsenanzaItinerario").val();
+       
+        $.post("php/combos.php", {tabla: "cursos", id:id, fila:"id_enseñanza" }, function(result){
+
+            var resultado=JSON.parse(result);
+
+            if (resultado.length!=0){
+                $('#selectCursoItinerario').prop("disabled", false);
+                
+                $("#selectCursoItinerario").empty();
+                  $.each(resultado, function(index){
+
+                    
+                    $("#selectCursoItinerario").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
+                });
+                 
+            } else {
+                $('#selectCursoItinerario').prop("disabled", true);
+                $("#selectCursoItinerario").empty();
+                $("#selectCursoItinerario").append('<option value="nulo" selected>No hay Cursos disponibles...</option>');
+
+
+            }
+            
+         
+        
+   
+    });
+    } else {
+        $('#selectCursoItinerario').prop("disabled", true);
+        $("#selectCursoItinerario").empty();
+        $("#selectCursoItinerario").append('<option value="nulo" selected>No hay Cursos disponibles...</option>');
+
+
+    }
+}
+
+
 
 
    //MOSTRAR TABLAS
@@ -427,3 +475,33 @@ function anadirCurso(){
     }
     
 }
+
+
+//Itinerario
+$("#btn-enviar-itinerario").on("click", añadirItinerario);
+
+
+function añadirItinerario(){
+
+    var nombre = $("#nombre-itinerario").val();
+    var curso = $("#selectCursoItinerario").val();
+
+    if (nombre!="" && curso!="nulo"){
+
+        $.post("php/itinerarios/anadirItinerario.php",{nombre:nombre, id_curso:curso}, function(result){
+               
+            $("#mensajes").empty().append(result);
+            $("#mensajes").show(500);
+
+            $("#codigo-itinerario").val("");
+            $("#nombre-itinerario").val("");
+                cargarItinerarios();
+        
+        });
+    } else {
+        $("#mensajes").empty().append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Debe completar todos los campos</div>');
+        $("#mensajes").show(500);
+    }
+    
+}
+
