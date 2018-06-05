@@ -1,3 +1,13 @@
+//NOTIFICACIONES
+$("#botonNotificaciones").on("click", cargarNotificaciones);
+
+function cargarNotificaciones(){
+  $.post("php/notificaciones.php",  function(result){
+      $("#zonaNotificaciones").empty().append(result);
+ 
+  });
+}
+
 
 $(".btn-editar-alumno").on("click",cargarFormEditarAlumno);
 
@@ -62,6 +72,10 @@ $(document).ready(function() {
 
         case "itinerarios.php":
             cargarItinerarios();
+            break;
+
+        case "registrar-matricula.php":
+            cargarUltimasMatriculasRegistradas();
             break;
         
     }
@@ -389,6 +403,19 @@ function cargarItinerarios(){
 }
 
 
+//Ultimas Matriculas Registradas
+function cargarUltimasMatriculasRegistradas(){
+  $.post("php/matriculas/ultimas-matriculas-registradas.php", function(result){
+               
+            $("#zonaMatriculasRegistradas").empty().append(result);
+       
+
+          
+        
+        });
+}
+
+
 
 
 //Añadir datos
@@ -505,3 +532,34 @@ function añadirItinerario(){
     
 }
 
+//Ultimas matrículas registradas
+$("#btn-registrar-matricula").on("click", registrarMatricula);
+
+function registrarMatricula(){
+  $("#mensajes").empty().hide();
+  var codigo = $("#codigo-registrar-asignatura").val();
+  var idUsuario = $("#idUsuario").val();
+  if(codigo!=0){
+    $.post("php/matriculas/consultar-matricula-registrada.php",{id:codigo}, function(result){
+    
+      if(result=="true"){
+        $.post("php/matriculas/registrar-matricula.php",{id:codigo, idUsuario:idUsuario}, function(result){
+               
+            $("#mensajes").empty().append(result);
+            $("#mensajes").show(500);
+
+            $("#codigo-registrar-asignatura").val("");
+                cargarUltimasMatriculasRegistradas();
+        
+        });
+      } else {
+        $("#mensajes").append('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>La matrícula #'+codigo+' ya ha sido registrada</div>');
+        $("#mensajes").show(500,);
+      }
+    
+    });
+  } else {
+    $("#mensajes").append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>No ha introducido ningun código</div>');
+    $("#mensajes").show(500);
+  }
+}

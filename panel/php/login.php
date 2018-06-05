@@ -19,7 +19,7 @@ if(count($buscarUsuario)==0 || $buscarUsuario[0]["clave"]!=$pass){
 		$_SESSION["login"]=$dni;
 		$_SESSION["nombre"]=$buscarUsuario[0]["nombre"];
 		$_SESSION["role"]=$buscarUsuario[0]["tipo"];
-
+		$_SESSION["idUsuario"] = $buscarUsuario[0]["id"];
 		header("Location: ../index.php");
 }
 

@@ -74,9 +74,9 @@ include "header.php";
                     </div>
                     <!-- /.row -->
                     <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-lg-1 col-md-1">
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-lg-10 col-md-10">
                         <div class="card text-white bg-secondary mb-3">
                           <div class="card-header">Registrar Matrícula</div>
                           <div class="card-body">
@@ -86,11 +86,16 @@ include "header.php";
                                <div class="col-sm-10">
                                  <div class="input-group">
                                    <div class="input-group-prepend">
-                                     <span class="input-group-text">Código</span>
+                                     <span class="input-group-text"><i class="fas fa-file-alt"></i></span>
                                    </div>
-                                   <input type="text" name="nombre-ensenanza" id="codigo-registrar-asignatura" class="form-control">
+                                   <input type="text" name="cod-matricula" id="codigo-registrar-asignatura" class="form-control">
 
-                                  
+                                     
+
+                                        
+                                        <input type="text" class="form-control" value="<?php echo $_SESSION["idUsuario"]; ?>" name="codigo" id="idUsuario" style="display:none;">
+                                    
+
                                  </div>
                                </div>
                                <div class="col-sm-2">
@@ -104,97 +109,9 @@ include "header.php";
                    
                   </div>
                   <h5 style="margin-top:30px;">ÚLTIMAS MATRÍCULAS REGISTRADAS</h5>
-                  <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
-                     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Pepe Pérez García</h5>
-                        <small>10/09/2018</small>
-                      </div>
-                      <p class="mb-1">COD #AF2704</p>
-                      <small>Registrado por Manuel Elefante Mesa</small>
-                      
-                    </a>
+                  <div id="zonaMatriculasRegistradas">
+                    <div class="text-center"><img src="img/cargando.gif">
+                    </div>
                   </div>
 
           </div>
