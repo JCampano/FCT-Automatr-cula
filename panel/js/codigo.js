@@ -84,9 +84,9 @@ function rellenarComboCursoAsignatura(){
         var id=$("#selectEnsenanzaAsignatura").val();
        
         $.post("php/combos.php", {tabla: "cursos", id:id, fila:"id_enseñanza" }, function(result){
-            console.log(result);
+           
             var resultado=JSON.parse(result);
-            console.log(resultado.length);  
+            
             if (resultado.length!=0){
                 $('#selectCursoAsignatura').prop("disabled", false);
                 
@@ -96,7 +96,7 @@ function rellenarComboCursoAsignatura(){
                     
                     $("#selectCursoAsignatura").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
                 });
-                  rellenarComboItinerario();
+                  rellenarComboItinerarioAsignatura();
             } else {
                 $('#selectCursoAsignatura').prop("disabled", true);
                 $("#selectCursoAsignatura").empty();

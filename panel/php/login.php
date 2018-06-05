@@ -8,7 +8,7 @@ echo $dni;
 
 $buscarUsuario=ejecutaConsultaArray("SELECT * from personal where dni='$dni'");
 
-if(count($buscarUsuario)==0 || $buscarUsuario[0]["password"]!=$pass){
+if(count($buscarUsuario)==0 || $buscarUsuario[0]["clave"]!=$pass){
 
 	   
 		
