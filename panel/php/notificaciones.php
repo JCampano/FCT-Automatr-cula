@@ -24,6 +24,8 @@
 	if($sinNotificaciones){
 		echo '<small class="dropdown-item">No hay notificaciones</small>';
 	}
+
+
 /*
 	echo ' 
             <a class="dropdown-item" href="#">

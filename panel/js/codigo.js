@@ -1,10 +1,16 @@
 //NOTIFICACIONES
+
+
 $("#botonNotificaciones").on("click", cargarNotificaciones);
 
 function cargarNotificaciones(){
   $.post("php/notificaciones.php",  function(result){
       $("#zonaNotificaciones").empty().append(result);
- 
+      if(result!='<small class="dropdown-item">No hay notificaciones</small>'){
+        $("#circuloNotificaciones").show(500);
+      } else {
+        $("#circuloNotificaciones").hide();
+      }
   });
 }
 
@@ -53,29 +59,35 @@ $(document).ready(function() {
 
 
 
- 
+  cargarNotificaciones();
       var direccion = String(window.location);
       var aDireccion = direccion.split("/");
 
       switch (aDireccion[5]) {
         case "asignaturas.php":
             cargarAsignaturas();
+            $("#btnAsignaturas").addClass("seleccionado");
             break;
 
         case "ensenanzas.php":
             cargarEnsenanzas();
+            $("#btnEnsenanzas").addClass("seleccionado");
             break;
 
         case "cursos.php":
             cargarCursos();
+            $("#btnCursos").addClass("seleccionado");
             break;
 
         case "itinerarios.php":
             cargarItinerarios();
+            $("#btnItinerarios").addClass("seleccionado");
             break;
 
         case "registrar-matricula.php":
             cargarUltimasMatriculasRegistradas();
+            $("#menuMatriculas").collapse();
+            $("#btnRegistrarMatricula").addClass("seleccionado");
             break;
         
     }
