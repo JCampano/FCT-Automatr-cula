@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2018 a las 21:53:07
+-- Tiempo de generación: 05-06-2018 a las 17:44:48
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -36,8 +36,8 @@ CREATE TABLE `alumnos` (
   `dni` varchar(9) NOT NULL,
   `clave` varchar(40) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `apellido 1` varchar(40) NOT NULL,
-  `apellido 2` varchar(40) NOT NULL,
+  `apellido1` varchar(40) NOT NULL,
+  `apellido2` varchar(40) NOT NULL,
   `nie` varchar(9) NOT NULL,
   `fecha_nac` date NOT NULL,
   `direccion` varchar(60) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido 1`, `apellido 2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
+INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
 (1, '00000000A', '1234', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
 
 -- --------------------------------------------------------
@@ -139,11 +139,10 @@ CREATE TABLE `itinerarios` (
 DROP TABLE IF EXISTS `matriculas`;
 CREATE TABLE `matriculas` (
   `id` int(5) NOT NULL,
+  `cod_matricula` varchar(40) NOT NULL,
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
-  `enseñanza` varchar(40) NOT NULL,
-  `curso` varchar(10) NOT NULL,
   `itinerario` varchar(40) NOT NULL,
   `bloque_optativas` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -248,6 +247,7 @@ ALTER TABLE `matriculas`
 -- Indices de la tabla `matriculas_registradas`
 --
 ALTER TABLE `matriculas_registradas`
+  ADD PRIMARY KEY (`id_matricula`),
   ADD KEY `id_matricula` (`id_matricula`),
   ADD KEY `id_usuario` (`id_usuario`);
 
