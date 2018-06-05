@@ -79,3 +79,15 @@ filter: brightness(70%);
 .navegacion{
 	margin-top:30px;
 }
+
+
+.fondo-administrativo{
+	background-color: #816350;
+}
+
+.fondo-gestor{
+	background-color: #226c40;
+}
+.fondo-administrador{
+	background-color: #2b868d;
+}

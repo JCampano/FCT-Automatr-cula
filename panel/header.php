@@ -82,18 +82,36 @@
           </a>
         </li>
 
+        <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Matrículas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="registrar-matricula.php">Registrar Matrícula</a>
+            </li>
+            <li>
+              <a href="cards.html">Matrículas Registradas</a>
+            </li>
+            <li>
+              <a href="cards.html">Matrículas no Registradas</a>
+            </li>
+          </ul>
+        </li>
+
         <?php
           if($_SESSION["role"]=="gestor" || $_SESSION["role"]=="administrador"){
 
 
         ?>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
+        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
           <a class="nav-link" href="ensenanzas.php">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Enseñanzas</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cursos">
+        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Cursos">
           <a class="nav-link" href="cursos.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Cursos</span>
@@ -101,24 +119,25 @@
         </li>
         
        
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Itinerarios">
+        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Itinerarios">
           <a class="nav-link" href="itinerarios.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Itinerarios</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Asignaturas">
+        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Asignaturas">
           <a class="nav-link" href="asignaturas.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Asignaturas</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Alumnos">
+        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">
           <a class="nav-link" href="alumnos.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Alumnos</span>
           </a>
         </li>
+
 
         <?php
           }
@@ -127,7 +146,7 @@
 
 
         ?>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios">
+        <li class="nav-item fondo-administrador" data-toggle="tooltip" data-placement="right" title="Usuarios">
           <a class="nav-link" href="usuarios.php">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Usuarios</span>
