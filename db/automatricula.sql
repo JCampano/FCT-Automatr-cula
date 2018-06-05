@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2018 a las 17:44:48
+-- Tiempo de generación: 06-06-2018 a las 00:48:24
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -143,8 +143,8 @@ CREATE TABLE `matriculas` (
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
-  `itinerario` varchar(40) NOT NULL,
-  `bloque_optativas` varchar(40) NOT NULL
+  `id_itinerario` int(5) NOT NULL,
+  `id_optativa` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -241,7 +241,9 @@ ALTER TABLE `itinerarios`
 --
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_alumno` (`id_alumno`);
+  ADD KEY `id_alumno` (`id_alumno`),
+  ADD KEY `id_itinerario` (`id_itinerario`),
+  ADD KEY `id_optativa` (`id_optativa`);
 
 --
 -- Indices de la tabla `matriculas_registradas`
@@ -249,7 +251,8 @@ ALTER TABLE `matriculas`
 ALTER TABLE `matriculas_registradas`
   ADD PRIMARY KEY (`id_matricula`),
   ADD KEY `id_matricula` (`id_matricula`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_usuario_2` (`id_usuario`);
 
 --
 -- Indices de la tabla `optativas`
@@ -263,7 +266,8 @@ ALTER TABLE `optativas`
 --
 ALTER TABLE `personal`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`id`);
+  ADD KEY `id` (`id`),
+  ADD KEY `id_2` (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -343,13 +347,16 @@ ALTER TABLE `itinerarios`
 -- Filtros para la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id`);
+  ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `alumnos` (`id`),
+  ADD CONSTRAINT `matriculas_ibfk_2` FOREIGN KEY (`id_itinerario`) REFERENCES `itinerarios` (`id`),
+  ADD CONSTRAINT `matriculas_ibfk_3` FOREIGN KEY (`id_optativa`) REFERENCES `optativas` (`id`);
 
 --
 -- Filtros para la tabla `matriculas_registradas`
 --
 ALTER TABLE `matriculas_registradas`
-  ADD CONSTRAINT `matriculas_registradas_ibfk_1` FOREIGN KEY (`id_matricula`) REFERENCES `matriculas` (`id`);
+  ADD CONSTRAINT `matriculas_registradas_ibfk_1` FOREIGN KEY (`id_matricula`) REFERENCES `matriculas` (`id`),
+  ADD CONSTRAINT `matriculas_registradas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `imagenes` (`id`);
 
 --
 -- Filtros para la tabla `optativas`
