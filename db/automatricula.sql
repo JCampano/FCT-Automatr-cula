@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2018 a las 00:48:24
+-- Tiempo de generación: 06-06-2018 a las 00:58:25
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -241,6 +241,7 @@ ALTER TABLE `itinerarios`
 --
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_alumno_2` (`id_alumno`),
   ADD KEY `id_alumno` (`id_alumno`),
   ADD KEY `id_itinerario` (`id_itinerario`),
   ADD KEY `id_optativa` (`id_optativa`);
