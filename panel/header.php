@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
-    include "php/functions.php";
-    include "php/gestionlogin.php";
+    require_once("php/functions.php");
+    require_once("php/gestionlogin.php");
 
 
 ?>
@@ -74,7 +74,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+      <ul class="navbar-nav navbar-sidenav" id="ocultar-menu">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
           <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
@@ -83,19 +83,16 @@
         </li>
 
         <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuMatriculas" data-parent="#menuMatriculas">
+            <i class="fa fa-fw fa-file-alt"></i>
             <span class="nav-link-text">Matrículas</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="menuMatriculas">
             <li>
-              <a href="registrar-matricula.php">Registrar Matrícula</a>
+              <a id="btnRegistrarMatricula" href="registrar-matricula.php"><i class="fa fa-fw fa-angle-right"></i>Registrar Matrícula</a>
             </li>
             <li>
-              <a href="cards.html">Matrículas Registradas</a>
-            </li>
-            <li>
-              <a href="cards.html">Matrículas no Registradas</a>
+              <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Ver Matrículas</a>
             </li>
           </ul>
         </li>
@@ -106,13 +103,13 @@
 
         ?>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
-          <a class="nav-link" href="ensenanzas.php">
-            <i class="fa fa-fw fa-users"></i>
+          <a id="btnEnsenanzas" class="nav-link" href="ensenanzas.php">
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Enseñanzas</span>
           </a>
         </li>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Cursos">
-          <a class="nav-link" href="cursos.php">
+          <a id="btnCursos" class="nav-link" href="cursos.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Cursos</span>
           </a>
@@ -120,20 +117,20 @@
         
        
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Itinerarios">
-          <a class="nav-link" href="itinerarios.php">
-            <i class="fa fa-fw fa-link"></i>
+          <a id="btnItinerarios" class="nav-link" href="itinerarios.php">
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Itinerarios</span>
           </a>
         </li>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Asignaturas">
-          <a class="nav-link" href="asignaturas.php">
-            <i class="fa fa-fw fa-link"></i>
+          <a id="btnAsignaturas" class="nav-link" href="asignaturas.php">
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Asignaturas</span>
           </a>
         </li>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">
           <a class="nav-link" href="alumnos.php">
-            <i class="fa fa-fw fa-link"></i>
+            <i class="fa fa-fw fa-graduation-cap "></i>
             <span class="nav-link-text">Alumnos</span>
           </a>
         </li>
@@ -148,7 +145,7 @@
         ?>
         <li class="nav-item fondo-administrador" data-toggle="tooltip" data-placement="right" title="Usuarios">
           <a class="nav-link" href="usuarios.php">
-            <i class="fa fa-fw fa-link"></i>
+            <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Usuarios</span>
           </a>
         </li>
@@ -161,7 +158,7 @@
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
+          <a class="nav-link text-center" id="sidenavToggler" data-toggle="collapse" href="#ocultar-menu" data-parent="XD">
             <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
@@ -171,59 +168,22 @@
         
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="botonNotificaciones" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
+            <span class="d-lg-none">Notificaciones
+              <span class="badge badge-pill badge-warning"></span>
             </span>
             <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
+              <i class="fa fa-fw fa-circle" id="circuloNotificaciones" style="display:none;"></i>
             </span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown" id="zonaNotificaciones">
+            <div class="text-center"><img src="img/cargando.gif" style="width:50px;"></div>
           </div>
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Buscar...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
+          <a class="nav-link">
+                     <i class="fa fa-fw fa-user"></i><?php echo $_SESSION["nombre"]; ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#cerrar-sesion">

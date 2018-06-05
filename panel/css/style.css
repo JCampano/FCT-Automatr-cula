@@ -44,6 +44,16 @@
 	}
 }
 
+@media only screen and (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav .dropdown-menu {
+
+	   
+	    left: -100px;
+
+	}
+	}
+}
+
 #mensajes{
 	display:none;
 }
@@ -82,12 +92,21 @@ filter: brightness(70%);
 
 
 .fondo-administrativo{
-	background-color: #816350;
+	background-color: #563c48;
 }
 
+.fondo-administrativo>ul>li{
+	background-color:#6c3e53;
+}
+
+
+
 .fondo-gestor{
-	background-color: #226c40;
+	background-color: #3d634d;
 }
 .fondo-administrador{
-	background-color: #2b868d;
+	background-color: #1d585d;
+}
+.seleccionado{
+	color:white !important;
 }
