@@ -20,13 +20,13 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="nombre" class="control-label">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca un nombre mínimo de <strong>3 letras</strong></span>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="apellido1" class="control-label">Primer apellido</label>
-                        <input type="text" class="form-control" name="apellido1" placeholder="Primer apellido" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="apellido1" placeholder="Primer apellido" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca un apellido mínimo de <strong>3 letras</strong></span>
                     </div>
 
@@ -49,19 +49,24 @@ ob_start();
                         <span class="invalid-feedback">Introduzca un DNI que conste de <strong>8 números y 1 letra</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
-                        <input type="password" class="form-control" name="contrasena" placeholder="Contrase&ntilde;a" required pattern="[a-zA-Z\s]{3,40}">
-                        <span class="invalid-feedback">Introduzca una contraseá mínimo de <strong>3 letras</strong></span>
+                        <label for="direccion" class="control-label">Dirección</label>
+                        <input type="text" class="form-control" name="direccion" placeholder="Dirección" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ,º0-9\s]{3,40}">
+                        <span class="invalid-feedback">Introduzca una dirección mínimo de <strong>3 caracteres</strong></span>
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="direccion" class="control-label">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" placeholder="Dirección" required pattern="[a-zA-Z\s]{3,40}">
-                        <span class="invalid-feedback">Introduzca una dirección mínimo de <strong>3 letras</strong></span>
+                    <div class="col-md-4 mb-3">
+                        <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
+                        <input type="password" class="form-control" name="contrasena" placeholder="Contrase&ntilde;a" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}">
+                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números</strong></span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
+                        <label for="contrasena" class="control-label">Repetir Contrase&ntilde;a</label>
+                        <input type="password" class="form-control" name="contrasena2" placeholder="Repetir contrase&ntilde;a" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}">
+                        <span class="invalid-feedback">Las contraseñas no coinciden.</span>
+                    </div>
+                    <div class="col-md-4 mb-3">
                         <label for="fecha_nac" class="control-label">Fecha Nacimiento</label>
                         <input type="date" class="form-control" name="fecha_nac" placeholder="Fecha Nacimiento" required pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$">
                         <span class="invalid-feedback">Introduzca una fecha con el formato correcto</span>
@@ -71,13 +76,13 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="poblacion" class="control-label">Población</label>
-                        <input type="text" class="form-control" name="poblacion" placeholder="Población" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="poblacion" placeholder="Población" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca una población mínimo de <strong>3 letras</strong></span>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="provincia" class="control-label">Provincia</label>
-                        <input type="text" class="form-control" name="provincia" placeholder="Población" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="provincia" placeholder="Población" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca una provincia mínimo de <strong>3 letras</strong></span>
                     </div>
 
@@ -116,7 +121,7 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="nombre_padre" class="control-label">Nombre del padre</label>
-                        <input type="text" class="form-control" name="nombre_padre" placeholder="Nombre del padre" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="nombre_padre" placeholder="Nombre del padre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                        <span class="invalid-feedback">Introduzca un nombre mínimo de <strong>3 letras</strong></span>
                     </div>
 
@@ -130,7 +135,7 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label for="apellidos_padre" class="control-label">Apellidos del padre</label>
-                        <input type="text" class="form-control" name="apellidos_padre" placeholder="Apellidos del padre" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="apellidos_padre" placeholder="Apellidos del padre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                          <span class="invalid-feedback">Introduzca los apellidos mínimo de <strong>3 letras</strong></span>
                     </div>
                 </div>
@@ -156,7 +161,7 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="nombre_madre" class="control-label">Nombre de la madre</label>
-                        <input type="text" class="form-control" name="nombre_madre" placeholder="Nombre de la madre" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="nombre_madre" placeholder="Nombre de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca un nombre mínimo de <strong>3 letras</strong></span>
                     </div>
 
@@ -169,7 +174,7 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label for="apellidos_madre" class="control-label">Apellidos de la madre </label>
-                        <input type="text" class="form-control" name="apellidos_madre" placeholder="Apellidos de la madre" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="apellidos_madre" placeholder="Apellidos de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
                         <span class="invalid-feedback">Introduzca los apellidos mínimo de <strong>3 letras</strong></span>
                     </div>
                 </div>

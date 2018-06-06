@@ -6,6 +6,7 @@ extract($_POST);
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."'";
 $dni=trim($_POST['dni']);
 $contrasena=trim($_POST['contrasena']);
+$contrasena2=trim($_POST['contrasena2']);
 $nombre=trim($_POST['nombre']);
 $apellido1=trim($_POST['apellido1']);
 $apellido2=trim($_POST['apellido2']);
@@ -36,22 +37,27 @@ if(!preg_match("/\d{8}\w/", $dni))
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $contrasena))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}/", $contrasena))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $nombre))
+if($contrasena!=$contrasena2))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellido1))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellido2))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellido1))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellido2))
 {
     $valido=false;
 }
@@ -66,17 +72,17 @@ if($fecha_nac=="")
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $direccion))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ,º0-9\s]{3,40}/", $direccion))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $poblacion))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $poblacion))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $provincia))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $provincia))
 {
     $valido=false;
 }
@@ -106,12 +112,12 @@ if(!preg_match("/\d{8}\w/", $dni_padre))
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $nombre_padre))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre_padre))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellidos_padre))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellidos_padre))
 {
     $valido=false;
 }
@@ -131,12 +137,12 @@ if(!preg_match("/\d{8}\w/", $dni_madre))
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $nombre_madre))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre_madre))
 {
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-Z\s]{3,40}/", $apellidos_madre))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellidos_madre))
 {
     $valido=false;
 }
