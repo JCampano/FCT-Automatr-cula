@@ -1,7 +1,7 @@
 <?php
 require_once("php/permisos.php");
 
-if(!comprobarLogin("gestor")){
+if(!comprobarLogin("administrador")){
 
   header("location: index.php?e=1");
 }
@@ -17,7 +17,7 @@ include "header.php";
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Editar Alumno</h4>
+                <h4 class="modal-title">Editar Usuario</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -34,7 +34,7 @@ include "header.php";
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <p class="modal-title">¿Estás seguro que desea eliminar la siguiente alumno?</p>
+                <p class="modal-title">¿Estás seguro que desea eliminar la siguiente usuario?</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -58,10 +58,51 @@ include "header.php";
                             <nav aria-label="breadcrumb" class="navegacion">
                              <ol class="breadcrumb">
                                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                               <li class="breadcrumb-item active" aria-current="page">Alumnos</li>
+                               <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
                              </ol>
                            </nav>
-                              
+                            <div class="text-right  d-print-inline-flex">
+                              <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
+                              Añadir Usuario
+                            </button>
+                          </div>
+                          </p>
+                          <div class="collapse" id="anadirAsignatura">
+                           <div class="card text-white bg-info mb-3">
+                             <div class="card-header">Añadir Usuario</div>
+                             <div class="card-body">
+                               <div id="mensajes"></div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Nombre</span>
+                                      </div>
+                                      <input type="text" name="nombre-usuario" id="nombre-usuario" class="form-control">
+
+                                     
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Contraseña</span>
+                                      </div>
+                                      <input type="text" name="pass-usuario" id="pass-usuario" class="form-control">
+
+                                     
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2">
+                                    <button class="btn btn-block" id="btn-enviar-ensenanza">Guardar</button>
+                                  </div>
+                                  
+                                </div>
+                                
+                          
+                             </div>
+                           </div>
+                          </div>
                             
                             
                              <?php
@@ -81,11 +122,11 @@ include "header.php";
                     <div class="card">
 
                                 <div class="card-header text-white bg-secondary">
-                                    Lista de Alumnos
+                                    Lista de Usuarios
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
-                                <div class="table-responsive" id="zona-tabla-alumnos">
+                                <div class="table-responsive" id="zona-tabla-usuarios">
                                         <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div> 
                                     </div>
                                     <!-- /.table-responsive -->

@@ -19,7 +19,7 @@
                     <td>'.$resultado[$i]["nAsignatura"].'</td>
                     <td>'.$resultado[$i]["nCurso"].' ('.$resultado[$i]["nEnseñanza"].')'.'</td>
                     <td>'.$resultado[$i]["nItinerario"].'</td>
-                    <td width="120"><button style="margin-right:10px;" class="btn-editar" data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAsignatura" data-target="#editarCurso" data-tipo="tooltip" data-placement="down" title="Editar"> <i class="fas fa-pencil-alt"></i></button><button data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAsignatura" class=" btn-eliminar" data-target="#editarCurso" data-tipo="tooltip" data-placement="down" title="Eliminar"><i class="far fa-trash-alt"></i></button></td>
+                    <td width="120"><button style="margin-right:10px;" class="btn-editar" data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#editarAsignatura" data-tipo="tooltip" data-placement="down" title="Editar"> <i class="fas fa-pencil-alt"></i></button><button data-cod="'.$resultado[$i]["codigo"].'" type="button" data-toggle="modal" data-target="#eliminarAsignatura" class=" btn-eliminar" data-tipo="tooltip" data-placement="down" title="Eliminar"><i class="far fa-trash-alt"></i></button></td>
                 </tr>';
     }
     

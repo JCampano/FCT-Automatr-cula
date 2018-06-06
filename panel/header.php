@@ -82,7 +82,7 @@
           </a>
         </li>
 
-        <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Matrículas">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuMatriculas" data-parent="#menuMatriculas">
             <i class="fa fa-fw fa-file-alt"></i>
             <span class="nav-link-text">Matrículas</span>
@@ -102,7 +102,7 @@
 
 
         ?>
-        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
+        <li id="btnEnsenanzasLista" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Enseñanzas">
           <a id="btnEnsenanzas" class="nav-link" href="ensenanzas.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Enseñanzas</span>
@@ -129,12 +129,22 @@
           </a>
         </li>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">
-          <a class="nav-link" href="alumnos.php">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuAlumnos" data-parent="#menuAlumnos">
             <i class="fa fa-fw fa-graduation-cap "></i>
             <span class="nav-link-text">Alumnos</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="menuAlumnos">
+            <li>
+              <a id="btnGestionAlumnos" href="alumnos.php"><i class="fa fa-fw fa-angle-right"></i>Gestión Alumnos</a>
+            </li>
+            <li>
+              <a id="btnSolicitudes" href="solicitudes-datos.php"><i class="fa fa-fw fa-angle-right"></i>Solicitudes</a>
+            </li>
+            <li>
+              <a id="btnImportarDatos" href="importar-datos.php"><i class="fa fa-fw fa-angle-right"></i>Importar Datos</a>
+            </li>
+          </ul>
         </li>
-
 
         <?php
           }
@@ -143,8 +153,8 @@
 
 
         ?>
-        <li class="nav-item fondo-administrador" data-toggle="tooltip" data-placement="right" title="Usuarios">
-          <a class="nav-link" href="usuarios.php">
+        <li id="btnUsuariosLista" class="nav-item fondo-administrador" data-toggle="tooltip" data-placement="right" title="Usuarios">
+          <a id="btnUsuarios" class="nav-link" href="usuarios.php">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Usuarios</span>
           </a>

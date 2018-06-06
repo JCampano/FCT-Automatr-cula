@@ -93,20 +93,52 @@ filter: brightness(70%);
 
 .fondo-administrativo{
 	background-color: #563c48;
+	transition-duration:0.3s;
+}
+
+.fondo-administrativo:hover,.fondo-administrativo>ul>li:hover,.fondo-gestor:hover,.fondo-gestor>ul>li:hover,.fondo-administrador:hover,.fondo-administrador>ul>li:hover{
+	filter: saturate(195%) !important;
 }
 
 .fondo-administrativo>ul>li{
 	background-color:#6c3e53;
+	transition-duration:0.3s;
 }
 
 
 
 .fondo-gestor{
 	background-color: #3d634d;
+	transition-duration:0.3s;
 }
+.fondo-gestor>ul>li{
+	background-color:#3b845a;
+	transition-duration:0.3s;
+}
+
 .fondo-administrador{
 	background-color: #1d585d;
+	transition-duration:0.3s;
 }
 .seleccionado{
 	color:white !important;
+}
+.saturacion{
+	filter: saturate(195%) !important;
+}
+
+#tabla-usuarios>thead{
+	display:none;
+}
+#tabla-usuarios>tbody>tr>td{
+	padding-top:30px;
+	padding-bottom:30px;
+
+}
+
+#tabla-usuarios>tbody>tr{
+	border: 1px solid #dee2e6;
+	border-radius: 10px !important;
+	margin-bottom:20px !important;
+
 }
