@@ -15,34 +15,34 @@ function cargarNotificaciones(){
 }
 
 
-$(".btn-editar-alumno").on("click",cargarFormEditarAlumno);
+$(".btn-editar-alumno").on("click",cargarFormEditarUsuario);
 
-function cargarFormEditarAlumno(){
+function cargarFormEditarUsuario(){
     var boton=$(this);
     var dni = boton.attr("data-dni");
     
-    $.post("php/formularios/formEditAlumno.php", {dni: dni}, function(result){
+    $.post("php/formularios/formEditUsuario.php", {dni: dni}, function(result){
         $("#modal-alumnos").html(result);
     });
 }
 
 
-$(".btn-eliminar-alumno").on("click",cargarFormEliminarAlumno);
+$(".btn-eliminar-alumno").on("click",cargarFormEliminarUsuario);
 
-function cargarFormEliminarAlumno(){
+function cargarFormEliminarUsuario(){
     var boton=$(this);
     var dni = boton.attr("data-dni");
     
-    $.post("php/formularios/formEliminarAlumno.php", {dni: dni}, function(result){
+    $.post("php/formularios/formEliminarUsuario.php", {dni: dni}, function(result){
         $("#modal-alumnos-eliminar").html(result);
     });
 }
 
-function eliminarAlumno(){
+function eliminarUsuario(){
     var boton=$(this);
     var dni = boton.attr("data-dni");
     
-    $.post("js/ajax/eliminarAlumno.php", {dni: dni}, function(result){
+    $.post("js/ajax/eliminarUsuario.php", {dni: dni}, function(result){
         $("#modal-alumnos-eliminar").html(result);
     });
 }
@@ -72,6 +72,7 @@ $(document).ready(function() {
         case "ensenanzas.php":
             cargarEnsenanzas();
             $("#btnEnsenanzas").addClass("seleccionado");
+            $("#btnEnsenanzasLista").addClass("saturacion");
             break;
 
         case "cursos.php":
@@ -88,6 +89,18 @@ $(document).ready(function() {
             cargarUltimasMatriculasRegistradas();
             $("#menuMatriculas").collapse();
             $("#btnRegistrarMatricula").addClass("seleccionado");
+            break;
+
+        case "alumnos.php":
+            cargarUsuarios();
+            $("#menuUsuarios").collapse();
+            $("#btnGestionUsuarios").addClass("seleccionado");
+            break;
+
+        case "usuarios.php":
+            cargarUsuarios();
+            $("#btnUsuarios").addClass("seleccionado");
+            $("#btnUsuariosListas").addClass("saturacion");
             break;
         
     }
@@ -319,7 +332,7 @@ function cargarEnsenanzas(){
        }
 
          
-             $('#tabla-asignaturas').DataTable( {
+             $('#tabla-ensenanzas').DataTable( {
                  "language": espanol              
             } 
 
@@ -361,7 +374,7 @@ function cargarCursos(){
        }
 
          
-             $('#tabla-asignaturas').DataTable( {
+             $('#tabla-cursos').DataTable( {
                  "language": espanol              
             } 
 
@@ -402,7 +415,7 @@ function cargarItinerarios(){
        }
 
          
-             $('#tabla-asignaturas').DataTable( {
+             $('#tabla-itinerarios').DataTable( {
                  "language": espanol              
             } 
 
@@ -428,6 +441,85 @@ function cargarUltimasMatriculasRegistradas(){
 }
 
 
+function cargarUsuarios(){
+    $.post("php/alumnos/tabla-alumnos.php", function(result){
+           
+        $("#zona-tabla-alumnos").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarUsuario);
+       function cargarFormEditarUsuario(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditUsuario.php", {id: id}, function(result){
+               $("#modal-alumno").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarUsuario);
+
+       function cargarFormEliminarUsuario(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarUsuario.php", {id: id}, function(result){
+               $("#modal-alumno-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-alumnos').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
+
+function cargarUsuarios(){
+    $.post("php/usuarios/tabla-usuarios.php", function(result){
+           
+        $("#zona-tabla-usuarios").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarUsuario);
+       function cargarFormEditarUsuario(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditUsuario.php", {id: id}, function(result){
+               $("#modal-usuario").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarUsuario);
+
+       function cargarFormEliminarUsuario(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarUsuario.php", {id: id}, function(result){
+               $("#modal-usuario-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-usuarios').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
 
 
 //Añadir datos
