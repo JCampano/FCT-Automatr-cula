@@ -27,12 +27,16 @@
                         <td>'.$resultado[$i]["nAlumno"].'</td>
                         <td>'.$resultado[$i]["a1Alumno"].' '.$resultado[$i]["a2Alumno"].'</td>
                         <td>'.$resultado[$i]["dniAlumno"].'</td>
-                        <td width="100"><button style="margin-right:10px;" class="btn-editar" data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#editarMatricula"  data-tipo="tooltip" data-placement="down" title="Editar">
+                        <td width="150"><button style="margin-right:10px;" class="btn-editar" data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#editarMatricula"  data-tipo="tooltip" data-placement="down" title="Editar">
                                 <i class="fas fa-pencil-alt"></i>
+                                </button>
+                                 <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#desvincularMatricula" class="btn-desvincular" data-tipo="tooltip" data-placement="down" title="Quitar de Registradas">
+                                <i class="fas fa-times"></i>
                                 </button>
                                 <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#eliminarMatricula" class="btn-eliminar" data-tipo="tooltip" data-placement="down" title="Eliminar">
                                 <i class="far fa-trash-alt"></i>
-                                </button></td>
+                                </button>
+                               </td>
                     </tr>';
         }
         

@@ -558,8 +558,18 @@ function cargarMatriculas(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
-           $.post("php/formularios/formEliminarMatricula.php", {id: id}, function(result){
+           $.post("php/formularios/formEliminarMatriculaRegistrada.php", {id: id}, function(result){
                $("#modal-matricula-eliminar").html(result);
+           });
+       }
+       $(".btn-desvincular").on("click",cargarFormQuitarRegistro);
+
+       function cargarFormQuitarRegistro(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formQuitarMRegistradas.php", {id: id}, function(result){
+               $("#modal-matricula-quitar").html(result);
            });
        }
 
@@ -583,8 +593,8 @@ function cargarMatriculasNoRegistradas(){
         $("#zona-tabla-matriculas").empty().append(result);
 
        //Enseñanzas
-       $(".btn-editar").on("click",cargarFormEditarMatricula);
-       function cargarFormEditarMatricula(){
+       $(".btn-editar").on("click",cargarFormEditarMatriculaR);
+       function cargarFormEditarMatriculaR(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
@@ -592,9 +602,9 @@ function cargarMatriculasNoRegistradas(){
                $("#modal-matricula").html(result);
            });
        }
-       $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
+       $(".btn-eliminar").on("click",cargarFormEliminarMatriculaR);
 
-       function cargarFormEliminarMatricula(){
+       function cargarFormEliminarMatriculaR(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
