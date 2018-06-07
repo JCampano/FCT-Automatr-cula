@@ -84,17 +84,20 @@
           </a>
         </li>
 
-        <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Matrículas">
+        <li id="btnMatriculas" class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Matrículas">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuMatriculas" data-parent="#menuMatriculas">
             <i class="fa fa-fw fa-file-alt"></i>
             <span class="nav-link-text">Matrículas</span>
           </a>
           <ul class="sidenav-second-level collapse" id="menuMatriculas">
-            <li>
+            <li id="btnRegistrarMatriculaLista">
               <a id="btnRegistrarMatricula" href="registrar-matricula.php"><i class="fa fa-fw fa-angle-right"></i>Registrar Matrícula</a>
             </li>
             <li>
-              <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Ver Matrículas</a>
+              <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Matrículas Registradas</a>
+            </li>
+            <li>
+              <a href="matriculas.php?v=n"><i class="fa fa-fw fa-angle-right"></i>Matrículas no Registradas</a>
             </li>
           </ul>
         </li>

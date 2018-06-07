@@ -147,3 +147,7 @@ filter: brightness(70%);
 .card, .card-header,.card-header:first-child{
 	border-radius:0;
 }
+
+#mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a{
+	padding-left:15px;
+}

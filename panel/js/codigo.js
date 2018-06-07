@@ -89,6 +89,8 @@ $(document).ready(function() {
             cargarUltimasMatriculasRegistradas();
             $("#menuMatriculas").collapse();
             $("#btnRegistrarMatricula").addClass("seleccionado");
+            $("#btnRegistrarMatriculaLista").addClass("saturacion");
+            $("#btnMatriculas").addClass("saturacion");
             break;
 
         case "alumnos.php":
@@ -104,8 +106,17 @@ $(document).ready(function() {
         break;
         case "matriculas.php":
             cargarMatriculas();
+            $("#menuMatriculas").collapse();
             $("#btnVerMatriculas").addClass("seleccionado");
             $("#btnMatriculasLista").addClass("saturacion");
+
+        break;
+
+        case "matriculas.php?v=n":
+            cargarMatriculasNoRegistradas();
+            $("#menuMatriculas").collapse();
+            $("#btnVerMatriculasNoRegistradas").addClass("seleccionado");
+            $("#btnMatriculasNoRegistradasLista").addClass("saturacion");
         break;
         
     }
@@ -527,7 +538,47 @@ function cargarUsuarios(){
 }
 
 function cargarMatriculas(){
-    $.post("php/matriculas/tabla-matriculas.php", function(result){
+    $.post("php/matriculas/tabla-matriculas.php", {r: "s"}, function(result){
+           
+        $("#zona-tabla-matriculas").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarMatricula);
+       function cargarFormEditarMatricula(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditMatricula.php", {id: id}, function(result){
+               $("#modal-matricula").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
+
+       function cargarFormEliminarMatricula(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarMatricula.php", {id: id}, function(result){
+               $("#modal-matricula-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-matriculas').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
+
+function cargarMatriculasNoRegistradas(){
+    $.post("php/matriculas/tabla-matriculas.php", {r: "n"}, function(result){
            
         $("#zona-tabla-matriculas").empty().append(result);
 
