@@ -42,7 +42,7 @@ if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}/", $contrasena))
     $valido=false;
 }
 
-if($contrasena!=$contrasena2))
+if($contrasena!=$contrasena2)
 {
     $valido=false;
 }
