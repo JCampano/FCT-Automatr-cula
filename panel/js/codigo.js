@@ -452,7 +452,7 @@ function cargarAlumnos(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
-           $.post("php/formularios/formEditUsuario.php", {id: id}, function(result){
+           $.post("php/formularios/formEditAlumno.php", {id: id}, function(result){
                $("#modal-alumno").html(result);
            });
        }
@@ -462,7 +462,7 @@ function cargarAlumnos(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
-           $.post("php/formularios/formEliminarUsuario.php", {id: id}, function(result){
+           $.post("php/formularios/formEliminarAlumno.php", {id: id}, function(result){
                $("#modal-alumno-eliminar").html(result);
            });
        }
