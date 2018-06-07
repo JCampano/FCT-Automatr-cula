@@ -16,7 +16,7 @@ $(function() {
 
     var pass1 = $("#contrasena").value;
 	var pass2 = $("#contrasena2").value;
-    alert(pass1);
+    //alert(pass1);
 	var confirmacion = "Las contraseñas si coinciden";
 	var longitud = "La contraseña debe estar formada entre 6-10 carácteres (ambos inclusive)";
 	var negacion = "No coinciden las contraseñas";

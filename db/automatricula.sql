@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2018 a las 00:58:25
+-- Tiempo de generación: 07-06-2018 a las 21:28:32
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -79,6 +79,13 @@ CREATE TABLE `asignaturas` (
   `id_itinerario` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `asignaturas`
+--
+
+INSERT INTO `asignaturas` (`codigo`, `nombre`, `id_itinerario`) VALUES
+('02BACHCIENTEC', 'Matemáticas', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +99,13 @@ CREATE TABLE `cursos` (
   `id_enseñanza` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`id`, `nombre`, `id_enseñanza`) VALUES
+(1, '2º Bachillerato', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +117,13 @@ CREATE TABLE `enseñanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `enseñanzas`
+--
+
+INSERT INTO `enseñanzas` (`id`, `nombre`) VALUES
+(1, 'Bachillerato');
 
 -- --------------------------------------------------------
 
@@ -129,6 +150,13 @@ CREATE TABLE `itinerarios` (
   `nombre` varchar(40) NOT NULL,
   `id_curso` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `itinerarios`
+--
+
+INSERT INTO `itinerarios` (`id`, `nombre`, `id_curso`) VALUES
+(1, 'Ciencias tecnológicas', 1);
 
 -- --------------------------------------------------------
 
@@ -173,6 +201,13 @@ CREATE TABLE `optativas` (
   `id_curso` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `optativas`
+--
+
+INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
+(1, 'Informática', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -189,6 +224,13 @@ CREATE TABLE `personal` (
   `telefono` int(9) NOT NULL,
   `tipo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `personal`
+--
+
+INSERT INTO `personal` (`id`, `dni`, `clave`, `nombre`, `apellidos`, `telefono`, `tipo`) VALUES
+(1, '11111111A', 1234, 'David', 'de Vega', 657456543, 'administrador');
 
 --
 -- Índices para tablas volcadas
@@ -278,19 +320,19 @@ ALTER TABLE `personal`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
@@ -302,7 +344,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `matriculas`
@@ -314,13 +356,13 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
