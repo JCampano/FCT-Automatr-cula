@@ -84,7 +84,7 @@ $datos=$datosConsulta[0];
                                              <div class="card">
 
                                           <div class="card-header text-white bg-secondary">
-                                                Datos Personales
+                                                Contraseña
                                             </div>
                                             <!-- /.panel-heading -->
                                               <div class="card-body">

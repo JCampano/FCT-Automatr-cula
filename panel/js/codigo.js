@@ -650,7 +650,7 @@ function registrarMatricula(){
         $.post("php/matriculas/registrar-matricula.php",{id:codigo, idUsuario:idUsuario}, function(result){
                
             $("#mensajes").empty().append(result);
-            $("#mensajes").show(500);
+            $("#mensajes").fadeIn(500);
 
             $("#codigo-registrar-asignatura").val("");
                 cargarUltimasMatriculasRegistradas();
@@ -658,12 +658,12 @@ function registrarMatricula(){
         });
       } else {
         $("#mensajes").append('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>La matrícula #'+codigo+' ya ha sido registrada</div>');
-        $("#mensajes").show(500,);
+        $("#mensajes").fadeIn(500);
       }
     
     });
   } else {
     $("#mensajes").append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>No ha introducido ningun código</div>');
-    $("#mensajes").show(500);
+    $("#mensajes").fadeIn(500);
   }
 }
