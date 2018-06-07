@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php 
+    session_start();
+
     require_once("php/functions.php");
     require_once("php/gestionlogin.php");
 
@@ -192,7 +194,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link">
+          <a class="nav-link" href="mi-perfil.php">
                      <i class="fa fa-fw fa-user"></i><?php echo $_SESSION["nombre"]; ?></a>
         </li>
         <li class="nav-item">

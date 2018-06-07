@@ -92,7 +92,7 @@ $(document).ready(function() {
             break;
 
         case "alumnos.php":
-            cargarUsuarios();
+            cargarAlumnos();
             $("#menuUsuarios").collapse();
             $("#btnGestionUsuarios").addClass("seleccionado");
             break;
@@ -441,7 +441,7 @@ function cargarUltimasMatriculasRegistradas(){
 }
 
 
-function cargarUsuarios(){
+function cargarAlumnos(){
     $.post("php/alumnos/tabla-alumnos.php", function(result){
            
         $("#zona-tabla-alumnos").empty().append(result);

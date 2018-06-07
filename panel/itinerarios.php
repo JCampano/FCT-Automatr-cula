@@ -14,7 +14,7 @@ if (!comprobarDatos("cursos")){
    <div id="content-wrapper" class="fondo-gris">
   <div class="container sin-datos text-center">
     <div class="alert alert-warning" role="alert">
- Para gestionar los itinerarios debe añadir algún itinerario primero.
+ Para gestionar los itinerarios debe añadir algún Curso primero.
 </div>
  
     

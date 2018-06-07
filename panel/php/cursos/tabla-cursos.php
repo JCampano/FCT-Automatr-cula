@@ -1,7 +1,7 @@
 <?php
     include "../functions.php";
     $resultado = ejecutaConsultaArray("select c.id as idCurso, c.nombre as nCurso, e.nombre as nEnseñanza from cursos c inner join enseñanzas e where c.id_enseñanza = e.id");
-    echo ' <table id="tabla-asignaturas" class="table table-striped table-hover">
+    echo ' <table id="tabla-cursos" class="table table-striped table-hover">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>ID</th>

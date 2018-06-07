@@ -16,7 +16,7 @@ if (!comprobarDatos("itinerarios")){
    <div id="page-wrapper" class="fondo-gris">
   <div class="container sin-datos text-center">
     <div class="alert alert-warning" role="alert">
-  Por favor, para gestionar las asignaturas, primero debe dar de alta algún Curso.
+   Para gestionar los itinerarios debe añadir algún Itinerario primero.
 </div>
  
     
