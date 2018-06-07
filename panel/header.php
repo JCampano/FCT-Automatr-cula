@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    session_start();
+    
 
     require_once("php/functions.php");
     require_once("php/gestionlogin.php");

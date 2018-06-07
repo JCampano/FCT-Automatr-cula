@@ -101,7 +101,12 @@ $(document).ready(function() {
             cargarUsuarios();
             $("#btnUsuarios").addClass("seleccionado");
             $("#btnUsuariosListas").addClass("saturacion");
-            break;
+        break;
+        case "matriculas.php":
+            cargarMatriculas();
+            $("#btnVerMatriculas").addClass("seleccionado");
+            $("#btnMatriculasLista").addClass("saturacion");
+        break;
         
     }
 
@@ -509,6 +514,46 @@ function cargarUsuarios(){
 
          
              $('#tabla-usuarios').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
+
+function cargarMatriculas(){
+    $.post("php/matriculas/tabla-matriculas.php", function(result){
+           
+        $("#zona-tabla-matriculas").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarMatricula);
+       function cargarFormEditarMatricula(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditMatricula.php", {id: id}, function(result){
+               $("#modal-matricula").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
+
+       function cargarFormEliminarMatricula(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarMatricula.php", {id: id}, function(result){
+               $("#modal-matricula-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-matriculas').DataTable( {
                  "language": espanol              
             } 
 
