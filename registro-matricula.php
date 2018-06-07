@@ -12,8 +12,8 @@
                     <h3>Registrar Matrícula</h3>
                 </div>
                 <div class="card-body">
-                    <form name="altaMatricula" class="needs-validation" novalidate>
-                            <fieldset>
+                    <form name="altaMatricula" class="needs-validation" action="php/matricula/altaMatricula.php" method="post" novalidate>
+                            <!--<fieldset>
                                 <legend>Datos del ALumno/a:</legend>
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
@@ -176,11 +176,11 @@
                                 </div>  
                                 </fieldset> 
 
-
+-->
                                 <fieldset>
                                 <legend>Curso</legend>
                                 <div class="form-row">
-                                    <div class="col-md-4 mb-3">                            
+                                   <!-- <div class="col-md-4 mb-3">                            
                                         <label>Enseñanza</label>
                                         <select class="custom-select" name="selectEnseñanza">
                                             <option selected>Selecione</option>
@@ -199,14 +199,14 @@
                                             <option value="3">3</option>
                                         </select>
                                     </div>
-
+									-->
                                     <div class="col-md-4 mb-3">                            
                                         <label>Itinerario</label>
                                         <select class="custom-select" name="selectItinerario">
                                             <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <option value="Itinerario1">1 </option>
+                                            <option value="Itinerario2">2</option>
+                                            <option value="Itinerario3">3</option>
                                         </select>
                                     </div>
                                 </div>
@@ -216,12 +216,12 @@
                                         <label>Optativa</label>
                                         <select class="custom-select" name="selectOptativa1">
                                             <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <option value="Optativa1">a </option>
+                                            <option value="Optativa2">b</option>
+                                            <option value="Optativa3">b</option>
                                         </select>
                                     </div>
-
+                                    <!--
                                     <div class="col-md-4 mb-3">                            
                                         <label>Optativa</label>
                                         <select class="custom-select" name="selectOptativa2">
@@ -240,7 +240,7 @@
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                         </select>
-                                    </div>
+                                    </div>-->
                                 </div>                                          
                                 
                                 </fieldset> 
