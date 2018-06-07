@@ -17,7 +17,7 @@ if (!comprobarDatos("enseñanzas")){
    <div id="page-wrapper" class="fondo-gris">
   <div class="container sin-datos text-center">
     <div class="alert alert-warning" role="alert">
-  Por favor, para gestionar los cursos, primero debe dar de alta alguna enseñanza.
+ Para gestionar los itinerarios debe añadir alguna Enseñanza primero.
 </div>
  
 <h4>NO HAY DATOS DISPONIBLES</h4>

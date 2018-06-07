@@ -3,7 +3,7 @@
     extract($_POST);
     session_start();
    
-    $delete="DELETE FROM ALUMNOS WHERE DNI = '".$dni."'";
+    $delete="DELETE FROM ALUMNOS WHERE DNI = '".$id."'";
 
 
     if(ejecutaConsultaAccion($delete)>0)

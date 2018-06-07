@@ -1,12 +1,12 @@
 <?php
     include "../functions.php";
     extract($_POST);
-    $datos = ejecutaConsultaArray("SELECT nombre, apellidos from alumnos where dni='$dni'");
+    $datos = ejecutaConsultaArray("SELECT nombre, apellido1, apellido2 from alumnos where id='$id'");
 
 ?>
 <div class="row">
     <div class="col-sm-9">
-         <h4> <?php echo $datos[0]["nombre"]." ".$datos[0]["apellidos"];?></h4>
+         <h4> <?php echo $datos[0]["nombre"]." ".$datos[0]["apellido1"]." ".$datos[0]["apellido2"];?></h4>
     </div>
    <div class="col-sm-3">
         <form name="frmEliminarAlumno" action="php/alumnos/eliminarAlumno.php" method="post" novalidate>

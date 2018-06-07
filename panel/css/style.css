@@ -142,3 +142,8 @@ filter: brightness(70%);
 	margin-bottom:20px !important;
 
 }
+
+
+.card, .card-header,.card-header:first-child{
+	border-radius:0;
+}

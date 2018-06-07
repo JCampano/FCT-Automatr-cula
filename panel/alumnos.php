@@ -13,8 +13,8 @@ include "header.php";
   ?>
 
 
- <div class="modal fade" id="editarEnsenanza" tabindex="-1" role="dialog" aria-labelledby="editarEnsenanza" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+ <div class="modal fade" id="editarAlumno" tabindex="-1" role="dialog" aria-labelledby="editarAlumno" aria-hidden="true">
+          <div class="modal-dialog" role="document" style="max-width:1200px;">
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title">Editar Alumno</h4>
@@ -22,7 +22,7 @@ include "header.php";
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-ensenanza">
+              <div class="modal-body" id="modal-alumno">
                 <img src="img/cargando.gif" style="width:100%">
               </div>
               
@@ -30,7 +30,7 @@ include "header.php";
           </div>
         </div>
 
- <div class="modal fade" id="eliminarEnsenanza" tabindex="-1" role="dialog" aria-labelledby="eliminarEnsenanza" aria-hidden="true">
+ <div class="modal fade" id="eliminarAlumno" tabindex="-1" role="dialog" aria-labelledby="eliminarAlumno" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -39,7 +39,7 @@ include "header.php";
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-ensenanza-eliminar">
+              <div class="modal-body" id="modal-alumno-eliminar">
                 <img src="img/cargando.gif" style="width:100%">
               </div>
               
