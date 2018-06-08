@@ -8,6 +8,16 @@
     $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
+
+
+    $consulta="SELECT * FROM matriculas WHERE id_alumno='".$alumno['id']."'";
+
+if(ejecutaConsulta2($consulta)!=0)
+{
+    $_SESSION['tipoMensaje']= "warning";
+    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> ,Ese usuario ya tiene registrada una matricula, vaya a gestionar matriculas y seleccione editar matriculas";
+    header('Location: index.php');    
+}
 ?>
 
     <div class="fondo padding-arriba">
