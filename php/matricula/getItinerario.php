@@ -22,7 +22,7 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
 
-	$respuesta='<label>Itinerario</label><select class="custom-select" name="selectItinerario" id="selectItinerario" onchange="getOptativa();"><option value="Seleccione">Seleccione</option>';
+	$respuesta='<label>Itinerario</label><select class="custom-select" name="selectItinerario" id="selectItinerario"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
 	        $respuesta.='<option value="'.$fila['id'].'">';
@@ -30,7 +30,7 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	        $respuesta.="</option>";        
 	    }
 
-    if($respuesta=='<label>Itinerario</label><select class="custom-select" name="selectItinerario" id="selectItinerario" onchange="getOptativa();"><option value="Seleccione">Seleccione</option>'){
+    if($respuesta=='<label>Itinerario</label><select class="custom-select" name="selectItinerario" id="selectItinerario"><option value="Seleccione">Seleccione</option>'){
     }
 	$respuesta.="</select>";
 	
