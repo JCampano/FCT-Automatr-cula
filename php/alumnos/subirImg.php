@@ -8,7 +8,7 @@ if(isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] = 0){//comprobamos si 
 
 	$idAlumno = $_POST['idAlumno'];
 	$ruta = "../../imgAlumnos/".$idAlumno.".jpg";
-    $nombre = "'/'imgAlumnos/".$idAlumno.".jpg";
+    $nombre = "imgAlumnos/".$idAlumno.".jpg";
     $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
     $limite_kb = 16384;
     
