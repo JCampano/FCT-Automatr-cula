@@ -29,11 +29,11 @@ if(ejecutaConsulta2($consulta)!=0)
     header('Location: ../../index.php');    
 }
 else{
-    $insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,ID_OPTATIVA) VALUES ('CODIGO', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."', '".$optativa."')";
+    $insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('CODIGO', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
 }
 
 if(ejecutaConsultaAccion($insert)>0){
-    $_SESSION['tipoMensaje']= "warning";
+    $_SESSION['tipoMensaje']= "success";
 	$_SESSION['mensajeRegistro'] = "<strong>Matricula registrado con exito</strong>";
 	header('Location: ../../index.php');
 }
