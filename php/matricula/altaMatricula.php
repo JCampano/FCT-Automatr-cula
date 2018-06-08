@@ -15,9 +15,9 @@ $optativa=$_POST['selectOptativas'];
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC); 
 
-$fecha1 = date("j-n-Y");
+$fecha = date("d-m-Y");
 $hora = date("H:i");   
-
+//echo $fecha;
 //echo $itinerario."-".$optativa;
 
 $consulta="SELECT * FROM matriculas WHERE id_alumno='".$alumno['id']."'";
