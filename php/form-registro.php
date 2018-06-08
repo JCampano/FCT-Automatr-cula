@@ -40,8 +40,8 @@ ob_start();
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="nie" class="control-label">NIE</label>
-                        <input type="text" class="form-control" name="nie" placeholder="NIE" required pattern="^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$">
-                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong>1 letra, 7 números y 1 letra</strong></span>
+                        <input type="text" class="form-control" name="nie" placeholder="NIE" required pattern="^[XYZ]{1}[0-9]{7}[A-Z]{1}$">
+                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong> letra "X" o "Y" o "Z", 7 números y  1 letra de la Aa la Z </strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="dni" class="control-label">DNI</label>
