@@ -20,17 +20,9 @@ $hora = date("H:i");
 //echo $fecha;
 //echo $itinerario."-".$optativa;
 
-$consulta="SELECT * FROM matriculas WHERE id_alumno='".$alumno['id']."'";
 
-if(ejecutaConsulta2($consulta)!=0)
-{
-    $_SESSION['tipoMensaje']= "warning";
-    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> ,Ese usuario ya tiene registrada una matricula, vaya a edicion de matriculas";
-    header('Location: ../../index.php');    
-}
-else{
-    $insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('CODIGO', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
-}
+$insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('CODIGO', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
+
 
 if(ejecutaConsultaAccion($insert)>0){
     $_SESSION['tipoMensaje']= "success";
