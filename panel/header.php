@@ -177,13 +177,7 @@
 
         ?>
       </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler" data-toggle="collapse" href="#ocultar-menu" data-parent="XD">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
+      
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
         

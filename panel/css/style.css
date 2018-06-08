@@ -117,13 +117,18 @@ filter: brightness(70%);
 }
 
 
-.fondo-administrativo{
-	background-color: #563c48;
-	transition-duration:0.3s;
+.fondo-administrativo, .user-administrativo{
+	background-color: #563c48 !important;
+	transition-duration:0.3s !important;
 }
 
-.fondo-administrativo:hover,.fondo-administrativo>ul>li:hover,.fondo-gestor:hover,.fondo-gestor>ul>li:hover,.fondo-administrador:hover,.fondo-administrador>ul>li:hover{
+.user-gestor:hover,.user-administrador:hover,.user-administrativo:hover,.fondo-administrativo:hover,.fondo-administrativo>ul>li:hover,.fondo-gestor:hover,.fondo-gestor>ul>li:hover,.fondo-administrador:hover,.fondo-administrador>ul>li:hover{
 	filter: saturate(195%) !important;
+
+}
+.btn-group>.active{
+background-color:#e65656 !important;
+
 }
 
 .fondo-administrativo>ul>li{
@@ -133,18 +138,18 @@ filter: brightness(70%);
 
 
 
-.fondo-gestor{
-	background-color: #3d634d;
-	transition-duration:0.3s;
+.fondo-gestor, .user-gestor{
+	background-color: #3d634d !important;
+	transition-duration:0.3s !important;
 }
 .fondo-gestor>ul>li{
 	background-color:#3b845a;
 	transition-duration:0.3s;
 }
 
-.fondo-administrador{
-	background-color: #1d585d;
-	transition-duration:0.3s;
+.fondo-administrador,.user-administrador{
+	background-color: #1d585d !important;
+	transition-duration:0.3s !important;
 }
 .seleccionado{
 	color:white !important;
@@ -169,6 +174,11 @@ filter: brightness(70%);
 
 }
 
+.btn-group>.btn-block{
+	padding:30px 0;
+	margin-top:0;
+	border:0;
+}
 
 
 

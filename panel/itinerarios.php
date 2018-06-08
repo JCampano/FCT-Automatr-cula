@@ -85,7 +85,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                 Añadir Itinerario
                               </button>
                             </div>
-                            </p>
+                            <p></p>
                             <div class="collapse" id="anadirItinerario">
                              <div class="card text-white bg-info mb-3">
                                <div class="card-header">Añadir Itinerario</div>

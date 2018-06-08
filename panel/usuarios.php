@@ -73,29 +73,63 @@ include "header.php";
                              <div class="card-body">
                                <div id="mensajes"></div>
                                 <div class="row">
-                                  <div class="col-sm-12">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="">Nombre</span>
+                                  
+                                     <div class="col-sm-4">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >Nombre</span>
+                                        </div>
+                                        <input id="nombre-itinerario" type="text" class="form-control" placeholder="Introduce el nombre">
+                                       
                                       </div>
-                                      <input type="text" name="nombre-usuario" id="nombre-usuario" class="form-control">
-
-                                     
                                     </div>
-                                  </div>
-                                  <div class="col-sm-12">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text" id="">Contraseña</span>
+                                    <div class="col-sm-8">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >Apellidos</span>
+                                        </div>
+                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce los apellidos">
+                                       
                                       </div>
-                                      <input type="text" name="pass-usuario" id="pass-usuario" class="form-control">
-
-                                     
                                     </div>
-                                  </div>
-                                  <div class="col-sm-2">
-                                    <button class="btn btn-block" id="btn-enviar-ensenanza">Guardar</button>
-                                  </div>
+                                     <div class="col-sm-6">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >DNI</span>
+                                        </div>
+                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce el DNI">
+                                       
+                                      </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >CLAVE</span>
+                                        </div>
+                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce la clave">
+                                       
+                                      </div>
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" style="width:100px;" >CLAVE</span>
+                                        </div>
+                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Vuelve a introducir la clave">
+                                       
+                                      </div>
+                                      
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="btn-group btn-group-toggle" style="width:100%;" data-toggle="buttons">
+                                        <label class="btn user-administrativo btn-block btn-secondary active">
+                                          <input type="radio" name="options" id="option1" autocomplete="off" checked> <h1><i class="fas fa-file-alt"></i></br></h1>ADMINISTRATIVO
+                                        </label>
+                                        <label class="btn user-gestor btn-block btn-secondary">
+                                          <input type="radio" name="options" id="option2" autocomplete="off"> <h1><i class="fas fa-graduation-cap"></i></br></h1>GESTOR
+                                        </label>
+                                        <label class="btn user-administrador btn-block btn-secondary">
+                                          <input type="radio" name="options" id="option3" autocomplete="off"> <h1><i class="fa fa-fw fa-cogs"></i></br></h1>ADMINISTRADOR
+                                        </label>
+                                      </div>
+                                    </div>
+                                    
                                   
                                 </div>
                                 
