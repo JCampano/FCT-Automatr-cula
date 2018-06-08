@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2018 a las 19:09:37
+-- Tiempo de generación: 08-06-2018 a las 14:46:43
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -198,6 +198,21 @@ CREATE TABLE `matriculas_registradas` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `opativas_elegidas`
+--
+
+DROP TABLE IF EXISTS `opativas_elegidas`;
+CREATE TABLE `opativas_elegidas` (
+  `id_matriculas` int(5) NOT NULL,
+  `id_optativa1` int(5) NOT NULL,
+  `id_optativa2` int(5) NOT NULL,
+  `id_optativa3` int(5) NOT NULL,
+  `id_optativa` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `optativas`
 --
 
@@ -214,21 +229,6 @@ CREATE TABLE `optativas` (
 
 INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
 (1, '', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `optativas_elegidas`
---
-
-DROP TABLE IF EXISTS `optativas_elegidas`;
-CREATE TABLE `optativas_elegidas` (
-  `cod_matricula` int(5) NOT NULL,
-  `id_optativa1` int(5) NOT NULL,
-  `id_optativa2` int(5) NOT NULL,
-  `id_optativa3` int(5) NOT NULL,
-  `id_optativa` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

@@ -44,8 +44,11 @@
 		session_start();
 		$dni=$_SESSION['login'];	
 		$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+        $consulta2="SELECT E.NOMBRE, C.NOMBRE, I.NOMBRE FROM ALUMNOS A, MATRICULAS M, ITINERARIOS I, CURSOS C, ENSENANZAS E WHERE A.DNI='".$dni."' AND A.ID=M.ID_ALUMNO AND M.ID_ITINERARIO=I.ID AND I.ID_CURSO=C.ID AND C.ID_ENSENANZA=E.ID";
 		$resulset=ejecutaConsulta($consulta);
 		 $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
+        $resulset2=ejecutaConsulta($consulta2);
+		 $matricula=$resulset2->fetch(PDO::FETCH_NUM);
 		
 	?>
 	<h4>Datos del ALumno/a:</h4>
@@ -104,7 +107,7 @@
 	<h4>Curso</h4>
 	<table class="caja0">		    
 	    <tr><th class="caja4">Enseñanza</th><th class="caja4">Curso</th><th class="caja4">Itinerario</th></tr>
-	    <tr><td class="caja4">Enseñanza</td><td class="caja4">Curso</td><td class="caja4">Itinerario</td></tr>
+	    <tr><td class="caja4"><?php echo $matricula[0];?></td><td class="caja4"><?php echo $matricula[1];?></td><td class="caja4"><?php echo $matricula[2];?></td></tr>
 
 	    <tr><th class="caja4">Optativa</th><th class="caja4">Optativa</th><th class="caja4">Optativa</th></tr>
 	    <tr><td class="caja4">Optativa</td><td class="caja4">Optativa</td><td class="caja4">Optativa</td></tr>
