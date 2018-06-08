@@ -80,6 +80,18 @@
 
 }
 
+@media only screen and (max-width: 600px) {
+	.logo{
+		width:215px;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.nav-item>.nav-link{
+		padding:15px;
+	}
+}
+
 #mensajes{
 	display:none;
 }

@@ -74,7 +74,7 @@ include "header.php";
                                <div id="mensajes"></div>
                                 <div class="row">
                                   
-                                     <div class="col-sm-4">
+                                     <div class="col-xl-4">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
@@ -83,7 +83,7 @@ include "header.php";
                                        
                                       </div>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-xl-8">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Apellidos</span>
@@ -92,7 +92,7 @@ include "header.php";
                                        
                                       </div>
                                     </div>
-                                     <div class="col-sm-6">
+                                     <div class="col-xl-6">
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >DNI</span>
@@ -116,7 +116,7 @@ include "header.php";
                                       </div>
                                       
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-xl-6">
                                       <div class="btn-group btn-group-toggle" style="width:100%;" data-toggle="buttons">
                                         <label class="btn user-administrativo btn-block btn-secondary active">
                                           <input type="radio" name="options" id="option1" autocomplete="off" checked> <h1><i class="fas fa-file-alt"></i></br></h1>ADMINISTRATIVO
