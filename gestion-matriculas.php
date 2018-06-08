@@ -35,7 +35,7 @@
           <td>
             
             <div class="btn-group">
-              <button type="button" class="btn btn-secondary">Editar</button>
+              <a href="mostrarEditarMatricula.php" class="btn btn-secondary">Editar</a>
               <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Editar</span>
               </button>
