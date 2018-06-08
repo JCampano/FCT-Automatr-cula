@@ -84,11 +84,12 @@ function getItinerario() {
     var oAjax = instanciarXHR();
     var value = document.getElementById("selectCurso").value;
 
-    eliminarItinerarios();
-    eliminarOptativas();
-    eliminarBtn();
+    //eliminarItinerarios();
+    //eliminarOptativas();
+    eliminarBtn();    
 
     if(value != "Seleccione"){
+    	getOptativa();
         //1. Preparar parametros
         var sDatos = "curso="+value;
         //alert(sDatosEnvio);
@@ -122,14 +123,14 @@ function getOptativa() {
     //else hacemos el getCursos
     //Instanciar objeto Ajax
     var oAjax = instanciarXHR();
-    var value = document.getElementById("selectItinerario").value;
+    var value = document.getElementById("selectCurso").value;
 
     eliminarOptativas();
     eliminarBtn();
 
     if(value != "Seleccione"){
         //1. Preparar parametros
-        var sDatos = "itinerario="+value;
+        var sDatos = "curso="+value;
         //alert(sDatosEnvio);
         //2. Configurar la llamada --> Asincrono por defecto
         oAjax.open("GET", "php/matricula/getOptativa.php?" + sDatos);

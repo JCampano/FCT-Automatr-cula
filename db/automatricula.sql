@@ -213,7 +213,7 @@ CREATE TABLE `optativas` (
 --
 
 INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
-(1, '', 1);
+(1, 'informatica', 1);
 
 -- --------------------------------------------------------
 

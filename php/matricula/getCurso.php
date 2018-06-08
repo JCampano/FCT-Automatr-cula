@@ -25,14 +25,13 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 
 	$respuesta='<label>Curso</label><select class="custom-select" name="selectCurso" id="selectCurso" onchange="getItinerario();"><option value="Seleccione">Seleccione</option>';
 	 
-	  /*  while($fila=mysqli_fetch_assoc($res)){
+	   while($fila=mysqli_fetch_assoc($res)){
 	        $respuesta.='<option value="'.$fila['id'].'">';
 	        $respuesta.=$fila['nombre'];        
 	        $respuesta.="</option>";        
-	    }*/
+	    }
 
     if($respuesta=='<label>Curso</label><select class="custom-select" name="selectCurso" id="selectCurso" onchange="getItinerario();"><option value="Seleccione">Seleccione</option>'){
-    	$respuesta.='<option value="No hay resultados">No hay resultados</option>';
     }
 	$respuesta.="</select>";
 	
