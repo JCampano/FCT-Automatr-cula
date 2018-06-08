@@ -47,8 +47,8 @@
         $consulta2="SELECT E.NOMBRE, C.NOMBRE, I.NOMBRE FROM ALUMNOS A, MATRICULAS M, ITINERARIOS I, CURSOS C, ENSENANZAS E WHERE A.DNI='".$dni."' AND A.ID=M.ID_ALUMNO AND M.ID_ITINERARIO=I.ID AND I.ID_CURSO=C.ID AND C.ID_ENSENANZA=E.ID";
 		$resulset=ejecutaConsulta($consulta);
 		 $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
-        $resulset2=ejecutaConsulta($consulta2);
-		 $matricula=$resulset2->fetch(PDO::FETCH_NUM);
+        //$resulset2=ejecutaConsulta($consulta2);
+		 //$matricula=$resulset2->fetch(PDO::FETCH_NUM);
 		
 	?>
 	<h4>Datos del ALumno/a:</h4>
