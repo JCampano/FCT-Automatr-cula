@@ -8,9 +8,11 @@ if(isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] = 0){//comprobamos si 
 
 	$idAlumno = $_POST['idAlumno'];
 	$ruta = "../../imgAlumnos/".$idAlumno.".jpg";
+    $nombre = "'/'imgAlumnos/".$idAlumno.".jpg";
     $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
     $limite_kb = 16384;
     
+    echo $idAlumno;
 
     if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024)
     {
@@ -23,9 +25,9 @@ if(isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] = 0){//comprobamos si 
         move_uploaded_file($_FILES['imagen']['tmp_name'],$ruta);
 
         //Comprobamos si existe o no, si existe hacemos update, sino hacemos insert
-        $existe = "select * from imagenes where dni_alumno ='". $idAlumno ."'";
+        $existe = "select * from imagenes where id_usuario ='". $idAlumno ."'";
         if(ejecutaConsulta2($existe)==0){            
-        	$sql = "INSERT INTO imagenes (dni_alumno, imagen) VALUES ('$idAlumno','$ruta')";
+        	$sql = "INSERT INTO imagenes (id_usuario, imagen) VALUES ('$idAlumno','$nombre')";
         }else{
           	$sql = "UPDATE imagenes SET imagen = ".$idAlumno.".jpg";
         }		
