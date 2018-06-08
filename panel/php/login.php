@@ -4,7 +4,6 @@ ob_start();
 include "functions.php";
 extract($_POST);
 
-echo $dni;
 
 $buscarUsuario=ejecutaConsultaArray("SELECT * from personal where dni='$dni'");
 

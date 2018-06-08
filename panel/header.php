@@ -29,7 +29,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
      <link rel="stylesheet" href="css/style.css">
 
    
@@ -75,7 +75,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="collapse navbar-collapse" id="navbarResponsive" data-toggle="collapse">
       <ul class="navbar-nav navbar-sidenav" id="ocultar-menu">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
           <a class="nav-link" href="index.php">
@@ -84,17 +84,20 @@
           </a>
         </li>
 
-        <li class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Matrículas">
+        <li id="btnMatriculas" class="nav-item fondo-administrativo" data-toggle="tooltip" data-placement="right" title="Matrículas">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuMatriculas" data-parent="#menuMatriculas">
             <i class="fa fa-fw fa-file-alt"></i>
             <span class="nav-link-text">Matrículas</span>
           </a>
           <ul class="sidenav-second-level collapse" id="menuMatriculas">
-            <li>
+            <li id="btnRegistrarMatriculaLista">
               <a id="btnRegistrarMatricula" href="registrar-matricula.php"><i class="fa fa-fw fa-angle-right"></i>Registrar Matrícula</a>
             </li>
             <li>
-              <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Ver Matrículas</a>
+              <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Matrículas Registradas</a>
+            </li>
+            <li>
+              <a href="matriculas.php?v=n"><i class="fa fa-fw fa-angle-right"></i>Matrículas no Registradas</a>
             </li>
           </ul>
         </li>

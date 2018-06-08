@@ -89,6 +89,8 @@ $(document).ready(function() {
             cargarUltimasMatriculasRegistradas();
             $("#menuMatriculas").collapse();
             $("#btnRegistrarMatricula").addClass("seleccionado");
+            $("#btnRegistrarMatriculaLista").addClass("saturacion");
+            $("#btnMatriculas").addClass("saturacion");
             break;
 
         case "alumnos.php":
@@ -104,8 +106,24 @@ $(document).ready(function() {
         break;
         case "matriculas.php":
             cargarMatriculas();
+            $("#menuMatriculas").collapse();
             $("#btnVerMatriculas").addClass("seleccionado");
             $("#btnMatriculasLista").addClass("saturacion");
+
+        break;
+
+        case "matriculas.php?v=n":
+            cargarMatriculasNoRegistradas();
+            $("#menuMatriculas").collapse();
+            $("#btnVerMatriculasNoRegistradas").addClass("seleccionado");
+            $("#btnMatriculasNoRegistradasLista").addClass("saturacion");
+        break;
+
+        case "index.php":
+            cargarInicio();
+            
+            $("#btnInicio").addClass("seleccionado");
+            $("#btnInicioLista").addClass("saturacion");
         break;
         
     }
@@ -527,7 +545,7 @@ function cargarUsuarios(){
 }
 
 function cargarMatriculas(){
-    $.post("php/matriculas/tabla-matriculas.php", function(result){
+    $.post("php/matriculas/tabla-matriculas.php", {r: "s"}, function(result){
            
         $("#zona-tabla-matriculas").empty().append(result);
 
@@ -544,6 +562,56 @@ function cargarMatriculas(){
        $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
 
        function cargarFormEliminarMatricula(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarMatriculaRegistrada.php", {id: id}, function(result){
+               $("#modal-matricula-eliminar").html(result);
+           });
+       }
+       $(".btn-desvincular").on("click",cargarFormQuitarRegistro);
+
+       function cargarFormQuitarRegistro(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formQuitarMRegistradas.php", {id: id}, function(result){
+               $("#modal-matricula-quitar").html(result);
+           });
+       }
+
+         
+             $('#tabla-matriculas').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
+
+function cargarMatriculasNoRegistradas(){
+    $.post("php/matriculas/tabla-matriculas.php", {r: "n"}, function(result){
+           
+        $("#zona-tabla-matriculas").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarMatriculaR);
+       function cargarFormEditarMatriculaR(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditMatricula.php", {id: id}, function(result){
+               $("#modal-matricula").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarMatriculaR);
+
+       function cargarFormEliminarMatriculaR(){
            var boton=$(this);
            var id = boton.attr("data-id");
            
@@ -564,6 +632,55 @@ function cargarMatriculas(){
              $('[data-tipo="tooltip"]').tooltip();
    
     });
+}
+
+function cargarInicio(){
+  var personas;
+  var datos;
+  $.post("php/datosMatriculasRegistradas.php", {t: "p"}, function(result1){
+      
+      personas = JSON.parse(result1);
+      $.post("php/datosMatriculasRegistradas.php", {t: "d"}, function(result2){
+        
+          datos = JSON.parse(result2);
+
+          console.log(personas);
+            console.log(datos);
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: personas,
+                    datasets: [{
+                        label: 'Nº de matrículas registradas',
+                        data: datos,
+                        backgroundColor: [
+                            
+                        ],
+                        borderColor: [
+                            
+
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+          
+      });
+      
+  });
+
+
+
 }
 
 

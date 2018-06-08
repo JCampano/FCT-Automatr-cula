@@ -2,7 +2,14 @@
     include "header.php";
     $_SESSION['ruta']= "registro-matricula.php";
     include "php/gestionlogin.php";
+
+    //obtenemos el id del alumno
+    $dni=$_SESSION['login'];    
+    $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+    $resulset=ejecutaConsulta($consulta);
+    $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 ?>
+
     <div class="fondo padding-arriba">
         <div class="container">
 
@@ -13,86 +20,75 @@
                 </div>
                 <div class="card-body">
                     <form name="altaMatricula" class="needs-validation" action="php/matricula/altaMatricula.php" method="post" novalidate>
-                            <!--<fieldset>
+                    	<div><!--style="display:none"-->
+                            <fieldset>
                                 <legend>Datos del ALumno/a:</legend>
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" name="nombreAlumno" placeholder="Nombre" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">El nombre debe constar de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control" disabled name="nombreAlumno" placeholder="Nombre" value="<?php echo $alumno['nombre']; ?>" >
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="apellido1">Primer Apellido</label>
-                                        <input type="text" class="form-control"  name="apellido1Alumno"  placeholder="Primer Apellido" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">El apellido debe constar de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"   disabled name="apellido1Alumno"  placeholder="Primer Apellido" value="<?php echo $alumno['apellido1']; ?>"">
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="apellido2">Segundo Apellido</label>
-                                        <input type="text" class="form-control"  name="apellido2Alumno"  placeholder="Segundo Apellido" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">El apellido debe constar de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"   disabled name="apellido2Alumno"  placeholder="Segundo Apellido" value="<?php echo $alumno['apellido2']; ?>">
                                     </div>    
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nie">NIE</label>
-                                        <input type="text" class="form-control"  name="nieAlumno" placeholder="NIE" value="" required pattern="\w\d{7}\w">
-                                        <div class="invalid-feedback">el NIE debe constar de 1 letra, 7 numeros y otra letras</div>
+                                        <input type="text" class="form-control"   disabled name="nieAlumno" placeholder="NIE" value="<?php echo $alumno['nie']; ?>">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="dni">DNI</label>
-                                        <input type="text" class="form-control"  name="dniAlumno" placeholder="DNI" value="" required pattern="\d{8}\w">
-                                        <div class="invalid-feedback">Debe introducir el DNI,consta de 8 numeros y 1 letra</div>
+                                        <input type="text" class="form-control"  disabled  name="dniAlumno" placeholder="DNI" value="<?php echo $alumno['dni']; ?>">
                                     </div>                                  
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="direccion">Dirección</label>
-                                        <input type="text" class="form-control"  name="direcionAlumno" placeholder="Dirección" value="" required>
-                                        <div class="invalid-feedback">Debe introducir una Dirección</div>
+                                        <input type="text" class="form-control"   disabled name="direcionAlumno" placeholder="Dirección" value="<?php echo $alumno['direccion']; ?>">
                                     </div>                                                  
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="poblacion">Población</label>
-                                        <input type="text" class="form-control"  name="poblacionAlumno" placeholder="Población" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">Consta de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"   disabled name="poblacionAlumno" placeholder="Población" value="<?php echo $alumno['poblacion']; ?>">
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="provincia">Provincia</label>
-                                        <input type="text" class="form-control"  name="provinciaAlumno"  placeholder="Provincia" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">Consta de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"   disabled name="provinciaAlumno"  placeholder="Provincia" value="<?php echo $alumno['provincia']; ?>">
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="codigoPostal">Código Postal</label>
-                                        <input type="text" class="form-control"  name="codPostalAlumno"  placeholder="Código Postal" value="" required pattern="\d{5}">
-                                        <div class="invalid-feedback">Debe introducir el Código Postal, consta de 5 números</div>
+                                        <input type="text" class="form-control"   disabled name="codPostalAlumno"  placeholder="Código Postal" value="<?php echo $alumno['cod_postal']; ?>" >
                                     </div>    
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="telefono">Teléfono</label>
-                                        <input type="text" class="form-control"  name="telefonoAlumno" placeholder="Teléfono" value="" required pattern="\w{9}">
-                                        <div class="invalid-feedback">Debe introducir un Teléfono, consta de 9 numeros</div>
+                                        <input type="text" class="form-control"   disabled name="telefonoAlumno" placeholder="Teléfono" value="<?php echo $alumno['tel_fijo']; ?>">
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="movil">Móvil</label>
-                                        <input type="text" class="form-control"  name="movilAlumno"  placeholder="Móvil" value="" required pattern="\w{9}">
-                                        <div class="invalid-feedback">Debe introducir un Móvil,consta de 9 numeros</div>
+                                        <input type="text" class="form-control"   disabled name="movilAlumno"  placeholder="Móvil" value="<?php echo $alumno['tel_movil']; ?>">
                                     </div>
 
                                     <div class="col-md-4 mb-3">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control"  name="emailAlumno"  placeholder="Email" value="" required>
-                                        <div class="invalid-feedback">Debe introducir el Email</div>
+                                        <input type="email" class="form-control"   disabled name="emailAlumno"  placeholder="Email" value="<?php echo $alumno['correo']; ?>" >
                                     </div>    
                                 </div>
 
@@ -104,36 +100,31 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control"  name="nombrePadre" placeholder="Nombre" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">Debe introducir un nombre,consta de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"  disabled name="nombrePadre" placeholder="Nombre" value="<?php echo $alumno['nombre_padre']; ?>" >
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="dni">DNI</label>
-                                        <input type="text" class="form-control"  name="dniPadre" placeholder="DNI" value="" required pattern="\d{8}\w"> 
-                                        <div class="invalid-feedback">Debe introducir un DNI,consta de 8 numeros y una letra</div>
+                                        <input type="text" class="form-control"  disabled name="dniPadre" placeholder="DNI" value="<?php echo $alumno['dni_padre']; ?>"> 
                                     </div>
                                 </div>  
 
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="apellidos">Apellidos</label>
-                                        <input type="text" class="form-control"  name="apellidosPadre"  placeholder="Apellidos" value="" required pattern="[a-zA-Z\s]{3,40}">
-                                        <div class="invalid-feedback">Debe introducir los apellidos, constan de entre 3 y 40 letras</div>
+                                        <input type="text" class="form-control"  disabled name="apellidosPadre"  placeholder="Apellidos" value="<?php echo $alumno['apellidos_padre']; ?>" >
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="telefono">Teléfono</label>
-                                        <input type="text" class="form-control"  name="telefonoPadre" placeholder="Teléfono" value="" required pattern="\w{9}">
-                                        <div class="invalid-feedback">Debe introducir un Teléfono consta de 9 números</div>
+                                        <input type="text" class="form-control"  disabled name="telefonoPadre" placeholder="Teléfono" value="<?php echo $alumno['tel_padre']; ?>">
                                     </div>
 
                                     <div class="col-md-8 mb-3">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control"  name="emailPadre"  placeholder="Email" value="" required>
-                                        <div class="invalid-feedback">Debe introducir el Email</div>
+                                        <input type="email" class="form-control" disabled  name="emailPadre"  placeholder="Email" value="<?php echo $alumno['correo_padre']; ?>">
                                     </div>
                                 </div>  
                                 </fieldset> 
@@ -143,84 +134,56 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control"  name="nombreMadre" placeholder="Nombre" value="" required pattern="[a-zA-Z\s]{3,20}">
-                                        <div class="invalid-feedback">Debe introducir un nombre,consta de entre 3 y 20 letras</div>
+                                        <input type="text" class="form-control"  disabled name="nombreMadre" placeholder="Nombre" value="<?php echo $alumno['nombre_madre']; ?>">
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="dni">DNI</label>
-                                        <input type="text" class="form-control"  name="dmiMadre" placeholder="DNI" value="" required pattern="\d{8}\w">
-                                        <div class="invalid-feedback">Debe introducir un DNI,consta de 8 números y 1 letra</div>
+                                        <input type="text" class="form-control" disabled  name="dmiMadre" placeholder="DNI" value="<?php echo $alumno['dni_madre']; ?>" >
                                     </div>                                 
                                 </div>  
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="apellidos">Apellidos</label>
-                                        <input type="text" class="form-control"  name="apellidosMadre"  placeholder="Apellidos" value="" required pattern="[a-zA-Z\s]{3,40}">
-                                        <div class="invalid-feedback">Debe introducir los apellidos ,consta de entre 3 y 40 letras</div>
+                                        <input type="text" class="form-control" disabled  name="apellidosMadre"  placeholder="Apellidos" value="<?php echo $alumno['apellidos_madre']; ?>" >
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="telefono">Teléfono</label>
-                                        <input type="text" class="form-control"  name="telefonoMadre" placeholder="Teléfono" value="" required pattern="\w{9}">
-                                        <div class="invalid-feedback">Debe introducir un Teléfono,consta de 9 números</div>
+                                        <input type="text" class="form-control"  disabled name="telefonoMadre" placeholder="Teléfono" value="<?php echo $alumno['tel_madre']; ?>" >
                                     </div>
 
                                     <div class="col-md-8 mb-3">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control"  name="emailMadre"  placeholder="Email" value="" required>
-                                        <div class="invalid-feedback">Debe introducir el Email</div>
+                                        <input type="email" class="form-control"  disabled name="emailMadre"  placeholder="Email" value="<?php echo $alumno['correo_madre']; ?>" >
                                     </div>
                                 </div>  
                                 </fieldset> 
+                            </div>
 
--->
                                 <fieldset>
-                                <legend>Curso</legend>
+                                <legend>Matrícula</legend>
                                 <div class="form-row">
-                                   <!-- <div class="col-md-4 mb-3">                            
-                                        <label>Enseñanza</label>
-                                        <select class="custom-select" name="selectEnseñanza">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
+                                   <div class="col-md-12 mb-3" id="enseñanzas">                            
+                                        
                                     </div>
 
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Curso</label>
-                                        <select class="custom-select" name="selectCurso">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
+                                    <div class="col-md-12 mb-3" id="cursos">                       
+                                        
+                                        
                                     </div>
-									-->
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Itinerario</label>
-                                        <select class="custom-select" name="selectItinerario">
-                                            <option selected>Selecione</option>
-                                            <option value="Itinerario1">1 </option>
-                                            <option value="Itinerario2">2</option>
-                                            <option value="Itinerario3">3</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                    
+                                    <div class="col-md-12 mb-3" id="itinerarios">                            
+                                        
+                                    </div>                                
 
-                                <div class="form-row">
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Optativa</label>
-                                        <select class="custom-select" name="selectOptativa1">
-                                            <option selected>Selecione</option>
-                                            <option value="Optativa1">a </option>
-                                            <option value="Optativa2">b</option>
-                                            <option value="Optativa3">b</option>
-                                        </select>
-                                    </div>
+	                                <div class="col-md-12 mb-3" id="optativas">
+	                                    
+	                                </div>
+
+                                    
                                     <!--
                                     <div class="col-md-4 mb-3">                            
                                         <label>Optativa</label>
@@ -244,12 +207,17 @@
                                 </div>                                          
                                 
                                 </fieldset> 
-                                <button class="btn btn-primary" type="submit">Submit </button>
+                                
+                                	<div id="btnSubmit"></div>
+                            	
                         </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="js/cargarSelectsMatricula.js"> </script>
     <?php
+
     include "footer.php";
 ?>

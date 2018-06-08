@@ -23,7 +23,7 @@ include "header.php";
                 </button>
               </div>
               <div class="modal-body" id="modal-matricula">
-                <img src="img/cargando.gif" style="width:100%">
+                <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>
@@ -34,18 +34,44 @@ include "header.php";
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <p class="modal-title">¿Estás seguro que desea eliminar la siguiente matricula?</p>
+                <p class="modal-title">
+                    ¿Estás seguro que desea eliminar la siguiente matricula?
+                   
+
+
+                </p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body" id="modal-matricula-eliminar">
-                <img src="img/cargando.gif" style="width:100%">
+                <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>
           </div>
         </div>
+
+        <div class="modal fade" id="desvincularMatricula" tabindex="-1" role="dialog" aria-labelledby="eliminarMatricula" aria-hidden="true">
+                 <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <p class="modal-title">
+                        
+                             ¿Estás seguro que desea marcar la siguiente matricula como no registrada?
+    
+                       </p>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                     </div>
+                     <div class="modal-body" id="modal-matricula-quitar">
+                       <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
+                     </div>
+                     
+                   </div>
+                 </div>
+               </div>
 
 
 
@@ -61,6 +87,10 @@ include "header.php";
                                <li class="breadcrumb-item active" aria-current="page">Matriculas</li>
                              </ol>
                            </nav>
+
+
+                           
+                           
                               
                             
                             

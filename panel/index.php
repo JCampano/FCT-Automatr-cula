@@ -1,5 +1,5 @@
  <?php
-    include "php/permisos.php";
+    require_once("php/permisos.php");
     include "header.php";
  ?>
             <div class="content-wrapper">
@@ -28,7 +28,9 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+
+            
+
             <div class="row">
 
                 <div class="col-lg-6">
@@ -38,38 +40,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Dato</th>
-                                            <th>Dato</th>
-                                            <th>Dato</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <canvas id="myChart"></canvas>
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->

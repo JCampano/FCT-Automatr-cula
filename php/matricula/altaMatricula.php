@@ -3,8 +3,10 @@ session_start();
 include "../functions.php";
 extract($_POST);
 
+$enseñanza=$_POST['selectEnseñanza'];
+$curso = $_POST['selectCurso'];
 $itinerario=$_POST['selectItinerario'];
-$optativa=$_POST['selectOptativa1'];
+$optativa=$_POST['selectOptativas'];
 
 //obtenemos el id del alumno
 
