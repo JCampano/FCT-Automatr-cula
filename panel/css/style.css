@@ -14,7 +14,7 @@
 
 .fondo-gris{
 	background-color: #343a40 !important;
-	margin-left: 250px;
+
 	height: 100%;
 
 
@@ -68,6 +68,13 @@
 		margin-left:210px;
 	}
 
+	.fondo-gris{
+
+		margin-left: 215px;
+		
+
+
+	}
 
 
 

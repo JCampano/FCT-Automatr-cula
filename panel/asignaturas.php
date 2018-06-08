@@ -1,7 +1,7 @@
 <?php
 
 
-include "php/permisos.php";
+require_once("php/permisos.php");
 
 if(!comprobarLogin("gestor")){
 

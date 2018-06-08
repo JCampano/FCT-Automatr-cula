@@ -58,7 +58,7 @@ include "header.php";
                      <div class="modal-header">
                        <p class="modal-title">
                         
-                             ¿Estás seguro que desea marcar la siguiente matricula como no registrada?
+                             ¿Estás seguro que desea anular el registro de la siguiente matrícula?
     
                        </p>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">

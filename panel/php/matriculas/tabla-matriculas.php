@@ -30,7 +30,7 @@
                         <td width="150"><button style="margin-right:10px;" class="btn-editar" data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#editarMatricula"  data-tipo="tooltip" data-placement="down" title="Editar">
                                 <i class="fas fa-pencil-alt"></i>
                                 </button>
-                                 <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#desvincularMatricula" class="btn-desvincular" data-tipo="tooltip" data-placement="down" title="Quitar de Registradas">
+                                 <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#desvincularMatricula" class="btn-desvincular" data-tipo="tooltip" data-placement="down" title="Anular Registro">
                                 <i class="fas fa-times"></i>
                                 </button>
                                 <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#eliminarMatricula" class="btn-eliminar" data-tipo="tooltip" data-placement="down" title="Eliminar">

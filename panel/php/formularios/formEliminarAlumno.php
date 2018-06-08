@@ -12,7 +12,7 @@
         <form name="frmEliminarAlumno" action="php/alumnos/eliminarAlumno.php" method="post" novalidate>
                                 <div class="form-group" style="display:none;">
                                 
-                                    <input type="text" class="form-control" value="<?php echo $cod ?>" name="cod" placeholder="cod" >
+                                    <input type="text" class="form-control" value="<?php echo $id ?>" name="id">
 
                                 </div>
 

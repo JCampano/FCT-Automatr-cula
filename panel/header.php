@@ -127,10 +127,16 @@
             <span class="nav-link-text">Itinerarios</span>
           </a>
         </li>
-        <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Asignaturas">
+        <li id="btnAsignaturaLista" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Asignaturas">
           <a id="btnAsignaturas" class="nav-link" href="asignaturas.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Asignaturas</span>
+          </a>
+        </li>
+        <li id="btnOptativasLista" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Optativas">
+          <a id="btnOptativas" class="nav-link" href="optativas.php">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Optativas</span>
           </a>
         </li>
         <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">

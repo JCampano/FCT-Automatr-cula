@@ -67,6 +67,15 @@ $(document).ready(function() {
         case "asignaturas.php":
             cargarAsignaturas();
             $("#btnAsignaturas").addClass("seleccionado");
+            $("#btnAsignaturaLista").addClass("saturacion");
+            $("#btnAsignaturas").addClass("saturacion");
+            break;
+
+        case "optativas.php":
+            cargarOptativas();
+            $("#btnOptativas").addClass("seleccionado");
+            $("#btnOptativasLista").addClass("saturacion");
+            $("#btnOptativas").addClass("saturacion");
             break;
 
         case "ensenanzas.php":
@@ -682,6 +691,48 @@ function cargarInicio(){
 
 
 }
+
+function cargarOptativas(){
+    $.post("php/optativas/tabla-optativas.php", function(result){
+           
+        $("#zona-tabla-optativas").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarOptativa);
+
+       function cargarFormEditarOptativa(){
+       
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditOptativa.php", {id: id}, function(result){
+               $("#modal-optativa").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarOptativa);
+
+       function cargarFormEliminarOptativa(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarOptativa.php", {id: id}, function(result){
+               $("#modal-optativa-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-optativas').DataTable( {
+                 "language": espanol              
+            } 
+
+             );
+   
+        $('[data-tipo="tooltip"]').tooltip();
+
+
+    });
+}
+
 
 
 //Añadir datos
