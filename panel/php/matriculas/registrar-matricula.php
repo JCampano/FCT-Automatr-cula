@@ -14,6 +14,10 @@
 
 		   } else {
 		   	echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Ha ocurrido un error al registrar la matrícula</div>';
+		   	echo '</br>';
+		   	echo "INSERT INTO matriculas_registradas VALUES ('$idMatricula',$idUsuario,CURRENT_DATE)";
+
+
 
 		   }
 	}

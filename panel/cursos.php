@@ -178,7 +178,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
         </div>
 
     
-   
+
 
 <?php
 }
