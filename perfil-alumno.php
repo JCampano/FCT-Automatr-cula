@@ -11,7 +11,8 @@
     //obtener la imagen para el alum
     $consulta="SELECT * FROM imagenes WHERE ID_USUARIO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
-    $imagen=$resulset->fetch(PDO::FETCH_ASSOC); 
+    $imagen=$resulset->fetch(PDO::FETCH_ASSOC);
+    
 ?>
     <div class="fondo padding-arriba">
         <div class="container">
@@ -24,7 +25,7 @@
                 <div class="card-body">
                     <div class="row">                        
                         <div class="col-sm-3">                            
-                                <img class="imagen-alumno" src="<?php if(isset($imagen)){ echo $imagen['imagen'];} else echo 'img/default-user.png' ?>">  
+                                <img class="imagen-alumno" src="<?php if($imagen['imagen'] == 'imgAlumnos/'.$alumno['id'].'.jpg'){ echo $imagen['imagen'];} else echo 'img/default-user.png'; ?>">  
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioFoto"> Cambiar Foto Personal</a>
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>                               
                         </div>
