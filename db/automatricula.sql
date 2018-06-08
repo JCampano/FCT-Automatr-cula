@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2018 a las 19:09:37
+-- Tiempo de generación: 09-06-2018 a las 00:36:34
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -96,33 +96,33 @@ DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE `cursos` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `id_enseñanza` int(5) NOT NULL
+  `id_ensenanza` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `nombre`, `id_enseñanza`) VALUES
+INSERT INTO `cursos` (`id`, `nombre`, `id_ensenanza`) VALUES
 (1, '2º Bachillerato', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `enseñanzas`
+-- Estructura de tabla para la tabla `ensenanzas`
 --
 
-DROP TABLE IF EXISTS `enseñanzas`;
-CREATE TABLE `enseñanzas` (
+DROP TABLE IF EXISTS `ensenanzas`;
+CREATE TABLE `ensenanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `enseñanzas`
+-- Volcado de datos para la tabla `ensenanzas`
 --
 
-INSERT INTO `enseñanzas` (`id`, `nombre`) VALUES
+INSERT INTO `ensenanzas` (`id`, `nombre`) VALUES
 (1, 'Bachillerato');
 
 -- --------------------------------------------------------
@@ -137,6 +137,13 @@ CREATE TABLE `imagenes` (
   `id_usuario` int(5) NOT NULL,
   `imagen` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id`, `id_usuario`, `imagen`) VALUES
+(1, 1, 'imgAlumnos/1.jpg');
 
 -- --------------------------------------------------------
 
@@ -172,7 +179,7 @@ CREATE TABLE `matriculas` (
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
   `id_itinerario` int(5) NOT NULL,
-  `cambio_datos` varchar(200) NOT NULL
+  `cambio_datos` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -180,7 +187,7 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`, `cambio_datos`) VALUES
-(1, '1111111111', '2018-03-19', '12:00', 1, 1, '');
+(1, '1111111111', '2018-03-19', '12:00', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -194,6 +201,13 @@ CREATE TABLE `matriculas_registradas` (
   `id_usuario` int(5) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `matriculas_registradas`
+--
+
+INSERT INTO `matriculas_registradas` (`id_matricula`, `id_usuario`, `fecha`) VALUES
+(1, 1, '2017-06-25');
 
 -- --------------------------------------------------------
 
@@ -213,7 +227,10 @@ CREATE TABLE `optativas` (
 --
 
 INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
-(1, 'informatica', 1);
+(1, 'Dibujo técnico', 1),
+(2, 'Física', 1),
+(3, 'Química', 1),
+(4, 'Biología', 1);
 
 -- --------------------------------------------------------
 
@@ -224,11 +241,18 @@ INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
 DROP TABLE IF EXISTS `optativas_elegidas`;
 CREATE TABLE `optativas_elegidas` (
   `cod_matricula` int(5) NOT NULL,
-  `id_optativa1` int(5) NOT NULL,
   `id_optativa2` int(5) NOT NULL,
   `id_optativa3` int(5) NOT NULL,
-  `id_optativa` int(5) NOT NULL
+  `id_optativa4` int(5) NOT NULL,
+  `id_optativa1` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `optativas_elegidas`
+--
+
+INSERT INTO `optativas_elegidas` (`cod_matricula`, `id_optativa2`, `id_optativa3`, `id_optativa4`, `id_optativa1`) VALUES
+(1111111111, 3, 4, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -277,21 +301,21 @@ ALTER TABLE `asignaturas`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_enseñanza` (`id_enseñanza`),
+  ADD KEY `id_enseñanza` (`id_ensenanza`),
   ADD KEY `id` (`id`);
 
 --
--- Indices de la tabla `enseñanzas`
+-- Indices de la tabla `ensenanzas`
 --
-ALTER TABLE `enseñanzas`
+ALTER TABLE `ensenanzas`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`);
-  
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `itinerarios`
@@ -349,16 +373,16 @@ ALTER TABLE `cursos`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `enseñanzas`
+-- AUTO_INCREMENT de la tabla `ensenanzas`
 --
-ALTER TABLE `enseñanzas`
+ALTER TABLE `ensenanzas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `itinerarios`
@@ -376,7 +400,7 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
@@ -392,7 +416,7 @@ ALTER TABLE `personal`
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_ensenanza`) REFERENCES `ensenanzas` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes`

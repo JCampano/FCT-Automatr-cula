@@ -45,10 +45,22 @@
 		$dni=$_SESSION['login'];	
 		$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
         $consulta2="SELECT E.NOMBRE, C.NOMBRE, I.NOMBRE FROM ALUMNOS A, MATRICULAS M, ITINERARIOS I, CURSOS C, ENSENANZAS E WHERE A.DNI='".$dni."' AND A.ID=M.ID_ALUMNO AND M.ID_ITINERARIO=I.ID AND I.ID_CURSO=C.ID AND C.ID_ENSENANZA=E.ID";
+        $consulta3="SELECT O.NOMBRE FROM MATRICULAS M, OPTATIVAS O, OPTATIVAS_ELEGIDAS OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA1";
+        $consulta4="SELECT O.NOMBRE FROM MATRICULAS M, OPTATIVAS O, OPTATIVAS_ELEGIDAS OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA2";
+        $consulta5="SELECT O.NOMBRE FROM MATRICULAS M, OPTATIVAS O, OPTATIVAS_ELEGIDAS OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA3";
+        $consulta6="SELECT O.NOMBRE FROM MATRICULAS M, OPTATIVAS O, OPTATIVAS_ELEGIDAS OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA4";
 		$resulset=ejecutaConsulta($consulta);
-		 $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
-        //$resulset2=ejecutaConsulta($consulta2);
-		 //$matricula=$resulset2->fetch(PDO::FETCH_NUM);
+        $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
+        $resulset2=ejecutaConsulta($consulta2);
+		$matricula=$resulset2->fetch(PDO::FETCH_NUM);
+        $resulset3=ejecutaConsulta($consulta3);
+		$optativa1=$resulset3->fetch(PDO::FETCH_NUM);
+        $resulset4=ejecutaConsulta($consulta4);
+		$optativa2=$resulset4->fetch(PDO::FETCH_NUM);
+        $resulset5=ejecutaConsulta($consulta5);
+		$optativa3=$resulset5->fetch(PDO::FETCH_NUM);
+        $resulset6=ejecutaConsulta($consulta6);
+		$optativa4=$resulset6->fetch(PDO::FETCH_NUM);
 		
 	?>
 	<h4>Datos del ALumno/a:</h4>
@@ -108,9 +120,10 @@
 	<table class="caja0">		    
 	    <tr><th class="caja4">Enseñanza</th><th class="caja4">Curso</th><th class="caja4">Itinerario</th></tr>
 	    <tr><td class="caja4"><?php echo $matricula[0];?></td><td class="caja4"><?php echo $matricula[1];?></td><td class="caja4"><?php echo $matricula[2];?></td></tr>
-
-	    <tr><th class="caja4">Optativa</th><th class="caja4">Optativa</th><th class="caja4">Optativa</th></tr>
-	    <tr><td class="caja4">Optativa</td><td class="caja4">Optativa</td><td class="caja4">Optativa</td></tr>
+    </table>
+    <table class="caja0">
+	    <tr><th class="caja5">Optativa 1</th><th class="caja5">Optativa 2</th><th class="caja5">Optativa 3</th><th class="caja5">Optativa 4</th></tr>
+	    <tr><td class="caja5"><?php echo $optativa1[0];?></td><td class="caja5"><?php echo $optativa2[0];?></td><td class="caja5"><?php echo $optativa3[0];?></td><td class="caja5"><?php echo $optativa4[0];?></td></tr>
 	</table>
 
 </body>
