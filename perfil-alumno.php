@@ -29,16 +29,7 @@
                             </form>
                         </div>
                                                
-                        <div class="col-sm-9">
-                            <div class="alert alert-warning" role="alert">
-                              Ateción, no has seleccionado el curso en el que deseas matricularte.
-                              <select class="custom-select">
-                                <option selected>Selecciona el curso en el que deseas matricularte</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            </div>
+                        <div class="col-sm-9">                            
                             
                             <div class="row borde-finito">
                                 <div class="col-sm-6">
