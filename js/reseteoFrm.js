@@ -12,7 +12,7 @@ function resetFrmLogin(){
 
 
 function resetFrmRegistro(){
-	document.altaMatricula.reset();
+	document.frmRegistro.reset();
 }
 
 function ocultarTabs(){
