@@ -290,8 +290,8 @@ ALTER TABLE `enseñanzas`
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id`);
+  
 
 --
 -- Indices de la tabla `itinerarios`
