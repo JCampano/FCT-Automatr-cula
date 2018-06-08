@@ -29,7 +29,13 @@ if(ejecutaConsulta2($consulta)==0)
     header('Location: ../../index.php');    
 }
 else{*/
-    $insert="UPDATE MATRICULAS SET NOMBRE = COD_MATRICULA, '$fecha', '$hora', '$alumno['id']', '$itinerario', '$optativa')";
+    $insert="UPDATE MATRICULAS SET 
+            COD_MATRICULA = COD_MATRICULA, 
+            FECHA='".$fecha."', 
+            HORA=$hora, 
+            ID_ALUMNO='".$alumno['id']."',
+            ID_ITINERARIO=$itinerario,
+            ID_OPTATIVA=$optativa";
 //}
 
 if(ejecutaConsultaAccion($insert)>0){
@@ -39,7 +45,7 @@ if(ejecutaConsultaAccion($insert)>0){
 }
 else{	
 	$_SESSION['tipoMensaje']= "danger";
-	$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar el registro";
+	$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al modificar la matricula";
 	header('Location: ../../index.php');	
 }
 
