@@ -21,8 +21,7 @@
 
 <div class="container">
         
-    <div class="jumbotron">
-      <?php if($matricula['id']!=""){echo "asasas";}?>
+    <div class="jumbotron">      
       <p class="lead">Aquí puedes gestionar las matrículas que has creado, además de guardarla e imprimirla en formato PDF.</p>
       
     </div>
