@@ -13,7 +13,7 @@ ob_start();
   </li>
 </ul>
 <div class="tab-content">
-	<form name="frmSolicitudCambioDatos" class="needs-validation" novalidate>
+	<form name="frmSolicitudCambioDatos" id="frmSolicitudCambioDatos" action="php/cambioDatos.php" class="needs-validation" method="post" novalidate>
 		<div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="alumno-tab">
 			<fieldset>
                 <legend>Datos del ALumno/a:</legend>
