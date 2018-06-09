@@ -16,8 +16,6 @@
 ?>
     <div class="fondo padding-arriba">
         <div class="container">
-
-
             <div class="card">
                 <div class="card-header text-white bg-info">
                     <h3><i class="fas fa-users-cog"></i> Perfil del Alumno</h3>
@@ -30,37 +28,101 @@
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>                               
                         </div>
                                                
-                        <div class="col-sm-9">                            
-                            
-                            <div class="row borde-finito">
-                                <div class="col-sm-6">
-                                    <h3>Datos Personales</h3>
-                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
-                                    <p class="font-weight-light"><?php echo $alumno['nombre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
-                                    <p class="font-weight-light"><?php echo $alumno['apellido1'];?><?php echo $alumno['apellido2'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Fecha de Nacimiento</p>
-                                    <p class="font-weight-light"><?php echo $alumno['fecha_nac'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">DNI/NIE</p>
-                                    <p class="font-weight-light"><?php if($alumno['dni']!=""){echo $alumno['dni'];}else{echo $alumno['nie'];};?></p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <h3>Datos de Familia</h3>
-                                    <p class="font-weight-bold titulo-dato-perfil">Nombre del padre</p>
-                                    <p class="font-weight-light"><?php echo $alumno['nombre_padre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos del padre</p>
-                                    <p class="font-weight-light"><?php echo $alumno['apellidos_padre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Nombre de la madre</p>
-                                    <p class="font-weight-light"><?php echo $alumno['nombre_madre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos de la madre</p>
-                                    <p class="font-weight-light"><?php echo $alumno['apellidos_madre'];?></p>
-                                </div>
-                            </div>
-                            
-                            
+                        <div class="col-sm-9">  
+                        	<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  <li class="nav-item">
+							    <a class="nav-link active" id="alumno-tab" data-toggle="tab" href="#alumno" role="tab" aria-controls="alumno" aria-selected="true"> Datos Personales</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" id="padre-tab" data-toggle="tab" href="#padre" role="tab" aria-controls="padre" aria-selected="false">Datos Padre / Tutor</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" id="madre-tab" data-toggle="tab" href="#madre" role="tab" aria-controls="madre" aria-selected="false">Madre / Tutor</a>
+							  </li>
+							</ul>
+
+                        	<div class="tab-content">
+								<div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="alumno-tab">
+									<div class="row borde-finito">
+
+										<div class="col-sm-12"><h3>Datos Personales</h3></div>
+		                                <div class="col-sm-6">		                                    
+		                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['nombre'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['apellido1'];?> <?php echo $alumno['apellido2'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Provincia</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['provincia'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Dirección</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['direccion'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Teléfono</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['tel_fijo'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Correo</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['correo'];?></p>
+		                                </div>
+
+		                                <div class="col-sm-6">                             
+		                                    <p class="font-weight-bold titulo-dato-perfil">DNI/NIE</p>
+		                                    <p class="font-weight-light"><?php if($alumno['dni']!=""){echo $alumno['dni'];}else{echo $alumno['nie'];};?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Fecha de Nacimiento</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['fecha_nac'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Población</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['poblacion'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Código Postal</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['cod_postal'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Móvil</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['tel_movil'];?></p>
+		                                </div>
+		                            </div>
+								</div>
+
+
+								<div class="tab-pane fade" id="padre" role="tabpanel" aria-labelledby="padre-tab">
+									<div class="row borde-finito">
+										<div class="col-sm-12"><h3>Datos de Padre/Tutor</h3></div>
+		                                <div class="col-sm-6">		                                    
+		                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['nombre_padre'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['apellidos_padre'];?> <?php echo $alumno['apellido2'];?></p>  
+		                                    <p class="font-weight-bold titulo-dato-perfil">Correo</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['correo_padre'];?></p>
+		                                </div>
+
+		                                <div class="col-sm-6">                             
+		                                    <p class="font-weight-bold titulo-dato-perfil">DNI</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['dni_padre'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Teléfono</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['tel_padre'];?></p>	
+		                                </div>
+		                            </div>
+						        </div>
+
+						        <div class="tab-pane fade" id="madre" role="tabpanel" aria-labelledby="madre-tab">
+						 			<div class="row borde-finito">
+						 				<div class="col-sm-12"><h3>Datos Madre/Tutor</h3></div>		                               
+		                                <div class="col-sm-6">		                                    
+		                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['nombre_madre'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['apellidos_madre'];?> <?php echo $alumno['apellido2'];?></p>  
+		                                    <p class="font-weight-bold titulo-dato-perfil">Correo</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['correo_madre'];?></p>
+		                                </div>
+
+		                                <div class="col-sm-6">                             
+		                                    <p class="font-weight-bold titulo-dato-perfil">DNI</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['dni_madre'];?></p>
+		                                    <p class="font-weight-bold titulo-dato-perfil">Teléfono</p>
+		                                    <p class="font-weight-light"><?php echo $alumno['tel_madre'];?></p>	
+		                                </div>
+		                            </div>
+		                            </div>
+			                	</div>
+			                </div>   
                         </div>
                     </div>
-                                
+                </div>                                
             </div>
         </div>
     </div>
