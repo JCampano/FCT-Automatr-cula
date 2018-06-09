@@ -170,6 +170,7 @@ function getOptativa2() {
     var value = document.getElementById("selectCurso").value;
     var optativa1 = document.getElementById("selectOptativas").value;
 
+    eliminarBtn();
     eliminarOptativas2();
     eliminarOptativas3();
     eliminarOptativas4();
