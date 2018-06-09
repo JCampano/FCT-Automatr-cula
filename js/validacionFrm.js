@@ -17,49 +17,47 @@ $(function() {
   }, false);
 });
 
-//document.getElementById('contrasena').addEventListener('keyup',comprobarContraseñas,false);
-//document.getElementById('contrasena2').addEventListener('keyup',comprobarContraseñas,false);
-
 $("#contrasena").keyup(function(){
-	if($("#contrasena").val() != $("#contrasena2").val()){
+	if($("#contrasena").val().match(/^[a-zA-Z0-9]{5,}$/)){
+		if($("#contrasena").val() != $("#contrasena2").val()){
+			$("#contrasena").css("borderColor","#dc3545");
+			$("#contrasena").next().css("display","block");
+			$("#contrasena2").css("borderColor","#dc3545");
+			$("#contrasena2").next().css("display","block");
+		}else{
+			$("#contrasena").css("borderColor","#28a745");
+			$("#contrasena").next().css("display","none");
+			$("#contrasena2").css("borderColor","#28a745");
+			$("#contrasena2").next().css("display","none");
+		}
+	}else{
 		$("#contrasena").css("borderColor","#dc3545");
 		$("#contrasena").next().css("display","block");
 		$("#contrasena2").css("borderColor","#dc3545");
 		$("#contrasena2").next().css("display","block");
-	}else{
-		$("#contrasena").css("borderColor","#28a745");
-		$("#contrasena").next().css("display","none");
-		$("#contrasena2").css("borderColor","#28a745");
-		$("#contrasena2").next().css("display","none");
 	}
 });
 
 $("#contrasena2").keyup(function(){
-	if($("#contrasena").val() != $("#contrasena2").val()){
+	if($("#contrasena2").val().match(/^[a-zA-Z0-9]{5,}$/)){
+		if($("#contrasena").val() != $("#contrasena2").val()){
+			$("#contrasena").css("borderColor","#dc3545");
+			$("#contrasena").next().css("display","block");
+			$("#contrasena2").css("borderColor","#dc3545");
+			$("#contrasena2").next().css("display","block");
+		}else{
+			$("#contrasena").css("borderColor","#28a745");
+			$("#contrasena").next().css("display","none");
+			$("#contrasena2").css("borderColor","#28a745");
+			$("#contrasena2").next().css("display","none");
+		}
+	}else{
 		$("#contrasena").css("borderColor","#dc3545");
 		$("#contrasena").next().css("display","block");
 		$("#contrasena2").css("borderColor","#dc3545");
 		$("#contrasena2").next().css("display","block");
-	}else{
-		$("#contrasena").css("borderColor","#28a745");
-		$("#contrasena").next().css("display","none");
-		$("#contrasena2").css("borderColor","#28a745");
-		$("#contrasena2").next().css("display","none");
 	}
 });
 
 
 
-
-/*function comprobarContraseñas(){
-	var contraseña = document.getElementById("contrasena");	
-	var contraseña2 = document.getElementById("contrasena2");
-
-	if(contraseña.value != contrasena2.value ){
-		contraseña.style.borderColor ="#dc3545";		
-		contraseña2.style.borderColor ="#dc3545";
-	}else{
-		contraseña.style.borderColor ="#28a745";
-		contraseña2.style.borderColor ="#28a745";
-	}
-}*/
