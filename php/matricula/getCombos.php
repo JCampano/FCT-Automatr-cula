@@ -91,7 +91,7 @@ session_start();
 
 
 //obtenemos los itinerarios con el itinerario seleccionado
-	$sql="SELECT * FROM itinerarios WHERE ID_CURSO=$curso['id'];";	
+	$sql="SELECT * FROM itinerarios WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -120,7 +120,7 @@ session_start();
 	$respuesta.='<div class="col-md-3 mb-3" id="optativas"><label>Optativa 1</label><select class="custom-select" name="selectOptativas" id="selectOptativas" onchange="getOptativa2();"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa'])
+	    	if($fila['id'] == $optativas['id_optativa1'])
 	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
 	        else
 	        	$respuesta.='<option value="'.$fila['id'].'">';
@@ -141,7 +141,7 @@ session_start();
 	$respuesta.='<div class="col-md-3 mb-3" id="optativas2"><label>Optativa 2</label><select class="custom-select" name="selectOptativas2" id="selectOptativas2" onchange="getOptativa3();"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa1'])
+	    	if($fila['id'] == $optativas['id_optativa2'])
 	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
 	        else
 	        	$respuesta.='<option value="'.$fila['id'].'">';
@@ -162,7 +162,7 @@ session_start();
 	$respuesta.='<div class="col-md-3 mb-3" id="optativas3"><label>Optativa 3</label><select class="custom-select" name="selectOptativas3" id="selectOptativas3" onchange="getOptativa4();"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa2'])
+	    	if($fila['id'] == $optativas['id_optativa3'])
 	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
 	        else
 	        	$respuesta.='<option value="'.$fila['id'].'">';
@@ -185,7 +185,7 @@ session_start();
 	$respuesta.='<div class="col-md-3 mb-3" id="optativas4"><label>Optativa 4</label><select class="custom-select" name="selectOptativas4" id="selectOptativas4"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa3'])
+	    	if($fila['id'] == $optativas['id_optativa4'])
 	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
 	        else
 	        	$respuesta.='<option value="'.$fila['id'].'">';
