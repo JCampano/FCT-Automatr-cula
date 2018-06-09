@@ -16,13 +16,19 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	
 	//obtenemos el value del combo 
 	$curso = $_GET['curso'];
+	$opt1 = $_GET['opt1'];
+	$opt2 = $_GET['opt2'];
+	$opt3 = $_GET['opt3'];
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso."';";	
+	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso."'";
+	$sql.="AND ID !='".$opt1."'";
+	$sql.="AND ID !='".$opt3."'";
+	$sql.="AND ID !='".$opt2."';";
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
-
-	$respuesta='<label>Optativa 1</label><select class="custom-select" name="selectOptativas" id="selectOptativas" onchange="getOptativa2();"><option value="Seleccione">Seleccione</option>';
+	
+	$respuesta='<label>Optativa 4</label><select class="custom-select" name="selectOptativas4" id="selectOptativas4"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
 	        $respuesta.='<option value="'.$fila['id'].'">';
@@ -30,7 +36,7 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	        $respuesta.="</option>";        
 	    }
 
-    if($respuesta=='<label>Optativa 1</label><select class="custom-select" name="selectOptativas" id="selectOptativas" onchange="getOptativa2();"><option value="Seleccione">Seleccione</option>'){
+    if($respuesta=='<label>Optativa 4</label><select class="custom-select" name="selectOptativas4" id="selectOptativas4"><option value="Seleccione">Seleccione</option>'){
     }
 	$respuesta.="</select>";
 	
