@@ -25,11 +25,6 @@ if(isset($_POST['selectOptativas2'])){
 	}
 }
 
-//obtenemos la enseñanza para el cod
-	$consulta="SELECT * FROM ENSEÑANZAS WHERE ID='".$enseñanza."';";
-    $resulset=ejecutaConsulta($consulta);
-    $ense=$resulset->fetch(PDO::FETCH_ASSOC); 
-
 
 //obtenemos el id del alumno
 
@@ -43,7 +38,7 @@ $hora = date("H:i");
 //echo $itinerario."-".$optativa;
 
 //generamos el codigo
-    $codigo = $ense['nombre'].$alumno['id'];
+    $codigo = $enseñanza."/".$curso."/".$itinerario."/".$alumno['id'];
 
 $insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('".$codigo."', '".date("Y-m-d ")."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
 
