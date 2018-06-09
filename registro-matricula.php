@@ -15,7 +15,7 @@
 if(ejecutaConsulta2($consulta)!=0)
 {
     $_SESSION['tipoMensaje']= "warning";
-    $_SESSION['mensajeRegistro'] = "<strong>Error</strong>, Ese usuario ya tiene registrada una matricula, vaya al apartado de gestionar matriculas para poder modificarla...";
+    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> ,Ese usuario ya tiene registrada una matricula, vaya a gestionar matriculas y seleccione editar matriculas";
     header('Location: index.php');    
 }
 ?>
@@ -189,9 +189,21 @@ if(ejecutaConsulta2($consulta)!=0)
                                         
                                     </div>                                
 
-	                                <div class="col-md-12 mb-3" id="optativas">
+	                                <div class="col-md-3 mb-3" id="optativas">
 	                                    
 	                                </div>
+
+                                    <div class="col-md-3 mb-3" id="optativas2">
+                                        
+                                    </div>
+
+                                    <div class="col-md-3 mb-3" id="optativas3">
+                                        
+                                    </div>
+
+                                    <div class="col-md-3 mb-3" id="optativas4">
+                                        
+                                    </div>
 
                                     
                                     <!--
