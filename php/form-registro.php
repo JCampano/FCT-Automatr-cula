@@ -59,7 +59,7 @@ ob_start();
                     <div class="col-md-4 mb-3">
                         <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
                         <input type="password" autofocus="autofocus" class="form-control" name="contrasena" id="contrasena" placeholder="Contrase&ntilde;a" >
-                        <!-- <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números</strong></span> -->
+                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="contrasena2" class="control-label">Repetir Contrase&ntilde;a</label>

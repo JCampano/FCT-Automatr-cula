@@ -207,7 +207,7 @@
                                 
                                 </fieldset> 
                                 
-                                	<div id="btnSubmit"><button class="btn btn-primary" type="submit">Submit </button></div>
+                                	<div id="btnSubmit"><button class="btn btn-primary" type="submit">Solicitar cambio</button></div>
                             	
                         </form>
                 </div>

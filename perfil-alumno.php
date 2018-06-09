@@ -46,13 +46,13 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <h3>Datos de Familia</h3>
-                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Nombre del padre</p>
                                     <p class="font-weight-light"><?php echo $alumno['nombre_padre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos del padre</p>
                                     <p class="font-weight-light"><?php echo $alumno['apellidos_padre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Nombre</p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Nombre de la madre</p>
                                     <p class="font-weight-light"><?php echo $alumno['nombre_madre'];?></p>
-                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos</p>
+                                    <p class="font-weight-bold titulo-dato-perfil">Apellidos de la madre</p>
                                     <p class="font-weight-light"><?php echo $alumno['apellidos_madre'];?></p>
                                 </div>
                             </div>
