@@ -5,16 +5,19 @@
 	<title>
 		Mátricula
 	</title>
+
 	<style type="text/css">		
 		.caja0{			
-			width:100%;									
+			width:100%;							
 		}
 		.caja1{
 			width:100%;	
+
 		}
 
 		.caja2{
 			width: 75%;
+
 		}
 
 		.caja3{
@@ -30,15 +33,27 @@
 		}
 
 		.caja1, .caja2, .caja3, .caja4, .caja5 {
-			border: solid 1px;			
-			padding-top: 10px;
-			padding-bottom: 10px;
+					
+			padding:5px 10px;
+			color:#343e48;
+			border-radius:5px;
 		}
+		.caja0{
+			border-bottom: solid 1px white;	
+		}
+		.contenedor{
+			background-color:#e9ecef;
+			border-radius:5px;
+			margin-bottom:30px;
+		}
+	
 
 
 	</style>
 </head>
 <body>
+	
+
 	<?php
 		include "functions.php"; 
 		session_start();
@@ -61,9 +76,15 @@
 		$optativa3=$resulset5->fetch(PDO::FETCH_NUM);
         $resulset6=ejecutaConsulta($consulta6);
 		$optativa4=$resulset6->fetch(PDO::FETCH_NUM);
+		$consulta7 = ejecutaConsultaArray("SELECT m.cod_matricula from alumnos a inner join matriculas m where a.id = m.id_alumno and a.dni='$dni'");
+
+		$cod_matricula = $consulta7[0]["cod_matricula"];
 		
 	?>
-	<h4>Datos del ALumno/a:</h4>
+	<div style="text-align:right"><barcode dimension="1D" type="EAN13" value="<?php echo $cod_matricula;?>" label="label" style="float:right;width:30mm; height:6mm; color: #000; font-size: 3mm"></barcode></div>
+	<h3 style="font-weight:lighter;">HOJA DE MATRICULACIÓN - IES HNOS. MACHADO</h3>
+	<h4>Datos del Alumno/a:</h4>
+	<div class="contenedor">
 	<table class="caja0">
 		<tr><th class="caja4">Nombre</th><th class="caja4">Primer Apellido</th><th class="caja4">Segundo Apellido</th></tr>
 		<tr><td class="caja4"><?php echo $alumno['nombre'];?></td><td class="caja4"><?php echo $alumno['apellido1'];?></td><td class="caja4"><?php echo $alumno['apellido2'];?></td></tr>
@@ -89,8 +110,10 @@
 	 	<tr><th class="caja4">Teléfono</th><th class="caja4">Móvil</th><th class="caja4">Email</th></tr>
 	 	<tr><td class="caja4"><?php echo $alumno['tel_fijo'];?></td><td class="caja4"><?php echo $alumno['tel_movil'];?></td><td class="caja4"><?php echo $alumno['correo'];?></td></tr>
 	</table>
+	</div>
 	 
  	<h4>Datos del Padre/Tutor:</h4>
+ 	<div class="contenedor">
  	<table class="caja0">
 	 	<tr><th class="caja5">Nombre</th><th class="caja2">Apellidos</th></tr>
 	 	<tr><td class="caja5"><?php echo $alumno['nombre_padre'];?></td><td class="caja2"><?php echo $alumno['apellidos_padre'];?></td></tr>
@@ -101,10 +124,11 @@
 	    <tr><td class="caja4"><?php echo $alumno['dni_padre'];?></td><td class="caja4"><?php echo $alumno['tel_padre'];?></td><td class="caja4"><?php echo $alumno['correo_padre'];?></td></tr>		
 	</table>	
 
-
+	</div>
 
 
 	<h4>Datos de la Madre/Tutora:</h4>	
+	<div class="contenedor">
 	<table class="caja0">
 	 	<tr><th class="caja5">Nombre</th><th class="caja2">Apellidos</th></tr>
 	 	<tr><td class="caja5"><?php echo $alumno['nombre_madre'];?></td><td class="caja2"><?php echo $alumno['apellidos_madre'];?></td></tr>
@@ -114,9 +138,10 @@
 	    <tr><th class="caja4">DNI</th><th class="caja4">Teléfono</th><th class="caja4">Email</th></tr>
 	    <tr><td class="caja4"><?php echo $alumno['dni_madre'];?></td><td class="caja4"><?php echo $alumno['tel_madre'];?></td><td class="caja4"><?php echo $alumno['correo_madre'];?></td></tr>		
 	</table>	
-
+</div>
 
 	<h4>Curso</h4>
+	<div class="contenedor">
 	<table class="caja0">		    
 	    <tr><th class="caja4">Enseñanza</th><th class="caja4">Curso</th><th class="caja4">Itinerario</th></tr>
 	    <tr><td class="caja4"><?php echo $matricula[0];?></td><td class="caja4"><?php echo $matricula[1];?></td><td class="caja4"><?php echo $matricula[2];?></td></tr>
@@ -125,6 +150,6 @@
 	    <tr><th class="caja5">Optativa 1</th><th class="caja5">Optativa 2</th><th class="caja5">Optativa 3</th><th class="caja5">Optativa 4</th></tr>
 	    <tr><td class="caja5"><?php echo $optativa1[0];?></td><td class="caja5"><?php echo $optativa2[0];?></td><td class="caja5"><?php echo $optativa3[0];?></td><td class="caja5"><?php echo $optativa4[0];?></td></tr>
 	</table>
-
+</div>
 </body>
 </html>
