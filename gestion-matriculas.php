@@ -14,18 +14,21 @@
     $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
+
+    $urlEliminar = "id=".$matricula['id']."&codMat=".$matricula['cod_matricula'];?>
    
 ?>
 
 <div class="container">
         
     <div class="jumbotron">
-      
+      <?php if($matricula['id']!=""){echo "asasas";}?>
       <p class="lead">Aquí puedes gestionar las matrículas que has creado, además de guardarla e imprimirla en formato PDF.</p>
       
     </div>
     <div class="card">
       <div class="card-header">
+        <?php if($matricula['id']!=""){?>
         Lista de matrículas registradas
       </div>
       <div class="card-body">
@@ -56,7 +59,7 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Eliminar</a>
+                <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?<?php echo $urlEliminar; ?>">Eliminar</a>
               </div>
             </div>
          </td>
@@ -65,7 +68,12 @@
       </tbody>
     </table>
       </div>
+    <?php }else{
+      echo "No hay matrículas registradas";
+    }?>
+      </div>
     </div>
+
 
     
 </div>
