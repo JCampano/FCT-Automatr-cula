@@ -16,7 +16,7 @@ ob_start();
      <form class="needs-validation" name="frmRegistro" action="php/alumnos/altaAlumno.php" method="post" novalidate>
 		<div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="alumno-tab">
 			<fieldset>
-                <legend>Datos del ALumno/a:</legend>
+                <legend>Datos del Alumno/a:</legend>
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="nombre" class="control-label">Nombre</label>

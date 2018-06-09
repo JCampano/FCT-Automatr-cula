@@ -79,7 +79,7 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
                                         </div>
-                                        <input id="nombre-itinerario" type="text" class="form-control" placeholder="Introduce el nombre">
+                                        <input id="nombre-usuario" type="text" class="form-control" placeholder="Introduce el nombre">
                                        
                                       </div>
                                     </div>
@@ -88,7 +88,7 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Apellidos</span>
                                         </div>
-                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce los apellidos">
+                                        <input id="apellidos-usuario" type="text" class="form-control" placeholder="Introduce los apellidos">
                                        
                                       </div>
                                     </div>
@@ -97,21 +97,25 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >DNI</span>
                                         </div>
-                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce el DNI">
+                                        <input id="dni-usuario" type="text" class="form-control" placeholder="Introduce el DNI">
                                        
                                       </div>
                                       <div class="input-group mb-3">
+                                      
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text" style="width:100px;" >CLAVE</span>
+                                          <span class="input-group-text" style="width:100px;" >Contraseña</span>
                                         </div>
-                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Introduce la clave">
+                                        
+                                        <input id="clave1-usuario" type="text" class="form-control" placeholder="Introduce la contraseña">
+                                        
                                        
                                       </div>
+                                      
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text" style="width:100px;" >CLAVE</span>
+                                          <span class="input-group-text" style="width:100px;" >Contraseña</span>
                                         </div>
-                                        <input id="apellidos-itinerario" type="text" class="form-control" placeholder="Vuelve a introducir la clave">
+                                        <input id="clave2-usuario" type="text" class="form-control" placeholder="Vuelve a introducir la contraseña">
                                        
                                       </div>
                                       
@@ -129,10 +133,11 @@ include "header.php";
                                         </label>
                                       </div>
                                     </div>
-                                    
                                   
                                 </div>
-                                
+                                <div class="text-right">
+                                  <button class="btn" id="btn-alta-usuario">Guardar</button>
+                                </div>
                           
                              </div>
                            </div>

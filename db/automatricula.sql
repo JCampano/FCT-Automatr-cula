@@ -96,33 +96,33 @@ DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE `cursos` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `id_ensenanza` int(5) NOT NULL
+  `id_enseñanza` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `nombre`, `id_ensenanza`) VALUES
+INSERT INTO `cursos` (`id`, `nombre`, `id_enseñanza`) VALUES
 (1, '2º Bachillerato', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ensenanzas`
+-- Estructura de tabla para la tabla `enseñanzas`
 --
 
-DROP TABLE IF EXISTS `ensenanzas`;
-CREATE TABLE `ensenanzas` (
+DROP TABLE IF EXISTS `enseñanzas`;
+CREATE TABLE `enseñanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `ensenanzas`
+-- Volcado de datos para la tabla `enseñanzas`
 --
 
-INSERT INTO `ensenanzas` (`id`, `nombre`) VALUES
+INSERT INTO `enseñanzas` (`id`, `nombre`) VALUES
 (1, 'Bachillerato');
 
 -- --------------------------------------------------------
@@ -301,13 +301,13 @@ ALTER TABLE `asignaturas`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_enseñanza` (`id_ensenanza`),
+  ADD KEY `id_enseñanza` (`id_enseñanza`),
   ADD KEY `id` (`id`);
 
 --
--- Indices de la tabla `ensenanzas`
+-- Indices de la tabla `enseñanzas`
 --
-ALTER TABLE `ensenanzas`
+ALTER TABLE `enseñanzas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -373,9 +373,9 @@ ALTER TABLE `cursos`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `ensenanzas`
+-- AUTO_INCREMENT de la tabla `enseñanzas`
 --
-ALTER TABLE `ensenanzas`
+ALTER TABLE `enseñanzas`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -416,7 +416,7 @@ ALTER TABLE `personal`
 -- Filtros para la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_ensenanza`) REFERENCES `ensenanzas` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_enseñanza`) REFERENCES `enseñanzas` (`id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes`

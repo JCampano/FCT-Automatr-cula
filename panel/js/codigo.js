@@ -880,3 +880,61 @@ function registrarMatricula(){
     $("#mensajes").fadeIn(500);
   }
 }
+
+
+//Alta Usuarios
+
+$("#btn-alta-usuario").on("click",darAltaUsuario);
+
+function darAltaUsuario(){
+    if(validarUsuario()){
+        alert($().button('toggle'));
+    }
+
+
+}
+
+function validarUsuario(){
+    var validado = true;
+    var mensaje="";
+    var nombre = $("#nombre-usuario").val();
+    var apellidos = $("#apellidos-usuario").val();
+    var dni = $("#dni-usuario").val();
+    var clave1 = $("#clave1-usuario").val();
+    var clave2 = $("#clave2-usuario").val();
+
+
+    if( nombre == null || nombre.length == 0 || /^\s+$/.test(nombre) || !/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/.test(nombre)){
+        mensaje = "El nombre no puede contener espacios y debe comenzar por una letra mayúscula.</br>";
+        validado =  false;
+    }
+    
+    if(apellidos == null || !/^([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40})+$/.test(apellidos)){
+        mensaje += "Los apellidos deben contener mínimo 3 caracteres y estar formado por letras.</br>";
+        validado =  false;
+    }
+
+    if(dni == null || !/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i.test(dni)){
+        mensaje += "El DNI introducido no es válido.</br>";
+        validado =  false;
+    }
+
+    if(clave1 == null || clave1.length<6){
+        mensaje += "La contraseña debe tener mínimo 6 caracteres.</br>";
+        validado =  false;
+    }
+
+    if(clave1 != clave2){
+        mensaje += "Las contraseñas no coinciden.</br>";
+        validado =  false; 
+    }
+
+    if(!validado){
+        
+        $("#mensajes").empty().append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>'+mensaje+'</div>');
+        $("#mensajes").fadeIn(500);
+    }
+
+
+    return validado;
+}
