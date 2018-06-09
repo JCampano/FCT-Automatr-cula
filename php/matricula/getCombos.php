@@ -71,7 +71,7 @@ session_start();
 
 
 //obtenemos todos los cursos con el curso seleccionado
-	$sql="SELECT * FROM CURSOS ";//WHERE ID_ENSEÑANZA='".$curso['id_enseñanza']."';";	
+	$sql="SELECT * FROM CURSOS WHERE ID_ENSEÑANZA='".$curso['id_enseñanza']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -91,7 +91,7 @@ session_start();
 
 
 //obtenemos los itinerarios con el itinerario seleccionado
-	$sql="SELECT * FROM itinerarios";// WHERE ID_CURSO=$curso['id'];";	
+	$sql="SELECT * FROM itinerarios WHERE ID_CURSO=$curso['id'];";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
