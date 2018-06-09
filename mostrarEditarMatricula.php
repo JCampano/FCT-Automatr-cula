@@ -174,7 +174,7 @@
 
                                 <fieldset>
                                 <legend>Matrícula</legend>
-                                <div class="form-row">
+                                <div class="form-row" id="combosRellenos">
                                    <div class="col-md-12 mb-3" id="enseñanzas">                            
                                         
                                     </div>
@@ -188,36 +188,26 @@
                                         
                                     </div>                                
 
-	                                <div class="col-md-12 mb-3" id="optativas">
+	                                <div class="col-md-3 mb-3" id="optativas">
 	                                    
 	                                </div>
 
-                                    
-                                    <!--
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Optativa</label>
-                                        <select class="custom-select" name="selectOptativa2">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
+                                    <div class="col-md-3 mb-3" id="optativas2">
+                                        
                                     </div>
 
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Optativa</label>
-                                        <select class="custom-select" name="selectOptativa3">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>-->
+                                    <div class="col-md-3 mb-3" id="optativas3">
+                                        
+                                    </div>
+
+                                    <div class="col-md-3 mb-3" id="optativas4">
+                                        
+                                    </div>                                    
                                 </div>                                          
                                 
                                 </fieldset> 
                                 
-                                	<div id="btnSubmit"></div>
+                                	<div id="btnSubmit"><button class="btn btn-primary" type="submit">Submit </button></div>
                             	
                         </form>
                 </div>
@@ -226,6 +216,7 @@
     </div>
 
     <script type="text/javascript" src="js/cargarSelectsMatricula.js"> </script>
+    <script type="text/javascript" src="js/cargarSelectsEditarMatricula.js"> </script>
     <?php
 
     include "footer.php";
