@@ -1,6 +1,20 @@
 <?php
     include "header.php";
     include "php/gestionlogin.php";
+    $dni=$_SESSION['login'];    
+    $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+    $resulset=ejecutaConsulta($consulta);
+    $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
+
+    $consulta="SELECT * FROM MATRICULAS_REGISTRADAS WHERE ID_USUARIO='".$alumno['id']."';";
+    $resulset=ejecutaConsulta($consulta);
+    $matriculaRegistrada=$resulset->fetch(PDO::FETCH_ASSOC);
+    $fecha = date("d/m/Y", strtotime($matriculaRegistrada['fecha']));
+
+    $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
+    $resulset=ejecutaConsulta($consulta);
+    $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
+   
 ?>
 
 <div class="container">
@@ -18,7 +32,7 @@
         <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th scope="col">Nº</th>
+          <!--<th scope="col">Nº</th>-->
           <th scope="col">Código</th>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha</th>
@@ -27,11 +41,11 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
+          <!--<th scope="row">1</th>-->
           
-          <td>MAT61195</td>
-          <td>Paco Pérez García</td>
-          <td>10/09/2018</td>
+          <th scope="row"><?php echo $matricula['cod_matricula'];?></th>
+          <td> <?php echo $alumno['nombre']." ".$alumno['apellido1']." ".$alumno['apellido2']; ?></td>
+          <td><?php echo $fecha;?></td>
           <td>
             
             <div class="btn-group">
