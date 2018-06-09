@@ -240,7 +240,7 @@ INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
 
 DROP TABLE IF EXISTS `optativas_elegidas`;
 CREATE TABLE `optativas_elegidas` (
-  `cod_matricula` int(5) NOT NULL,
+  `cod_matricula` varchar(40) NOT NULL,
   `id_optativa2` int(5) NOT NULL,
   `id_optativa3` int(5) NOT NULL,
   `id_optativa4` int(5) NOT NULL,
