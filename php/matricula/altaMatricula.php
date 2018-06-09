@@ -3,10 +3,33 @@ session_start();
 include "../functions.php";
 extract($_POST);
 
-$enseñanza=$_POST['selectEnseñanza'];
+$enseñanza=$_POST['selectEnsenanza'];
 $curso = $_POST['selectCurso'];
 $itinerario=$_POST['selectItinerario'];
 $optativa=$_POST['selectOptativas'];
+$optativa2 ="";
+$optativa3 ="";
+$optativa4 ="";
+if(isset($_POST['selectOptativas2'])){
+	if($_POST['selectOptativas2'] != "Seleccione")
+		$optativa2 =$_POST['selectOptativas2'];
+
+	if(isset($_POST['selectOptativas3'])){
+		if($_POST['selectOptativas3'] != "Seleccione")
+			$optativa3 =$_POST['selectOptativas3'];
+
+		if(isset($_POST['selectOptativas4'])){
+			if($_POST['selectOptativas4'] != "Seleccione")
+				$optativa4 =$_POST['selectOptativas4'];
+		}
+	}
+}
+
+//obtenemos la enseñanza para el cod
+	$consulta="SELECT * FROM ENSEÑANZAS WHERE ID='".$enseñanza."';";
+    $resulset=ejecutaConsulta($consulta);
+    $ense=$resulset->fetch(PDO::FETCH_ASSOC); 
+
 
 //obtenemos el id del alumno
 
@@ -20,14 +43,23 @@ $hora = date("H:i");
 //echo $fecha;
 //echo $itinerario."-".$optativa;
 
+//generamos el codigo
+    $codigo = $ense['nombre'].$alumno['id'];
 
-$insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('CODIGO', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
+$insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO,CAMBIO_DATOS) VALUES ('".$codigo."', '".$fecha."', '".$hora."', '".$alumno['id']."', '".$itinerario."','CAMBIO_DATOS')";
 
 
 if(ejecutaConsultaAccion($insert)>0){
-    $_SESSION['tipoMensaje']= "success";
-	$_SESSION['mensajeRegistro'] = "<strong>Matricula registrado con exito</strong>";
-	header('Location: ../../index.php');
+	$insert="INSERT INTO OPTATIVAS_ELEGIDAS (COD_MATRICULA,ID_OPTATIVA,ID_OPTATIVA1,ID_OPTATIVA2,ID_OPTATIVA3) VALUES ('".$codigo."', '".$optativa."', '".$optativa2."', '".$optativa3."', '".$optativa4."')";
+	if(ejecutaConsultaAccion($insert)>0){
+	    $_SESSION['tipoMensaje']= "success";
+		$_SESSION['mensajeRegistro'] = "<strong>Matricula registrado con exito</strong>";
+		header('Location: ../../index.php');
+	}else{
+		$_SESSION['tipoMensaje']= "danger";
+		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al guardar las optativas, por favor edite la matricula";
+		header('Location: ../../index.php');	
+	}
 }
 else{	
 	$_SESSION['tipoMensaje']= "danger";
