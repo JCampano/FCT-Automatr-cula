@@ -38,7 +38,7 @@ if(isset($_POST['selectOptativas2'])){
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC); 
 
-$fecha = date("d-m-Y");
+$fecha = date("d/m/Y");
 $hora = date("H:i");   
 //echo $fecha;
 //echo $itinerario."-".$optativa;
@@ -57,7 +57,7 @@ if(ejecutaConsultaAccion($insert)>0){
 	    $matricula=$resulset->fetch(PDO::FETCH_ASSOC); 
 
 		$insert="INSERT INTO MATRICULAS_REGISTRADAS (ID_MATRICULA,ID_USUARIO,FECHA) VALUES ('".$matricula['id']."', '".$alumno['id']."', '".$fecha."')";
-		
+
 		if(ejecutaConsultaAccion($insert)>0){
 		    $_SESSION['tipoMensaje']= "success";
 			$_SESSION['mensajeRegistro'] = "<strong>Matricula registrado con exito</strong>";
