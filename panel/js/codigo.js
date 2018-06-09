@@ -888,7 +888,39 @@ $("#btn-alta-usuario").on("click",darAltaUsuario);
 
 function darAltaUsuario(){
     if(validarUsuario()){
-        alert($().button('toggle'));
+        $("#mensajes").empty();
+        var nombre = $("#nombre-usuario").val();
+        var apellidos = $("#apellidos-usuario").val();
+        var dni = $("#dni-usuario").val();
+        var telefono = $("#telefono-usuario").val();
+        var clave1 = $("#clave1-usuario").val();
+        var clave2 = $("#clave2-usuario").val();
+        var tipoUsuario = $('#tipo-usuario input:radio:checked').val()
+
+        var rolUsuario;
+
+        if(tipoUsuario==1){
+            rolUsuario="administrativo";
+        }
+        if(tipoUsuario==2){
+            rolUsuario="gestor";
+        }
+        if(tipoUsuario==3){
+            rolUsuario="administrador";
+        }
+
+        $.post("php/usuarios/altaUsuario.php",{nombre:nombre, apellidos:apellidos, dni:dni, clave:clave1,telefono:telefono, tipo:rolUsuario}, function(result){
+            
+            $("#mensajes").empty().append(result);
+            $("#mensajes").fadeIn(500);
+            $("#nombre-usuario").val("");
+            $("#apellidos-usuario").val("");
+            $("#dni-usuario").val("");
+            $("#telefono-usuario").val("");
+            $("#clave1-usuario").val("");
+            $("#clave2-usuario").val("");
+            cargarUsuarios();
+        });
     }
 
 
@@ -900,6 +932,7 @@ function validarUsuario(){
     var nombre = $("#nombre-usuario").val();
     var apellidos = $("#apellidos-usuario").val();
     var dni = $("#dni-usuario").val();
+    var telefono = $("#telefono-usuario").val();
     var clave1 = $("#clave1-usuario").val();
     var clave2 = $("#clave2-usuario").val();
 
@@ -916,6 +949,10 @@ function validarUsuario(){
 
     if(dni == null || !/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i.test(dni)){
         mensaje += "El DNI introducido no es válido.</br>";
+        validado =  false;
+    }
+    if(telefono == null || !/^\d{9}$/.test(telefono)){
+        mensaje += "El teléfono introducido no es válido.</br>";
         validado =  false;
     }
 

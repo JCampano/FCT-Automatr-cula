@@ -93,12 +93,26 @@ include "header.php";
                                       </div>
                                     </div>
                                      <div class="col-xl-6">
-                                      <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text" style="width:100px;" >DNI</span>
-                                        </div>
-                                        <input id="dni-usuario" type="text" class="form-control" placeholder="Introduce el DNI">
+                                      <div class="row">
+                                        <div class="col-xl-6">
+                                          <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" style="width:100px;" >DNI</span>
+                                            </div>
+                                            <input id="dni-usuario" type="text" class="form-control" placeholder="Introduce el DNI">
                                        
+                                          </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" style="width:100px;" >Teléfono</span>
+                                          </div>
+                                          <input id="telefono-usuario" type="text" class="form-control" placeholder="Introduce el teléfono">
+                                        
+                                      </div>
+                                     
+                                      </div>
                                       </div>
                                       <div class="input-group mb-3">
                                       
@@ -106,7 +120,7 @@ include "header.php";
                                           <span class="input-group-text" style="width:100px;" >Contraseña</span>
                                         </div>
                                         
-                                        <input id="clave1-usuario" type="text" class="form-control" placeholder="Introduce la contraseña">
+                                        <input id="clave1-usuario" type="password" class="form-control" placeholder="Introduce la contraseña">
                                         
                                        
                                       </div>
@@ -115,21 +129,21 @@ include "header.php";
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Contraseña</span>
                                         </div>
-                                        <input id="clave2-usuario" type="text" class="form-control" placeholder="Vuelve a introducir la contraseña">
+                                        <input id="clave2-usuario" type="password" class="form-control" placeholder="Vuelve a introducir la contraseña">
                                        
                                       </div>
                                       
                                     </div>
                                     <div class="col-xl-6">
-                                      <div class="btn-group btn-group-toggle" style="width:100%;" data-toggle="buttons">
+                                      <div id="tipo-usuario" class="btn-group btn-group-toggle" style="width:100%;" data-toggle="buttons">
                                         <label class="btn user-administrativo btn-block btn-secondary active">
-                                          <input type="radio" name="options" id="option1" autocomplete="off" checked> <h1><i class="fas fa-file-alt"></i></br></h1>ADMINISTRATIVO
+                                          <input type="radio" name="options" value="1" id="option1" autocomplete="off" checked> <h1><i class="fas fa-file-alt"></i></br></h1>ADMINISTRATIVO
                                         </label>
                                         <label class="btn user-gestor btn-block btn-secondary">
-                                          <input type="radio" name="options" id="option2" autocomplete="off"> <h1><i class="fas fa-graduation-cap"></i></br></h1>GESTOR
+                                          <input type="radio" name="options" value="2" id="option2" autocomplete="off"> <h1><i class="fas fa-graduation-cap"></i></br></h1>GESTOR
                                         </label>
                                         <label class="btn user-administrador btn-block btn-secondary">
-                                          <input type="radio" name="options" id="option3" autocomplete="off"> <h1><i class="fa fa-fw fa-cogs"></i></br></h1>ADMINISTRADOR
+                                          <input type="radio" name="options" value="3" id="option3" autocomplete="off"> <h1><i class="fa fa-fw fa-cogs"></i></br></h1>ADMINISTRADOR
                                         </label>
                                       </div>
                                     </div>
