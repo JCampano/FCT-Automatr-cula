@@ -32,18 +32,18 @@ if(isset($_POST['selectOptativas2'])){
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC); 
 
-    $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
+   /* $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC); 
+    */
 
-
-    $fecha1 = date("j-n-Y");
+    //$fecha1 = date("j-n-Y");
     $hora = date("H:i");   
-    $codigo = $enseñanza."/".$curso."/".$itinerario."/".$alumno['id'];
+    $codigo = 10000+$alumno['id'];
 
 
 
-    if($matricula['fecha'] != date("Y-m-d")){
+    /*if($matricula['fecha'] != date("Y-m-d")){
     //MODIFICAMOS LA MATRICULA REGISTRADA
         $update2="UPDATE MATRICULAS_REGISTRADAS SET FECHA='".date("Y-m-d")."' WHERE ID_MATRICULA='".$matricula['id']."';";
         //echo $update2;
@@ -52,10 +52,10 @@ if(isset($_POST['selectOptativas2'])){
             $_SESSION['mensajeRegistro'] = "<strong>Error</strong> al modificar el registro de matricula";
             header('Location: ../../index.php');
         } 
-    }
+    }*/
   
     //modificamos optativas
-        $update1="UPDATE OPTATIVAS_ELEGIDAS SET COD_MATRICULA = '".$codigo."',ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa2."',ID_OPTATIVA3='".$optativa3."',ID_OPTATIVA4='".$optativa4."' WHERE COD_MATRICULA='".$matricula['cod_matricula']."';";
+        $update1="UPDATE OPTATIVAS_ELEGIDAS SET ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa2."',ID_OPTATIVA3='".$optativa3."',ID_OPTATIVA4='".$optativa4."' WHERE COD_MATRICULA='".$codigo."';";
         //echo $update1;
         if(ejecutaConsultaAccion($update1)>0){
            
