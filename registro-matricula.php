@@ -206,32 +206,13 @@ if(ejecutaConsulta2($consulta)!=0)
                                     </div>
 
                                     
-                                    <!--
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Optativa</label>
-                                        <select class="custom-select" name="selectOptativa2">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3">                            
-                                        <label>Optativa</label>
-                                        <select class="custom-select" name="selectOptativa3">
-                                            <option selected>Selecione</option>
-                                            <option value="1">1 </option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>-->
                                 </div>                                          
                                 
                                 </fieldset> 
-                                
-                                	<div id="btnSubmit"></div>
-                            	
+                                    <div class="row">
+                                	   <div id="btnSubmit" style="margin-left: 10px;margin-right: 10px;"></div>
+                                       <div><a class="btn btn-primary" href="index.php">Volver</a></div>
+                            	   <div>
                         </form>
                 </div>
             </div>
