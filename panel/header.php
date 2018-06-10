@@ -5,6 +5,10 @@
     require_once("php/functions.php");
     require_once("php/gestionlogin.php");
 
+    if(!ISSET($_SESSION["role"])){
+      session_destroy();
+      header("Location: login.php");
+    }
 
 ?>
 <html lang="es">
