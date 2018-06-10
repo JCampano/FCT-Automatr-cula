@@ -219,7 +219,7 @@
                                 	
                             	   <div class="row">
                                         <div id="btnSubmit" style="margin-left: 10px;margin-right: 10px;"><button class="btn btn-primary" type="submit">Solicitar cambio</button></div>
-                                        <div><a class="btn btn-danger" href="index.php">Volver</a></div>
+                                        <div><a class="btn btn-danger" href="gestion-matriculas.php">Volver</a></div>
                                    <div>
                         </form>
                 </div>
