@@ -11,6 +11,7 @@ include "../functions.php";
                 if(ejecutaConsultaAccion($update)>0){
                     $_SESSION['tipoMensaje']= "success";
                     $_SESSION['mensaje'] = "<strong>Datos modificados con exito</strong>";
+		    $_SESSION["nombre"]=$nombre;
                     header('Location: ../../mi-perfil.php');                    
                 }
                 else{
