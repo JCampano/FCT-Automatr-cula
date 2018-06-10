@@ -216,8 +216,11 @@
                                 
                                 </fieldset> 
                                 
-                                	<div id="btnSubmit"><button class="btn btn-primary" type="submit">Solicitar cambio</button></div>
-                            	
+                                	
+                            	   <div class="row">
+                                        <div id="btnSubmit" style="margin-left: 10px;margin-right: 10px;"><button class="btn btn-primary" type="submit">Solicitar cambio</button></div>
+                                        <div><a class="btn btn-danger" href="index.php">Volver</a></div>
+                                   <div>
                         </form>
                 </div>
             </div>

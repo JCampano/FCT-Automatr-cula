@@ -211,7 +211,7 @@ if(ejecutaConsulta2($consulta)!=0)
                                 </fieldset> 
                                     <div class="row">
                                 	   <div id="btnSubmit" style="margin-left: 10px;margin-right: 10px;"></div>
-                                       <div><a class="btn btn-primary" href="index.php">Volver</a></div>
+                                       <div><a class="btn btn-danger" href="index.php">Volver</a></div>
                             	   <div>
                         </form>
                 </div>
