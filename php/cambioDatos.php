@@ -1,12 +1,11 @@
 <?php
 session_start();
-include "../functions.php";
+include "functions.php";
 extract($_POST);
 $dni_autentificado=$_SESSION["login"];
 $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni_autentificado."'";
 $dni=trim($_POST['dni']);
 $contrasena=trim($_POST['contrasena']);
-$contrasena2=trim($_POST['contrasena2']);
 $nombre=trim($_POST['nombre']);
 $apellido1=trim($_POST['apellido1']);
 $apellido2=trim($_POST['apellido2']);
@@ -39,9 +38,9 @@ $resulset=ejecutaConsulta($consulta);
          $arraySolicitud['dni']=$dni;
      }
 
-     if($fila['contrasena']!=$contrasena)
+     if($fila['clave']!=$contrasena)
      {
-         $arraySolicitud['contrasena']=$contrasena;
+         $arraySolicitud['clave']=$contrasena;
      }
      if($fila['nombre']!=$nombre)
      {
@@ -87,9 +86,9 @@ $resulset=ejecutaConsulta($consulta);
      {
          $arraySolicitud['tel_movil']=$tel_movil;
      }
-     if($fila['email']!=$email)
+     if($fila['correo']!=$email)
      {
-         $arraySolicitud['email']=$email;
+         $arraySolicitud['correo']=$email;
      }
      if($fila['dni_padre']!=$dni_padre)
      {
@@ -107,9 +106,9 @@ $resulset=ejecutaConsulta($consulta);
      {
          $arraySolicitud['tel_padre']=$tel_padre;
      }
-     if($fila['email_padre']!=$email_padre)
+     if($fila['correo_padre']!=$email_padre)
      {
-         $arraySolicitud['email_padre']=$email_padre;
+         $arraySolicitud['correo_padre']=$email_padre;
      }
      if($fila['dni_madre']!=$dni_madre)
      {
@@ -127,16 +126,22 @@ $resulset=ejecutaConsulta($consulta);
      {
          $arraySolicitud['tel_madre']=$tel_madre;
      }
-     if($fila['email_madre']!=$email_madre)
+     if($fila['correo_madre']!=$email_madre)
      {
-         $arraySolicitud['email_madre']=$email_madre;
+         $arraySolicitud['correo_madre']=$email_madre;
      }
 
      if(!empty($arraySolicitud))
      {
          $json = json_encode($arraySolicitud);
          $update="UPDATE MATRICULAS SET CAMBIO_DATOS='".$json."' WHERE ID_ALUMNO='".$fila['id']."'";
-         ejecutaConsultaAccion($update);
+
+         if(ejecutaConsultaAccion($update)>0)
+	       {
+	    $_SESSION['tipoMensaje']= "warning";
+		$_SESSION['mensajeRegistro'] = "<strong>Solicitud de cambio de datos realizada con exito</strong>";
+		header('Location: ../index.php');
+	       }
      }
  }
-<?
+?>
