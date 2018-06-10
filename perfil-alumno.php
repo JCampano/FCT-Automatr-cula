@@ -2,12 +2,10 @@
     include "header.php";    
     $_SESSION['ruta']= "registro-matricula.php";//esto aqui yo creo que sobra
     include "php/gestionlogin.php";
-
     $dni=$_SESSION['login'];	
 	$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
 	$resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);   
-
     //obtener la imagen para el alum
     $consulta="SELECT * FROM imagenes WHERE ID_USUARIO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
@@ -31,18 +29,18 @@
                         <div class="col-sm-9">  
                         	<ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" id="alumno-tab" data-toggle="tab" href="#alumno" role="tab" aria-controls="alumno" aria-selected="true"> Datos Personales</a>
+							    <a class="nav-link active" id="mostrar-alumno-tab" data-toggle="tab" href="#mostrar-alumno" role="tab" aria-controls="alumno" aria-selected="true"> Datos Personales</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" id="padre-tab" data-toggle="tab" href="#padre" role="tab" aria-controls="padre" aria-selected="false">Datos Padre / Tutor</a>
+							    <a class="nav-link" id="mostrar-padre-tab" data-toggle="tab" href="#mostrar-padre" role="tab" aria-controls="padre" aria-selected="false">Datos Padre / Tutor</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" id="madre-tab" data-toggle="tab" href="#madre" role="tab" aria-controls="madre" aria-selected="false">Madre / Tutor</a>
+							    <a class="nav-link" id="mostrar-madre-tab" data-toggle="tab" href="#mostrar-madre" role="tab" aria-controls="madre" aria-selected="false">Madre / Tutor</a>
 							  </li>
 							</ul>
 
                         	<div class="tab-content">
-								<div class="tab-pane fade show active" id="alumno" role="tabpanel" aria-labelledby="alumno-tab">
+								<div class="tab-pane fade show active" id="mostrar-alumno" role="tabpanel" aria-labelledby="mostrar-alumno-tab">
 									<div class="row borde-finito">
 
 										<div class="col-sm-12"><h3>Datos Personales</h3></div>
@@ -77,7 +75,7 @@
 								</div>
 
 
-								<div class="tab-pane fade" id="padre" role="tabpanel" aria-labelledby="padre-tab">
+								<div class="tab-pane fade" id="mostrar-padre" role="tabpanel" aria-labelledby="mostrar-padre-tab">
 									<div class="row borde-finito">
 										<div class="col-sm-12"><h3>Datos de Padre/Tutor</h3></div>
 		                                <div class="col-sm-6">		                                    
@@ -98,7 +96,7 @@
 		                            </div>
 						        </div>
 
-						        <div class="tab-pane fade" id="madre" role="tabpanel" aria-labelledby="madre-tab">
+						        <div class="tab-pane fade" id="mostrar-madre" role="tabpanel" aria-labelledby="mostrar-madre-tab">
 						 			<div class="row borde-finito">
 						 				<div class="col-sm-12"><h3>Datos Madre/Tutor</h3></div>		                               
 		                                <div class="col-sm-6">		                                    
