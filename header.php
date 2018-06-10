@@ -10,6 +10,7 @@ if(ISSET($_SESSION["role"])){
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- ICONOS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -20,8 +21,8 @@ if(ISSET($_SESSION["role"])){
       
       <!-- CSS Personalizado -->
        <link rel="stylesheet" href="css/style.css">
-       
-    <title>Automatrícula</title>
+      <link rel="icon" type="image/png" href="img/favicon.png" /> 
+    <title>MatriculaT!</title>
   </head>
   <body>
     <?php
