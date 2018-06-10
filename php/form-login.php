@@ -6,7 +6,7 @@
         <form class="needs-validation" name="frmLogin" action="php/comprobar-login.php" method="post" novalidate>
             <div class="form-group">
               <label for="dni" class="control-label">DNI</label>
-              <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required pattern="\d{8}\w">
+              <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required pattern="^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$">
               <span class="invalid-feedback">Introduzca 8 Números y 1 Letra</span>
           </div>  
 

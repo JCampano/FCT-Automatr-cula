@@ -30,7 +30,133 @@ $apellidos_madre=trim($_POST['apellidos_madre']);
 $tel_madre=trim($_POST['tel_madre']);
 $email_madre=trim($_POST['email_madre']);
 $arraySolicitud= array();
-$resulset=ejecutaConsulta($consulta);
+$valido=true;
+
+
+if(!preg_match("/^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$/", $dni))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}/", $contrasena))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellido1))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellido2))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/", $nie))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^\d{4}\-\d{2}\-\d{2}/", $fecha_nac))
+{
+    $valido=false;
+}
+
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ,º\/0-9\s]{3,40}/", $direccion))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $poblacion))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $provincia))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/", $cod_postal))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^\d{9}$/", $tel_fijo))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^\d{9}$/", $tel_movil))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email))
+{
+    $valido=false;
+}
+
+if(!preg_match("/\d{8}\w/", $dni_padre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre_padre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellidos_padre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^\d{9}$/", $tel_padre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email_padre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/\d{8}\w/", $dni_madre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $nombre_madre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}/", $apellidos_madre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^\d{9}$/", $tel_madre))
+{
+    $valido=false;
+}
+
+if(!preg_match("/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/", $email_madre))
+{
+    $valido=false;
+}
+
+if($valido==true)
+{
+ $resulset=ejecutaConsulta($consulta);
 
  if($fila=$resulset->fetch(PDO::FETCH_ASSOC))
  {
@@ -143,8 +269,20 @@ $resulset=ejecutaConsulta($consulta);
 	    $_SESSION['tipoMensaje']= "warning";
 		$_SESSION['mensajeRegistro'] = "<strong>Solicitud de cambio de datos realizada con exito</strong>";
 		header('Location: ../index.php');
-	       
         }
+    else
+	{
+		$_SESSION['tipoMensaje']= "danger";
+		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar la solicitud";
+		header('Location: ../index.php');
+	}
+}
     }
  }
+else
+{
+    $_SESSION['tipoMensaje']= "danger";
+    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar la validación";
+    header('Location: ../index.php');
+}
 ?>

@@ -32,7 +32,7 @@ $email_madre=trim($_POST['email_madre']);
 $valido=true;
 
 
-if(!preg_match("/\d{8}\w/", $dni))
+if(!preg_match("/^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$/", $dni))
 {
     $valido=false;
 }
@@ -72,7 +72,7 @@ if($fecha_nac=="")
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ,º0-9\s]{3,40}/", $direccion))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ,º\/0-9\s]{3,40}/", $direccion))
 {
     $valido=false;
 }

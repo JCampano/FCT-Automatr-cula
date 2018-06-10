@@ -32,7 +32,7 @@ ob_start();
 
                     <div class="col-md-4 mb-3">
                         <label for="apellido2" class="control-label">Segundo Apellido</label>
-                        <input type="text" class="form-control" name="apellido2" placeholder="Segundo Apellido" required pattern="[a-zA-Z\s]{3,40}">
+                        <input type="text" class="form-control" name="apellido2" placeholder="Segundo Apellido" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40">
                         <span class="invalid-feedback">Introduzca un apellido mínimo de <strong>3 letras</strong></span>
                     </div>
                 </div>
@@ -45,12 +45,12 @@ ob_start();
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="dni" class="control-label">DNI</label>
-                        <input type="text" class="form-control" name="dni" placeholder="DNI" required pattern="\d{8}\w">
+                        <input type="text" class="form-control" name="dni" placeholder="DNI" required pattern="^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$">
                         <span class="invalid-feedback">Introduzca un DNI que conste de <strong>8 números y 1 letra</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="direccion" class="control-label">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" placeholder="Dirección" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ,º0-9\s]{3,40}">
+                        <input type="text" class="form-control" name="direccion" placeholder="Dirección" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ,º\/0-9\s]{3,40}">
                         <span class="invalid-feedback">Introduzca una dirección mínimo de <strong>3 caracteres</strong></span>
                     </div>
                 </div>
