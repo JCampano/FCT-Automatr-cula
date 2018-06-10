@@ -48,27 +48,27 @@ $datos=$datosConsulta[0];
                                             </div>
                                             <!-- /.panel-heading -->
                                               <div class="card-body">
-                                                <form>
+                                                <form action="php/datosPersonales/cambiarDatosPersonales.php" method="post">
                                                   <div class="form-group row">
-                                                    <label for="inputEmail3" class="col-sm-2 col-form-label">DNI</label>
-                                                    <div class="col-sm-10">
+                                                    <label for="DNI" class="col-sm-3 col-form-label">DNI</label>
+                                                    <div class="col-sm-9">
                                                       <input type="text" class="form-control" disabled value="<?php echo $datos["dni"] ?>">
                                                     </div>
                                                   </div>
                                                   <div class="form-group row">
-                                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Nombre</label>
-                                                    <div class="col-sm-10">
+                                                    <label for="Nombre" class="col-sm-3 col-form-label">Nombre</label>
+                                                    <div class="col-sm-9">
                                                       <input type="text" class="form-control" required id="nombre" name="nombre" placeholder="Introduce tu nombre" value="<?php echo $datos["nombre"] ?>">
                                                     </div>
                                                   </div>
                                                   <div class="form-group row">
-                                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Apellidos</label>
-                                                    <div class="col-sm-10">
+                                                    <label for="Apellidos" class="col-sm-3 col-form-label">Apellidos</label>
+                                                    <div class="col-sm-9">
                                                       <input type="text" class="form-control" required id="apellidos" name="apellidos" placeholder="Introduce tus apellidos" value="<?php echo $datos["apellidos"] ?>">
                                                     </div>
                                                   </div>
                                                    <div class="form-group row">
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-9">
                                                       <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                                                     </div>
                                                   </div>
@@ -85,23 +85,23 @@ $datos=$datosConsulta[0];
                                             </div>
                                             <!-- /.panel-heading -->
                                               <div class="card-body">
-                                                  <form>
+                                                  <form action="php/datosPersonales/modificarContrasena.php" method="post">
                                                    <div class="form-group row">
-                                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Actual</label>
-                                                     <div class="col-sm-10">
-                                                       <input type="text" class="form-control" required id="apellidos" name="apellidos" placeholder="Introduce tu contraseña actual">
+                                                     <label for="Actual" class="col-sm-3 col-form-label">Actual</label>
+                                                     <div class="col-sm-9">
+                                                       <input type="text" class="form-control" required id="actual" name="actual" placeholder="Introduce tu contraseña actual">
                                                      </div>
                                                    </div>
                                                    <div class="form-group row">
-                                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Nueva</label>
-                                                     <div class="col-sm-10">
-                                                       <input type="text" class="form-control" required id="apellidos" name="apellidos" placeholder="Introduce tu nueva contraseña">
+                                                     <label for="Nueva" class="col-sm-3 col-form-label">Nueva</label>
+                                                     <div class="col-sm-9">
+                                                       <input type="text" class="form-control" required id="pass1" name="pass1" placeholder="Introduce tu nueva contraseña">
                                                      </div>
                                                    </div>
                                                    <div class="form-group row">
-                                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Nueva</label>
-                                                     <div class="col-sm-10">
-                                                       <input type="text" class="form-control" required id="apellidos" name="apellidos" placeholder="Repite tu nueva contraseña">
+                                                     <label for="Nueva" class="col-sm-3 col-form-label">Nueva</label>
+                                                     <div class="col-sm-9">
+                                                       <input type="text" class="form-control" required id="pass2" name="pass2" placeholder="Repite tu nueva contraseña">
                                                      </div>
                                                    </div>
                                                    <div class="form-group row">
