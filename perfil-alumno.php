@@ -23,7 +23,8 @@
                         <div class="col-sm-3">                            
                                 <img class="imagen-alumno" src="<?php if($imagen['imagen'] == 'imgAlumnos/'.$alumno['id'].'.jpg'){ echo $imagen['imagen'];} else echo 'img/default-user.png'; ?>">  
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioFoto"> Cambiar Foto Personal</a>
-                                <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>                               
+                                <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>  
+                                <a href="index.php" class="btn btn-danger btn-block">Volver</a>                             
                         </div>
                                                
                         <div class="col-sm-9">  
