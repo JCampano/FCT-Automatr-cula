@@ -110,7 +110,7 @@ include "header.php";
                     <div class="card">
 
                                 <div class="card-header text-white bg-secondary">
-                                    Lista de Asignaturas
+                                    Lista de Enseñanzas
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
