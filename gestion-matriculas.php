@@ -6,14 +6,15 @@
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
-    $consulta="SELECT * FROM MATRICULAS_REGISTRADAS WHERE ID_USUARIO='".$alumno['id']."';";
+    /*$consulta="SELECT * FROM MATRICULAS_REGISTRADAS WHERE ID_USUARIO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $matriculaRegistrada=$resulset->fetch(PDO::FETCH_ASSOC);
-    $fecha = date("d/m/Y", strtotime($matriculaRegistrada['fecha']));
+    */
 
     $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
+    $fecha = date("d/m/Y", strtotime($matricula['fecha']));
 
     $urlEliminar = "id=".$matricula['id']."&codMat=".$matricula['cod_matricula'];?>
    
@@ -28,7 +29,7 @@
     <div class="card">
       <div class="card-header">
         <?php if($matricula['id']!=""){?>
-        Lista de matrículas registradas
+        Matrícula generada
       </div>
       <div class="card-body">
         <table class="table table-striped table-hover">
@@ -68,7 +69,7 @@
     </table>
       </div>
     <?php }else{
-      echo "No hay matrículas registradas";
+      echo "No tienes ninguna matricula generada";
     }?>
       </div>
     </div>
