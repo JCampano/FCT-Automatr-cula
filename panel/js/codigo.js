@@ -141,7 +141,7 @@ $(document).ready(function() {
 
     
 
-     $( ".card" ).draggable({ revert: "invalid" });
+     $( ".inicio>div>.card" ).draggable({ revert: "invalid" });
 } );
 
 
@@ -309,7 +309,8 @@ function cargarAsignaturas(){
             var cod = boton.attr("data-cod");
             
             $.post("php/formularios/formEditAsignatura.php", {cod: cod}, function(result){
-                $("#modal-asignatura").html(result);
+                $("#modal-asignatura-2").html(result);
+
             });
         }
         $(".btn-eliminar").on("click",cargarFormEliminarAsignatura);

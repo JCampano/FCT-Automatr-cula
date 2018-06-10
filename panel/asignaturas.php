@@ -41,7 +41,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-asignatura">
+              <div class="modal-body" id="modal-asignatura-2">
                <img src="img/cargando.gif" style="height:64px;">
               </div>
               

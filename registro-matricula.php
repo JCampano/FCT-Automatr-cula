@@ -32,7 +32,7 @@ if(ejecutaConsulta2($consulta)!=0)
                     <form name="altaMatricula" class="needs-validation" action="php/matricula/altaMatricula.php" method="post" novalidate>
                     	<div><!--style="display:none"-->
                             <fieldset>
-                                <legend>Datos del ALumno/a:</legend>
+                                <legend>Datos del Alumno/a:</legend>
                                 <div class="form-row">
                                     <div class="col-md-4 mb-3">
                                         <label for="nombre">Nombre</label>

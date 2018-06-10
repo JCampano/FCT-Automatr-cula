@@ -1,11 +1,6 @@
 <?php
-require_once("php/permisos.php");
 
-if(!comprobarLogin("gestor")){
-
-  header("location: index.php?e=1");
-}
-
+session_start();
 include "header.php";
 
 

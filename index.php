@@ -24,19 +24,21 @@
        if(isset($_SESSION['ruta'])){
             unset($_SESSION['ruta']);                     
         }
-        if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']))  {
-            echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable margen-arriba">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
-            unset($_SESSION['mensajeRegistro']);
-            unset($_SESSION['tipoMensaje']);
-       }
+       
     }
 
 ?>
 
-<div class="container-fluid">
-    
-    <div class="jumbotron margen-arriba fondo-azul-jumbotron">
+<div class="container-fluid margen-arriba">
+    <?php
+         if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']))  {
+             echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable ">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
+             unset($_SESSION['mensajeRegistro']);
+             unset($_SESSION['tipoMensaje']);
+        }
+    ?>
+    <div class="jumbotron fondo-azul-jumbotron">
       <div class="container">
         <img src="img/hola.png">
         <p class="lead">Bienvenido al gestor de matrículas del IES Hnos. Machado. Desde aquí, podrás gestionar las matrículas que posteriormente debes entregar en el centro.</p>

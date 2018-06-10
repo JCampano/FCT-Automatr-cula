@@ -7,7 +7,7 @@
                                             <th>ID</th>
                                             <th>DNI</th>
                                             <th>Nombre</th>
-                                            <th>Apellidos</th>
+                                     
                                             <th>Teléfono</th>
                                             <th>Tipo</th>
                                             <th>Acción</th>
@@ -28,8 +28,8 @@
         echo '  <tr>
                     <td width="50">'.$resultado[$i]["id"].'</td>
                     <td>'.$resultado[$i]["dni"].'</td>
-                    <td>'.$resultado[$i]["nombre"].'</td>
-                    <td>'.$resultado[$i]["apellidos"].'</td>
+                    <td>'.$resultado[$i]["nombre"].' '.$resultado[$i]["apellidos"].'</td>
+                    
                     <td>'.$resultado[$i]["telefono"].'</td>
                     <td>'.$rol.'</td>
                     <td width="100"><button style="margin-right:10px;" class="btn-editar" data-id="'.$resultado[$i]["id"].'" type="button" data-toggle="modal" data-target="#editarUsuario"  data-tipo="tooltip" data-placement="down" title="Editar">

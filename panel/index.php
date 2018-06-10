@@ -31,12 +31,12 @@
 
             
 
-            <div class="row">
+            <div class="row inicio">
 
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header">
-                            Últimas Matrículas Registradas
+                            Matrículas registradas por usuarios
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
@@ -51,41 +51,14 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header">
-                            Enseñanzas
+                            <i class="fa fa-bell-o"></i> Últimos alumnos registrados
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="card-body">
-                        <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Dato</th>
-                                            <th>Dato</th>
-                                            <th>Dato</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                            <td>Dato</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="list-group list-group-flush small">
+                        
+                                <?php
+                                    devuelveUltimosAlumnos();
+                                ?>
                             </div>
                             <!-- /.table-responsive -->
                         </div>

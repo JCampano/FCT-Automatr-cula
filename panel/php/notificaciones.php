@@ -2,23 +2,46 @@
 	require_once("functions.php");
 	$matriculasSinRegistrar=ejecutaConsultaArray("SELECT * FROM matriculas where id NOT IN (select id_matricula from matriculas_registradas);");
 
+  $solicitudCambios=ejecutaConsultaArray("SELECT * from matriculas where cambio_datos is not null");
+
 	$sinNotificaciones=true;
-	$nNotificaciones = count($matriculasSinRegistrar);
-	if($nNotificaciones!=0){
-		if($nNotificaciones>1){
+	$nNotificacionesM = count($matriculasSinRegistrar);
+  $nNotificacionesC = count($solicitudCambios);
+	if($nNotificacionesM!=0){
+		if($nNotificacionesM>1){
 			$plural="s";
 		} else {
 			$plural="";
 		}
-		echo '<a class="dropdown-item" href="#">
+		echo '<a class="dropdown-item" href="matriculas.php?v=n">
               <span>
                
-                  <i class="fa fa-file-alt"></i> Hay '.$nNotificaciones.' matrícula'.$plural.' sin registrar
-              </span>
+                  <i class="fa fa-fw fa-file-alt"></i> Hay '.$nNotificacionesM.' matrícula'.$plural.' sin registrar
+
+              </span></br>
+              <div class="text-muted smaller">Pulsa aquí para ver</div>
              
             </a>';
         $sinNotificaciones=false;
 	}
+
+  if($nNotificacionesC!=0){
+    if($nNotificacionesC>1){
+      $plural="es";
+    } else {
+      $plural="";
+    }
+    echo '<a class="dropdown-item" href="solicitudes.php">
+              <span>
+               
+                  <i class="fas fa-fw fa-user-edit"></i> Hay '.$nNotificacionesC.' solicitud'.$plural.' para cambiar datos.
+
+              </span></br>
+             <div class="text-muted smaller">Pulsa aquí para ver</div>
+             
+            </a>';
+        $sinNotificaciones=false;
+  }
 
 
 	if($sinNotificaciones){

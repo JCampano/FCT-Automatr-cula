@@ -162,6 +162,24 @@ function comprobarDatos($tabla){
 }*/
 
 
+function devuelveUltimosAlumnos(){
+
+    $resultado = ejecutaConsultaArray("SELECT nombre, apellido1, apellido2 from alumnos ORDER BY id DESC ");
+
+    for ($i=0;$i<count($resultado);$i++){
+       echo '<div class="list-group-item list-group-item-action">
+                   <div class="media">
+                     <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                     <div class="media-body">
+                       <strong>'.$resultado[$i]["nombre"].' '.$resultado[$i]["apellido1"].' '.$resultado[$i]["apellido2"].'</strong> se ha registrado.
+                       <div class="text-muted smaller">Hoy a las 5:43 PM</div>
+                     </div>
+                   </div>
+                 </div>'; 
+    }
+   
+}
+
 
 
 ?>

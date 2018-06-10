@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(ISSET($_SESSION["role"])){
+      session_destroy();
+      header("Location: login.php");
+    }
 ?>
 <!doctype html>
 <html lang="es">
