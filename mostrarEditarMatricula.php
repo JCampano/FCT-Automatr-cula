@@ -9,6 +9,15 @@
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
+     $consulta="SELECT * FROM matriculas_registradas WHERE id_usuario='".$alumno['id']."'";
+
+    if(ejecutaConsulta2($consulta)==0)
+    {
+        $_SESSION['tipoMensaje']= "warning";
+        $_SESSION['mensajeRegistro'] = "<strong>Error</strong> ,No puedes editar una matricula ya registrada";
+        header('Location: index.php');    
+    }
+
     $consulta="SELECT * FROM matriculas WHERE id_alumno='".$alumno['id']."'";
 
 	if(ejecutaConsulta2($consulta)==0)
