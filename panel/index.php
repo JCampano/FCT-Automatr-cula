@@ -24,7 +24,8 @@
 
                 <div class="col-lg-12">
 
-                    <h1 class="page-header">Inicio</h1>
+                    <h1 class="page-header">Bienvenido, <?php echo $_SESSION["nombre"]; ?></h1>
+                    <p>Estas son las últimas novedades</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

@@ -1,3 +1,10 @@
+
+h1{
+	color: #6e6e6e;
+
+	font-weight: 300;
+}
+
 .modal-title{
     display:inline;
 }
@@ -144,7 +151,7 @@ filter: brightness(70%);
 }
 
 .navegacion{
-	margin-top:30px;
+	margin-top:18px;
 }
 
 
