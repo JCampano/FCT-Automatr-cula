@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 session_start();
 include "functions.php";
 extract($_POST);
@@ -133,7 +134,8 @@ $resulset=ejecutaConsulta($consulta);
 
      if(!empty($arraySolicitud))
      {
-         $json = json_encode($arraySolicitud);
+         $json = json_encode($arraySolicitud,JSON_UNESCAPED_UNICODE); //echo $json;
+         
          $update="UPDATE MATRICULAS SET CAMBIO_DATOS='".$json."' WHERE ID_ALUMNO='".$fila['id']."'";
 
          if(ejecutaConsultaAccion($update)>0)
@@ -141,7 +143,8 @@ $resulset=ejecutaConsulta($consulta);
 	    $_SESSION['tipoMensaje']= "warning";
 		$_SESSION['mensajeRegistro'] = "<strong>Solicitud de cambio de datos realizada con exito</strong>";
 		header('Location: ../index.php');
-	       }
-     }
+	       
+        }
+    }
  }
 ?>
