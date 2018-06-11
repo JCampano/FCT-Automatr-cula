@@ -50,6 +50,7 @@ function getCursos() {
     eliminarOptativas3();
     eliminarOptativas4();
     eliminarBtn();
+    eliminarAsgItinerarios();   
     
     if(value != "Seleccione"){
         //1. Preparar parametros
@@ -92,10 +93,11 @@ function getItinerario() {
     eliminarOptativas4();
     eliminarOptativas3();
     eliminarOptativas2();
-    eliminarBtn();    
+    eliminarBtn();
+    eliminarAsgItinerarios();    
 
     if(value != "Seleccione"){
-    	getOptativa();
+    	getOptativa();        
         //1. Preparar parametros
         var sDatos = "curso="+value;
         //alert(sDatosEnvio);
@@ -122,6 +124,52 @@ function procesoRespuestaItinerario() {
 
     }
 }
+
+
+function getAsignaturasItinerario() {
+    //si Curso es Selecione un curso elimino todos los combos menos enseñanza y curso
+    //else hacemos el getCursos
+    //Instanciar objeto Ajax
+    var oAjax = instanciarXHR();
+    var value = document.getElementById("selectItinerario").value;
+
+    eliminarAsgItinerarios();    
+
+        if(value != ""){
+
+        //1. Preparar parametros
+        var sDatos = "itinerario="+value;
+        //alert(sDatosEnvio);
+        //2. Configurar la llamada --> Asincrono por defecto
+        oAjax.open("GET", "php/matricula/getAsignaturasItinerario.php?" + sDatos);
+
+        //3. Asociar manejador de evento de la respuesta
+        oAjax.addEventListener("readystatechange", procesoRespuestaAsigItinerario, false);
+
+        //4. Hacer la llamada
+        oAjax.send();
+    }
+    
+}       
+
+function procesoRespuestaAsigItinerario() {
+
+    var oAjax = this;
+
+    // 5. Proceso la respuesta cuando llega
+    if (oAjax.readyState == 4 && oAjax.status == 200) {
+
+        document.getElementById("asigItinerarios").innerHTML = 
+        '<div class="col-xs-12"><h5>Asignaturas pertenecientes al Itinerario elegido:</h5></div>'+oAjax.responseText;
+
+
+    }
+}
+
+
+
+
+
 
 
 
@@ -156,7 +204,7 @@ function procesoRespuestaOptativa() {
 
     // 5. Proceso la respuesta cuando llega
     if (oAjax.readyState == 4 && oAjax.status == 200) {
-
+        document.getElementById("txtOptativas").innerHTML = '<div class="col-lg-12"><h6>Seleccione hasta 4 optativas por orden de preferencia</h6></div>';
         document.getElementById("optativas").innerHTML = oAjax.responseText;
 
 
@@ -335,4 +383,8 @@ function eliminarOptativas3(){
 
 function eliminarOptativas4(){
     $("#optativas4").empty();
+}
+
+function eliminarAsgItinerarios(){   
+    $("#asigItinerarios").empty();
 }
