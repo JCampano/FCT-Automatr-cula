@@ -2,7 +2,7 @@
 	require_once("functions.php");
 	$matriculasSinRegistrar=ejecutaConsultaArray("SELECT * FROM matriculas where id NOT IN (select id_matricula from matriculas_registradas);");
 
-  $solicitudCambios=ejecutaConsultaArray("SELECT * from matriculas where cambio_datos is not null");
+  $solicitudCambios=ejecutaConsultaArray("SELECT * from alumnos where cambio_datos is not null");
 
 	$sinNotificaciones=true;
 	$nNotificacionesM = count($matriculasSinRegistrar);

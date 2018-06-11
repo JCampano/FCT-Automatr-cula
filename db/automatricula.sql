@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2018 a las 22:28:06
+-- Tiempo de generación: 11-06-2018 a las 22:35:52
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -277,7 +277,7 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id`, `dni`, `clave`, `nombre`, `apellidos`, `telefono`, `tipo`) VALUES
-(1, '11111111A', 1234, 'David', 'de Vega', 657456543, 'administrador'),
+(1, '11111111A', 123456, 'David', 'de Vega', 657456543, 'administrador'),
 (2, '30456765F', 123456, 'José Antonio', 'Campano Laborda', 954675867, 'administrativo'),
 (3, '29456765D', 123456, 'Adrián', 'Yiampasila', 954675869, 'gestor');
 
