@@ -9,14 +9,16 @@
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
-     $consulta="SELECT * FROM matriculas_registradas WHERE id_usuario='".$alumno['id']."'";
+    $consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$alumno['id']."';";
+    $resulset=ejecutaConsulta($consulta);
+    $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
 
-    if(ejecutaConsulta2($consulta)!=0)
-    {
-        $_SESSION['tipoMensaje']= "warning";
-        $_SESSION['mensajeRegistro'] = "<strong>Error</strong> No puedes editar una matricula ya registrada";
-        header('Location: index.php');    
-    }
+     if($matricula['finalizada']==1){
+        $_SESSION['tipoMensaje']= "danger";
+        $_SESSION['mensajeRegistro'] = "<strong>Error</strong> no puedes editar una matricula ya finalizada";
+        header('Location: index.php');
+     }
+
 
     $consulta="SELECT * FROM matriculas WHERE id_alumno='".$alumno['id']."'";
 
@@ -34,7 +36,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3>Registrar Matrícula</h3>
+                    <h3>Modificar Matrícula</h3>
                 </div>
                 <div class="card-body">
                     <form name="editarMatricula" class="needs-validation" action="php/matricula/editarMatricula.php" method="post" novalidate>
