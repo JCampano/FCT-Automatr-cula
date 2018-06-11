@@ -5,7 +5,7 @@
 
     //obtenemos el id del alumno
     $dni=$_SESSION['login'];    
-    $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+    $consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -187,7 +187,15 @@ if(ejecutaConsulta2($consulta)!=0)
                                     
                                     <div class="col-md-12 mb-3" id="itinerarios">                            
                                         
-                                    </div>                                
+                                    </div>
+
+                                    <div class="col-md-12 mb-3" id="asigItinerarios">
+
+                                    </div> 
+
+                                    <div class="col-md-12 mb-3" id="txtOptativas">
+                                        
+                                    </div>                           
 
 	                                <div class="col-md-3 mb-3" id="optativas">
 	                                    
