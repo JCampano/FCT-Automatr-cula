@@ -7,14 +7,15 @@ session_start();
 include "../functions.php";
 //echo $cod;
 
-	$consulta="SELECT * FROM matriculas_registradas WHERE ID_USUARIO='".$id."';";  
+	$consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$id."'AND FINALIZADA=1;";  
+
 
    
 	//echo ejecutaConsultaAccion($consulta);
     if(ejecutaConsultaAccion($consulta)>0)
     {
         $_SESSION['tipoMensaje']= "danger";
-        $_SESSION['mensajeRegistro'] = "<strong>Error</strong> No puedes Eliminar una matricula ya registrada";
+        $_SESSION['mensajeRegistro'] = "<strong>Error</strong> No puedes Eliminar una matricula ya finalizada";
         header('Location: ../../index.php');    
     }
     else{
