@@ -15,12 +15,7 @@ extract($_POST);
     $resulset=ejecutaConsulta($consulta);
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
 
-if($matricula['id']==1){
-    $_SESSION['tipoMensaje']= "success";
-    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> no puedes editar una matricula ya finalizada";
-    header('Location: ../../index.php');
-}
-else{
+
 
     $enseñanza=$_POST['selectEnsenanza'];
     $curso = $_POST['selectCurso'];
@@ -73,6 +68,6 @@ else{
             $_SESSION['mensajeRegistro'] = "<strong>Error</strong> al modificar las optativas";
             header('Location: ../../index.php');
         }   
-    }    
+       
         
 ?>
