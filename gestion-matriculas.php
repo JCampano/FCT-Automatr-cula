@@ -59,6 +59,8 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?id=<?php echo $matricula['id']?>">Finalizar Mátricula</a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?<?php echo $urlEliminar; ?>">Eliminar</a>
               </div>
             </div>
