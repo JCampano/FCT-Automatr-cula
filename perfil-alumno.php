@@ -3,7 +3,7 @@
     $_SESSION['ruta']= "registro-matricula.php";//esto aqui yo creo que sobra
     include "php/gestionlogin.php";
     $dni=$_SESSION['login'];	
-	$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+	$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
 	$resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);   
     //obtener la imagen para el alum

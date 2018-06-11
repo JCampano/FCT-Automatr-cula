@@ -2,7 +2,7 @@
     include "header.php";
     include "php/gestionlogin.php";
     $dni=$_SESSION['login'];    
-    $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+    $consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -11,7 +11,7 @@
     $matriculaRegistrada=$resulset->fetch(PDO::FETCH_ASSOC);
     */
 
-    $consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
+    $consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
     $fecha = date("d/m/Y", strtotime($matricula['fecha']));
