@@ -4,7 +4,7 @@ function connectDB()
 {
     try
     {
-        $opc=array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
+       $opc=array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
         $dsn="mysql:host=localhost;dbname=automatricula";
         $usuario="root";
         $contrasena="";
