@@ -110,12 +110,38 @@ session_start();
 
 
 
+
+
+//obtenemos las asignaturas de los itinerarios	
+
+	$sql="SELECT nombre FROM asignaturas WHERE id_itinerario='".$matricula['id_itinerario']."';";	
+	$res = $conexion->query($sql);
+	//montamos el codigo html del combo de cursos
+	//recorremos los cursos para crear el desplegable
+
+
+	$respuesta.='<div class="form-row"><div class="col-md-12 mb-3" id="asigItinerarios"><div class="col-xs-12"><h5>Asignaturas pertenecientes al Itinerario elegido:</h5></div></div>';
+	 
+	    while($fila=mysqli_fetch_assoc($res)){
+	        $respuesta.='<div class="col-md-3 col-xs-6 mb-3">';
+	        $respuesta.= "<input type='text' class='form-control'  disabled value=".$fila['nombre']." >";        
+	        $respuesta.="</div>";        
+	    }    
+	$respuesta.="</div>";
+
+
+
+
+
+
 //obtenemos el combo de optativa1 con la optativa sellecionada
 
 	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
+
+	$respuesta.= '<div class="col-md-12 mb-3" id="txtOptativas"><div class="col-lg-12"><h6>Seleccione hasta 4 optativas por orden de preferencia</h6></div></div>';
 
 	$respuesta.='<div class="col-md-3 mb-3" id="optativas"><label>Optativa 1</label><select class="custom-select" name="selectOptativas" id="selectOptativas" onchange="getOptativa2();"><option value="Seleccione">Seleccione</option>';
 	 

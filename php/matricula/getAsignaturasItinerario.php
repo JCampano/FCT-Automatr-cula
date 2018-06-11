@@ -15,22 +15,22 @@ $conexion = mysqli_connect($servidor, $usuario, $password, $basedatos);//el para
 $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	
 	//obtenemos el value del combo 
-	$curso = $_GET['curso'];
+	$itinerario = $_GET['itinerario'];
 
-	$sql="SELECT * FROM itinerarios WHERE ID_CURSO=$curso;";	
+	$sql="SELECT nombre FROM asignaturas WHERE id_itinerario='".$itinerario."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
 
-	$respuesta='<label>Itinerario</label><select class="custom-select" required name="selectItinerario" id="selectItinerario" onchange="getAsignaturasItinerario();"><option value="">Seleccione</option>';
+
+	$respuesta='<div class="form-row">';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
-	        $respuesta.='<option value="'.$fila['id'].'">';
-	        $respuesta.=$fila['nombre'];        
-	        $respuesta.="</option>";        
-	    }
-    
-	$respuesta.='</select><span class="invalid-feedback">Debe seleccionar un Iinerario</span>';
+	        $respuesta.='<div class="col-md-3 col-xs-6 mb-3">';
+	        $respuesta.= "<input type='text' class='form-control'  disabled value=".$fila['nombre']." >";        
+	        $respuesta.="</div>";        
+	    }    
+	$respuesta.="</div>";
 	
 
 
