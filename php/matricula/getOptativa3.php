@@ -19,7 +19,7 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	$opt1 = $_GET['opt1'];
 	$opt2 = $_GET['opt2'];
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso."'";
+	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso."'";
 	$sql.="AND ID !='".$opt1."'";
 	$sql.="AND ID !='".$opt2."';";
 	$res = $conexion->query($sql);

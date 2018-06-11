@@ -18,7 +18,7 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	$enseñanza = $_GET['ensenanza'];
 
 	//consulta para obtener todos los cursos de la enseñanza
-	$sql="SELECT * FROM CURSOS WHERE ID_ENSEÑANZA='".$enseñanza."';";	
+	$sql="SELECT * FROM cursos WHERE ID_ENSEÑANZA='".$enseñanza."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable

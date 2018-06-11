@@ -19,7 +19,7 @@ session_start();
 
 //obtenemos el id del alumno para sacar su matricula
     $dni=$_SESSION['login'];    
-    $consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."';";
+    $consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -29,19 +29,19 @@ session_start();
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
 
 //sacamos sus optativas
-    $consulta="SELECT * FROM OPTATIVAS_ELEGIDAS WHERE COD_MATRICULA='".$matricula['cod_matricula']."';";
+    $consulta="SELECT * FROM optativas_elegidas WHERE COD_MATRICULA='".$matricula['cod_matricula']."';";
     $resulset=ejecutaConsulta($consulta);
     $optativas=$resulset->fetch(PDO::FETCH_ASSOC);
 
 //sacamos el itinerario
-    $consulta="SELECT * FROM ITINERARIOS WHERE ID='".$matricula['id_itinerario']."';";
+    $consulta="SELECT * FROM itinerarios WHERE ID='".$matricula['id_itinerario']."';";
     $resulset=ejecutaConsulta($consulta);
     $itinerario=$resulset->fetch(PDO::FETCH_ASSOC);
 
 
 //con el itinerario obtenemos el curso
 
-    $consulta="SELECT * FROM CURSOS WHERE ID='".$itinerario['id_curso']."';";
+    $consulta="SELECT * FROM cursos WHERE ID='".$itinerario['id_curso']."';";
     $resulset=ejecutaConsulta($consulta);
     $curso=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -71,7 +71,7 @@ session_start();
 
 
 //obtenemos todos los cursos con el curso seleccionado
-	$sql="SELECT * FROM CURSOS WHERE ID_ENSEÑANZA='".$curso['id_enseñanza']."';";	
+	$sql="SELECT * FROM cursos WHERE ID_ENSEÑANZA='".$curso['id_enseñanza']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -112,7 +112,7 @@ session_start();
 
 //obtenemos el combo de optativa1 con la optativa sellecionada
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso['id']."';";	
+	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -133,7 +133,7 @@ session_start();
 
 //obtenemos el combo de optativa2 con la optativa sellecionada
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso['id']."';";	
+	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -154,7 +154,7 @@ session_start();
 
 //obtenemos el combo de optativa3 con la optativa sellecionada
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso['id']."';";	
+	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -177,7 +177,7 @@ session_start();
 
 //obtenemos el combo de optativa4 con la optativa sellecionada
 
-	$sql="SELECT * FROM OPTATIVAS WHERE ID_CURSO='".$curso['id']."';";	
+	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable

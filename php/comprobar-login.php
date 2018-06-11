@@ -1,11 +1,11 @@
  <?php
 session_start();
-include "functions.php";
+require_once("functions.php");
 extract($_POST);
 
 $dni=$_POST['dni'];
 $contrasena=$_POST['contrasena'];
-$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."' AND CLAVE='".$contrasena."'";
+$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."' AND CLAVE='".$contrasena."'";
 $resulset=ejecutaConsulta($consulta);
 
     if($fila=$resulset->fetch(PDO::FETCH_ASSOC))

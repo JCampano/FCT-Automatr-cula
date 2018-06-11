@@ -3,7 +3,7 @@ session_start();
 include "../functions.php";
 extract($_POST);
 
-$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$dni."'";
+$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."'";
 $dni=trim($_POST['dni']);
 $contrasena=trim($_POST['contrasena']);
 $contrasena2=trim($_POST['contrasena2']);

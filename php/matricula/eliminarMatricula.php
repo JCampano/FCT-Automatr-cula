@@ -7,7 +7,7 @@ session_start();
 include "../functions.php";
 //echo $cod;
 
-	$consulta="SELECT * FROM MATRICULAS_REGISTRADAS WHERE ID_USUARIO='".$id."';";  
+	$consulta="SELECT * FROM matriculas_registradas WHERE ID_USUARIO='".$id."';";  
 
    
 	//echo ejecutaConsultaAccion($consulta);
@@ -19,7 +19,7 @@ include "../functions.php";
     }
     else{
 		//	ELIMINAMOS LAS OPTATIVAS
-		$delete = "DELETE FROM OPTATIVAS_ELEGIDAS WHERE COD_MATRICULA='".$cod."'";
+		$delete = "DELETE FROM optativas_registradas WHERE COD_MATRICULA='".$cod."'";
 		if(ejecutaConsultaAccion($delete)>0){
 
 			//ELIMIONAMOS LA MATRICULA REGISTRADA
@@ -27,7 +27,7 @@ include "../functions.php";
 			//if(ejecutaConsultaAccion($delete1)>0){
 
 			//ELIMIONAMOS LA MATRICULA 
-			$delete2 = "DELETE FROM MATRICULAS WHERE ID='". $id."'";
+			$delete2 = "DELETE FROM matriculas WHERE ID='". $id."'";
 			if(ejecutaConsultaAccion($delete2)>0){
 				//MOSTRAMOS 
 			    $_SESSION['tipoMensaje']= "success";

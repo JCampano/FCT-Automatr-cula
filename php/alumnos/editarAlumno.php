@@ -2,7 +2,7 @@
 include "../functions.php";
 extract($_POST);
 
-$consulta="SELECT * FROM ALUMNOS WHERE DNI='".$_POST['dni']."'";
+$consulta="SELECT * FROM alumnos WHERE DNI='".$_POST['dni']."'";
 
 if(ejecutaConsulta2($consulta)==0)
 {
@@ -10,7 +10,7 @@ if(ejecutaConsulta2($consulta)==0)
 }
 else
 {
-    $update="UPDATE ALUMNOS SET NOMBRE = '".$_POST['nombre']."', APELLIDOS = '".$_POST['apellidos']."', CLAVE = '".$_POST['contrasena']."', ID_CENTRO =  0 WHERE DNI = '".$_POST['dni']."'";
+    $update="UPDATE alumnos SET NOMBRE = '".$_POST['nombre']."', APELLIDOS = '".$_POST['apellidos']."', CLAVE = '".$_POST['contrasena']."', ID_CENTRO =  0 WHERE DNI = '".$_POST['dni']."'";
 
 
 if(ejecutaConsultaAccion($update)>0)

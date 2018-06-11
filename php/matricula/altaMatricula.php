@@ -40,13 +40,13 @@ $hora = date("H:i");
 //generamos el codigo
     $codigo = 10000+$alumno['id'];
 
-$insert="INSERT INTO MATRICULAS (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO) VALUES ('".$codigo."', '".date("Y-m-d ")."', '".$hora."', '".$alumno['id']."', '".$itinerario."')";
+$insert="INSERT INTO matriculas (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARIO) VALUES ('".$codigo."', '".date("Y-m-d ")."', '".$hora."', '".$alumno['id']."', '".$itinerario."')";
 
 
 if(ejecutaConsultaAccion($insert)>0){
-	$insert="INSERT INTO OPTATIVAS_ELEGIDAS (COD_MATRICULA,ID_OPTATIVA1,ID_OPTATIVA2,ID_OPTATIVA3,ID_OPTATIVA4) VALUES ('".$codigo."', '".$optativa."', '".$optativa2."', '".$optativa3."', '".$optativa4."')";
+	$insert="INSERT INTO optativas_elegidas (COD_MATRICULA,ID_OPTATIVA1,ID_OPTATIVA2,ID_OPTATIVA3,ID_OPTATIVA4) VALUES ('".$codigo."', '".$optativa."', '".$optativa2."', '".$optativa3."', '".$optativa4."')";
 	if(ejecutaConsultaAccion($insert)>0){
-		$consulta="SELECT * FROM MATRICULAS WHERE ID_ALUMNO='".$alumno['id']."';";
+		$consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$alumno['id']."';";
 	    /*$resulset=ejecutaConsulta($consulta);
 	    $matricula=$resulset->fetch(PDO::FETCH_ASSOC); 
 

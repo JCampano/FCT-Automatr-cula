@@ -28,7 +28,7 @@ if(isset($_POST['selectOptativas2'])){
 //obtenemos el id del alumno
 
     $dni=$_SESSION['login'];    
-    $consulta="SELECT id FROM ALUMNOS WHERE DNI='".$dni."';";
+    $consulta="SELECT id FROM alumnos WHERE DNI='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC); 
 
@@ -55,12 +55,12 @@ if(isset($_POST['selectOptativas2'])){
     }*/
   
     //modificamos optativas
-        $update1="UPDATE OPTATIVAS_ELEGIDAS SET ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa2."',ID_OPTATIVA3='".$optativa3."',ID_OPTATIVA4='".$optativa4."' WHERE COD_MATRICULA='".$codigo."';";
+        $update1="UPDATE optativas_elegidas SET ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa2."',ID_OPTATIVA3='".$optativa3."',ID_OPTATIVA4='".$optativa4."' WHERE COD_MATRICULA='".$codigo."';";
         //echo $update1;
         if(ejecutaConsultaAccion($update1)>0){
            
             //Modificamos la matricula
-             $update="UPDATE MATRICULAS SET COD_MATRICULA = '".$codigo."',FECHA='".date("Y-m-d ")."', HORA='".$hora."',ID_ALUMNO='".$alumno['id']."',ID_ITINERARIO='".$itinerario."' WHERE ID_ALUMNO='".$alumno['id']."';";
+             $update="UPDATE matriculas SET COD_MATRICULA = '".$codigo."',FECHA='".date("Y-m-d ")."', HORA='".$hora."',ID_ALUMNO='".$alumno['id']."',ID_ITINERARIO='".$itinerario."' WHERE ID_ALUMNO='".$alumno['id']."';";
                 //echo $update;
                 if(ejecutaConsultaAccion($update)>0){
                     $_SESSION['tipoMensaje']= "success";
