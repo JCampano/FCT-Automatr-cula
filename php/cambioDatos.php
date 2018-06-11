@@ -262,7 +262,7 @@ if($valido==true)
      {
          $json = json_encode($arraySolicitud,JSON_UNESCAPED_UNICODE); //echo $json;
          
-         $update="UPDATE MATRICULAS SET CAMBIO_DATOS='".$json."' WHERE ID_ALUMNO='".$fila['id']."'";
+         $update="UPDATE alumnos SET cambio_datos='".$json."' WHERE id='".$fila['id']."'";
 
          if(ejecutaConsultaAccion($update)>0)
 	       {
@@ -277,6 +277,12 @@ if($valido==true)
 		header('Location: ../index.php');
 	}
 }
+     else
+     {
+        $_SESSION['tipoMensaje']= "danger";
+		$_SESSION['mensajeRegistro'] = "<strong>Error,</strong> no se ha cambiado ningún dato";
+		header('Location: ../index.php');
+     }
     }
  }
 else

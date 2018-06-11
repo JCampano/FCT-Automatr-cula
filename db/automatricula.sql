@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2018 a las 22:44:33
+-- Tiempo de generación: 11-06-2018 a las 22:28:06
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -56,15 +56,16 @@ CREATE TABLE `alumnos` (
   `nombre_madre` varchar(40) NOT NULL,
   `apellidos_madre` varchar(40) NOT NULL,
   `tel_madre` int(9) NOT NULL,
-  `correo_madre` varchar(50) NOT NULL
+  `correo_madre` varchar(50) NOT NULL,
+  `cambio_datos` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`) VALUES
-(1, '00000000A', '12345', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com');
+INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`, `cambio_datos`) VALUES
+(1, '00000000A', '12345', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,7 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `nombre`, `id_enseñanza`) VALUES
-(1, '2º Bachillerato', 1);
+(1, '2º ', 1);
 
 -- --------------------------------------------------------
 
@@ -178,17 +179,15 @@ CREATE TABLE `matriculas` (
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
-  `id_itinerario` int(5) NOT NULL,
-  `cambio_datos` varchar(200) DEFAULT NULL,
-  `finalizada` tinyint(1) NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_itinerario` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`, `cambio_datos`) VALUES
-(1, '1111111111', '2018-03-19', '12:00', 1, 1, NULL);
+INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`) VALUES
+(1, '1111111111', '2018-03-19', '12:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -241,6 +240,7 @@ INSERT INTO `optativas` (`id`, `nombre`, `id_curso`) VALUES
 
 DROP TABLE IF EXISTS `optativas_elegidas`;
 CREATE TABLE `optativas_elegidas` (
+  `id` int(5) NOT NULL,
   `cod_matricula` varchar(40) NOT NULL,
   `id_optativa2` int(5) NOT NULL,
   `id_optativa3` int(5) NOT NULL,
@@ -252,8 +252,8 @@ CREATE TABLE `optativas_elegidas` (
 -- Volcado de datos para la tabla `optativas_elegidas`
 --
 
-INSERT INTO `optativas_elegidas` (`cod_matricula`, `id_optativa2`, `id_optativa3`, `id_optativa4`, `id_optativa1`) VALUES
-('1111111111', 3, 4, 1, 2);
+INSERT INTO `optativas_elegidas` (`id`, `cod_matricula`, `id_optativa2`, `id_optativa3`, `id_optativa4`, `id_optativa1`) VALUES
+(1, '1111111111', 3, 4, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -277,7 +277,9 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id`, `dni`, `clave`, `nombre`, `apellidos`, `telefono`, `tipo`) VALUES
-(1, '11111111A', 1234, 'David', 'de Vega', 657456543, 'administrador');
+(1, '11111111A', 1234, 'David', 'de Vega', 657456543, 'administrador'),
+(2, '30456765F', 123456, 'José Antonio', 'Campano Laborda', 954675867, 'administrativo'),
+(3, '29456765D', 123456, 'Adrián', 'Yiampasila', 954675869, 'gestor');
 
 --
 -- Índices para tablas volcadas
@@ -350,6 +352,12 @@ ALTER TABLE `optativas`
   ADD KEY `id_curso` (`id_curso`);
 
 --
+-- Indices de la tabla `optativas_elegidas`
+--
+ALTER TABLE `optativas_elegidas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
@@ -365,19 +373,19 @@ ALTER TABLE `personal`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `enseñanzas`
 --
 ALTER TABLE `enseñanzas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
@@ -389,25 +397,31 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `optativas_elegidas`
+--
+ALTER TABLE `optativas_elegidas`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
