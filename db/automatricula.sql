@@ -179,8 +179,9 @@ CREATE TABLE `matriculas` (
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
   `id_itinerario` int(5) NOT NULL,
-  `cambio_datos` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cambio_datos` varchar(200) DEFAULT NULL,
+  `finalizada` tinyint(1) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `matriculas`
