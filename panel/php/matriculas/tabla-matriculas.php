@@ -27,8 +27,8 @@
                         <td>'.$resultado[$i]["nAlumno"].'</td>
                         <td>'.$resultado[$i]["a1Alumno"].' '.$resultado[$i]["a2Alumno"].'</td>
                         <td>'.$resultado[$i]["dniAlumno"].'</td>
-                        <td width="150"><button style="margin-right:10px;" class="btn-editar" data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#editarMatricula"  data-tipo="tooltip" data-placement="down" title="Editar">
-                                <i class="fas fa-pencil-alt"></i>
+                        <td width="150"><button style="margin-right:10px;" class="btn-ver" data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#verMatricula"  data-tipo="tooltip" data-placement="down" title="Ver información">
+                                <i class="fas fa-file-alt"></i>
                                 </button>
                                  <button data-id="'.$resultado[$i]["idMatricula"].'" type="button" data-toggle="modal" data-target="#desvincularMatricula" class="btn-desvincular" data-tipo="tooltip" data-placement="down" title="Anular Registro">
                                 <i class="fas fa-times"></i>
