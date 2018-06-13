@@ -41,7 +41,7 @@ ob_start();
                     <div class="col-md-4 mb-3">
                         <label for="nie" class="control-label">NIE</label>
                         <input type="text" class="form-control" name="nie" placeholder="NIE" required pattern="^[XYZ]{1}[0-9]{7}[A-Z]{1}$">
-                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong> letra "X" o "Y" o "Z", 7 números y  1 letra de la Aa la Z </strong></span>
+                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong>1 letra ("X", "Y" o "Z"), 7 números y  1 letra de la "A" a la "Z" </strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="dni" class="control-label">DNI</label>
@@ -59,16 +59,16 @@ ob_start();
                     <div class="col-md-4 mb-3">
                         <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
                         <input type="password" autofocus="autofocus" class="form-control" required name="contrasena" id="contrasena" placeholder="Contrase&ntilde;a" >
-                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números, las contraseñas deben coincidir</strong></span>
+                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números. Las contraseñas deben coincidir</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="contrasena2" class="control-label">Repetir Contrase&ntilde;a</label>
-                        <input type="password" class="form-control" name="contrasena2" id="contrasena2" required placeholder="Repetir contrase&ntilde;a"><span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números  las contraseñas deben coincidir</strong></span>
+                        <input type="password" class="form-control" name="contrasena2" id="contrasena2" required placeholder="Repetir contrase&ntilde;a"><span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números.  Las contraseñas deben coincidir</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="fecha_nac" class="control-label">Fecha Nacimiento</label>
                         <input type="date" class="form-control" name="fecha_nac" placeholder="Fecha Nacimiento" required pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$">
-                        <span class="invalid-feedback">Introduzca una fecha con el formato correcto</span>
+                        <span class="invalid-feedback">Introduzca una fecha con el formato indicado</span>
                     </div>
                 </div>
 
