@@ -16,7 +16,8 @@
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
     $fecha = date("d/m/Y", strtotime($matricula['fecha']));
 
-    $urlEliminar = "id=".$matricula['id']."&codMat=".$matricula['cod_matricula'];?>
+    $urlEliminar = "id=".$matricula['id']."&codMat=".$matricula['cod_matricula'];
+    $urlFinalizarMatricula = "id_alumno=".$alumno['id']."&id_matricula=".$matricula['id'];
    
 ?>
 
@@ -59,7 +60,7 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?id=<?php echo $matricula['id']?>">Finalizar Mátricula</a>
+                <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?<?php echo $urlFinalizarMatricula ;?>">Finalizar Mátricula</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?<?php echo $urlEliminar; ?>">Eliminar</a>
               </div>
