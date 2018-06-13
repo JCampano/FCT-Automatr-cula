@@ -1,13 +1,14 @@
 <?php
     require_once("../functions.php");
-    $resultado = ejecutaConsultaArray("select i.id as idOptativa, i.nombre as nOptativa, c.nombre as nCurso, e.nombre as nEnseñanza from optativas i inner join cursos c, enseñanzas e where i.id_curso = c.id and c.id_enseñanza = e.id");
+    $resultado = ejecutaConsultaArray("select i.id as idOptativa, i.nombre as nOptativa, c.nombre as nCurso, e.nombre as nEnseñanza, b.nombre as nBloque from optativas i inner join grupo_optativas b, cursos c, enseñanzas e where i.id_grupo_optativas = b.id and b.id_curso = c.id and c.id_enseñanza = e.id");
     echo ' <table id="tabla-optativas" class="table table-striped table-hover">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
+                                            <th>Bloque</th>
                                             <th>Curso</th>
-                                            <th>Enseñanza</th>
+
                                             <th>Acción</th>
                                         </tr>
                                     </thead>
@@ -17,8 +18,8 @@
         echo '  <tr>
                     <td width="50">'.$resultado[$i]["idOptativa"].'</td>
                     <td>'.$resultado[$i]["nOptativa"].'</td>
-                    <td>'.$resultado[$i]["nCurso"].'</td>
-                    <td>'.$resultado[$i]["nEnseñanza"].'</td>
+                    <td>'.$resultado[$i]["nBloque"].'</td>
+                    <td>'.$resultado[$i]["nCurso"].' '.$resultado[$i]["nEnseñanza"].'</td>
                     <td width="100"><button style="margin-right:10px;" class="btn-editar" id="btn-editar" data-id="'.$resultado[$i]["idOptativa"].'" type="button" data-toggle="modal" data-target="#editarOptativa" data-tipo="tooltip" data-placement="down" title="Editar">
                             <i class="fas fa-pencil-alt"></i>
                             </button>

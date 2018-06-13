@@ -181,5 +181,47 @@ function devuelveUltimosAlumnos(){
 }
 
 
+function devuelveItinerarios(){
+
+    $enseñanzas = ejecutaConsultaArray("SELECT id, nombre from enseñanzas");
+    if (count($enseñanzas)!=0){
+        for ($i=0;$i<count($enseñanzas);$i++){
+            $cursos = ejecutaConsultaArray("SELECT id,nombre from cursos where id_enseñanza =".$enseñanzas[$i]["id"]);
+            echo '<option selected value="nulo"><b>'.$enseñanzas[$i]["nombre"].'</b></option>';
+
+            if(count($cursos)!=0){
+                for ($k=0;$k<count($cursos);$k++){
+                    $bloques = ejecutaConsultaArray("SELECT id,nombre from grupo_optativas where id_curso =".$cursos[$k]["id"]);
+                    echo '<option selected value="nulo">'."&nbsp;&nbsp;".$cursos[$k]["nombre"].'</option>';
+
+                    if(count($bloques)!=0){
+                      for ($m=0;$m<count($cursos);$m++){
+                          echo '        <option selected value="nulo">'."&nbsp;&nbsp;"."&nbsp;&nbsp;".$bloques[$m]["nombre"].'</option>';
+
+                          
+
+                      }  
+                  } else {
+                    echo '<option selected value="nulo">No hay Bloques disponibles...</option>';
+                  }
+                    
+                    
+
+                }
+            } else {
+                echo '<option selected value="nulo">No hay Cursos disponibles...</option>';
+            }
+            
+
+
+        }
+    }else {
+        echo '<option selected value="nulo">No hay Itinerarios disponibles...</option>';
+    }
+   
+
+    
+}
+
 
 ?>
