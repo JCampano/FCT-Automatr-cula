@@ -114,14 +114,14 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                           if (count($enseñanzas)==0){
 
                                             echo '
-                                            <select disabled class="custom-select" id="selectEnsenanzaItinerario">
+                                            <select disabled class="custom-select" id="selectEnsenanzaOptativa">
                                             <option selected value="nulo">No hay enseñanzas disponibles...</option>';
                                           }
                                          
 
                                             else {
-                                              echo '<select class="custom-select" id="selectEnsenanzaItinerario">
-                                              <option selected value="nulo">Selecciona una Enseñanza...</option>';
+                                              echo '<select class="custom-select" id="selectCursoOptativa">
+                                              <option selected value="nulo">Selecciona un Curso...</option>';
                                               for($i=0;$i<count($enseñanzas);$i++){
                                                 echo '<option value="'.$enseñanzas[$i]["id"].'">'.$enseñanzas[$i]["nombre"].'</option>';
                                               }

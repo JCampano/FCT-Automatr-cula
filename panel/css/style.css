@@ -131,14 +131,14 @@ table.dataTable{
 }
 
 
-.btn-eliminar, .btn-editar, .btn-desvincular{
+.btn-eliminar, .btn-editar, .btn-desvincular, .btn-ver{
 	border: none;
 	background:none;
 	cursor: pointer;
 	transition-duration:0.3s;
 }
 
-.btn-eliminar:hover, .btn-editar:hover, .btn-desvincular:hover{
+.btn-eliminar:hover, .btn-editar:hover, .btn-desvincular:hover, .btn-ver:hover{
 filter: brightness(70%);
 }
 
@@ -146,7 +146,7 @@ filter: brightness(70%);
 	color: #dc3545;
 }
 
-.btn-editar{
+.btn-editar, .btn-ver{
 	color: #28a745
 }
 

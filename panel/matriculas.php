@@ -8,11 +8,11 @@ include "header.php";
   ?>
 
 
- <div class="modal fade" id="editarMatricula" tabindex="-1" role="dialog" aria-labelledby="editarMatricula" aria-hidden="true">
+ <div class="modal fade" id="verMatricula" tabindex="-1" role="dialog" aria-labelledby="verMatricula" aria-hidden="true">
           <div class="modal-dialog" role="document" style="max-width:1200px;">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Editar Matricula</h4>
+                <h4 class="modal-title">Información Completa</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
