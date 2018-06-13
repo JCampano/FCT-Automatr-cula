@@ -107,7 +107,7 @@ ob_start();
 
                     <div class="col-md-4 mb-3">
                         <label for="email" class="control-label">E-mail</label>
-                        <input type="text" class="form-control" name="email" placeholder="E-mail" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+                        <input type="text" class="form-control" name="email" placeholder="E-mail" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ ob_start();
 
                     <div class="col-md-8 mb-3">
                         <label for="email_padre" class="control-label">E-mail del padre</label>
-                        <input type="text" class="form-control" name="email_padre" placeholder="E-mail del padre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+                        <input type="text" class="form-control" name="email_padre" placeholder="E-mail del padre" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -187,7 +187,7 @@ ob_start();
 
                     <div class="col-md-6 mb-3">
                         <label for="email_madre" class="control-label">E-mail de la madre</label>
-                        <input type="text" class="form-control" name="email_madre" placeholder="email del madre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+                        <input type="text" class="form-control" name="email_madre" placeholder="email del madre" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>

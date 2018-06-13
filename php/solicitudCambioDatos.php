@@ -41,7 +41,7 @@ ob_start();
                     <div class="col-md-4 mb-3">
                         <label for="nie" class="control-label">NIE</label>
                         <input type="text" class="form-control" name="nie" placeholder="NIE" value="<?php echo $alumno['nie'];?>" required pattern="^[XYZ]{1}[0-9]{7}[A-Z]{1}$">
-                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong> letra "X" o "Y" o "Z", 7 números y  1 letra de la Aa la Z </strong></span>
+                        <span class="invalid-feedback">Introduzca un NIE que conste de <strong>1 letra ("X", "Y" o "Z"), 7 números y  1 letra de la "A" a la "Z" </strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="dni" class="control-label">DNI</label>
@@ -52,7 +52,7 @@ ob_start();
                         <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
                         <input type="password" autofocus="autofocus" class="form-control" required name="contrasena" id="contrasena" value="
 <?php echo $alumno['clave'];?>" placeholder="Contrase&ntilde;a">
-                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números, las contraseñas deben coincidir</strong></span>
+                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números. Las contraseñas deben coincidir</strong></span>
                     </div>
                 </div>
 
@@ -111,7 +111,7 @@ ob_start();
                     <div class="col-md-4 mb-3">
                         <label for="email" class="control-label">E-mail</label>
                         <input type="text" class="form-control" name="email" placeholder="E-mail" value="
-<?php echo $alumno['correo'];?>" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+<?php echo $alumno['correo'];?>" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -157,7 +157,7 @@ ob_start();
                     <div class="col-md-8 mb-3">
                         <label for="email_padre" class="control-label">E-mail del padre</label>
                         <input type="text" class="form-control" name="email_padre" placeholder="E-mail del padre" value="
-<?php echo $alumno['correo_padre'];?>" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+<?php echo $alumno['correo_padre'];?>" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -201,7 +201,7 @@ ob_start();
                     <div class="col-md-6 mb-3">
                         <label for="email_madre" class="control-label">E-mail de la madre</label>
                         <input type="text" class="form-control" name="email_madre" placeholder="email del madre" value="
-<?php echo $alumno['correo_madre'];?>" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+<?php echo $alumno['correo_madre'];?>" required pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
