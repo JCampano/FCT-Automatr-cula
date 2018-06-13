@@ -499,6 +499,9 @@ function cargarAlumnos(){
                $("#modal-alumno-eliminar").html(result);
            });
        }
+     
+
+
 
          
              $('#tabla-alumnos').DataTable( {
@@ -587,6 +590,17 @@ function cargarMatriculas(){
            
            $.post("php/formularios/formQuitarMRegistradas.php", {id: id}, function(result){
                $("#modal-matricula-quitar").html(result);
+           });
+       }
+
+         $(".btn-ver").on("click",cargarMatricula);
+       function cargarMatricula(){
+
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/matriculas/ver-matricula.php", {id: id}, function(result){
+               $("#modal-matricula").html(result);
            });
        }
 

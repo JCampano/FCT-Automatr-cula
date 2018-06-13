@@ -82,9 +82,13 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                            </nav>
                             
                               <div class="text-right  d-print-inline-flex">
+                                <button class="btn btn-info" type="button" data-toggle="collapse"  aria-expanded="false">
+                                Gestionar Bloques
+                              </button>
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirItinerario" aria-expanded="false" aria-controls="collapseExample">
                                 Añadir Optativa
                               </button>
+
                             </div>
                             <p></p>
                             <div class="collapse" id="anadirItinerario">
