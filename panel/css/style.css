@@ -5,6 +5,10 @@ h1{
 	font-weight: 300;
 }
 
+#selectItinerarioAsignatura-button{
+	flex:1 1 auto !important;
+}
+
 .modal-title{
     display:inline;
 }

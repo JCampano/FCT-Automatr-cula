@@ -1,3 +1,6 @@
+$( "#selectItinerarioAsignatura" ).selectmenu();
+
+
 //NOTIFICACIONES
 
 

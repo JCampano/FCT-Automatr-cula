@@ -99,6 +99,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                   <div class="row">
                                    
                                       <div class="col-sm-6">
+                                        <p> </p>
                                       <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
@@ -110,9 +111,12 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                     
                                     
                                     <div class="col-sm-6">
+                                       <p><small class="muted">Para añadir bloques pulsa en "Gestionar Bloques"</small></p>
                                       <div class="input-group mb-3">
+
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Itinerario</label>
+                                          <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Bloque</label>
+
                                         </div>
                                         <select required class="custom-select" id="selectItinerarioAsignatura">
                                           <?php
@@ -120,10 +124,11 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                           ?> 
                                           
                                         </select>
+                                       
                                       </div>
                                     </div>
                                     
-                                    <div class="col-sm-8"></div>
+                                    
                                     
                                   
                                     
