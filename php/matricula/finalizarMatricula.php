@@ -44,8 +44,9 @@ if($matricula['finalizada'] == 1){
 else{
 	//comprobamos si el alumno tiene una foto subida antes de finalizar la matricula 
 	$sql= "SELECT * FROM imagenes WHERE id_usuario='".$id_alumno."'";
-	$contador = count(ejecutaConsultaAccion($sql));
+	$contador = ejecutaConsulta2($sql);
 	//echo count(ejecutaConsultaAccion($sql));
+	
 	if( $contador < 1){
 		$_SESSION['tipoMensaje']= "warning";
 		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> Debe subir una foto antes de finalizar la matricula <a href='/perfil-alumno.php'>Subir foto</a>";
