@@ -10,7 +10,7 @@
     $consulta="SELECT * FROM imagenes WHERE ID_USUARIO='".$alumno['id']."';";
     $resulset=ejecutaConsulta($consulta);
     $imagen=$resulset->fetch(PDO::FETCH_ASSOC);
-    $contadorImagenes = count($consulta);
+    $contador = ejecutaConsulta2($consulta);
     
 ?>
     <div class="fondo padding-arriba">
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <div class="row">                        
                         <div class="col-sm-3">                            
-                                <img class="imagen-alumno" src="<?php if($contadorImagenes > 0){ echo $imagen['imagen'];} else echo 'img/default-user.png'; ?>">  
+                                <img class="imagen-alumno" src="<?php if($contador ==1){ echo $imagen['imagen'];} else echo 'img/default-user.png'; ?>">  
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioFoto"> Cambiar Foto Personal</a>
                                 <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#cambioDatos">Solitar cambio de datos</a>  
                                 <a href="index.php" class="btn btn-danger btn-block">Volver</a>                             
