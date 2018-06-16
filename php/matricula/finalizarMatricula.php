@@ -49,7 +49,7 @@ else{
 	
 	if( $contador < 1){
 		$_SESSION['tipoMensaje']= "warning";
-		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> Debe subir una foto antes de finalizar la matricula <a href='/perfil-alumno.php'>Subir foto</a>";
+		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> Debe subir una foto antes de finalizar la matricula <a href='perfil-alumno.php'>Pulse aqui para <strong>Subir foto</strong></a>";
 		header('Location: ../../index.php');
 	}else{	
 			//movemos la foto antes de finalizar la matricula
