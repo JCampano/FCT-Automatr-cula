@@ -348,7 +348,7 @@ function procesoRespuestaOptativa4() {
 
 function cargarBtn(){
     if(document.getElementById("selectOptativas").value != "Seleccione"){
-        document.getElementById("btnSubmit").innerHTML = '<button class="btn btn-primary" type="submit">Submit </button>';
+        document.getElementById("btnSubmit").innerHTML = '<button class="btn btn-primary" type="submit">Aceptar </button>';
     }
     else{
         eliminarBtn();
