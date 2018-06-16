@@ -59,7 +59,7 @@
 		session_start();
 		$dni=$_SESSION['login'];	
 		$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
-        $consulta2="SELECT E.NOMBRE, C.NOMBRE, I.NOMBRE FROM alumnos A, matriculas M, itinerarios I, cursos C, enseñanzas E WHERE A.DNI='".$dni."' AND A.ID=M.ID_ALUMNO AND M.ID_ITINERARIO=I.ID AND I.ID_CURSO=C.ID AND C.ID_enseñanza=E.ID";
+        $consulta2="SELECT E.NOMBRE, C.NOMBRE, I.NOMBRE, I.id FROM alumnos A, matriculas M, itinerarios I, cursos C, enseñanzas E WHERE A.DNI='".$dni."' AND A.ID=M.ID_ALUMNO AND M.ID_ITINERARIO=I.ID AND I.ID_CURSO=C.ID AND C.ID_enseñanza=E.ID";
         $consulta3="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA1";
         $consulta4="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA2";
         $consulta5="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA3";
@@ -79,7 +79,22 @@
 		$consulta7 = ejecutaConsultaArray("SELECT m.cod_matricula from alumnos a inner join matriculas m where a.id = m.id_alumno and a.dni='$dni'");
 
 		$cod_matricula = $consulta7[0]["cod_matricula"];
-		
+		/*
+		//asignaturas pertenecientes al itinerario escogido
+		$sql= "SELECT nombre FROM asignaturas where id_itinerario = '".$matricula['3']."';";
+		$asignaturas=ejecutaConsultaArray($sql);
+		$tablaAsig='<table class="caja0"><tr><th>Asignaturas pertenecientes al Itinerario</th></tr></table>';
+		$tablaAsig.='<table class="caja0"><tr>';
+		foreach($asignaturas as $indice=>$asig){
+			if($indice%4!=0)
+				$tablaAsig.='<td class="caja5">'.$asig.'</td>';
+			else{
+				$tablaAsig.='</tr></table><table><tr><td class="caja5">'.$asig.'</td>';
+			}echo $asig;
+
+		}
+		$tablaAsig.='</tr></table>';
+		*/
 	?>
 	<div style="text-align:right"><barcode dimension="1D" type="EAN13" value="<?php echo $cod_matricula;?>" label="label" style="float:right;width:30mm; height:6mm; color: #000; font-size: 3mm"></barcode></div>
 	<h3 style="font-weight:lighter;">HOJA DE MATRICULACIÓN - IES HNOS. MACHADO</h3>
@@ -146,6 +161,9 @@
 	    <tr><th class="caja4">Enseñanza</th><th class="caja4">Curso</th><th class="caja4">Itinerario</th></tr>
 	    <tr><td class="caja4"><?php echo $matricula[0];?></td><td class="caja4"><?php echo $matricula[1];?></td><td class="caja4"><?php echo $matricula[2];?></td></tr>
     </table>
+    <!--<?php /*
+    echo $tablaAsig;*/
+    ?>-->
     <table class="caja0">
 	    <tr><th class="caja5">Optativa 1</th><th class="caja5">Optativa 2</th><th class="caja5">Optativa 3</th><th class="caja5">Optativa 4</th></tr>
 	    <tr><td class="caja5"><?php echo $optativa1[0];?></td><td class="caja5"><?php echo $optativa2[0];?></td><td class="caja5"><?php echo $optativa3[0];?></td><td class="caja5"><?php echo $optativa4[0];?></td></tr>
