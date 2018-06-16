@@ -71,7 +71,7 @@
             </a>
         </div>
         <div class="col-sm-4">
-            <a href="#">
+            <a href="ayuda_documentacion.php" target="_blank">
             <div class="card">
                 <div class="imagenes-inicio imagen-ayuda"></div>
                 <div class="card-body">
