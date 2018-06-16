@@ -193,14 +193,15 @@ CREATE TABLE `matriculas` (
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
   `id_itinerario` int(5) NOT NULL
+  `finalizada` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `matriculas`
 --
 
-INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`) VALUES
-(1, '1111111111', '2018-03-19', '12:00', 1, 1);
+INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`, `finalizada`) VALUES
+(1, '1111111111', '2018-03-19', '12:00', 1, 1 ,null);
 
 -- --------------------------------------------------------
 
