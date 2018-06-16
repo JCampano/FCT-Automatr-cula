@@ -18,12 +18,12 @@ $conexion ->set_charset("utf8");//asi es el caracter utf8 si es msqli
 	$curso = $_GET['curso'];
 	$opt1 = $_GET['opt1'];
 
-	$sql="SELECT * FROM optativas WHERE ID_CURSO='".$curso."'";
-	$sql.="AND ID !='".$opt1."';";
+	$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso."' AND optativas.id_grupo_optativas=grupo_optativas.id";	
+	$sql.=" AND optativas.id !='".$opt1."';";
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
-	
+	//echo $sql;
 	$respuesta='<label>Optativa 2</label><select class="custom-select" name="selectOptativas2" id="selectOptativas2" onchange="getOptativa3();"><option value="Seleccione">Seleccione</option>';
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
