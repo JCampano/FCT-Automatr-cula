@@ -23,7 +23,7 @@ include "header.php";
                 </button>
               </div>
               <div class="modal-body" id="modal-ensenanza">
-                <img src="img/cargando.gif" style="width:100%">
+                 <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>
@@ -40,7 +40,7 @@ include "header.php";
                 </button>
               </div>
               <div class="modal-body" id="modal-ensenanza-eliminar">
-                <img src="img/cargando.gif" style="width:100%">
+                 <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>

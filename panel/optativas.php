@@ -118,7 +118,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Bloque</label>
 
                                         </div>
-                                        <select required class="custom-select" id="selectItinerarioAsignatura">
+                                        <select required class="custom-select" id="selectBloqueOptativas">
                                           <?php
                                             devuelveItinerarios();
                                           ?> 

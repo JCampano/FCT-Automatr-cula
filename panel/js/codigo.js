@@ -1,4 +1,4 @@
-$( "#selectItinerarioAsignatura" ).selectmenu();
+$( "#selectBloqueOptativas" ).selectmenu();
 
 
 //NOTIFICACIONES
@@ -109,6 +109,14 @@ $(document).ready(function() {
             cargarAlumnos();
             $("#menuUsuarios").collapse();
             $("#btnGestionUsuarios").addClass("seleccionado");
+            break;
+
+        case "solicitudes.php":
+            cargarSolicitudes();
+            $("#menuUsuarios").collapse();
+            $("#btnSolicitudes").addClass("seleccionado");
+            $("#btnSolicitudesLista").addClass("saturacion");
+            $("#btnSolicitudes").addClass("saturacion");
             break;
 
         case "usuarios.php":
@@ -508,6 +516,40 @@ function cargarAlumnos(){
 
          
              $('#tabla-alumnos').DataTable( {
+                 "language": espanol              
+            } 
+
+
+
+             );
+
+             $('[data-tipo="tooltip"]').tooltip();
+   
+    });
+}
+
+function cargarSolicitudes(){
+    $.post("php/alumnos/tabla-solicitudes.php", function(result){
+           
+        $("#zona-tabla-solicitudes").empty().append(result);
+
+       //Enseñanzas
+       $(".boton-ver").on("click",cargarMostrarCambios);
+       function cargarMostrarCambios(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/alumnos/mostrar-cambios.php", {id: id}, function(result){
+               $("#modal-solicitudes").html(result);
+           });
+       }
+
+     
+
+
+
+         
+             $('#tabla-solicitudes').DataTable( {
                  "language": espanol              
             } 
 
