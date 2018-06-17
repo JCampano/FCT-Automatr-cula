@@ -6,7 +6,7 @@ extract($_POST);
 $dni_autentificado=$_SESSION["login"];
 $consulta="SELECT * FROM alumnos WHERE DNI='".$dni_autentificado."'";
 $dni=trim($_POST['dni']);
-$contrasena=trim($_POST['contrasena']);
+$contrasena=trim($_POST['contrasenaCambioDatos']);
 $nombre=trim($_POST['nombre']);
 $apellido1=trim($_POST['apellido1']);
 $apellido2=trim($_POST['apellido2']);
@@ -31,6 +31,7 @@ $tel_madre=trim($_POST['tel_madre']);
 $email_madre=trim($_POST['email_madre']);
 $arraySolicitud= array();
 $valido=true;
+$cambioContraseña=false;
 
 
 if(!preg_match("/^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$/", $dni))
@@ -164,11 +165,7 @@ if($valido==true)
      {
          $arraySolicitud['dni']=$dni;
      }
-
-     if($fila['clave']!=$contrasena)
-     {
-         $arraySolicitud['clave']=$contrasena;
-     }
+     
      if($fila['nombre']!=$nombre)
      {
          $arraySolicitud['nombre']=$nombre;
@@ -258,6 +255,14 @@ if($valido==true)
          $arraySolicitud['correo_madre']=$email_madre;
      }
 
+     if($fila['clave']!=$contrasena){ 
+         $update="UPDATE alumnos SET clave='".$contrasena."' WHERE id='".$fila['id']."'";     
+
+         if(ejecutaConsultaAccion($update)>0){  
+            $cambioContraseña=true;
+        } 
+    }    
+    
      if(!empty($arraySolicitud))
      {
          $json = json_encode($arraySolicitud,JSON_UNESCAPED_UNICODE); //echo $json;
@@ -266,22 +271,28 @@ if($valido==true)
 
          if(ejecutaConsultaAccion($update)>0)
 	       {
-	    $_SESSION['tipoMensaje']= "warning";
+	    $_SESSION['tipoMensaje']= "success";
 		$_SESSION['mensajeRegistro'] = "<strong>Solicitud de cambio de datos realizada con exito</strong>";
 		header('Location: ../index.php');
         }
-    else
-	{
-		$_SESSION['tipoMensaje']= "danger";
-		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar la solicitud";
-		header('Location: ../index.php');
-	}
-}
+        else
+    	{
+    		$_SESSION['tipoMensaje']= "danger";
+    		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar la solicitud";
+    		header('Location: ../index.php');
+    	}
+    }
      else
      {
-        $_SESSION['tipoMensaje']= "danger";
-		$_SESSION['mensajeRegistro'] = "<strong>Error,</strong> no se ha cambiado ningún dato";
-		header('Location: ../index.php');
+        if($cambioContraseña==false){
+            $_SESSION['tipoMensaje']= "danger";
+    		$_SESSION['mensajeRegistro'] = "<strong>Error,</strong> no se ha cambiado ningún dato";
+    		header('Location: ../index.php');
+        }else{
+            $_SESSION['tipoMensaje']= "success";
+            $_SESSION['mensajeRegistro'] = "<strong>Bien </strong> has cambiado la contraseña";
+            header('Location: ../index.php');
+        }
      }
     }
  }
