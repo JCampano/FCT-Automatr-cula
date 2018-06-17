@@ -7,7 +7,7 @@
 	</title>
 
 	<style type="text/css">		
-		.caja0{			
+		.caja0, .caja6{
 			width:100%;							
 		}
 		.caja1{
@@ -32,7 +32,12 @@
 			width: 25%;
 		}
 
-		.caja1, .caja2, .caja3, .caja4, .caja5 {
+        .caja6{
+			text-align: center;
+		}
+
+
+		.caja1, .caja2, .caja3, .caja4, .caja5, .caja6 {
 					
 			padding:5px 10px;
 			color:#343e48;
@@ -79,22 +84,25 @@
 		$consulta7 = ejecutaConsultaArray("SELECT m.cod_matricula from alumnos a inner join matriculas m where a.id = m.id_alumno and a.dni='$dni'");
 
 		$cod_matricula = $consulta7[0]["cod_matricula"];
-		/*
+
 		//asignaturas pertenecientes al itinerario escogido
 		$sql= "SELECT nombre FROM asignaturas where id_itinerario = '".$matricula['3']."';";
 		$asignaturas=ejecutaConsultaArray($sql);
-		$tablaAsig='<table class="caja0"><tr><th>Asignaturas pertenecientes al Itinerario</th></tr></table>';
+		$tablaAsig='<table class="caja0"><tr><th class="caja6">Asignaturas</th></tr></table>';
 		$tablaAsig.='<table class="caja0"><tr>';
 		foreach($asignaturas as $indice=>$asig){
+            echo "<pre>";
+            echo print_r($asig);
+            echo "</pre>";
 			if($indice%4!=0)
-				$tablaAsig.='<td class="caja5">'.$asig.'</td>';
+				$tablaAsig.='<td class="caja5">'.$asig['nombre'].'</td>';
 			else{
-				$tablaAsig.='</tr></table><table><tr><td class="caja5">'.$asig.'</td>';
-			}echo $asig;
+				$tablaAsig.='</tr></table><table><tr><td class="caja5">'.$asig['nombre'].'</td>';
+			}
 
 		}
 		$tablaAsig.='</tr></table>';
-		*/
+
 	?>
 	<div style="text-align:right"><barcode dimension="1D" type="EAN13" value="<?php echo $cod_matricula;?>" label="label" style="float:right;width:30mm; height:6mm; color: #000; font-size: 3mm"></barcode></div>
 	<h3 style="font-weight:lighter;">HOJA DE MATRICULACIÓN - IES HNOS. MACHADO</h3>
@@ -161,9 +169,9 @@
 	    <tr><th class="caja4">Enseñanza</th><th class="caja4">Curso</th><th class="caja4">Itinerario</th></tr>
 	    <tr><td class="caja4"><?php echo $matricula[0];?></td><td class="caja4"><?php echo $matricula[1];?></td><td class="caja4"><?php echo $matricula[2];?></td></tr>
     </table>
-    <!--<?php /*
-    echo $tablaAsig;*/
-    ?>-->
+    <?php
+    echo $tablaAsig;
+    ?>
     <table class="caja0">
 	    <tr><th class="caja5">Optativa 1</th><th class="caja5">Optativa 2</th><th class="caja5">Optativa 3</th><th class="caja5">Optativa 4</th></tr>
 	    <tr><td class="caja5"><?php echo $optativa1[0];?></td><td class="caja5"><?php echo $optativa2[0];?></td><td class="caja5"><?php echo $optativa3[0];?></td><td class="caja5"><?php echo $optativa4[0];?></td></tr>

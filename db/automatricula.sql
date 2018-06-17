@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2018 a las 12:39:45
+-- Tiempo de generación: 17-06-2018 a las 13:30:34
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -85,7 +85,9 @@ CREATE TABLE `asignaturas` (
 --
 
 INSERT INTO `asignaturas` (`codigo`, `nombre`, `id_itinerario`) VALUES
-('02BACHCIENTEC', 'Matemáticas', 1);
+('02BACHCIENTECFIL', 'Filosofía', 1),
+('02BACHCIENTECLEN', 'Lengua y Literatura', 1),
+('02BACHCIENTECMAT', 'Matemáticas', 1);
 
 -- --------------------------------------------------------
 
@@ -248,7 +250,11 @@ CREATE TABLE `optativas` (
 --
 
 INSERT INTO `optativas` (`id`, `nombre`, `id_grupo_optativas`) VALUES
-(1, 'Química', 1);
+(1, 'Química', 1),
+(2, 'Física', 1),
+(3, 'Biología', 1),
+(4, 'Electrotecnia', 1),
+(5, 'Informática', 1);
 
 -- --------------------------------------------------------
 
@@ -271,7 +277,7 @@ CREATE TABLE `optativas_elegidas` (
 --
 
 INSERT INTO `optativas_elegidas` (`id`, `cod_matricula`, `id_optativa2`, `id_optativa3`, `id_optativa4`, `id_optativa1`) VALUES
-(1, '1111111111', 0, 0, 0, 1);
+(1, '1111111111', 4, 2, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -444,7 +450,7 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `optativas_elegidas`
