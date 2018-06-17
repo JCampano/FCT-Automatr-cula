@@ -160,7 +160,7 @@ filter: brightness(70%);
 
 
 .fondo-administrativo, .user-administrativo{
-	background-color: #563c48 !important;
+	background-color: #5c273f !important;
 	transition-duration:0.3s !important;
 }
 
@@ -181,7 +181,7 @@ background-color:#e65656 !important;
 
 
 .fondo-gestor, .user-gestor{
-	background-color: #3d634d !important;
+	background-color: #136334 !important;
 	transition-duration:0.3s !important;
 }
 .fondo-gestor>ul>li{
@@ -190,7 +190,7 @@ background-color:#e65656 !important;
 }
 
 .fondo-administrador,.user-administrador{
-	background-color: #1d585d !important;
+	background-color: #12647a !important;
 	transition-duration:0.3s !important;
 }
 .seleccionado{
@@ -222,3 +222,9 @@ background-color:#e65656 !important;
 
 
 
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav{
+	background: #272727;
+}
+.bg-dark{
+	background: #272727 !important;
+}
