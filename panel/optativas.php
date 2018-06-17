@@ -42,7 +42,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                 </button>
               </div>
               <div class="modal-body" id="modal-optativa">
-               <img src="img/cargando.gif" style="height:64px;">
+                <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
             </div>
