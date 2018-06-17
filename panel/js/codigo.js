@@ -1,6 +1,7 @@
 $( "#selectBloqueOptativas" ).selectmenu();
 
 
+
 //NOTIFICACIONES
 
 
@@ -560,6 +561,20 @@ function cargarSolicitudes(){
              $('[data-tipo="tooltip"]').tooltip();
    
     });
+}
+
+function cancelarCambios(){
+
+  var boton=$(this);
+  var id = boton.attr("data-id");
+  
+  $.post("php/alumnos/cancelar-cambios.php", {id: id}, function(result){
+    $("#mensajes").empty().append(result);
+    $("#mensajes").show(500);
+    cargarSolicitudes();
+
+
+  });
 }
 
 function cargarUsuarios(){

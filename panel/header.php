@@ -154,7 +154,7 @@
                                 <a id="btnGestionAlumnos" href="alumnos.php"><i class="fa fa-fw fa-angle-right"></i>Gestión Alumnos</a>
                             </li>
                             <li>
-                                <a id="btnSolicitudes" href="solicitudes-datos.php"><i class="fa fa-fw fa-angle-right"></i>Solicitudes</a>
+                                <a id="btnSolicitudes" href="solicitudes.php"><i class="fa fa-fw fa-angle-right"></i>Solicitudes</a>
                             </li>
                             <li>
                                 <a id="btnImportarDatos" href="importar-datos.php"><i class="fa fa-fw fa-angle-right"></i>Importar Datos</a>

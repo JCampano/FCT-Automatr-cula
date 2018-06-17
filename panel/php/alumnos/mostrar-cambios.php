@@ -7,6 +7,8 @@
 
     $cambios = json_decode($resultado[0]["cambio_datos"]);
     $consulta="";
+    echo '<form method="POST" action="php/alumnos/guardar-cambios.php">';
+    echo '<input style="display:none;" name="id" value="'.$id.'">';
     foreach ($cambios as $indice=>$valor){
         if($indice=="dni"){
             $tipo = "DNI";
@@ -95,11 +97,7 @@
             $tipo = "Correo Electrónico Madre";
         }
 
-        if ($valor === end($cambios)) {
-                 $consulta.=$indice;
-        } else {
-            $consulta.=$indice.', ';
-        }
+        
 
 
         echo '<div class="row" style="margin-top:20px;">
@@ -117,7 +115,14 @@
                 </div>
 
             </div>';
-    }
-    echo "UPDATE ".$consulta;
+    }   
+
+
 
 ?>
+
+<div class="text-right" style="margin-top:30px;"><button type="submit" class="btn btn-success">Confirmar Cambios</button><button type="button" class="btn btn-danger btn-denegar"  data-id="<?php echo $id; ?>" data-dismiss="modal">Denegar Cambios</button></div>
+</form>
+<script type="text/javascript">
+    $(".btn-denegar").on("click", cancelarCambios);
+    </script>
