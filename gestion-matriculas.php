@@ -72,7 +72,7 @@
     </table>
       </div>
     <?php }else{
-      echo "No tienes ninguna matricula generada";
+      echo 'No tienes ninguna matricula generada <a href="registro-matriculas.php">Generar Matrícula</a>';
     }?>
       </div>
     </div>
