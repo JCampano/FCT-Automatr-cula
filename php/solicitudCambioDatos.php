@@ -52,7 +52,7 @@ ob_start();
                         <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
                         <input type="password" autofocus="autofocus" class="form-control" name="contrasenaCambioDatos" id="contrasenaCambioDatos" required pattern="[a-zA-Z0-9]{5,}$" value="<?php echo $alumno['clave']; ?>" 
                         placeholder ="Contrase&ntilde;a">
-                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números. </strong></span>
+                        <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números.</strong></span>
                     </div>
                 </div>
 
