@@ -39,7 +39,7 @@ if(!preg_match("/^(([A-Z])|\d)?\d{8}(\d|[A-Z])?$/", $dni))
     $valido=false;
 }
 
-if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}/", $contrasena))
+if(!preg_match("/[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9]{5,40}/", $contrasena))
 {
     $valido=false;
 }
