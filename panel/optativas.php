@@ -104,7 +104,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
                                         </div>
-                                        <input required id="nombre-asignatura" type="text" class="form-control">
+                                        <input id="nombre-optativa" type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -118,7 +118,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                           <label class="input-group-text" style="width:100px;" for="inputGroupSelect01">Bloque</label>
 
                                         </div>
-                                        <select required class="custom-select" id="selectBloqueOptativas">
+                                        <select class="custom-select" id="selectBloqueOptativas">
                                           <?php
                                             devuelveItinerarios();
                                           ?> 
@@ -135,7 +135,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                   </div>
 
                                   <div class="text-right">
-                                  <button class="btn" id="btn-enviar-itinerario">Guardar</button>
+                                  <button class="btn" id="btn-enviar-bloque">Guardar</button>
                                 </div>
                                 
                                </div>

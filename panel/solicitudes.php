@@ -61,9 +61,9 @@ include "header.php";
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
-                    
+                     <div id="mensajes"></div>
                     <div class="card">
-
+                      
                                 <div class="card-header text-white bg-secondary">
                                     Lista de Solicitudes
                                 </div>

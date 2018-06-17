@@ -924,6 +924,33 @@ function añadirItinerario(){
     
 }
 
+//Optativas
+$("#btn-enviar-bloque").on("click", anadirOptativa);
+
+
+function anadirOptativa(){
+
+    var nombre = $("#nombre-optativa").val();
+    var bloque = $("#selectBloqueOptativas").val();
+
+    if (nombre!="" && bloque!=""){
+
+        $.post("php/optativas/anadirOptativa.php",{ nombre:nombre, id_bloque:bloque}, function(result){
+               
+            $("#mensajes").empty().append(result);
+            $("#mensajes").show(500);
+                cargarOptativas();
+
+            $("#nombre-optativa").val("");
+        
+        });
+    } else {
+        $("#mensajes").empty().append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Debe completar todos los campos</div>');
+        $("#mensajes").show(500);
+    }
+    
+}
+
 //Ultimas matrículas registradas
 $("#btn-registrar-matricula").on("click", registrarMatricula);
 
