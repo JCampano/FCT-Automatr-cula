@@ -62,7 +62,12 @@
                           <ol>
                             <li>Llevarte al formulario para registrar la matricula</li>
                             <li>Generar un un error que visualizaras en color amarillo, este mensaje te advierte de que ya tienes una matricula generada y a consecuencia solo podrás editar la matricula o eliminarla</li>
-                            <li>Generar un error que visualizaras en color rojo,este mensaje te advierte que ya generaste y finalizaste una matrícula,de querer seguir haciendo una gestion en torno a la matrícula deberá acudir al centro</li>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <br><img src="img/ayuda_documentacion/error_usuario_ya_tiene_matricula.PNG" width="100%"><br>
+                                </div>
+                              </div>
+                            <!--<li>Generar un error que visualizaras en color rojo,este mensaje te advierte que ya generaste y finalizaste una matrícula,de querer seguir haciendo una gestion en torno a la matrícula deberá acudir al centro</li>-->
                           </ol>
                         </p>
                         <p>
@@ -75,12 +80,27 @@
                               <p>
                                 Dentro del formulario de registro de la matrícula, al comprobar que todos los datos son correctos , el usuario debe bajar hasta el final de formulario donde se encontrará con un desplegable que le pedirá que seleccione una enseñanza.
                               </p>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <img src="img/ayuda_documentacion/seleccion_enseñanza.PNG" width="100%">
+                                </div>
+                              </div><br>
                               <p>
                                 Cuando el usuario seleccione una enseñanza, aparecerá otro desplegable con los cursos disponibles para esa enseñanza, una vez seleccionado el curso aparecera un desplegable con las ramas de ese curso y otro con las optativas que el usuario puede elegir en ese curso.
                               </p>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <img src="img/ayuda_documentacion/seleccion_curso.PNG" width="100%">
+                                </div>
+                              </div><br>
                               <p>
                                 Las optativas se elegiran por orden de preferencia y el usuario podrá selecionar hasta 4 optativas ( mínimo 1)
                               </p>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <img src="img/ayuda_documentacion/seleccion_itinerario_optativas.PNG" width="100%">
+                                </div>
+                              </div><br>
                             </div>
                           </div>
                         </p>            
@@ -89,16 +109,44 @@
                         <p>
                           Accedemos a los datos del perfil de usuario, ( se accede seleccionando la opción de <a href="perfil-alumno.php" target="blank">Mis datos</a> ) situada en la esquina superior derecha , en el desplegable del usuario.
                         </p>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/menu_usuario.PNG" width="100%">
+                          </div>
+                        </div><br>
                         <p>
                           Dentro de los datos de perfil de usuario seleccionamos la opcion de <strong>Cambiar Foto Personal</strong> y seleccionamos la foto deseada para la matrícula.
                         </p>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/btn_cambiar_foto.PNG" width="100%">
+                          </div>
+                        </div><br>
                         <p>
                           Si el usuario ya hubiera finalizado la matrícula, te mostrara un mensaje de error en amarillo, el cual te advierte de que no puedes subir una foto dado que tu matrícula se encuentra finalizada.
                         </p>
-
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/error_cambiar_foto.PNG" width="100%">
+                          </div>
+                        </div><br>
                         <p><strong>Paso 3º :</strong> Finalizamos la Matrícula</p>
                         <p>
-                          En la opcion de <a href="gestion-matriculas.php" target="blank">Gestionar Matrícula</a> vemos un desplegable con las opciones de la matrícula, en el seleccionamos la opción de finalizar matrícula.
+                          En la opcion de <a href="gestion-matriculas.php" target="blank">Gestionar Matrícula</a> vemos un desplegable con las opciones de la matrícula, en el seleccionamos la opción de finalizar matrícula.Pueden darse varias opciones:
+                          <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/desplegable_opciones_matricula.PNG" width="100%">
+                          </div>
+                          </div><br>
+                          <ol>
+                            <li>Se finalice la matrícula.</li>
+                            <li>De un error pidiendo al usuario subir una foto antes de finalizar la matrícula.</li>
+                          </ol>
+                          <div class="row">
+                          <div class="col-xs-12">
+                            <br><img src="img/ayuda_documentacion/error_subir_foto_antes_de_finalizar.PNG" width="100%">
+                          </div>
+                        </div><br>
                         </p>
 
                         <p><strong>Paso 4º :</strong> Imprimimos la Matrícula</p>
@@ -117,13 +165,23 @@
                         </p>
                         <p>
                           En la página de gestion de matrículas selecionamos la opción de editar. Pueden darse los siguientes casos:
+                          <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/desplegable_opciones_matricula.PNG" width="100%">
+                          </div>
+                          </div><br>
                           <ol>
                             <li>
                               Esta opción nos llevará a un formulario con nuestra matrícula ya rellena donde podremos cambiar los datos referentes a la enseñanza, curso , itinerario y optativas elegidas.
                             </li>
                             <li>
                               Nos mandará a la página de inicio mostrandonos un mensaje de error en color rojo que nos comunica que no podemos editar una matrícula finalizada.
-                            </li>                            
+                            </li><br> 
+                            <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/error_finalizar_matricula.PNG" width="100%">
+                          </div>
+                          </div><br>                           
                         </p>
 
                       </div>
@@ -136,9 +194,27 @@
                         <p>
                           Selecionamos la opción de <a href="perfil-alumno.php" target="blank">Mis datos</a> situada en el desplegable del alumno en la parte superior derecha de la página ( excepto en los formularios matrícula ).
                         </p>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/menu_usuario.PNG" width="100%">
+                          </div>
+                        </div><br>
                         <p>
                           Pulsamos el boton de Cambiar Foto Personal y subimos la foto que se enviara con la matrícula.
                         <p>
+                          <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/btn_cambiar_foto.PNG" width="100%">
+                          </div>
+                        </div><br>
+                        <p>
+                          Si la matrícula estuviera finalizada , nos mostraria un error en amarillo diciendo no se puede cambiar la foto una vez finalizada la matrícula.
+                        </p>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/error_subir_foto_matricula_finalizada.PNG" width="100%">
+                          </div>
+                        </div><br>                        
                       </div>
                     </div>
 
@@ -152,13 +228,23 @@
                         </p>
                         <p>
                           En la página de gestion de matrículas selecionamos la opción de eliminar. Pueden darse los siguientes casos:
+                          <div class="row">
+                          <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/desplegable_opciones_matricula.PNG" width="100%">
+                          </div>
+                          </div><br>
                           <ol>
                             <li>
                              Eliminará la matricula.
                             </li>
                             <li>
                               Nos mandará a la página de inicio mostrandonos un mensaje de error en color rojo que nos comunica que no podemos eliminar una matrícula finalizada.
-                            </li>                            
+                            </li><br>   
+                            <div class="col-xs-12">
+                            <img src="img/ayuda_documentacion/error_eliminar_matricula_finalizada.PNG" width="100%">
+                          </div>
+                          </div><br>            
+                                    
                         </p>
                       </div>
                     </div>             
