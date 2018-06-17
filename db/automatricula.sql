@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2018 a las 22:25:15
+-- Tiempo de generación: 17-06-2018 a las 12:39:45
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -139,6 +139,13 @@ CREATE TABLE `grupo_optativas` (
   `id_curso` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `grupo_optativas`
+--
+
+INSERT INTO `grupo_optativas` (`id`, `nombre`, `id_curso`) VALUES
+(1, 'Ciencias', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +199,7 @@ CREATE TABLE `matriculas` (
   `fecha` date NOT NULL,
   `hora` varchar(5) NOT NULL,
   `id_alumno` int(5) NOT NULL,
-  `id_itinerario` int(5) NOT NULL
+  `id_itinerario` int(5) NOT NULL,
   `finalizada` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -201,7 +208,7 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`, `finalizada`) VALUES
-(1, '1111111111', '2018-03-19', '12:00', 1, 1 ,null);
+(1, '1111111111', '2018-03-19', '12:00', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -236,6 +243,13 @@ CREATE TABLE `optativas` (
   `id_grupo_optativas` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `optativas`
+--
+
+INSERT INTO `optativas` (`id`, `nombre`, `id_grupo_optativas`) VALUES
+(1, 'Química', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -251,6 +265,13 @@ CREATE TABLE `optativas_elegidas` (
   `id_optativa4` int(5) NOT NULL,
   `id_optativa1` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `optativas_elegidas`
+--
+
+INSERT INTO `optativas_elegidas` (`id`, `cod_matricula`, `id_optativa2`, `id_optativa3`, `id_optativa4`, `id_optativa1`) VALUES
+(1, '1111111111', 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -338,8 +359,10 @@ ALTER TABLE `itinerarios`
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_alumno_2` (`id_alumno`),
+  ADD UNIQUE KEY `cod_matricula` (`cod_matricula`),
   ADD KEY `id_alumno` (`id_alumno`),
-  ADD KEY `id_itinerario` (`id_itinerario`);
+  ADD KEY `id_itinerario` (`id_itinerario`),
+  ADD KEY `cod_matricula_2` (`cod_matricula`);
 
 --
 -- Indices de la tabla `matriculas_registradas`
@@ -360,7 +383,8 @@ ALTER TABLE `optativas`
 -- Indices de la tabla `optativas_elegidas`
 --
 ALTER TABLE `optativas_elegidas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cod_matricula` (`cod_matricula`);
 
 --
 -- Indices de la tabla `personal`
@@ -396,7 +420,7 @@ ALTER TABLE `enseñanzas`
 -- AUTO_INCREMENT de la tabla `grupo_optativas`
 --
 ALTER TABLE `grupo_optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
@@ -480,6 +504,12 @@ ALTER TABLE `matriculas_registradas`
 --
 ALTER TABLE `optativas`
   ADD CONSTRAINT `optativas_ibfk_1` FOREIGN KEY (`id_grupo_optativas`) REFERENCES `grupo_optativas` (`id`);
+
+--
+-- Filtros para la tabla `optativas_elegidas`
+--
+ALTER TABLE `optativas_elegidas`
+  ADD CONSTRAINT `optativas_elegidas_ibfk_1` FOREIGN KEY (`cod_matricula`) REFERENCES `matriculas` (`cod_matricula`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

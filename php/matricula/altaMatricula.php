@@ -7,9 +7,9 @@ $enseñanza=$_POST['selectEnsenanza'];
 $curso = $_POST['selectCurso'];
 $itinerario=$_POST['selectItinerario'];
 $optativa=$_POST['selectOptativas'];
-$optativa2 ="";
-$optativa3 ="";
-$optativa4 ="";
+$optativa2 =0;
+$optativa3 =0;
+$optativa4 =0;
 if(isset($_POST['selectOptativas2'])){
 	if($_POST['selectOptativas2'] != "Seleccione")
 		$optativa2 =$_POST['selectOptativas2'];
