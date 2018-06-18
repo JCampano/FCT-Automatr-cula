@@ -13,8 +13,8 @@ include "header.php";
   ?>
 
 
- <div class="modal fade" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="editarEnsenanza" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+ <div class="modal fade" id="editarUsuario"  tabindex="-1" role="dialog" aria-labelledby="editarEnsenanza" aria-hidden="true">
+          <div class="modal-dialog" style="max-width:800px;" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title">Editar Usuario</h4>
