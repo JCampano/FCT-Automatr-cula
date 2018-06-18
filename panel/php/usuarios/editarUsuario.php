@@ -1,29 +1,49 @@
 <?php
-include "../functions.php";
+require_once("../functions.php");
 session_start();
 extract($_POST);
 
-    if ($contrasena!=""){
-        $update="UPDATE ALUMNOS SET NOMBRE = '".$nombre."', APELLIDOS = '".$apellidos."', CLAVE = '".$contrasena."' WHERE DNI = '".$dni."'";
+
+    if($id==1 && $tipo!=3){
+        $_SESSION['tipoMensaje']= "warning";
+        $_SESSION['mensaje'] = "No es posible quitar el tipo Administrador del usuario 1";
+        
+        header ("location: ../../usuarios.php");
     } else {
-        $update="UPDATE ALUMNOS SET NOMBRE = '".$nombre."', APELLIDOS = '".$apellidos."' WHERE DNI = '".$dni."'";
+        if($tipo==1){
+            $nTipo="administrativo";
+        } else if ($tipo==2){
+            $nTipo="gestor";
+        } else if ($tipo==3){
+            $nTipo="administrador";
+
+        }
+
+        if($pass==""){
+            $parteClave="";
+        } else {
+            $parteClave=" clave='$pass',";
+        }
+
+        $update = "UPDATE personal set dni='$dni',".$parteClave." nombre='$nombre', apellidos = '$apellidos',telefono=$telefono, tipo = '$nTipo' where id=$id";
+          
+            if(ejecutaConsultaAccion($update)>0)
+            {
+                $_SESSION['tipoMensaje']= "success";
+                $_SESSION['mensaje'] = "Se han guardado los cambios";
+                header ("location: ../../usuarios.php");
+
+            }
+            else
+            {
+                $_SESSION['tipoMensaje']= "warning";
+                $_SESSION['mensaje'] = "No se ha realizado ningún cambio";
+               
+                header ("location: ../../usuarios.php");
+            }
     }
-    
 
 
-if(ejecutaConsultaAccion($update)>0)
-{
-    $_SESSION['tipoMensaje']= "success";
-    $_SESSION['mensaje'] = "<strong>Se han guardado los datos</strong>";
-    header ("location: ../../alumnos.php");
-}
-else
-{
-    $_SESSION['tipoMensaje']= "warning";
-    $_SESSION['mensaje'] = "<strong>No se ha modificado el alumno</strong>";
-   
-    header ("location: ../../alumnos.php");
-}
 
 
 

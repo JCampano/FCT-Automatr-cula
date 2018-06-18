@@ -9,7 +9,7 @@ include "header.php";
 
 
  <div class="modal fade" id="verMatricula" tabindex="-1" role="dialog" aria-labelledby="verMatricula" aria-hidden="true">
-          <div class="modal-dialog" role="document" style="max-width:1200px;">
+          <div class="modal-dialog" role="document" style="max-width:800px;">
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title">Información Completa</h4>

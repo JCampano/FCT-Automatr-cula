@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2018 a las 20:09:16
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 19-06-2018 a las 00:11:21
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `automatricula`
 --
-CREATE DATABASE IF NOT EXISTS `automatricula` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `automatricula`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +28,6 @@ USE `automatricula`;
 -- Estructura de tabla para la tabla `alumnos`
 --
 
-DROP TABLE IF EXISTS `alumnos`;
 CREATE TABLE `alumnos` (
   `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
@@ -74,7 +71,6 @@ INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`,
 -- Estructura de tabla para la tabla `asignaturas`
 --
 
-DROP TABLE IF EXISTS `asignaturas`;
 CREATE TABLE `asignaturas` (
   `codigo` varchar(20) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -96,7 +92,6 @@ INSERT INTO `asignaturas` (`codigo`, `nombre`, `id_itinerario`) VALUES
 -- Estructura de tabla para la tabla `cursos`
 --
 
-DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE `cursos` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -116,7 +111,6 @@ INSERT INTO `cursos` (`id`, `nombre`, `id_enseñanza`) VALUES
 -- Estructura de tabla para la tabla `enseñanzas`
 --
 
-DROP TABLE IF EXISTS `enseñanzas`;
 CREATE TABLE `enseñanzas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL
@@ -135,7 +129,6 @@ INSERT INTO `enseñanzas` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `grupo_optativas`
 --
 
-DROP TABLE IF EXISTS `grupo_optativas`;
 CREATE TABLE `grupo_optativas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -155,7 +148,6 @@ INSERT INTO `grupo_optativas` (`id`, `nombre`, `id_curso`) VALUES
 -- Estructura de tabla para la tabla `imagenes`
 --
 
-DROP TABLE IF EXISTS `imagenes`;
 CREATE TABLE `imagenes` (
   `id` int(5) NOT NULL,
   `id_usuario` int(5) NOT NULL,
@@ -175,7 +167,6 @@ INSERT INTO `imagenes` (`id`, `id_usuario`, `imagen`) VALUES
 -- Estructura de tabla para la tabla `itinerarios`
 --
 
-DROP TABLE IF EXISTS `itinerarios`;
 CREATE TABLE `itinerarios` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -195,7 +186,6 @@ INSERT INTO `itinerarios` (`id`, `nombre`, `id_curso`) VALUES
 -- Estructura de tabla para la tabla `matriculas`
 --
 
-DROP TABLE IF EXISTS `matriculas`;
 CREATE TABLE `matriculas` (
   `id` int(5) NOT NULL,
   `cod_matricula` varchar(40) NOT NULL,
@@ -219,7 +209,6 @@ INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `
 -- Estructura de tabla para la tabla `matriculas_registradas`
 --
 
-DROP TABLE IF EXISTS `matriculas_registradas`;
 CREATE TABLE `matriculas_registradas` (
   `id_matricula` int(5) NOT NULL,
   `id_usuario` int(5) NOT NULL,
@@ -239,7 +228,6 @@ INSERT INTO `matriculas_registradas` (`id_matricula`, `id_usuario`, `fecha`) VAL
 -- Estructura de tabla para la tabla `optativas`
 --
 
-DROP TABLE IF EXISTS `optativas`;
 CREATE TABLE `optativas` (
   `id` int(5) NOT NULL,
   `nombre` varchar(40) NOT NULL,
@@ -263,7 +251,6 @@ INSERT INTO `optativas` (`id`, `nombre`, `id_grupo_optativas`) VALUES
 -- Estructura de tabla para la tabla `optativas_elegidas`
 --
 
-DROP TABLE IF EXISTS `optativas_elegidas`;
 CREATE TABLE `optativas_elegidas` (
   `id` int(5) NOT NULL,
   `cod_matricula` varchar(40) NOT NULL,
@@ -286,11 +273,10 @@ INSERT INTO `optativas_elegidas` (`id`, `cod_matricula`, `id_optativa2`, `id_opt
 -- Estructura de tabla para la tabla `personal`
 --
 
-DROP TABLE IF EXISTS `personal`;
 CREATE TABLE `personal` (
   `id` int(5) NOT NULL,
   `dni` varchar(9) NOT NULL,
-  `clave` int(5) NOT NULL,
+  `clave` varchar(40) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `apellidos` varchar(40) NOT NULL,
   `telefono` int(9) NOT NULL,
@@ -302,9 +288,9 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id`, `dni`, `clave`, `nombre`, `apellidos`, `telefono`, `tipo`) VALUES
-(1, '11111111A', 123456, 'David', 'de Vega', 657456543, 'administrador'),
-(2, '30456765F', 123456, 'José Antonio', 'Campano Laborda', 954675867, 'administrativo'),
-(3, '29456765D', 123456, 'Adrián', 'Yiampasila', 954675869, 'gestor');
+(1, '11111111A', '12345', 'David', 'de Vega', 657456543, 'administrador'),
+(2, '30456765F', '12345', 'José Antonio', 'Campano Laborda', 954675867, 'administrativo'),
+(3, '29456765D', 'asdas', 'Adrián', 'Yiampasila', 954675869, 'gestor');
 
 --
 -- Índices para tablas volcadas

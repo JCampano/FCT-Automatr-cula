@@ -5,17 +5,53 @@
 ?>
 
   <nav>
+    <fieldset>
+        <div class="row">
+            <div class="col-md-12"> <h5>Datos académicos</h5></div>
+        <div class="col-md-4 mb-3">
+            <label>Enseñanza</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Curso</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Itinerario</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+      
+        <div class="col-md-3 mb-3">
+            <label>Bloque 1</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Bloque 2</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Bloque 3</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Bloque 4</label>
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+        </div>
+    </div>
+    </fieldset>
+    
+   <h5>Datos Personales</h5>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="btn-tab-alumno" data-toggle="tab" href="#tab-alumno" role="tab" aria-controls="nav-home" aria-selected="true">Alumno</a>
       <a class="nav-item nav-link" id="btn-tab-padre" data-toggle="tab" href="#tab-padre" role="tab" aria-controls="nav-profile" aria-selected="false">Padre</a>
       <a class="nav-item nav-link" id="btn-tab-madre" data-toggle="tab" href="#tab-madre" role="tab" aria-controls="nav-contact" aria-selected="false">Madre</a>
 
-      <a class="nav-item nav-link" id="btn-tab-academicos" data-toggle="tab" href="#tab-academicos" role="tab" aria-controls="nav-contact" aria-selected="false">Datos Académicos</a>
+      
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="tab-alumno" role="tabpanel" aria-labelledby="nav-home-tab">
-<legend>Datos del Alumno/a:</legend>
+
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="nombre">Nombre</label>
@@ -92,7 +128,7 @@
     </div>
     <div class="tab-pane fade" id="tab-padre" role="tabpanel" aria-labelledby="nav-profile-tab">
         <fieldset>
-        <legend>Datos del Padre/Tutor:</legend> 
+     
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="nombre">Nombre</label>
@@ -131,7 +167,7 @@
     <div class="tab-pane fade" id="tab-madre" role="tabpanel" aria-labelledby="nav-contact-tab">
 
         <fieldset>
-                <legend>Datos de la Madre/Tutora:</legend>  
+ 
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="nombre">Nombre</label>
@@ -163,43 +199,7 @@
                 </div>  
                 </fieldset> 
             </div>
-             <div class="tab-pane fade show active" id="tab-academicos" role="tabpanel" aria-labelledby="nav-academicos-tab">
-
-        <fieldset>
-            <div class="row">
-            <div class="col-md-4 mb-3">
-                <label>Enseñanza</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-            <div class="col-md-4 mb-3">
-                <label>Curso</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-            <div class="col-md-4 mb-3">
-                <label>Itinerario</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-           <div class="col-md-12"> <h3>Optativas</h3    ></div>
-            <div class="col-md-3 mb-3">
-                <label>Bloque 1</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-            <div class="col-md-3 mb-3">
-                <label>Bloque 2</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-            <div class="col-md-3 mb-3">
-                <label>Bloque 3</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-            <div class="col-md-3 mb-3">
-                <label>Bloque 4</label>
-                <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-            </div>
-        </div>
-        </fieldset>
-        
-    </div>  
+            
 
         </div>
 

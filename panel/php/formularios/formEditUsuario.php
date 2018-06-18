@@ -64,7 +64,7 @@
 					 				   	    	} else if($tipo=="administrador"){
 					 				   	    		echo '<option value="3">'.$tipo.'</option>';
 					 				   	    		echo '<option value="1">adminsitrativo</option>';
-					 				   	    		echo '<option value="2">administrador</option>';
+					 				   	    		echo '<option value="2">gestor</option>';
 					 				   	    	} else{
 					 				   	    		echo '<option value="nulo">Tipo inválido</option>';
 					 				   	    		echo '<option value="1">adminsitrativo</option>';

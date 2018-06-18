@@ -228,3 +228,33 @@ background-color:#e65656 !important;
 .bg-dark{
 	background: #272727 !important;
 }
+
+.alert{
+	border-radius:0px;
+}
+
+#tipo-usuario>label>h1>i{
+	color:white;
+}
+.btn-primary{
+	background-color: #6c757d;
+	border-color: #6c757d;
+}
+
+
+.tab-content{
+	border-right: 1px solid #dee2e6;
+
+	border-left: 1px solid #dee2e6;
+
+	border-bottom: 1px solid #dee2e6;
+
+	padding: 10px;
+
+	background-color: whitesmoke;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+		background-color: whitesmoke !important;
+		border-bottom:0;
+	
+}
