@@ -63,7 +63,7 @@ include "header.php";
                     <!-- /.row -->
                      <div id="mensajes"></div>
 
-                     <a class="btn btn-primary btn-lg btn-block" href="php/carga-archivos.php" role="button">Importar datos</a>
+                     <input name="importar_archivo" type="file">Importar datos</a>
 
 
           </div>
