@@ -1,6 +1,6 @@
 <?php
 	require_once("functions.php");
-	$matriculasSinRegistrar=ejecutaConsultaArray("SELECT * FROM matriculas where id NOT IN (select id_matricula from matriculas_registradas);");
+	$matriculasSinRegistrar=ejecutaConsultaArray("SELECT * FROM matriculas where id NOT IN (select id_matricula from matriculas_registradas) and finalizada=1;");
 
   $solicitudCambios=ejecutaConsultaArray("SELECT * from alumnos where cambio_datos is not null");
 

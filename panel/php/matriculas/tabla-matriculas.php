@@ -42,7 +42,7 @@
         
         echo ' </tbody></table>';
     } else {
-        $resultado = ejecutaConsultaArray("select m.id as idMatricula, m.cod_matricula as codMatricula, m.fecha as fechaMatricula, a.nombre as nAlumno, a.apellido1 as a1Alumno, a.apellido2 as a2Alumno, a.dni as dniAlumno from matriculas m inner join alumnos a where a.id = m.id_alumno and Not m.id In (select id_matricula from matriculas_registradas)");
+        $resultado = ejecutaConsultaArray("select m.id as idMatricula, m.cod_matricula as codMatricula, m.fecha as fechaMatricula, a.nombre as nAlumno, a.apellido1 as a1Alumno, a.apellido2 as a2Alumno, a.dni as dniAlumno from matriculas m inner join alumnos a where a.id = m.id_alumno and Not m.id In (select id_matricula from matriculas_registradas) and finalizada=1");
         echo ' <table id="tabla-matriculas" class="table table-hover">
                                         <thead class="thead-dark">
                                             <tr>
