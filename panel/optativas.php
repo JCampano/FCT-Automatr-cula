@@ -82,7 +82,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                            </nav>
                             
                               <div class="text-right  d-print-inline-flex">
-                                <a href="bloques-optativas.php" class="btn btn-info">
+                                <a href="bloques-optativas.php" class="btn btn-warning">
                                 <i class="fas fa-table"></i> Gestionar Bloques
                               </a>
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirItinerario" aria-expanded="false" aria-controls="collapseExample">
