@@ -191,11 +191,7 @@ if(ejecutaConsulta2($consulta)!=0)
 
                                     <div class="col-md-12 mb-3" id="asigItinerarios">
 
-                                    </div>                                    
-
-                                    <div class="col-md-12 mb-3" id="txtOptativas">
-                                        
-                                    </div>                           
+                                    </div>                   
 
 	                                <div class="col-md-12 mb-3" id="combosOptativas">
 
