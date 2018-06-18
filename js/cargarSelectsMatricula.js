@@ -44,13 +44,10 @@ function getCursos() {
     var value = document.getElementById("selectEnsenanza").value;
     
     eliminarCursos();
-    eliminarItinerarios();
-    eliminarOptativas();
-    eliminarOptativas2();
-    eliminarOptativas3();
-    eliminarOptativas4();
+    eliminarItinerarios();    
     eliminarBtn();
-    eliminarAsgItinerarios();   
+    eliminarAsgItinerarios();
+    
     
     if(value != "Seleccione"){
         //1. Preparar parametros
@@ -88,16 +85,15 @@ function getItinerario() {
     var oAjax = instanciarXHR();
     var value = document.getElementById("selectCurso").value;
 
-    eliminarItinerarios();
-    eliminarOptativas();
-    eliminarOptativas4();
-    eliminarOptativas3();
-    eliminarOptativas2();
+    eliminarItinerarios();    
     eliminarBtn();
-    eliminarAsgItinerarios();    
+    eliminarAsgItinerarios();
+    getCombosOptativas(); 
+    cargarBtn();   
+      
 
     if(value != "Seleccione"){
-    	getOptativa();        
+    	//getOptativa();        
         //1. Preparar parametros
         var sDatos = "curso="+value;
         //alert(sDatosEnvio);
@@ -166,188 +162,61 @@ function procesoRespuestaAsigItinerario() {
     }
 }
 
-
-
-
-
-
-
-
-function getOptativa() {
+function getCombosOptativas() {
+    //si Curso es Selecione un curso elimino todos los combos menos enseñanza y curso
     //else hacemos el getCursos
     //Instanciar objeto Ajax
     var oAjax = instanciarXHR();
-    var value = document.getElementById("selectCurso").value;
+    var value = document.getElementById("selectCurso").value;       
+      
 
-    //eliminarOptativas();
-    eliminarBtn();
-
-    if(value != "Seleccione"){        
+    if(value != "Seleccione"){
+    	        
         //1. Preparar parametros
         var sDatos = "curso="+value;
         //alert(sDatosEnvio);
         //2. Configurar la llamada --> Asincrono por defecto
-        oAjax.open("GET", "php/matricula/getOptativa.php?" + sDatos);
+        oAjax.open("GET", "php/matricula/getCombosOptativas.php?" + sDatos);
 
         //3. Asociar manejador de evento de la respuesta
-        oAjax.addEventListener("readystatechange", procesoRespuestaOptativa, false);
+        oAjax.addEventListener("readystatechange", procesoRespuestaCombosOptativas, false);
 
         //4. Hacer la llamada
         oAjax.send();
     }
-}
-        
+}       
 
-function procesoRespuestaOptativa() {
-
-    var oAjax = this;
-
-    // 5. Proceso la respuesta cuando llega
-    if (oAjax.readyState == 4 && oAjax.status == 200) {
-        document.getElementById("txtOptativas").innerHTML = '<div class="col-lg-12"><h6>Seleccione hasta 4 optativas por orden de preferencia</h6></div>';
-        document.getElementById("optativas").innerHTML = oAjax.responseText;
-
-
-    }
-}
-
-function getOptativa2() {
-    //else hacemos el getCursos
-    //Instanciar objeto Ajax
-    var oAjax = instanciarXHR();
-    var value = document.getElementById("selectCurso").value;
-    var optativa1 = document.getElementById("selectOptativas").value;
-
-    eliminarBtn();
-    eliminarOptativas2();
-    eliminarOptativas3();
-    eliminarOptativas4();
-    
-
-    if(optativa1 != "Seleccione"){
-        cargarBtn();        
-        //1. Preparar parametros
-        var sDatos = "curso="+value;
-        var sDatos2 ="opt1="+optativa1;
-        //alert(sDatosEnvio);
-        //2. Configurar la llamada --> Asincrono por defecto
-        oAjax.open("GET", "php/matricula/getOptativa2.php?" + sDatos+ "&" +sDatos2);
-
-        //3. Asociar manejador de evento de la respuesta
-        oAjax.addEventListener("readystatechange", procesoRespuestaOptativa2, false);
-
-        //4. Hacer la llamada
-        oAjax.send();
-    }
-}
-        
-
-function procesoRespuestaOptativa2() {
+function procesoRespuestaCombosOptativas() {
 
     var oAjax = this;
 
     // 5. Proceso la respuesta cuando llega
     if (oAjax.readyState == 4 && oAjax.status == 200) {
 
-        document.getElementById("optativas2").innerHTML = oAjax.responseText;
-
-
-    }
-}
-
-function getOptativa3() {
-    //else hacemos el getCursos
-    //Instanciar objeto Ajax
-    var oAjax = instanciarXHR();
-    var value = document.getElementById("selectCurso").value;
-    var optativa1 = document.getElementById("selectOptativas").value;
-    var optativa2 = document.getElementById("selectOptativas2").value;
-    
-
-    eliminarOptativas3();
-    eliminarOptativas4();
-    
-
-    if(optativa2 != "Seleccione"){                
-        //1. Preparar parametros
-        var sDatos = "curso="+value;
-        var sDatos2 ="opt1="+optativa1;
-        var sDatos3 ="opt2="+optativa2;
-        //alert(sDatosEnvio);
-        //2. Configurar la llamada --> Asincrono por defecto
-        oAjax.open("GET", "php/matricula/getOptativa3.php?" + sDatos+ "&" +sDatos2+ "&" +sDatos3);
-
-        //3. Asociar manejador de evento de la respuesta
-        oAjax.addEventListener("readystatechange", procesoRespuestaOptativa3, false);
-
-        //4. Hacer la llamada
-        oAjax.send();
-    }
-}
-        
-
-function procesoRespuestaOptativa3() {
-
-    var oAjax = this;
-
-    // 5. Proceso la respuesta cuando llega
-    if (oAjax.readyState == 4 && oAjax.status == 200) {
-
-        document.getElementById("optativas3").innerHTML = oAjax.responseText;
+        document.getElementById("combosOptativas").innerHTML = oAjax.responseText;
 
 
     }
 }
 
 
-function getOptativa4() {
-    //else hacemos el getCursos
-    //Instanciar objeto Ajax
-    var oAjax = instanciarXHR();
-    var value = document.getElementById("selectCurso").value;
-    var optativa1 = document.getElementById("selectOptativas").value;
-    var optativa2 = document.getElementById("selectOptativas2").value;
-    var optativa3 = document.getElementById("selectOptativas3").value;
-
-    eliminarOptativas4();
-    
-
-    if(optativa2 != "Seleccione"){                
-        //1. Preparar parametros
-        var sDatos = "curso="+value;
-        var sDatos2 ="opt1="+optativa1;
-        var sDatos3 ="opt2="+optativa2;
-        var sDatos4 ="opt3="+optativa3;
-        //alert(sDatosEnvio);
-        //2. Configurar la llamada --> Asincrono por defecto
-        oAjax.open("GET", "php/matricula/getOptativa4.php?" + sDatos+ "&" +sDatos2+ "&" +sDatos3+ "&" +sDatos4);
-
-        //3. Asociar manejador de evento de la respuesta
-        oAjax.addEventListener("readystatechange", procesoRespuestaOptativa4, false);
-
-        //4. Hacer la llamada
-        oAjax.send();
-    }
-}
-        
-
-function procesoRespuestaOptativa4() {
-
-    var oAjax = this;
-
-    // 5. Proceso la respuesta cuando llega
-    if (oAjax.readyState == 4 && oAjax.status == 200) {
-
-        document.getElementById("optativas4").innerHTML = oAjax.responseText;
 
 
-    }
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
 function cargarBtn(){
-    if(document.getElementById("selectOptativas").value != "Seleccione"){
+    if(document.getElementById("selectCurso").value != "Seleccione"){
         document.getElementById("btnSubmit").innerHTML = '<button class="btn btn-primary" type="submit">Aceptar </button>';
     }
     else{
@@ -367,22 +236,6 @@ function eliminarCursos(){
 
 function eliminarItinerarios(){
     $("#itinerarios").empty();
-}
-
-function eliminarOptativas(){
-    $("#optativas").empty();
-}
-
-function eliminarOptativas2(){
-    $("#optativas2").empty();
-}
-
-function eliminarOptativas3(){
-    $("#optativas3").empty();
-}
-
-function eliminarOptativas4(){
-    $("#optativas4").empty();
 }
 
 function eliminarAsgItinerarios(){   
