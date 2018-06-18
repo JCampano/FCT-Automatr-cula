@@ -61,15 +61,18 @@ include "header.php";
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
-                     <div id="mensajes"></div>
+                    <div id="mensajes"></div>
 
-                     <input name="importar_archivo" type="file">Importar datos</a>
+                    <div id="importar">
+                        <form name="importarArchivos" action="php/carga-datos.php" method="post" enctype="multipart/form-data">
+                           <input name="archivo" type="file" accept=".xls, .csv">
+                           <button class="btn btn-info btn-md" type="submit">Aceptar</button>
+                        </form>
+                    </div>
 
 
           </div>
         </div>
-
-
 <?php
 
 

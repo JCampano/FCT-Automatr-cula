@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2018 a las 13:30:34
+-- Tiempo de generación: 18-06-2018 a las 20:09:16
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -57,15 +57,16 @@ CREATE TABLE `alumnos` (
   `apellidos_madre` varchar(40) NOT NULL,
   `tel_madre` int(9) NOT NULL,
   `correo_madre` varchar(50) NOT NULL,
-  `cambio_datos` varchar(500) DEFAULT NULL
+  `cambio_datos` varchar(500) DEFAULT NULL,
+  `fecha_alta` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`, `cambio_datos`) VALUES
-(1, '00000000A', '12345', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com', NULL);
+INSERT INTO `alumnos` (`id`, `dni`, `clave`, `nombre`, `apellido1`, `apellido2`, `nie`, `fecha_nac`, `direccion`, `poblacion`, `provincia`, `cod_postal`, `tel_fijo`, `tel_movil`, `correo`, `dni_padre`, `nombre_padre`, `apellidos_padre`, `tel_padre`, `correo_padre`, `dni_madre`, `nombre_madre`, `apellidos_madre`, `tel_madre`, `correo_madre`, `cambio_datos`, `fecha_alta`) VALUES
+(1, '00000000A', '12345', 'Ricardo', 'Linterna', 'Farola', 'Y0000000A', '1980-05-16', 'Calle Rábano', 'Dos Hermanas', 'Sevilla', 41089, 954674535, 608546576, 'rlinternaquealumbra@gmail.com', '30456765F', 'Pepe', 'Linterna Avispa', 654325676, 'plinternapicaduraletallobezno@gmail.com', '29456765V', 'Josefina', 'Helios Farola', 654678798, 'jdiosadelsol@gmail.com', NULL, '2017-02-12');
 
 -- --------------------------------------------------------
 
@@ -210,7 +211,7 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id`, `cod_matricula`, `fecha`, `hora`, `id_alumno`, `id_itinerario`, `finalizada`) VALUES
-(1, '1111111111', '2018-03-19', '12:00', 1, 1, 0);
+(1, '1111111111', '2018-03-19', '12:00', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -450,7 +451,7 @@ ALTER TABLE `matriculas`
 -- AUTO_INCREMENT de la tabla `optativas`
 --
 ALTER TABLE `optativas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `optativas_elegidas`
