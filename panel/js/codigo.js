@@ -66,7 +66,7 @@ $(document).ready(function() {
   cargarNotificaciones();
       var direccion = String(window.location);
       var aDireccion = direccion.split("/");
-
+    
       switch (aDireccion[5]) {
         case "asignaturas.php":
             cargarAsignaturas();
@@ -77,6 +77,15 @@ $(document).ready(function() {
 
         case "optativas.php":
             cargarOptativas();
+
+            $("#btnOptativas").addClass("seleccionado");
+            $("#btnOptativasLista").addClass("saturacion");
+            $("#btnOptativas").addClass("saturacion");
+            break;
+
+        case "bloques-optativas.php":
+            cargarBloquesOptativas();
+        
             $("#btnOptativas").addClass("seleccionado");
             $("#btnOptativasLista").addClass("saturacion");
             $("#btnOptativas").addClass("saturacion");
@@ -809,6 +818,48 @@ function cargarOptativas(){
 }
 
 
+function cargarBloquesOptativas(){
+    $.post("php/optativas/tabla-bloques.php", function(result){
+           
+        $("#zona-tabla-bloques").empty().append(result);
+
+       //Enseñanzas
+       $(".btn-editar").on("click",cargarFormEditarBloque);
+
+       function cargarFormEditarBloque(){
+       
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEditBloque.php", {id: id}, function(result){
+               $("#modal-bloque").html(result);
+           });
+       }
+       $(".btn-eliminar").on("click",cargarFormEliminarBloque);
+
+       function cargarFormEliminarBloque(){
+           var boton=$(this);
+           var id = boton.attr("data-id");
+           
+           $.post("php/formularios/formEliminarBloque.php", {id: id}, function(result){
+               $("#modal-bloque-eliminar").html(result);
+           });
+       }
+
+         
+             $('#tabla-bloques').DataTable( {
+                 "language": espanol              
+            } 
+
+             );
+   
+        $('[data-tipo="tooltip"]').tooltip();
+
+
+    });
+}
+
+
 
 //Añadir datos
 
@@ -912,7 +963,7 @@ function añadirItinerario(){
             $("#mensajes").empty().append(result);
             $("#mensajes").show(500);
 
-            $("#codigo-itinerario").val("");
+     
             $("#nombre-itinerario").val("");
                 cargarItinerarios();
         
@@ -925,7 +976,7 @@ function añadirItinerario(){
 }
 
 //Optativas
-$("#btn-enviar-bloque").on("click", anadirOptativa);
+$("#btn-enviar-optativa").on("click", anadirOptativa);
 
 
 function anadirOptativa(){
@@ -933,8 +984,8 @@ function anadirOptativa(){
     var nombre = $("#nombre-optativa").val();
     var bloque = $("#selectBloqueOptativas").val();
 
-    if (nombre!="" && bloque!=""){
-
+    if (nombre!="" && bloque!=null ){
+        alert("hola");
         $.post("php/optativas/anadirOptativa.php",{ nombre:nombre, id_bloque:bloque}, function(result){
                
             $("#mensajes").empty().append(result);
@@ -950,6 +1001,37 @@ function anadirOptativa(){
     }
     
 }
+
+//Bloques
+$("#btn-enviar-bloque").on("click", añadirBloque);
+
+
+function añadirBloque(){
+
+    var nombre = $("#nombre-bloque").val();
+    var curso = $("#selectCursoItinerario").val();
+
+    if (nombre!="" && curso!="nulo"){
+
+        $.post("php/optativas/anadirBloque.php",{nombre:nombre, id_curso:curso}, function(result){
+               
+            $("#mensajes").empty().append(result);
+            $("#mensajes").show(500);
+
+          
+            $("#nombre-bloque").val("");
+       
+
+                cargarBloquesOptativas();
+        
+        });
+    } else {
+        $("#mensajes").empty().append('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert">&times;</button>Debe completar todos los campos</div>');
+        $("#mensajes").show(500);
+    }
+    
+}
+
 
 //Ultimas matrículas registradas
 $("#btn-registrar-matricula").on("click", registrarMatricula);

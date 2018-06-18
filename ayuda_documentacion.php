@@ -121,6 +121,7 @@
                                          <p>
                                            En la opcion de <a href="gestion-matriculas.php" target="blank">Gestionar Matrícula</a> vemos un desplegable con las opciones de la matrícula, en el seleccionamos la opción de imprimir matrícula.<strong> La matrícula impresa se debe presentar en el centro. </strong>
                                          </p>
+
                                     
                   </div>
                 </div>
@@ -250,7 +251,7 @@
         </div>
       
 
-
+</div></div>
 
 
 

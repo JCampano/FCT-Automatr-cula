@@ -35,12 +35,12 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Editar Itinerario</h4>
+                <h4 class="modal-title">Editar Bloque</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-itinerario">
+              <div class="modal-body" id="modal-bloque">
                <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
@@ -57,7 +57,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="modal-itinerario-eliminar">
+              <div class="modal-body" id="modal-bloque-eliminar">
                <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
               </div>
               
@@ -69,26 +69,26 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
 
         
         <div class="content-wrapper">
-          <div class="container-fluid">
+          <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                            
                            <nav aria-label="breadcrumb" class="navegacion">
                              <ol class="breadcrumb">
                                <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                               <li class="breadcrumb-item active" aria-current="page">Itinerarios</li>
+                               <li class="breadcrumb-item active" aria-current="page">Bloques de Optativas</li>
                              </ol>
                            </nav>
                             
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirItinerario" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Itinerario
+                                <i class="fas fa-plus-circle"></i> Añadir Bloque
                               </button>
                             </div>
                             <p></p>
                             <div class="collapse" id="anadirItinerario">
                              <div class="card text-white bg-info mb-3">
-                               <div class="card-header">Añadir Itinerario</div>
+                               <div class="card-header"><i class="fas fa-plus-circle"></i> Añadir Bloque</div>
                                <div class="card-body">
                                  <div id="mensajes"></div>
                                   <div class="row">
@@ -98,7 +98,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" style="width:100px;" >Nombre</span>
                                         </div>
-                                        <input id="nombre-itinerario" type="text" class="form-control">
+                                        <input id="nombre-bloque" type="text" class="form-control">
                                        
                                       </div>
                                     </div>
@@ -149,7 +149,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                                   </div>
 
                                   <div class="text-right">
-                                  <button class="btn" id="btn-enviar-itinerario">Guardar</button>
+                                  <button class="btn" id="btn-enviar-bloque">Guardar</button>
                                 </div>
                                 
                                </div>
@@ -171,11 +171,11 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                     <div class="card">
 
                                 <div class="card-header text-white bg-secondary">
-                                    Lista de Itinerarios
+                                    Lista de Bloques de Optativas
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
-                                <div class="table-responsive" id="zona-tabla-itinerarios">
+                                <div class="table-responsive" id="zona-tabla-bloques">
                                   <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div> 
                                     </div>
                                     <!-- /.table-responsive -->
