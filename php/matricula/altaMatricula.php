@@ -5,25 +5,26 @@ extract($_POST);
 
 $enseñanza=$_POST['selectEnsenanza'];
 $curso = $_POST['selectCurso'];
-$itinerario=$_POST['selectItinerario'];
-$optativa=$_POST['selectOptativas'];
-$optativa2 =0;
-$optativa3 =0;
-$optativa4 =0;
-if(isset($_POST['selectOptativas2'])){
-	if($_POST['selectOptativas2'] != "Seleccione")
-		$optativa2 =$_POST['selectOptativas2'];
+$itinerario= $_POST['selectItinerario'];
 
-	if(isset($_POST['selectOptativas3'])){
-		if($_POST['selectOptativas3'] != "Seleccione")
-			$optativa3 =$_POST['selectOptativas3'];
+$optativa  = 0;
+$optativa1 = 0;
+$optativa2 = 0;
+$optativa3 = 0;
 
-		if(isset($_POST['selectOptativas4'])){
-			if($_POST['selectOptativas4'] != "Seleccione")
-				$optativa4 =$_POST['selectOptativas4'];
-		}
-	}
-}
+
+if(isset($_POST['optativa0']))
+	$optativa  = $_POST['optativa0'];
+
+if(isset($_POST['optativa1']))
+$optativa1 = $_POST['optativa1'];
+
+if(isset($_POST['optativa2']))
+$optativa2 = $_POST['optativa2'];
+
+if(isset($_POST['optativa3']))
+$optativa3 = $_POST['optativa3'];
+
 
 
 //obtenemos el id del alumno
@@ -44,7 +45,7 @@ $insert="INSERT INTO matriculas (COD_MATRICULA,FECHA,HORA,ID_ALUMNO,ID_ITINERARI
 
 
 if(ejecutaConsultaAccion($insert)>0){
-	$insert="INSERT INTO optativas_elegidas (COD_MATRICULA,ID_OPTATIVA1,ID_OPTATIVA2,ID_OPTATIVA3,ID_OPTATIVA4) VALUES ('".$codigo."', '".$optativa."', '".$optativa2."', '".$optativa3."', '".$optativa4."')";
+	$insert="INSERT INTO optativas_elegidas (COD_MATRICULA,ID_OPTATIVA1,ID_OPTATIVA2,ID_OPTATIVA3,ID_OPTATIVA4) VALUES ('".$codigo."', '".$optativa."', '".$optativa1."', '".$optativa2."', '".$optativa3."')";
 	if(ejecutaConsultaAccion($insert)>0){
 		$consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$alumno['id']."';";
 	    /*$resulset=ejecutaConsulta($consulta);
