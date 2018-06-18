@@ -70,7 +70,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
 
         
         <div class="content-wrapper">
-          <div class="container-fluid">
+          <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                            
@@ -83,10 +83,10 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                             
                               <div class="text-right  d-print-inline-flex">
                                 <a href="bloques-optativas.php" class="btn btn-info">
-                                Gestionar Bloques
+                                <i class="fas fa-table"></i> Gestionar Bloques
                               </a>
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirItinerario" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Optativa
+                                <i class="fas fa-plus-circle"></i> Añadir Optativa
                               </button>
 
                             </div>
@@ -120,7 +120,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                         </div>
                                         <select class="custom-select" id="selectBloqueOptativas">
                                           <?php
-                                            devuelveItinerarios();
+                                            devuelveBloques();
                                           ?> 
                                           
                                         </select>
@@ -135,7 +135,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from optativas");
                                   </div>
 
                                   <div class="text-right">
-                                  <button class="btn" id="btn-enviar-bloque">Guardar</button>
+                                  <button class="btn" id="btn-enviar-optativa">Guardar</button>
                                 </div>
                                 
                                </div>

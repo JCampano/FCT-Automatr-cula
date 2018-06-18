@@ -6,8 +6,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Bloque</th>
-                                            <th>Curso</th>
+                                            <th width="100px">Bloque</th>
+                                            <th width="100px">Curso</th>
 
                                             <th>Acción</th>
                                         </tr>

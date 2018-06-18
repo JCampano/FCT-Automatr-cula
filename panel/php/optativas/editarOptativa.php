@@ -6,12 +6,12 @@ extract($_POST);
 
 
 if($_SESSION["nOptativa"]!=$nombre && $_SESSION["idBloque"]==$bloque){
-	$update="UPDATE optativas SET nombre = '".$nombre." WHERE id = $id";
+	$update="UPDATE optativas SET nombre = '".$nombre."' WHERE id = $id";
 	$cambio=true;
 	//echo "cambio de nombre";
 
 } else if($_SESSION["nOptativa"]==$nombre && $_SESSION["idBloque"]!=$bloque){
-	$update="UPDATE optativas SET id_grupo_optativas = '".$bloque." WHERE id = $id";
+	$update="UPDATE optativas SET id_grupo_optativas = ".$bloque." WHERE id = $id";
 	$cambio=true;
 	//echo "cambio de bloque";
 } else if ($_SESSION["nOptativa"]!=$nombre && $_SESSION["idBloque"]!=$bloque){

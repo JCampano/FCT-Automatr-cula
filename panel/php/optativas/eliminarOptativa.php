@@ -3,21 +3,21 @@
     extract($_POST);
     session_start();
    
-    $delete="DELETE FROM itinerarios WHERE id = '".$id."'";
+    $delete="DELETE FROM optativas WHERE id = '".$id."'";
 
 
     if(ejecutaConsultaAccion($delete)>0)
     {
           $_SESSION['tipoMensaje']= "success";
-          $_SESSION['mensaje'] = "<strong>El itinerario se ha eliminado correctamente</strong>";
-          header ("location: ../../itinerarios.php");
+          $_SESSION['mensaje'] = "<strong>La optativa se ha eliminado correctamente</strong>";
+          header ("location: ../../optativas.php");
     }
     else
     {
         $_SESSION['tipoMensaje']= "danger";
-        $_SESSION['mensaje'] = "No puede eliminar el itinerario, primero debe borrar las Asignaturas asignadas.";
+        $_SESSION['mensaje'] = "Ha ocurrido un error al eliminar la optativa";
    
-        header ("location: ../../itinerarios.php");
+        header ("location: ../../optativas.php");
     
     }
 

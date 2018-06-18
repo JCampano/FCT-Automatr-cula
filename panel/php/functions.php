@@ -181,10 +181,11 @@ function devuelveUltimosAlumnos(){
 }
 
 
-function devuelveItinerarios(){
+function devuelveBloques(){
 
     $enseñanzas = ejecutaConsultaArray("SELECT id, nombre from enseñanzas");
     if (count($enseñanzas)!=0){
+        echo '<option disabled value="nulo" selected>Selecciona un bloque</option>';
         for ($i=0;$i<count($enseñanzas);$i++){
             $cursos = ejecutaConsultaArray("SELECT id,nombre from cursos where id_enseñanza =".$enseñanzas[$i]["id"]);
            
@@ -197,7 +198,7 @@ function devuelveItinerarios(){
                    
 
                     if(count($bloques)!=0){
-                    
+                       
                         echo '<optgroup label="'."&nbsp;".$cursos[$k]["nombre"]." ".$enseñanzas[$i]["nombre"].'">';
                       for ($m=0;$m<count($bloques);$m++){
                           echo '        <option value="'.$bloques[$m]["id"].'">'."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$bloques[$m]["nombre"].'</option>';
@@ -220,7 +221,7 @@ function devuelveItinerarios(){
 
         }
     }else {
-       // echo '<option selected value="nulo">No hay Itinerarios disponibles...</option>';
+       echo '<option disabled value="nulo" selected>No hay bloques disponibles</option>';
     }
    
 
