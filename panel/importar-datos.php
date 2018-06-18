@@ -64,8 +64,8 @@ include "header.php";
                     <div id="mensajes"></div>
 
                     <div id="importar">
-                        <form name="importarArchivos" action="php/carga-datos.php" method="post" enctype="multipart/form-data">
-                           <input name="archivo" type="file" accept=".xls, .csv">
+                        <form name="importarArchivos" action="php/carga-archivos.php" method="post" enctype="multipart/form-data">
+                           <input type="file" name="archivo" accept=".xls, .xls">
                            <button class="btn btn-info btn-md" type="submit">Aceptar</button>
                         </form>
                     </div>
