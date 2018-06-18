@@ -91,9 +91,6 @@
 		$tablaAsig='<table class="caja0"><tr><th class="caja6">Asignaturas</th></tr></table>';
 		$tablaAsig.='<table class="caja0"><tr>';
 		foreach($asignaturas as $indice=>$asig){
-            echo "<pre>";
-            echo print_r($asig);
-            echo "</pre>";
 			if($indice%4!=0)
 				$tablaAsig.='<td class="caja5">'.$asig['nombre'].'</td>';
 			else{
