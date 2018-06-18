@@ -248,9 +248,7 @@
              <a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-book"></i> Contacto</a>
            </div>
         </div>
-      </div>
-
-    </div>
+      
 
 
 
