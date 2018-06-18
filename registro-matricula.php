@@ -191,31 +191,15 @@ if(ejecutaConsulta2($consulta)!=0)
 
                                     <div class="col-md-12 mb-3" id="asigItinerarios">
 
-                                    </div> 
-
-                                    <div class="col-md-12 mb-3" id="grupoOptativas">
-
-                                    </div>
+                                    </div>                                    
 
                                     <div class="col-md-12 mb-3" id="txtOptativas">
                                         
                                     </div>                           
 
-	                                <div class="col-md-3 mb-3" id="optativas">
-	                                    
-	                                </div>
+	                                <div class="col-md-12 mb-3" id="combosOptativas">
 
-                                    <div class="col-md-3 mb-3" id="optativas2">
-                                        
-                                    </div>
-
-                                    <div class="col-md-3 mb-3" id="optativas3">
-                                        
-                                    </div>
-
-                                    <div class="col-md-3 mb-3" id="optativas4">
-                                        
-                                    </div>
+                                    </div>                                  
 
                                     
                                 </div>                                          
