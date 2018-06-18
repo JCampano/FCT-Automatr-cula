@@ -193,6 +193,10 @@ if(ejecutaConsulta2($consulta)!=0)
 
                                     </div> 
 
+                                    <div class="col-md-12 mb-3" id="grupoOptativas">
+
+                                    </div>
+
                                     <div class="col-md-12 mb-3" id="txtOptativas">
                                         
                                     </div>                           
