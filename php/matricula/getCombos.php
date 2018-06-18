@@ -31,7 +31,7 @@ session_start();
 //sacamos sus optativas
     $consulta="SELECT * FROM optativas_elegidas WHERE COD_MATRICULA='".$matricula['cod_matricula']."';";
     $resulset=ejecutaConsulta($consulta);
-    $optativas=$resulset->fetch(PDO::FETCH_ASSOC);
+    $opt=$resulset->fetch(PDO::FETCH_ASSOC);
 
 //sacamos el itinerario
     $consulta="SELECT * FROM itinerarios WHERE ID='".$matricula['id_itinerario']."';";
@@ -124,102 +124,68 @@ session_start();
 	 
 	    while($fila=mysqli_fetch_assoc($res)){
 	        $respuesta.='<div class="col-md-3 col-xs-6 mb-3">';
-	        $respuesta.= "<input type='text' class='form-control'  disabled value=".$fila['nombre']." >";        
-	        $respuesta.="</div>";        
+	        $respuesta.= '<input type="text" class="form-control"  disabled value='.$fila['nombre'].' >';        
+	        $respuesta.='</div>';        
 	    }    
-	$respuesta.="</div>";
+	$respuesta.='</div>';
 
 
 
 
 
 
-//obtenemos el combo de optativa1 con la optativa sellecionada
-
-	$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso['id']."' AND optativas.id_grupo_optativas=grupo_optativas.id;";
-	$res = $conexion->query($sql);
-	//montamos el codigo html del combo de cursos
-	//recorremos los cursos para crear el desplegable
-
-	$respuesta.= '<div class="col-md-12 mb-3" id="txtOptativas"><div class="col-lg-12"><h6>Seleccione hasta 4 optativas por orden de preferencia</h6></div></div>';
-
-	$respuesta.='<div class="col-md-3 mb-3" id="optativas"><label>Optativa 1</label><select class="custom-select" name="selectOptativas" id="selectOptativas" onchange="getOptativa2();"><option value="Seleccione">Seleccione</option>';
-	 
-	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa1'])
-	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
-	        else
-	        	$respuesta.='<option value="'.$fila['id'].'">';
-	        $respuesta.=$fila['nombre'];        
-	        $respuesta.="</option>";        
-	    }
-	$respuesta.="</select></div>";
-
-
-
-//obtenemos el combo de optativa2 con la optativa sellecionada
-
-	/*$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso['id']."' AND optativas.id_grupo_optativas=grupo_optativas.id;";*/
-	$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso['id']."' AND optativas.id_grupo_optativas=grupo_optativas.id AND optativas.id !='".$optativas['id_optativa1']."';";
-	$res = $conexion->query($sql);
-	//montamos el codigo html del combo de cursos
-	//recorremos los cursos para crear el desplegable
-
-	$respuesta.='<div class="col-md-3 mb-3" id="optativas2"><label>Optativa 2</label><select class="custom-select" name="selectOptativas2" id="selectOptativas2" onchange="getOptativa3();"><option value="Seleccione">Seleccione</option>';
-	 
-	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa2'])
-	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
-	        else
-	        	$respuesta.='<option value="'.$fila['id'].'">';
-	        $respuesta.=$fila['nombre'];        
-	        $respuesta.="</option>";        
-	    }
-	$respuesta.="</select></div>";
-
-
-
-//obtenemos el combo de optativa3 con la optativa sellecionada
-
-	$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso['id']."' AND optativas.id_grupo_optativas=grupo_optativas.id AND optativas.id !='".$optativas['id_optativa1']."'AND optativas.id !='".$optativas['id_optativa2']."';";
-	$res = $conexion->query($sql);
-	//montamos el codigo html del combo de cursos
-	//recorremos los cursos para crear el desplegable
-
-	$respuesta.='<div class="col-md-3 mb-3" id="optativas3"><label>Optativa 3</label><select class="custom-select" name="selectOptativas3" id="selectOptativas3" onchange="getOptativa4();"><option value="Seleccione">Seleccione</option>';
-	 
-	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa3'])
-	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
-	        else
-	        	$respuesta.='<option value="'.$fila['id'].'">';
-	        $respuesta.=$fila['nombre'];        
-	        $respuesta.="</option>";        
-	    }
-	$respuesta.="</select></div>";
 
 
 
 
 
-//obtenemos el combo de optativa4 con la optativa sellecionada
+//sacamos los grupos de optativas del curso	
+	$sql=" SELECT * FROM grupo_optativas WHERE id_curso='".$curso['id']."'";	
+	$gruposOptativas = ejecutaConsultaArray($sql);
+	
+	$respuesta.='<div class="col-md-12 mb-3"><div class="row">';	
+	foreach($gruposOptativas as $indice => $row){
+		$sql=" SELECT * FROM optativas WHERE id_grupo_optativas='".$row['id']."'";
+		$optativas = ejecutaConsultaArray($sql);
 
-	$sql="SELECT optativas.nombre,optativas.id FROM optativas,grupo_optativas WHERE grupo_optativas.id_curso='".$curso['id']."' AND optativas.id_grupo_optativas=grupo_optativas.id AND optativas.id !='".$optativas['id_optativa1']."'AND optativas.id !='".$optativas['id_optativa2']."'AND optativas.id !='".$optativas['id_optativa3']."';";
-	$res = $conexion->query($sql);
-	//montamos el codigo html del combo de cursos
-	//recorremos los cursos para crear el desplegable
+		$respuesta.='<div class="col-md-3 mb-3"><label>Optativas grupo '.$row['nombre'].'</label><select required class="custom-select"  name="optativa'.$indice.'"><option value="">Seleccione</option>';	                                    
+	                                
+		foreach($optativas as $row1){
+			if($row1['id'] == $opt['id_optativa1'] || $row1['id'] == $opt['id_optativa2'] || $row1['id'] == $opt['id_optativa3'] || $row1['id']== $opt['id_optativa4']){
+				$respuesta.='<option value="'.$row1['id'].'"selected>'.$row1['nombre'].'</option>';
+			}
+			else{
+				$respuesta.='<option value="'.$row1['id'].'">'.$row1['nombre'].'</option>';
+			}
+		}
 
-	$respuesta.='<div class="col-md-3 mb-3" id="optativas4"><label>Optativa 4</label><select class="custom-select" name="selectOptativas4" id="selectOptativas4"><option value="Seleccione">Seleccione</option>';
-	 
-	    while($fila=mysqli_fetch_assoc($res)){
-	    	if($fila['id'] == $optativas['id_optativa4'])
-	        	$respuesta.='<option value="'.$fila['id'].'" selected>';
-	        else
-	        	$respuesta.='<option value="'.$fila['id'].'">';
-	        $respuesta.=$fila['nombre'];        
-	        $respuesta.="</option>";        
-	    }
-	$respuesta.="</select></div>";
+		$respuesta.='</select><span class="invalid-feedback">Debe seleccionar una Optativa</span></div>';
+	}
+			
+	$respuesta.='</div></div>';
+
+
+	//$respuesta.= "---".$opt['id_optativa1'].$opt['id_optativa2'].$opt['id_optativa3'].$opt['id_optativa4'];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	//devolvemos el html 
