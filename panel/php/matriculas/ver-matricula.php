@@ -83,41 +83,41 @@
     <div class="form-row">
         <div class="col-md-12 mb-3">
             <label for="direccion">Dirección</label>
-            <input type="text" class="form-control"   disabled name="direcionAlumno" placeholder="Dirección" value="<?php echo $matricula[0]['direccion']; ?>">
+            <input type="text" class="form-control"   disabled name="direcionAlumno" placeholder="Dirección" value="<?php echo $matricula[0]['dirA']; ?>">
         </div>                                                  
     </div>
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="poblacion">Población</label>
-            <input type="text" class="form-control"   disabled name="poblacionAlumno" placeholder="Población" value="<?php echo $matricula[0]['poblacion']; ?>">
+            <input type="text" class="form-control"   disabled name="poblacionAlumno" placeholder="Población" value="<?php echo $matricula[0]['pA']; ?>">
         </div>
 
         <div class="col-md-4 mb-3">
             <label for="provincia">Provincia</label>
-            <input type="text" class="form-control"   disabled name="provinciaAlumno"  placeholder="Provincia" value="<?php echo $matricula[0]['provincia']; ?>">
+            <input type="text" class="form-control"   disabled name="provinciaAlumno"  placeholder="Provincia" value="<?php echo $matricula[0]['provA']; ?>">
         </div>
 
         <div class="col-md-4 mb-3">
             <label for="codigoPostal">Código Postal</label>
-            <input type="text" class="form-control"   disabled name="codPostalAlumno"  placeholder="Código Postal" value="<?php echo $matricula[0]['cod_postal']; ?>" >
+            <input type="text" class="form-control"   disabled name="codPostalAlumno"  placeholder="Código Postal" value="<?php echo $matricula[0]['cpA']; ?>" >
         </div>    
     </div>
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="telefono">Teléfono</label>
-            <input type="text" class="form-control"   disabled name="telefonoAlumno" placeholder="Teléfono" value="<?php echo $matricula[0]['tel_fijo']; ?>">
+            <input type="text" class="form-control"   disabled name="telefonoAlumno" placeholder="Teléfono" value="<?php echo $matricula[0]['tfA']; ?>">
         </div>
 
         <div class="col-md-4 mb-3">
             <label for="movil">Móvil</label>
-            <input type="text" class="form-control"   disabled name="movilAlumno"  placeholder="Móvil" value="<?php echo $matricula[0]['tel_movil']; ?>">
+            <input type="text" class="form-control"   disabled name="movilAlumno"  placeholder="Móvil" value="<?php echo $matricula[0]['tmA']; ?>">
         </div>
 
         <div class="col-md-4 mb-3">
             <label for="email">Email</label>
-            <input type="email" class="form-control"   disabled name="emailAlumno"  placeholder="Email" value="<?php echo $matricula[0]['correo']; ?>" >
+            <input type="email" class="form-control"   disabled name="emailAlumno"  placeholder="Email" value="<?php echo $matricula[0]['correoA']; ?>" >
         </div>    
     </div>
 
@@ -132,31 +132,31 @@
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control"  disabled name="nombrePadre" placeholder="Nombre" value="<?php echo $matricula[0]['nombre_padre']; ?>" >
+                <input type="text" class="form-control"  disabled name="nombrePadre" placeholder="Nombre" value="<?php echo $matricula[0]['nPA']; ?>" >
             </div>
 
             <div class="col-md-6 mb-3">
                 <label for="dni">DNI</label>
-                <input type="text" class="form-control"  disabled name="dniPadre" placeholder="DNI" value="<?php echo $matricula[0]['dni_padre']; ?>"> 
+                <input type="text" class="form-control"  disabled name="dniPadre" placeholder="DNI" value="<?php echo $matricula[0]['dPA']; ?>"> 
             </div>
         </div>  
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control"  disabled name="apellidosPadre"  placeholder="Apellidos" value="<?php echo $matricula[0]['apellidos_padre']; ?>" >
+                <input type="text" class="form-control"  disabled name="apellidosPadre"  placeholder="Apellidos" value="<?php echo $matricula[0]['aPA']; ?>" >
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="telefono">Teléfono</label>
-                <input type="text" class="form-control"  disabled name="telefonoPadre" placeholder="Teléfono" value="<?php echo $matricula[0]['tel_padre']; ?>">
+                <input type="text" class="form-control"  disabled name="telefonoPadre" placeholder="Teléfono" value="<?php echo $matricula[0]['tPA']; ?>">
             </div>
 
             <div class="col-md-8 mb-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" disabled  name="emailPadre"  placeholder="Email" value="<?php echo $matricula[0]['correo_padre']; ?>">
+                <input type="email" class="form-control" disabled  name="emailPadre"  placeholder="Email" value="<?php echo $matricula[0]['cPA']; ?>">
             </div>
         </div>  
         </fieldset> 
@@ -171,30 +171,30 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control"  disabled name="nombreMadre" placeholder="Nombre" value="<?php echo $matricula[0]['nombre_madre']; ?>">
+                        <input type="text" class="form-control"  disabled name="nombreMadre" placeholder="Nombre" value="<?php echo $matricula[0]['nMA']; ?>">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" disabled  name="dmiMadre" placeholder="DNI" value="<?php echo $matricula[0]['dni_madre']; ?>" >
+                        <input type="text" class="form-control" disabled  name="dmiMadre" placeholder="DNI" value="<?php echo $matricula[0]['dMA']; ?>" >
                     </div>                                 
                 </div>  
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control" disabled  name="apellidosMadre"  placeholder="Apellidos" value="<?php echo $matricula[0]['apellidos_madre']; ?>" >
+                        <input type="text" class="form-control" disabled  name="apellidosMadre"  placeholder="Apellidos" value="<?php echo $matricula[0]['aMA']; ?>" >
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control"  disabled name="telefonoMadre" placeholder="Teléfono" value="<?php echo $matricula[0]['tel_madre']; ?>" >
+                        <input type="text" class="form-control"  disabled name="telefonoMadre" placeholder="Teléfono" value="<?php echo $matricula[0]['tMA']; ?>" >
                     </div>
 
                     <div class="col-md-8 mb-3">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control"  disabled name="emailMadre"  placeholder="Email" value="<?php echo $matricula[0]['correo_madre']; ?>" >
+                        <input type="email" class="form-control"  disabled name="emailMadre"  placeholder="Email" value="<?php echo $matricula[0]['cMA']; ?>" >
                     </div>
                 </div>  
                 </fieldset> 
