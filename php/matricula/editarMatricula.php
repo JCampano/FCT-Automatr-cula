@@ -20,24 +20,25 @@ extract($_POST);
     $enseñanza=$_POST['selectEnsenanza'];
     $curso = $_POST['selectCurso'];
     $itinerario=$_POST['selectItinerario'];
-    $optativa=$_POST['selectOptativas'];
-    $optativa2 =""; 
-    $optativa3 ="";
-    $optativa4 ="";
-    if(isset($_POST['selectOptativas2'])){
-        if($_POST['selectOptativas2'] != "Seleccione")
-            $optativa2 =$_POST['selectOptativas2'];
+   
 
-        if(isset($_POST['selectOptativas3'])){
-            if($_POST['selectOptativas3'] != "Seleccione")
-                $optativa3 =$_POST['selectOptativas3'];
+    $optativa  = 0;
+    $optativa1 = 0;
+    $optativa2 = 0;
+    $optativa3 = 0;
 
-            if(isset($_POST['selectOptativas4'])){
-                if($_POST['selectOptativas4'] != "Seleccione")
-                    $optativa4 =$_POST['selectOptativas4'];
-            }
-        }
-    }      
+
+    if(isset($_POST['optativa0']))
+        $optativa  = $_POST['optativa0'];
+
+    if(isset($_POST['optativa1']))
+    $optativa1 = $_POST['optativa1'];
+
+    if(isset($_POST['optativa2']))
+    $optativa2 = $_POST['optativa2'];
+
+    if(isset($_POST['optativa3']))
+    $optativa3 = $_POST['optativa3'];    
 
         
     $hora = date("H:i");   
@@ -45,7 +46,7 @@ extract($_POST);
        
       
     //modificamos optativas
-        $update1="UPDATE optativas_elegidas SET ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa2."',ID_OPTATIVA3='".$optativa3."',ID_OPTATIVA4='".$optativa4."' WHERE COD_MATRICULA='".$codigo."';";
+        $update1="UPDATE optativas_elegidas SET ID_OPTATIVA1='".$optativa."', ID_OPTATIVA2='".$optativa1."',ID_OPTATIVA3='".$optativa2."',ID_OPTATIVA4='".$optativa3."' WHERE COD_MATRICULA='".$codigo."';";
         //echo $update1;
         if(ejecutaConsultaAccion($update1)>0){
            
@@ -59,7 +60,7 @@ extract($_POST);
                 }
                 else{
                     $_SESSION['tipoMensaje']= "danger";
-                    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> al modificar la Matrícula";
+                    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> no se modifico ningun dato";
                     header('Location: ../../index.php');
                 }            
         }

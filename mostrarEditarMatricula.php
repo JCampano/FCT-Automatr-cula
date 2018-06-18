@@ -199,21 +199,9 @@
                                         
                                     </div>                                
 
-	                                <div class="col-md-3 mb-3" id="optativas">
-	                                    
-	                                </div>
-
-                                    <div class="col-md-3 mb-3" id="optativas2">
-                                        
-                                    </div>
-
-                                    <div class="col-md-3 mb-3" id="optativas3">
-                                        
-                                    </div>
-
-                                    <div class="col-md-3 mb-3" id="optativas4">
-                                        
-                                    </div>                                    
+	                                <div class="col-md-12 mb-3" id="combosOptativas">
+	                                	
+                                    </div>                             
                                 </div>                                          
                                 
                                 </fieldset> 
