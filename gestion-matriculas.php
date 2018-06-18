@@ -53,17 +53,24 @@
           <td>
             
             <div class="btn-group">
-              <a href="mostrarEditarMatricula.php" class="btn btn-secondary">Editar</a>
-              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Editar</span>
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?<?php echo $urlFinalizarMatricula ;?>">Finalizar Mátricula</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?<?php echo $urlEliminar; ?>">Eliminar</a>
-              </div>
+              <?php 
+              if($matricula['finalizada']==0){
+                echo '
+                <a href="mostrarEditarMatricula.php" class="btn btn-secondary">Editar</a>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Editar</span>
+                </button>
+                <div class="dropdown-menu">                
+                  <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?".$urlFinalizarMatricula>Finalizar Mátricula</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?".$urlEliminar>Eliminar</a>
+                </div>';
+                }else{
+                  echo '<a href="php/imprimirMatricula.php" target="blank" class="btn btn-secondary">Imprimir</a>'; 
+                }
+              ?>
             </div>
          </td>
         </tr>
