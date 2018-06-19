@@ -73,10 +73,7 @@ a:hover{
 	margin:0px;
 }
 
-.logo{
 
-	width:80%	;
-}
 
 .fondo-azul-jumbotron{
 	background-color:#e1eefb;
@@ -145,4 +142,20 @@ a:hover{
 		width:150px;
 		height:auto;
 	}
+	nav>.text-right{
+		margin-top: -35px;
+	}
+	.margen-arriba{
+		margin-top:80px !important;
+	}
+	body {
+	    margin-top: 50px;
+	}
+	a>.card{
+		margin-bottom:30px;
+	}
+
+
+nav>.text-right{
+	margin-top: -35px !important;
 }
