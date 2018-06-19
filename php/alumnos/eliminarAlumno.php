@@ -2,7 +2,7 @@
 include "../functions.php";
 extract($_POST);
 
-$consulta="SELECT * FROM alumnos WHERE DNI='".$_SESSION['alumno']."'";
+$consulta="SELECT * FROM alumnos WHERE dni='".$_SESSION['alumno']."'";
 
 if(ejecutaConsulta2($consulta)==0)
 {
@@ -10,7 +10,7 @@ if(ejecutaConsulta2($consulta)==0)
 }
 else
 {
-    $delete="DELETE FROM alumnos WHERE DNI = '".$_SESSION['alumno']."'";
+    $delete="DELETE FROM alumnos WHERE dni = '".$_SESSION['alumno']."'";
 
 
 if(ejecutaConsultaAccion($update)>0)
