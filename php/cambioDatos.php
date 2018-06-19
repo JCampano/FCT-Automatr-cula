@@ -4,7 +4,7 @@ session_start();
 include "functions.php";
 extract($_POST);
 $dni_autentificado=$_SESSION["login"];
-$consulta="SELECT * FROM alumnos WHERE DNI='".$dni_autentificado."'";
+$consulta="SELECT * FROM alumnos WHERE dni='".$dni_autentificado."'";
 $dni=trim($_POST['dni']);
 $contrasena=trim($_POST['contrasenaCambioDatos']);
 $nombre=trim($_POST['nombre']);

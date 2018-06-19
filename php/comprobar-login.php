@@ -5,7 +5,7 @@ extract($_POST);
 
 $dni=$_POST['dni'];
 $contrasena=$_POST['contrasena'];
-$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."' AND CLAVE='".$contrasena."'";
+$consulta="SELECT * FROM alumnos WHERE DNI='".$dni."' AND clave='".$contrasena."'";
 $resulset=ejecutaConsulta($consulta);
 
     if($fila=$resulset->fetch(PDO::FETCH_ASSOC))
