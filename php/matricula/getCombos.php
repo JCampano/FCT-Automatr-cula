@@ -19,7 +19,7 @@ session_start();
 
 //obtenemos el id del alumno para sacar su matricula
     $dni=$_SESSION['login'];    
-    $consulta="SELECT * FROM alumnos WHERE DNI='".$dni."';";
+    $consulta="SELECT * FROM alumnos WHERE dni='".$dni."';";
     $resulset=ejecutaConsulta($consulta);
     $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -29,7 +29,7 @@ session_start();
     $matricula=$resulset->fetch(PDO::FETCH_ASSOC);
 
 //sacamos sus optativas
-    $consulta="SELECT * FROM optativas_elegidas WHERE COD_MATRICULA='".$matricula['cod_matricula']."';";
+    $consulta="SELECT * FROM optativas_elegidas WHERE cod_matricula='".$matricula['cod_matricula']."';";
     $resulset=ejecutaConsulta($consulta);
     $opt=$resulset->fetch(PDO::FETCH_ASSOC);
 
@@ -71,7 +71,7 @@ session_start();
 
 
 //obtenemos todos los cursos con el curso seleccionado
-	$sql="SELECT * FROM cursos WHERE ID_ENSEÑANZA='".$curso['id_enseñanza']."';";	
+	$sql="SELECT * FROM cursos WHERE id_enseñanza='".$curso['id_enseñanza']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
@@ -91,7 +91,7 @@ session_start();
 
 
 //obtenemos los itinerarios con el itinerario seleccionado
-	$sql="SELECT * FROM itinerarios WHERE ID_CURSO='".$curso['id']."';";	
+	$sql="SELECT * FROM itinerarios WHERE id_curso='".$curso['id']."';";	
 	$res = $conexion->query($sql);
 	//montamos el codigo html del combo de cursos
 	//recorremos los cursos para crear el desplegable
