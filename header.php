@@ -65,7 +65,7 @@ if(ISSET($_SESSION["role"])){
         </div>';}
         ?>
       <nav class="navbar fixed-top navbar-light bg-light">
-       <a class="navbar-brand" href="index.php"><img src="img/logo.png"</a>
+       <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"</a>
         <?php 
           
             if(isset($_SESSION['login'])){
