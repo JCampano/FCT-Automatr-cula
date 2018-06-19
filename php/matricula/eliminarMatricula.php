@@ -7,7 +7,7 @@ session_start();
 include "../functions.php";
 //echo $cod;
 
-	$consulta="SELECT * FROM matriculas WHERE ID_ALUMNO='".$id."'AND FINALIZADA=1;";  
+	$consulta="SELECT * FROM matriculas WHERE id_alumno='".$id."'AND finalizada=1;";  
 
 
    
@@ -20,7 +20,7 @@ include "../functions.php";
     }
     else{
 		//	ELIMINAMOS LAS OPTATIVAS
-		$delete = "DELETE FROM optativas_registradas WHERE COD_MATRICULA='".$cod."'";
+		$delete = "DELETE FROM optativas_registradas WHERE cod_matricula='".$cod."'";
 		if(ejecutaConsultaAccion($delete)>0){
 
 			//ELIMIONAMOS LA MATRICULA REGISTRADA

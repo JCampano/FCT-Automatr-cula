@@ -63,9 +63,9 @@
                 <div class="dropdown-menu">                
                   <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?".$urlFinalizarMatricula>Finalizar Mátricula</a>
+                  <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?'.$urlFinalizarMatricula.'">Finalizar Mátricula</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?".$urlEliminar>Eliminar</a>
+                  <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?'.$urlEliminar.'">Eliminar</a>
                 </div>';
                 }else{
                   echo '<a href="php/imprimirMatricula.php" target="blank" class="btn btn-secondary">Imprimir</a>'; 

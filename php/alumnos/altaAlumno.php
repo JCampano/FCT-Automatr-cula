@@ -167,7 +167,7 @@ if(ejecutaConsulta2($consulta)!=0)
 }
 else
 {
-    $insert="INSERT INTO ALUMNOS (DNI, CLAVE, NOMBRE, APELLIDO1, APELLIDO2, NIE, FECHA_NAC, DIRECCION, POBLACION, PROVINCIA, COD_POSTAL, TEL_FIJO, TEL_MOVIL, CORREO, DNI_PADRE, NOMBRE_PADRE, APELLIDOS_PADRE, TEL_PADRE, CORREO_PADRE, DNI_MADRE, NOMBRE_MADRE, APELLIDOS_MADRE, TEL_MADRE, CORREO_MADRE) VALUES ('".$dni."', '".$contrasena."', '".$nombre."', '".$apellido1."', '".$apellido2."', '".$nie."', '".$fecha_nac."', '".$direccion."', '".$poblacion."', '".$provincia."', ".$cod_postal.", ".$tel_fijo.", ".$tel_movil.", '".$email."', '".$dni_padre."', '".$nombre_padre."', '".$apellidos_padre."', ".$tel_padre.", '".$email_padre."', '".$dni_madre."', '".$nombre_madre."', '".$apellidos_madre."', ".$tel_madre.", '".$email_madre."')";
+    $insert="INSERT INTO alumnos (dni, clave, nombre, apellido1, apellido2, nie, fecha_nac, direccion, poblacion, provincia, cod_postal, tel_fijo, tel_movil, correo, dni_padre, nombre_padre, apellidos_padre, tel_padre, correo_padre, dni_madre, nombre_madre, apellidos_madre, tel_madre, correo_madre) VALUES ('".$dni."', '".$contrasena."', '".$nombre."', '".$apellido1."', '".$apellido2."', '".$nie."', '".$fecha_nac."', '".$direccion."', '".$poblacion."', '".$provincia."', ".$cod_postal.", ".$tel_fijo.", ".$tel_movil.", '".$email."', '".$dni_padre."', '".$nombre_padre."', '".$apellidos_padre."', ".$tel_padre.", '".$email_padre."', '".$dni_madre."', '".$nombre_madre."', '".$apellidos_madre."', ".$tel_madre.", '".$email_madre."')";
 
 	if(ejecutaConsultaAccion($insert)>0)
 	{
