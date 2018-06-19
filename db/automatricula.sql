@@ -468,12 +468,6 @@ ALTER TABLE `grupo_optativas`
   ADD CONSTRAINT `grupo_optativas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`);
 
 --
--- Filtros para la tabla `imagenes`
---
-ALTER TABLE `imagenes`
-  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `personal` (`id`);
-
---
 -- Filtros para la tabla `itinerarios`
 --
 ALTER TABLE `itinerarios`
