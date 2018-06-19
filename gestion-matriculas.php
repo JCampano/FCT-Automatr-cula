@@ -85,7 +85,7 @@
     </table>
       </div>
     <?php }else{
-      echo 'No tienes ninguna matricula generada <a href="registro-matriculas.php">Generar Matrícula</a>';
+      echo 'No has registrado ninguna matrícula. <a href="registro-matricula.php">Pulsa aquí para generar una</a>';
     }?>
      
 

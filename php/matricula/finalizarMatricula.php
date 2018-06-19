@@ -84,7 +84,7 @@ else{
 			    if(ejecutaConsultaAccion($update1)>0){ 
 			        $_SESSION['tipoMensaje']= "success";
 			        $_SESSION['mensajeRegistro'] = "La Matricula ha sido finalizada correctamente";
-			        header('Location: ../../gestion-matricula.php');    
+			        header('Location: ../../gestion-matriculas.php');    
 			    }
 			    else{		
 						$_SESSION['tipoMensaje']= "warning";
