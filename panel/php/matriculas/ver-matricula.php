@@ -1,7 +1,11 @@
 <?php
     require_once ("../functions.php");
     extract($_POST);
-    $matricula = ejecutaConsultaArray("SELECT m.cod_matricula as codM, m.fecha as fM, m.hora as hM, a.dni as dA,a.nombre as nombreA, a.apellido1 aA1, a.apellido2 as aA2, a.nie as nA, a.fecha_nac as fnA, a.direccion as dirA, a.poblacion as pA, a.provincia as provA, a.cod_postal as cpA, a.tel_fijo as tfA, a.tel_movil as tmA, a.correo as correoA, a.dni_padre as dPA, a.nombre_padre as nPA, a.apellidos_padre as aPA, a.tel_padre as tPA, a.correo_padre as cPA, a.dni_madre as dMA, a.nombre_madre as nMA, a.apellidos_madre as aMA, a.tel_madre as tMA, a.correo_madre as cMA, i.nombre as nI, c.nombre as nC, e.nombre as nE  from matriculas m inner join enseñanzas e, cursos c, itinerarios i, alumnos a where m.id_itinerario = i.id and c.id = i.id_curso and e.id = c.id_enseñanza and m.id_alumno = a.id and m.id=".$id);
+    $matricula = ejecutaConsultaArray("SELECT m.cod_matricula as codM, m.fecha as fM, m.hora as hM, a.dni as dA,a.nombre as nombreA, a.apellido1 aA1, a.apellido2 as aA2, a.nie as nA, a.fecha_nac as fnA, a.direccion as dirA, a.poblacion as pA, a.provincia as provA, a.cod_postal as cpA, a.tel_fijo as tfA, a.tel_movil as tmA, a.correo as correoA, a.dni_padre as dPA, a.nombre_padre as nPA, a.apellidos_padre as aPA, a.tel_padre as tPA, a.correo_padre as cPA, a.dni_madre as dMA, a.nombre_madre as nMA, a.apellidos_madre as aMA, a.tel_madre as tMA, a.correo_madre as cMA, i.nombre as nI, c.nombre as nC, c.id as idC, e.nombre as nE  from matriculas m inner join enseñanzas e, cursos c, itinerarios i, alumnos a where m.id_itinerario = i.id and c.id = i.id_curso and e.id = c.id_enseñanza and m.id_alumno = a.id and m.id=".$id);
+    $bloques = ejecutaConsultaArray("select nombre from grupo_optativas where id_curso = ".$matricula[0]["idC"]);
+
+    $optativas = ejecutaConsultaArray("select * from optativas_elegidas where cod_matricula='".$matricula[0]["codM"]."'");
+
 ?>
 
   <nav>
@@ -10,33 +14,30 @@
             <div class="col-md-12"> <h5>Datos académicos</h5></div>
         <div class="col-md-4 mb-3">
             <label>Enseñanza</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['nE']; ?>" >
         </div>
         <div class="col-md-4 mb-3">
             <label>Curso</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['nC']; ?>" >
         </div>
         <div class="col-md-4 mb-3">
             <label>Itinerario</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
+            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['nI']; ?>" >
         </div>
       
-        <div class="col-md-3 mb-3">
-            <label>Bloque 1</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-        </div>
-        <div class="col-md-3 mb-3">
-            <label>Bloque 2</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-        </div>
-        <div class="col-md-3 mb-3">
-            <label>Bloque 3</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-        </div>
-        <div class="col-md-3 mb-3">
-            <label>Bloque 4</label>
-            <input type="text" class="form-control"  disabled value="<?php echo $matricula[0]['enseñanza']; ?>" >
-        </div>
+        
+        <?php
+            for($i=0;$i<count($bloques);$i++){
+                $n=$i+1;
+                $optativa=ejecutaConsultaArray("select nombre from optativas where id = ".$optativas[0]["id_optativa".$n]);
+                echo '  <div class="col-md-3 mb-3">
+                            <label>'.$bloques[$i]["nombre"].'</label>
+                            <input type="text" class="form-control"  disabled value="'.$optativa[0]["nombre"].'" >
+                        </div>';
+            }
+
+        ?>
+        
     </div>
     </fieldset>
     

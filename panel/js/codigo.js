@@ -631,26 +631,7 @@ function cargarMatriculas(){
            
         $("#zona-tabla-matriculas").empty().append(result);
 
-       //Enseñanzas
-       $(".btn-editar").on("click",cargarFormEditarMatricula);
-       function cargarFormEditarMatricula(){
-           var boton=$(this);
-           var id = boton.attr("data-id");
-           
-           $.post("php/formularios/formEditMatricula.php", {id: id}, function(result){
-               $("#modal-matricula").html(result);
-           });
-       }
-       $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
-
-       function cargarFormEliminarMatricula(){
-           var boton=$(this);
-           var id = boton.attr("data-id");
-           
-           $.post("php/formularios/formEliminarMatriculaRegistrada.php", {id: id}, function(result){
-               $("#modal-matricula-eliminar").html(result);
-           });
-       }
+      
        $(".btn-desvincular").on("click",cargarFormQuitarRegistro);
 
        function cargarFormQuitarRegistro(){
@@ -693,18 +674,20 @@ function cargarMatriculasNoRegistradas(){
         $("#zona-tabla-matriculas").empty().append(result);
 
        //Enseñanzas
-       $(".btn-editar").on("click",cargarFormEditarMatriculaR);
-       function cargarFormEditarMatriculaR(){
+         $(".btn-ver").on("click",cargarMatricula);
+       function cargarMatricula(){
+
            var boton=$(this);
            var id = boton.attr("data-id");
            
-           $.post("php/formularios/formEditMatricula.php", {id: id}, function(result){
+           $.post("php/matriculas/ver-matricula.php", {id: id}, function(result){
                $("#modal-matricula").html(result);
            });
        }
-       $(".btn-eliminar").on("click",cargarFormEliminarMatriculaR);
 
-       function cargarFormEliminarMatriculaR(){
+       $(".btn-eliminar").on("click",cargarFormEliminarMatricula);
+
+       function cargarFormEliminarMatricula(){
            var boton=$(this);
            var id = boton.attr("data-id");
            

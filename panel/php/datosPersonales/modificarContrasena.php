@@ -16,25 +16,25 @@ include "../functions.php";
                 
                 if(ejecutaConsultaAccion($update)>0){
                     $_SESSION['tipoMensaje']= "success";
-                    $_SESSION['mensaje'] = "<strong>Datos modificados con exito</strong>";
+                    $_SESSION['mensaje'] = "La contraseña se ha modificado correctamente";
                     header('Location: ../../mi-perfil.php');                    
                 }
                 else{
                     $_SESSION['tipoMensaje']= "danger";
-                    $_SESSION['mensaje'] = "<strong>Error</strong> la contraseña nueva es identica a la actual";
+                    $_SESSION['mensaje'] = "Debe introducir una contraseña distinta a la actual";
                     header('Location: ../../mi-perfil.php');
                 } 
            
         } 
          else {
             $_SESSION['tipoMensaje']= "danger";
-            $_SESSION['mensaje'] = "<strong>Error</strong> al introducir la contraseña actual";
+            $_SESSION['mensaje'] = "La contraseña actual no es correcta";
             header('Location: ../../mi-perfil.php');
         } 
     }
     else{
         $_SESSION['tipoMensaje']= "danger";
-        $_SESSION['mensaje'] = "<strong>Error</strong> los campos de contraseña nueva no coinciden";
+        $_SESSION['mensaje'] = "Las contraseñas no coinciden";
         header('Location: ../../mi-perfil.php');
     }
 

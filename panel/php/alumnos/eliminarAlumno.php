@@ -1,5 +1,5 @@
 <?php
-    include "../functions.php";
+    require_once("../functions.php");
     extract($_POST);
     session_start();
     $compruebaMatricula=ejecutaConsultaArray("SELECT id from matriculas where id_alumno=".$id);
@@ -27,8 +27,8 @@
     }
     else
     {
-        $_SESSION['tipoMensaje']= "danger";
-        $_SESSION['mensaje'] = "<strong>Ha ocurrido un error.</strong>"."DELETE FROM ALUMNOS WHERE id = ".$id;
+        $_SESSION['tipoMensaje']= "warning";
+        $_SESSION['mensaje'] = "El alumno que intenta eliminar tiene una matrícula registrada. Elimine primero la matrícula.";
    
         header ("location: ../../alumnos.php");
     

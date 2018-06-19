@@ -1,10 +1,10 @@
 <?php
     include "../functions.php";
     extract($_POST);
-    $datos = ejecutaConsultaArray("select m.id as idMatricula, m.cod_matricula as codMatricula, m.fecha as fechaMatricula, a.nombre as nAlumno, a.apellido1 as a1Alumno, a.apellido2 as a2Alumno, a.dni as dniAlumno from matriculas_registradas mr inner join alumnos a, matriculas m where a.id = m.id_alumno and mr.id_matricula = m.id and m.id=$id");
+    $datos = ejecutaConsultaArray("select m.id as idMatricula, m.cod_matricula as codMatricula, m.fecha as fechaMatricula, a.nombre as nAlumno, a.apellido1 as a1Alumno, a.apellido2 as a2Alumno, a.dni as dniAlumno from matriculas m inner join alumnos a where a.id = m.id_alumno and m.id=$id");
    
 ?>
- <form name="frmQuitarMRegistrada" action="php/matriculas/quitarMatriculaRegistrada.php" method="post" novalidate>
+ <form name="frmEliminarMRegistrada" action="php/matriculas/eliminarMatricula.php" method="post" novalidate>
     <h4> #<?php echo $datos[0]["codMatricula"];?></h4>
     <div class="form-group" style="display:none;">
     

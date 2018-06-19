@@ -1,12 +1,20 @@
 <?php
-    include "../functions.php";
+    require_once("../functions.php");
     extract($_POST);
     $datos = ejecutaConsultaArray("SELECT * from alumnos where id='$id'");
+
+    $imagen = ejecutaConsultaArray("select * from imagenes where id_usuario=$id");
+
+    if(count($imagen)!=0){
+       $ruta = $imagen[0]["imagen"];
+    } else {
+      $ruta = "img/default-user.png";
+    }
     
 ?>
 <div class="row">
   <div class="col-sm-3">
-  	<img src=".././img/default-user.png" width="100%" style="margin-bottom:30px;">
+  	<img src=".././<?php echo $ruta;?>" width="100%" style="margin-bottom:30px;">
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#lista-alumno" role="tab" aria-controls="home">Datos Alumno</a>
       <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#lista-padre" role="tab" aria-controls="profile">Padre/Tutor</a>
@@ -14,7 +22,8 @@
     </div>
   </div>
   <div class="col-sm-9">
-  	<form class="needs-validation" name="frmRegistro" action="php/alumnos/altaAlumno.php" method="post" novalidate>
+  	<form class="needs-validation" name="frmRegistro" action="php/alumnos/editarAlumno.php" method="post" novalidate>
+      <input style="display:none;" name="id" value="<?php echo $id;?>">
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="lista-alumno" role="tabpanel" aria-labelledby="list-home-list">
       	
@@ -59,7 +68,7 @@
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="contrasena" class="control-label">Contrase&ntilde;a</label>
-                        <input type="password" class="form-control" name="contrasena" placeholder="Contrase&ntilde;a" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}" value="<?php echo $datos[0]["clave"]?>">
+                        <input type="password" class="form-control" name="contrasena" placeholder="Contrase&ntilde;a" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]{5,40}" value="">
                         <span class="invalid-feedback">Introduzca una contraseña mínimo de <strong>5 letras/números</strong></span>
                     </div>
                     <div class="col-md-4 mb-3">
@@ -109,7 +118,7 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="email" class="control-label">E-mail</label>
-                        <input type="text" class="form-control" name="email" placeholder="E-mail" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$" value="<?php echo $datos[0]["correo"]?>">
+                        <input type="text" class="form-control" name="correo" placeholder="E-mail" required pattern="" value="<?php echo $datos[0]["correo"]?>">
                         <span class="invalid-feedback">Debe introducir un email válido</span>
                     </div>
                 </div>
@@ -148,7 +157,8 @@
 
       	    <div class="col-md-8 mb-3">
       	        <label for="email_padre" class="control-label">E-mail del padre</label>
-      	        <input type="text" class="form-control" name="email_padre" placeholder="E-mail del padre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$" value="<?php echo $datos[0]["correo_padre"]?>">
+      	        <input type="text" class="form-control" name="correo_padre" placeholder="E-mail del padre" required pattern="
+                " value="<?php echo $datos[0]["correo_padre"]?>">
       	        <span class="invalid-feedback">Debe introducir un email válido</span>
       	    </div>
       	</div>
@@ -157,20 +167,20 @@
       	<div class="form-row">
       	    <div class="col-md-6 mb-3">
       	        <label for="nombre_madre" class="control-label">Nombre de la madre</label>
-      	        <input type="text" class="form-control" name="nombre_madre" placeholder="Nombre de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
+      	        <input type="text" class="form-control" name="nombre_madre" placeholder="Nombre de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}" value="<?php echo $datos[0]["nombre_madre"]?>">
       	        <span class="invalid-feedback">Introduzca un nombre mínimo de <strong>3 letras</strong></span>
       	    </div>
 
       	    <div class="col-md-6 mb-3">
       	        <label for="dni_madre" class="control-label">DNI de la madre</label>
-      	        <input type="text" class="form-control" name="dni_madre" placeholder="DNI de la madre" required pattern="\d{8}\w">
+      	        <input type="text" class="form-control" name="dni_madre" placeholder="DNI de la madre" required pattern="\d{8}\w" value="<?php echo $datos[0]["dni_madre"]?>">
       	        <span class="invalid-feedback">Introduzca un DNI que conste de <strong>8 números y 1 letra</strong></span>
       	    </div>
       	</div>
       	<div class="form-row">
       	    <div class="col-md-12 mb-3">
       	        <label for="apellidos_madre" class="control-label">Apellidos de la madre </label>
-      	        <input type="text" class="form-control" name="apellidos_madre" placeholder="Apellidos de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}">
+      	        <input type="text" class="form-control" name="apellidos_madre" placeholder="Apellidos de la madre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,40}" value="<?php echo $datos[0]["apellidos_madre"]?>">
       	        <span class="invalid-feedback">Introduzca los apellidos mínimo de <strong>3 letras</strong></span>
       	    </div>
       	</div>
@@ -178,23 +188,24 @@
       	<div class="form-row">
       	    <div class="col-md-6 mb-3">
       	        <label for="tel_madre" class="control-label">Teléfono de la madre</label>
-      	        <input type="text" class="form-control" name="tel_madre" placeholder="Teléfono de la madre" required pattern="^\d{9}$">
+      	        <input type="text" class="form-control" name="tel_madre" placeholder="Teléfono de la madre" required pattern="^\d{9}$" value="<?php echo $datos[0]["tel_madre"]?>">
       	        <span class="invalid-feedback">Introduzca un teléfono móvil de <strong>9 dígitos</strong></span>
       	    </div>
 
       	    <div class="col-md-6 mb-3">
       	        <label for="email_madre" class="control-label">E-mail de la madre</label>
-      	        <input type="text" class="form-control" name="email_madre" placeholder="email del madre" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$">
+      	        <input type="text" class="form-control" name="correo_madre" placeholder="email del madre" required pattern="" value="<?php echo $datos[0]["correo_madre"]?>">
       	        <span class="invalid-feedback">Debe introducir un email válido</span>
       	    </div>
       	</div>
 
       </div>
-      <div class="form-group">
+   
+    </div>
+       <div class="form-group text-right" style="margin-top:20px;">
             <button type="submit" class="btn btn-primary ">Enviar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>		
+        </div>    
   </form>
-    </div>
   </div>
 </div>
