@@ -63,13 +63,26 @@ include "header.php";
                     </div>
                     <!-- /.row -->
                     <div id="mensajes"></div>
-
-                    <div id="importar">
-                        <form name="importarArchivos" action="php/carga-archivos.php" method="post" enctype="multipart/form-data">
-                           <input type="file" name="archivo" accept=".csv">
-                           <button class="btn btn-info btn-md" type="submit">Aceptar</button>
-                        </form>
-                    </div>
+                    <div class="card">
+                      
+                                <div class="card-header text-white bg-secondary">
+                                    Importa datos de Alumnos seleccionando un archivo CSV
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="card-body">
+                                <div class="table-responsive" id="zona-tabla-solicitudes">
+                                        <div id="importar">
+                                                               <form name="importarArchivos" action="php/carga-archivos.php" method="post" enctype="multipart/form-data">
+                                                                  <input type="file" name="archivo" accept=".csv">
+                                                                  <button class="btn btn-info btn-md" type="submit">Aceptar</button>
+                                                               </form>
+                                                           </div>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                   
 
 
           </div>
