@@ -69,6 +69,8 @@
         $consulta4="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA2";
         $consulta5="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA3";
         $consulta6="SELECT O.NOMBRE FROM matriculas M, optativas O, optativas_elegidas OE WHERE M.COD_MATRICULA=OE.COD_MATRICULA  AND O.ID=OE.ID_OPTATIVA4";
+       
+
 		$resulset=ejecutaConsulta($consulta);
         $alumno=$resulset->fetch(PDO::FETCH_ASSOC);
         $resulset2=ejecutaConsulta($consulta2);
@@ -99,6 +101,41 @@
 
 		}
 		$tablaAsig.='</tr></table>';
+
+		if($optativa1[0] != ""){
+		$nombreGrupoOptativa1 = "SELECT grupo_optativas.nombre FROM grupo_optativas ,optativas,optativas_elegidas WHERE grupo_optativas.id = optativas.id_grupo_optativas AND optativas.id = optativas_elegidas.id_optativa1 AND optativas_elegidas.cod_matricula=".$cod_matricula.";";
+			$grupo1 = ejecutaConsultaArray($nombreGrupoOptativa1);
+			$grupo1= "Grupo optativas :".$grupo1[0]['nombre'];
+		}else{
+			$grupo1="";
+		}
+
+		if($optativa2[0] != ""){
+        $nombreGrupoOptativa2 ="SELECT grupo_optativas.nombre FROM grupo_optativas ,optativas,optativas_elegidas WHERE grupo_optativas.id = optativas.id_grupo_optativas AND optativas.id = optativas_elegidas.id_optativa2 AND optativas_elegidas.cod_matricula=".$cod_matricula.";";
+	        $grupo2 = ejecutaConsultaArray($nombreGrupoOptativa2);
+	        $grupo2 = "Grupo optativas :".$grupo2[0]['nombre'];
+        }else{
+			$grupo2="";
+		}
+
+        if($optativa3[0] != ""){
+        $nombreGrupoOptativa3 ="SELECT grupo_optativas.nombre FROM grupo_optativas ,optativas,optativas_elegidas WHERE grupo_optativas.id = optativas.id_grupo_optativas AND optativas.id = optativas_elegidas.id_optativa3 AND optativas_elegidas.cod_matricula=".$cod_matricula.";";
+       		 $grupo3 = ejecutaConsultaArray($nombreGrupoOptativa3);
+       		 $grupo3 ="Grupo optativas :".$grupo3[0]['nombre'];
+        }else{
+			$grupo3="";
+		}
+
+        if($optativa4[0] != ""){
+        $nombreGrupoOptativa4 = "SELECT grupo_optativas.nombre FROM grupo_optativas ,optativas,optativas_elegidas WHERE grupo_optativas.id = optativas.id_grupo_optativas AND optativas.id = optativas_elegidas.id_optativa4 AND optativas_elegidas.cod_matricula=".$cod_matricula.";";
+	        $grupo4 = ejecutaConsultaArray($nombreGrupoOptativa4);
+	        $grupo4 = "Grupo optativas:".$grupo4[0]['nombre'];
+        }else{
+			$grupo4="";
+		}
+	
+       
+
 
 	?>
 	<div style="text-align:right"><barcode dimension="1D" type="EAN13" value="<?php echo $cod_matricula;?>" label="label" style="float:right;width:30mm; height:6mm; color: #000; font-size: 3mm"></barcode></div>
@@ -170,7 +207,7 @@
     echo $tablaAsig;
     ?>
     <table class="caja0">
-	    <tr><th class="caja5">Optativa 1</th><th class="caja5">Optativa 2</th><th class="caja5">Optativa 3</th><th class="caja5">Optativa 4</th></tr>
+	    <tr><th class="caja5"><?php echo $grupo1;?></th><th class="caja5"><?php echo $grupo2;?></th><th class="caja5"><?php echo $grupo3;?></th><th class="caja5"><?php echo $grupo4;?></th></tr>
 	    <tr><td class="caja5"><?php echo $optativa1[0];?></td><td class="caja5"><?php echo $optativa2[0];?></td><td class="caja5"><?php echo $optativa3[0];?></td><td class="caja5"><?php echo $optativa4[0];?></td></tr>
 	</table>
 </div>

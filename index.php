@@ -51,7 +51,7 @@
             <div class="card">
                 <div class="imagenes-inicio imagen-registro"></div>
                 <div class="card-body">
-                  <h5 class="card-title">Generar matrícula</h5>
+                  <h5 class="card-title">Generar Matrícula</h5>
                   
                   
                 </div>
