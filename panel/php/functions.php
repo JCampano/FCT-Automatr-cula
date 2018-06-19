@@ -164,15 +164,23 @@ function comprobarDatos($tabla){
 
 function devuelveUltimosAlumnos(){
 
-    $resultado = ejecutaConsultaArray("SELECT nombre, apellido1, apellido2 from alumnos ORDER BY id DESC ");
+    $resultado = ejecutaConsultaArray("SELECT id, nombre, apellido1, apellido2, fecha_alta from alumnos ORDER BY id DESC LIMIT 10");
 
     for ($i=0;$i<count($resultado);$i++){
+        $imagen = ejecutaConsultaArray("SELECT imagen from imagenes where id_usuario=".$resultado[$i]["id"]);
+
+
+        if (count($imagen)!=0){
+             $ruta = $imagen[0]["imagen"];
+         } else{
+             $ruta = "img/default-user.png";
+         }
        echo '<div class="list-group-item list-group-item-action">
                    <div class="media">
-                     <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                     <img style="width:40px;" class="d-flex mr-3 rounded-circle" src=".././'.$ruta.'" alt="">
                      <div class="media-body">
                        <strong>'.$resultado[$i]["nombre"].' '.$resultado[$i]["apellido1"].' '.$resultado[$i]["apellido2"].'</strong> se ha registrado.
-                       <div class="text-muted smaller">Hoy a las 5:43 PM</div>
+                       <div class="text-muted smaller">El '.$resultado[$i]["fecha_alta"].'</div>
                      </div>
                    </div>
                  </div>'; 
@@ -199,7 +207,7 @@ function devuelveBloques(){
 
                     if(count($bloques)!=0){
                        
-                        echo '<optgroup label="'."&nbsp;".$cursos[$k]["nombre"]." ".$enseñanzas[$i]["nombre"].'">';
+                        echo '<optgroup label="'.$cursos[$k]["nombre"]." ".$enseñanzas[$i]["nombre"].'">';
                       for ($m=0;$m<count($bloques);$m++){
                           echo '        <option value="'.$bloques[$m]["id"].'">'."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$bloques[$m]["nombre"].'</option>';
 

@@ -63,7 +63,7 @@ include "header.php";
                            </nav>
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirAsignatura" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Enseñanza
+                                <i class="fas fa-plus-circle"></i> Añadir Enseñanza
                               </button>
                             </div>
                             </p>

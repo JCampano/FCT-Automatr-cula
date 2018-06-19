@@ -84,7 +84,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                             
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirCurso" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Curso
+                                <i class="fas fa-plus-circle"></i> Añadir Curso
                               </button>
                             </div>
                             </p>

@@ -82,7 +82,7 @@ $enseñanzas=ejecutaConsultaArray("SELECT * from enseñanzas");
                             
                               <div class="text-right  d-print-inline-flex">
                                 <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#anadirItinerario" aria-expanded="false" aria-controls="collapseExample">
-                                Añadir Itinerario
+                                <i class="fas fa-plus-circle"></i> Añadir Itinerario
                               </button>
                             </div>
                             <p></p>

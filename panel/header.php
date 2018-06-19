@@ -82,8 +82,8 @@
     </button>
         <div class="collapse navbar-collapse" id="navbarResponsive" data-toggle="collapse">
             <ul class="navbar-nav navbar-sidenav" id="ocultar-menu">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
-                    <a class="nav-link" href="index.php">
+                <li id="btnInicioLista" class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
+                    <a id="btnInicio" class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text '.$inicioActivo.'">Inicio</span>
           </a>
@@ -98,11 +98,11 @@
                         <li id="btnRegistrarMatriculaLista">
                             <a id="btnRegistrarMatricula" href="registrar-matricula.php"><i class="fa fa-fw fa-angle-right"></i>Registrar Matrícula</a>
                         </li>
-                        <li>
-                            <a href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Matrículas Registradas</a>
+                        <li id="btnMatriculasRegistradasLista">
+                            <a id="btnMatriculasRegistradas" href="matriculas.php"><i class="fa fa-fw fa-angle-right"></i>Matrículas Registradas</a>
                         </li>
-                        <li>
-                            <a href="matriculas.php?v=n"><i class="fa fa-fw fa-angle-right"></i>Matrículas no Registradas</a>
+                        <li id="btnMatriculasNRegistradasLista">
+                            <a id="btnMatriculasNRegistradas" href="matriculas.php?v=n"><i class="fa fa-fw fa-angle-right"></i>Matrículas no Registradas</a>
                         </li>
                     </ul>
                 </li>
@@ -118,7 +118,7 @@
             <span class="nav-link-text">Enseñanzas</span>
           </a>
                     </li>
-                    <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Cursos">
+                    <li id="btnCursosLista" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Cursos">
                         <a id="btnCursos" class="nav-link" href="cursos.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Cursos</span>
@@ -126,7 +126,7 @@
                     </li>
 
 
-                    <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Itinerarios">
+                    <li id="btnItinerariosLista" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Itinerarios">
                         <a id="btnItinerarios" class="nav-link" href="itinerarios.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Itinerarios</span>
@@ -144,19 +144,19 @@
             <span class="nav-link-text">Optativas</span>
           </a>
                     </li>
-                    <li class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">
+                    <li id="btnAlumnos" class="nav-item fondo-gestor" data-toggle="tooltip" data-placement="right" title="Alumnos">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menuAlumnos" data-parent="#menuAlumnos">
             <i class="fa fa-fw fa-graduation-cap "></i>
             <span class="nav-link-text">Alumnos</span>
           </a>
                         <ul class="sidenav-second-level collapse" id="menuAlumnos">
-                            <li>
+                            <li id="btnGestionAlumnosLista">
                                 <a id="btnGestionAlumnos" href="alumnos.php"><i class="fa fa-fw fa-angle-right"></i>Gestión Alumnos</a>
                             </li>
-                            <li>
+                            <li id="btnSolicitudesLista">
                                 <a id="btnSolicitudes" href="solicitudes.php"><i class="fa fa-fw fa-angle-right"></i>Solicitudes</a>
                             </li>
-                            <li>
+                            <li id="btnImportarDatosLista">
                                 <a id="btnImportarDatos" href="importar-datos.php"><i class="fa fa-fw fa-angle-right"></i>Importar Datos</a>
                             </li>
                         </ul>
