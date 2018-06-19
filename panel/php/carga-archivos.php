@@ -1,5 +1,6 @@
 <?php
-include "functions.php";
+require_once("functions.php");
+session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
     if(isset($_FILES["archivo"]) || $_FILES["archivo"]["error"] = 0){
@@ -38,11 +39,16 @@ header('Content-Type: text/html; charset=UTF-8');
               }
             $contador++;
             }
+            $_SESSION['tipoMensaje']= "success";
+            $_SESSION['mensaje'] = "Los datos se han importado correctamente";
             header('Location: ../importar-datos.php');
     	}
         else
         {
-            echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+
+          $_SESSION['tipoMensaje']= "danger";
+          $_SESSION['mensaje'] = "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+          header('Location: ../importar-datos.php');  
         }
     }
 ?>

@@ -55,17 +55,17 @@ if(ejecutaConsultaAccion($insert)>0){
 
 		if(ejecutaConsultaAccion($insert)>0){*/
 		    $_SESSION['tipoMensaje']= "success";
-			$_SESSION['mensajeRegistro'] = "<strong>Matricula registrado con exito</strong>";
+			$_SESSION['mensajeRegistro'] = "La matrícula se ha registrado correctamente. Para finalizarla pulsa en Gestionar Matrícula";
 			header('Location: ../../index.php');
 	}else{
 		$_SESSION['tipoMensaje']= "danger";
-		$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al guardar las optativas, por favor edite la matricula";
+		$_SESSION['mensajeRegistro'] = "Ha ocurrido un error. Por favor, edita la matrícula.";
 		header('Location: ../../index.php');	
 	}	
 }
 else{	
 	$_SESSION['tipoMensaje']= "danger";
-	$_SESSION['mensajeRegistro'] = "<strong>Error</strong> al realizar el registro";
+	$_SESSION['mensajeRegistro'] = "Ha ocurrido un error al registrar la matrícula";
 	header('Location: ../../index.php');	
 }
 

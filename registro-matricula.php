@@ -15,7 +15,7 @@
 if(ejecutaConsulta2($consulta)!=0)
 {
     $_SESSION['tipoMensaje']= "warning";
-    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> Ese usuario ya tiene registrada una matricula, vaya a gestionar matriculas y seleccione editar matriculas";
+    $_SESSION['mensajeRegistro'] = "<strong>Atención</strong>, ya has registrado una matrícula.";
     header('Location: index.php');    
 }
 ?>
@@ -205,6 +205,12 @@ if(ejecutaConsulta2($consulta)!=0)
                                 	   <div id="btnSubmit" style="margin-left: 10px;margin-right: 10px;"></div>
                                        <div><a class="btn btn-danger" href="index.php">Volver</a></div>
                             	   <div>
+
+                                    <div class="row" style="margin-left:20px;">
+                                        <div class="col-sm-12">
+                                            <small><i>Nota: Para finalizar la matrícula, ve a "Gestionar Matrículas" y pulsa en "Finalizar Matrícula"</i></small>
+                                        </div>
+                                    </div>
                         </form>
                 </div>
             </div>

@@ -5,9 +5,10 @@
    
     $codigo=ejecutaConsultaArray("SELECT cod_matricula from matriculas where id=$id");
     $delete="DELETE FROM matriculas where id=$id";
-    $delete2="DELETE from optativas_elegidas where cod_matricula".$codigo[0]["cod_matricula"];
+    $delete2="DELETE from optativas_elegidas where cod_matricula=".$codigo[0]["cod_matricula"];
     
     if(ejecutaConsultaAccion($delete2)>0){
+        echo "DELETE from optativas_elegidas where cod_matricula".$codigo[0]["cod_matricula"];
         if(ejecutaConsultaAccion($delete)>0)
         {
               $_SESSION['tipoMensaje']= "success";

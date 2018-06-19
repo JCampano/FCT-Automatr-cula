@@ -71,7 +71,7 @@ $(document).ready(function() {
         case "asignaturas.php":
             cargarAsignaturas();
             $("#btnAsignaturas").addClass("seleccionado");
-            $("#btnAsignaturaLista").addClass("saturacion");
+            $("#btnAsignaturasLista").addClass("saturacion");
             $("#btnAsignaturas").addClass("saturacion");
             break;
 
@@ -95,16 +95,21 @@ $(document).ready(function() {
             cargarEnsenanzas();
             $("#btnEnsenanzas").addClass("seleccionado");
             $("#btnEnsenanzasLista").addClass("saturacion");
+            $("#btnEnsenanzas").addClass("saturacion");
             break;
 
         case "cursos.php":
             cargarCursos();
             $("#btnCursos").addClass("seleccionado");
+            $("#btnCursosLista").addClass("saturacion");
+            $("#btnCursosLista").addClass("saturacion");
             break;
 
         case "itinerarios.php":
             cargarItinerarios();
             $("#btnItinerarios").addClass("seleccionado");
+            $("#btnItinerariosLista").addClass("saturacion");
+            $("#btnItinerarios").addClass("saturacion");
             break;
 
         case "registrar-matricula.php":
@@ -117,22 +122,37 @@ $(document).ready(function() {
 
         case "alumnos.php":
             cargarAlumnos();
-            $("#menuUsuarios").collapse();
-            $("#btnGestionUsuarios").addClass("seleccionado");
+            $("#menuAlumnos").collapse();
+            $("#btnAlumnos").addClass("saturacion");
+            $("#btnGestionAlumnos").addClass("seleccionado");
+            $("#btnGestionAlumnosLista").addClass("saturacion");
+            $("#btnGestionAlumnos").addClass("saturacion");
+
             break;
 
         case "solicitudes.php":
             cargarSolicitudes();
-            $("#menuUsuarios").collapse();
+            $("#menuAlumnos").collapse();
+            $("#btnAlumnos").addClass("saturacion");
             $("#btnSolicitudes").addClass("seleccionado");
             $("#btnSolicitudesLista").addClass("saturacion");
             $("#btnSolicitudes").addClass("saturacion");
+            break;
+        case "importar-datos.php":
+            cargarSolicitudes();
+            $("#menuAlumnos").collapse();
+            $("#btnAlumnos").addClass("saturacion");
+            $("#btnImportarDatos").addClass("seleccionado");
+            $("#btnImportarDatosLista").addClass("saturacion");
+            $("#btnImportarDatos").addClass("saturacion");
             break;
 
         case "usuarios.php":
             cargarUsuarios();
             $("#btnUsuarios").addClass("seleccionado");
             $("#btnUsuariosListas").addClass("saturacion");
+            $("#btnUsuariosLista").addClass("saturacion");
+            $("#btnUsuariosDatos").addClass("saturacion");
         break;
         case "matriculas.php":
             cargarMatriculas();
