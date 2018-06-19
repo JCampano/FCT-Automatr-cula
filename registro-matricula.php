@@ -15,7 +15,7 @@
 if(ejecutaConsulta2($consulta)!=0)
 {
     $_SESSION['tipoMensaje']= "warning";
-    $_SESSION['mensajeRegistro'] = "<strong>Error</strong> Ese usuario ya tiene registrada una matricula, vaya a gestionar matriculas y seleccione editar matriculas";
+    $_SESSION['mensajeRegistro'] = "<strong>Atención</strong>, ya has registrado una matrícula.";
     header('Location: index.php');    
 }
 ?>

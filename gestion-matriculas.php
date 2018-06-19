@@ -27,6 +27,14 @@
       <p class="lead">Aquí puedes gestionar las matrículas que has creado, además de guardarla e imprimirla en formato PDF.</p>
       
     </div>
+    <?php
+         if (isset($_SESSION['mensajeRegistro']) && isset($_SESSION['tipoMensaje']))  {
+             echo '<div class="alert alert-'.$_SESSION['tipoMensaje'].' alert-dismissable ">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>'.$_SESSION["mensajeRegistro"].'</div>';
+             unset($_SESSION['mensajeRegistro']);
+             unset($_SESSION['tipoMensaje']);
+        }
+    ?>
     <div class="card">
       <div class="card-header">
         <?php if($matricula['id']!=""){?>
@@ -60,7 +68,9 @@
                 <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="sr-only">Editar</span>
                 </button>
-                <div class="dropdown-menu">  
+                <div class="dropdown-menu">                
+                  <a class="dropdown-item" href="php/imprimirMatricula.php" target="_blank">Imprimir</a> 
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="php/matricula/finalizarMatricula.php?'.$urlFinalizarMatricula.'">Finalizar Mátricula</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="php/matricula/eliminarMatricula.php?'.$urlEliminar.'">Eliminar</a>

@@ -39,7 +39,7 @@ $rutaImgBD="";
 if($matricula['finalizada'] == 1){
 	$_SESSION['tipoMensaje']= "warning";
 	$_SESSION['mensajeRegistro'] = "<strong>Error</strong> la matricula ya se encuentra finalizada";
-	header('Location: ../../gestion-matricula.php');
+	header('Location: ../../gestion-matriculas.php');
 }
 else{
 	//comprobamos si el alumno tiene una foto subida antes de finalizar la matricula 
@@ -49,8 +49,8 @@ else{
 	
 	if( $contador < 1){
 		$_SESSION['tipoMensaje']= "warning";
-		$_SESSION['mensajeRegistro'] = "Debe subir una foto antes de finalizar la matricula <a href='perfil-alumno.php'>Pulse aqui para <strong>Subir foto</strong></a>";
-		header('Location: ../../gestion-matricula.php');
+		$_SESSION['mensajeRegistro'] = "Debe subir una foto antes de finalizar la matricula. <a href='perfil-alumno.php'>Pulse aqui para <strong>subir una foto</strong></a>";
+		header('Location: ../../gestion-matriculas.php');
 	}else{	
 			//movemos la foto antes de finalizar la matricula
 
@@ -89,13 +89,13 @@ else{
 			    else{		
 						$_SESSION['tipoMensaje']= "warning";
 						$_SESSION['mensajeRegistro'] = "<strong>Error</strong> ";
-						header('Location: ../../index.php');	
+						header('Location: ../../gestion-matriculas.php');	
 				}
 			}
 			else{
 				$_SESSION['tipoMensaje']= "danger";
 				$_SESSION['mensajeRegistro'] ="Ha ocurrido un error al finalizar la matrícula"; //$update1;//
-				header('Location: ../../index.php');	
+				header('Location: ../../gestion-matriculas.php');	
 			}
 	}
 }	
