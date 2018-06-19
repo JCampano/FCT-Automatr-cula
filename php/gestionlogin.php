@@ -6,7 +6,7 @@ include "functions.php";
 if(!ISSET($_SESSION["login"]))
 {
     $_SESSION['tipoMensaje']= "danger";
-	$_SESSION['mensajeRegistro'] = "Error debe iniciar sesión para acceder a esta parte de la pagina";
+	$_SESSION['mensajeRegistro'] = "Error debe iniciar sesión para acceder.";
 	$_SESSION['sinLogin']="logueate";
     header('Location: index.php');
 }

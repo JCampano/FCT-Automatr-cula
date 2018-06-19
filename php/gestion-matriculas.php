@@ -1,6 +1,6 @@
 <?php
     include "header.php";
-    include "php/gestionlogin.php";
+
 ?>
 
 <div class="container">
