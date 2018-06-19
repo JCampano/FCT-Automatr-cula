@@ -38,7 +38,7 @@ header('Content-Type: text/html; charset=UTF-8');
               }
             $contador++;
             }
-            header('Location: ../../perfil-alumno.php');
+            header('Location: ../importar-datos.php');
     	}
         else
         {
