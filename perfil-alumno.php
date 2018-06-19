@@ -159,9 +159,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-               	<div class="alert alert-warning alert-dismissible" role="alert" style="margin-top:10px;margin-bottom:10px">	
-				    <p><strong>ATENCIÓN</strong> El unico dato que cambia sin la aprobación del centro es la contraseña</p>
-				</div>
+               
                    <?php include "php/solicitudCambioDatos.php";?>
                  
                 </div>              
