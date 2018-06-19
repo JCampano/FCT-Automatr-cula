@@ -14,22 +14,6 @@ include "header.php";
   ?>
 
 
-<div class="modal fade" id="importarDatos" tabindex="-1" role="dialog" aria-labelledby="importarDatos" aria-hidden="true">
-          <div class="modal-dialog" role="document" style="max-width:1200px;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Importar datos</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="modal-importar-datos">
-                 <div class="text-center"><img src="img/cargando.gif" style="height:64px;"></div>
-              </div>
-
-            </div>
-          </div>
-        </div>
 
 
 
@@ -70,10 +54,10 @@ include "header.php";
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="card-body">
-                                <div class="table-responsive" id="zona-tabla-solicitudes">
+                                <div class="table-responsive">
                                         <div id="importar">
                                                                <form name="importarArchivos" action="php/carga-archivos.php" method="post" enctype="multipart/form-data">
-                                                                  <input type="file" name="archivo" accept=".csv">
+                                                                  <input required type="file" name="archivo" accept=".csv">
                                                                   <button class="btn btn-info btn-md" type="submit">Aceptar</button>
                                                                </form>
                                                            </div>
