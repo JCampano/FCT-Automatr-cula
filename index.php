@@ -2,6 +2,7 @@
 //variable de sesion para controlar si hay error o no en el registro
     include "header.php";       
     if(isset($_SESSION['sinLogin'])){
+        $_SESSION["mensajeRegistro"]="Debes iniciar sesión para acceder.";
         echo '    
             <script>            
                 $(document).ready(function()

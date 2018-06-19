@@ -157,16 +157,18 @@ $(document).ready(function() {
         case "matriculas.php":
             cargarMatriculas();
             $("#menuMatriculas").collapse();
-            $("#btnVerMatriculas").addClass("seleccionado");
-            $("#btnMatriculasLista").addClass("saturacion");
+            $("#btnMatriculasRegistradas").addClass("seleccionado");
+            $("#btnMatriculasRegistradasLista").addClass("saturacion");
+              $("#btnMatriculas").addClass("saturacion");
 
         break;
 
         case "matriculas.php?v=n":
             cargarMatriculasNoRegistradas();
             $("#menuMatriculas").collapse();
-            $("#btnVerMatriculasNoRegistradas").addClass("seleccionado");
-            $("#btnMatriculasNoRegistradasLista").addClass("saturacion");
+            $("#btnVerMatriculasNRegistradas").addClass("seleccionado");
+            $("#btnMatriculasNRegistradas").addClass("saturacion");
+              $("#btnMatriculas").addClass("saturacion");
         break;
 
         case "index.php":
@@ -204,7 +206,7 @@ function rellenarComboCursoAsignatura(){
                 
                 $("#selectCursoAsignatura").empty();
                   $.each(resultado, function(index){
-                    console.log(resultado[index]["nombre"]);
+
                     
                     $("#selectCursoAsignatura").append('<option value="'+resultado[index]["id"]+'">'+resultado[index]["nombre"]+'</option>');
                 });
@@ -239,7 +241,7 @@ $("#selectCursoAsignatura").change(rellenarComboItinerarioAsignatura);
 function rellenarComboItinerarioAsignatura(){
        
          var id=$("#selectCursoAsignatura").val();
-         console.log("ID CURSO:"+id);
+  
          if (id!=""){
             $.post("php/combos.php", {tabla: "itinerarios", id:id, fila:"id_curso" }, function(result){
                
@@ -740,8 +742,8 @@ function cargarInicio(){
         
           datos = JSON.parse(result2);
 
-          console.log(personas);
-            console.log(datos);
+   
+  
             var ctx = document.getElementById("myChart").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
