@@ -21,7 +21,7 @@
    
 ?>
 
-<div class="container">
+<div class="container margen-arriba">
         
     <div class="jumbotron">      
       <p class="lead">Aquí puedes gestionar las matrículas que has creado, además de guardarla e imprimirla en formato PDF.</p>
@@ -83,7 +83,7 @@
     }?>
      
 
-
+</div></div>
     
 </div>
 
