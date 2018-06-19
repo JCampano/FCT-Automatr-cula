@@ -54,7 +54,9 @@ else{
         
         else
         {
-            echo "Formato de archivo no permitido o excede el tamaño límite de $limite_kb Kbytes.";
+            $_SESSION['tipoMensaje']= "danger";
+            $_SESSION['mensajeRegistro'] = "<strong>Error</strong> Formato de archivo no permitido o excede el tamaño límite archivo";
+            header('Location: ../../index.php');
         }
     }
 }
