@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 require_once("php/permisos.php");
 
 if(!comprobarLogin("gestor")){
@@ -65,7 +66,7 @@ include "header.php";
 
                     <div id="importar">
                         <form name="importarArchivos" action="php/carga-archivos.php" method="post" enctype="multipart/form-data">
-                           <input type="file" name="archivo" accept=".xls, .xls">
+                           <input type="file" name="archivo" accept=".csv">
                            <button class="btn btn-info btn-md" type="submit">Aceptar</button>
                         </form>
                     </div>
